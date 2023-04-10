@@ -40,6 +40,7 @@ const IndexPage = () => {
           height={600}
           alt='developer'
           transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
+          loading='eager'
         />
       </div>
       <Companies />
