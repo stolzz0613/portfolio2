@@ -1,0 +1,32 @@
+.c-technologies {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: -5px 5px 20px rgba(255, 0, 0, 0.7);
+    backdrop-filter: blur(8.8px);
+    -webkit-backdrop-filter: blur(8.8px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 20px;
+    align-items: center;
+    width: 500px;
+
+    @media screen and (max-width: 414px) {
+        width: 100%;
+        padding: 0;
+        gap: 5px;
+    }
+
+    .gatsby-image-wrapper {
+        transition: all 1s ease-in-out;
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+
+        &:hover {
+            transform: scale(1.2);
+            -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
+            filter: grayscale(0);
+        }
+    }
+}
