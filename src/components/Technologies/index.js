@@ -9,7 +9,7 @@ export default function Technologies({stack = [], styles={} }) {
     <div className={`${componentName}`} style={{...styles}}>
       {stack.includes('react') && (
         <StaticImage
-          src="../../images/react.png"
+          src="../../../static/images/react.png"
           placeholder="blurred"
           height={35}
           alt="react"
@@ -19,7 +19,7 @@ export default function Technologies({stack = [], styles={} }) {
       )}
       {stack.includes('nextjs') && (
         <StaticImage
-          src="../../images/nextjs.png"
+          src="../../../static/images/nextjs.png"
           placeholder="blurred"
           height={35}
           alt="nextjs"
@@ -29,7 +29,7 @@ export default function Technologies({stack = [], styles={} }) {
       )}
       {stack.includes('node') && (
         <StaticImage
-          src="../../images/node.png"
+          src="../../../static/images/node.png"
           placeholder="blurred"
           height={35}
           alt="node"
@@ -39,7 +39,7 @@ export default function Technologies({stack = [], styles={} }) {
       )}
       {stack.includes('salesforce') && (
         <StaticImage
-          src="../../images/salesforce.png"
+          src="../../../static/images/salesforce.png"
           placeholder="blurred"
           height={35}
           alt="salesforce"
@@ -49,7 +49,7 @@ export default function Technologies({stack = [], styles={} }) {
       )}
       {stack.includes('javascript') && (
         <StaticImage
-          src="../../images/javascript.png"
+          src="../../../static/images/javascript.png"
           placeholder="blurred"
           height={35}
           alt="salesforce"
@@ -59,7 +59,7 @@ export default function Technologies({stack = [], styles={} }) {
       )}
       {stack.includes('native') && (
         <StaticImage
-          src="../../images/native.png"
+          src="../../../static/images/native.png"
           placeholder="blurred"
           height={35}
           alt="salesforce"

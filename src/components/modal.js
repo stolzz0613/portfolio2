@@ -33,7 +33,7 @@ const globant = {
   stack: ['react', 'salesforce', 'javascript'],
   image: (
     <StaticImage
-      src="../images/eph.jpg"
+      src="../../static/images/eph.jpg"
       placeholder="blurred"
       height={300}
       alt="eph"
@@ -55,7 +55,7 @@ const epam = {
   stack: ['react', 'node', 'nextjs'],
   image: (
     <StaticImage
-      src="../images/eqh.jpg"
+      src="../../static/images/eqh.jpg"
       placeholder="blurred"
       height={300}
       alt="eph"
@@ -77,7 +77,7 @@ const grability = {
   stack: ['react', 'javascript', 'nextjs'],
   image: (
     <StaticImage
-      src="../images/bvc.jpg"
+      src="../../static/images/bvc.jpg"
       placeholder="blurred"
       height={300}
       alt="eph"
@@ -99,7 +99,7 @@ const pearls = {
   stack: ['react', 'reactNative', 'nextjs', 'node'],
   image: (
     <StaticImage
-      src="../images/cyberbank.png"
+      src="../../static/images/cyberbank.png"
       placeholder="blurred"
       height={300}
       alt="eph"

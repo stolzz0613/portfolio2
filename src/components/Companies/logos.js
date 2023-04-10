@@ -10,7 +10,7 @@ export const getLogo = (name) => {
 export const logos = () => ({
   globant: (
     <StaticImage
-      src="../../images/globant.png"
+      src="../../../static/images/globant.png"
       placeholder="blurred"
       height={100}
       alt="globant"
@@ -20,7 +20,7 @@ export const logos = () => ({
   ),
   epam: (
     <StaticImage
-      src="../../images/epam.png"
+      src="../../../static/images/epam.png"
       placeholder="blurred"
       height={100}
       alt="epam"
@@ -30,7 +30,7 @@ export const logos = () => ({
   ),
   grability: (
     <StaticImage
-      src="../../images/grability.png"
+      src="../../../static/images/grability.png"
       placeholder="blurred"
       height={100}
       alt="grability"
@@ -40,7 +40,7 @@ export const logos = () => ({
   ),
   pearls: (
     <StaticImage
-      src="../../images/10Pearls.png"
+      src="../../../static/images/10Pearls.png"
       placeholder="blurred"
       height={100}
       alt="10Pearls"

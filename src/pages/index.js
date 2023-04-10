@@ -34,7 +34,7 @@ const IndexPage = () => {
       </div>
       <div>
         <StaticImage
-          src='../images/image.png'
+          src='../../static/images/image.png'
           placeholder='blurred'
           width={600}
           height={600}

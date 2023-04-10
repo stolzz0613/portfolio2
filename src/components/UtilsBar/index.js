@@ -9,7 +9,7 @@ export default function UtilsBar() {
     <div className={`${componentName}`}>
         <a href='https://github.com/stolzz0613' target="_blank">
             <StaticImage
-            src="../../images/git.png"
+            src="../../../static/images/git.png"
             placeholder="blurred"
             width={25}
             alt="react"
@@ -19,7 +19,7 @@ export default function UtilsBar() {
         </a>
         <a href='mailto: andres0613@utp.edu.co' target="_blank">
             <StaticImage
-            src="../../images/mail.png"
+            src="../../../static/images/mail.png"
             placeholder="blurred"
             width={25}
             alt="react"
@@ -29,7 +29,7 @@ export default function UtilsBar() {
         </a>
         <a href='https://www.linkedin.com/in/andres613/' target="_blank">
             <StaticImage
-            src="../../images/linkedin.png"
+            src="../../../static/images/linkedin.png"
             placeholder="blurred"
             width={25}
             alt="react"
@@ -37,9 +37,9 @@ export default function UtilsBar() {
             className={`${componentName}-logo`}
             />
         </a>
-        <a download={'download cd'} href='/static/cv.pdf'>
+        <a download={'download cv'} href='/CV.pdf'>
         <StaticImage
-          src="../../images/cv.png"
+          src="../../../static/images/cv.png"
           placeholder="blurred"
           width={25}
           alt="react"
