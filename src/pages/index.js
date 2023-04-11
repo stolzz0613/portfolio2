@@ -21,7 +21,7 @@ const IndexPage = () => {
 
   const handleClick = (name) => {
     modalOpen ? close() : open()
-    setText('globant')
+    setText(name)
   }
 
   const [modalOpen, setModalOpen] = useState(false)

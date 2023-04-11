@@ -150,7 +150,7 @@ export default function Modal({ handleClose, text }) {
       >
         <div className="content">
           <div className="header">
-            <h1>{content?.title}</h1>
+            <h1 className="title">{content?.title}</h1>
             <Technologies
               stack={content?.stack}
               styles={{
