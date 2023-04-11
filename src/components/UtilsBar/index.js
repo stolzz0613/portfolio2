@@ -1,6 +1,7 @@
 import React from 'react'
-import '../../styles/c-utilsbar.scss'
 import { StaticImage } from 'gatsby-plugin-image'
+
+import '../../styles/c-utilsbar.scss'
 
 const componentName = 'c-utilsbar'
 

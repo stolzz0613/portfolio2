@@ -1,17 +1,15 @@
-import * as React from 'react'
+import React, {useState} from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import '../styles/p-index.scss'
-import Companies from '../components/Companies'
-import Technologies from '../components/Technologies'
 import Particles from "react-tsparticles";
-import { options } from '../utils/backgroundOptions'
 import { loadFull } from "tsparticles";
 import { loadCardsShape } from "tsparticles-shape-cards";
 import { tsParticles } from "tsparticles-engine";
-import UtilsBar from '../components/UtilsBar'
-import { useState } from 'react'
+import { options } from '../utils/backgroundOptions'
+import {Modal, Companies, Technologies, UtilsBar} from '../components'
 import { AnimatePresence } from 'framer-motion'
-import Modal from '../components/Modal'
+
+import '../styles/p-index.scss'
+
 
 const componentName = 'p-index'
 

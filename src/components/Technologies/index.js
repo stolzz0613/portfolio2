@@ -1,6 +1,7 @@
 import React from 'react'
-import '../../styles/c-technologies.scss'
 import { StaticImage } from 'gatsby-plugin-image'
+
+import '../../styles/c-technologies.scss'
 
 const componentName = 'c-technologies'
 

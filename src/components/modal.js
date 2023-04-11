@@ -1,11 +1,11 @@
+import React, {useState, useEffect} from 'react'
 import { motion } from 'framer-motion'
-import Backdrop from './backdrop'
-import React from 'react'
-import '../styles/c-modal.scss'
 import { StaticImage } from 'gatsby-plugin-image'
+import Backdrop from './backdrop'
 import Technologies from './Technologies'
-import { useEffect } from 'react'
-import { useState } from 'react'
+
+import '../styles/c-modal.scss'
+
 
 const dropIn = {
   hidden: {

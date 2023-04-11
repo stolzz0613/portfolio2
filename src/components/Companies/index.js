@@ -1,6 +1,7 @@
 import React from 'react'
-import '../../styles/c-companies.scss'
 import { getLogo } from './logos'
+
+import '../../styles/c-companies.scss'
 
 const componentName = 'c-companies'
 
