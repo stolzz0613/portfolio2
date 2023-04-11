@@ -13,7 +13,8 @@ export default function Technologies({stack = [], styles={} }) {
           src="../../../static/images/react.png"
           placeholder="blurred"
           height={35}
-          alt="react"
+          alt="logo react"
+          title="logo react"
           transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
           className={`${componentName}-logo`}
         />
@@ -23,7 +24,8 @@ export default function Technologies({stack = [], styles={} }) {
           src="../../../static/images/nextjs.png"
           placeholder="blurred"
           height={35}
-          alt="nextjs"
+          alt="logo nextjs"
+          title="logo nextjs"
           transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
           className={`${componentName}-logo`}
         />
@@ -33,7 +35,8 @@ export default function Technologies({stack = [], styles={} }) {
           src="../../../static/images/node.png"
           placeholder="blurred"
           height={35}
-          alt="node"
+          alt="logo node"
+          title="logo node"
           transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
           className={`${componentName}-logo`}
         />
@@ -43,7 +46,8 @@ export default function Technologies({stack = [], styles={} }) {
           src="../../../static/images/salesforce.png"
           placeholder="blurred"
           height={35}
-          alt="salesforce"
+          alt="logo salesforce"
+          title="logo salesforce"
           transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
           className={`${componentName}-logo`}
         />
@@ -53,7 +57,8 @@ export default function Technologies({stack = [], styles={} }) {
           src="../../../static/images/javascript.png"
           placeholder="blurred"
           height={35}
-          alt="salesforce"
+          alt="logo javascript"
+          title="logo javascript"
           transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
           className={`${componentName}-logo`}
         />
@@ -63,7 +68,8 @@ export default function Technologies({stack = [], styles={} }) {
           src="../../../static/images/native.png"
           placeholder="blurred"
           height={35}
-          alt="salesforce"
+          alt="logo react native"
+          title="logo react native"
           transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
           className={`${componentName}-logo`}
         />

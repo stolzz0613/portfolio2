@@ -36,7 +36,8 @@ const globant = {
       src="../../static/images/eph.jpg"
       placeholder="blurred"
       height={300}
-      alt="eph"
+      alt="logo el palacio de hierro"
+      title="logo el palacio de hierro"
       transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
     />
   ),
@@ -58,7 +59,8 @@ const epam = {
       src="../../static/images/eqh.jpg"
       placeholder="blurred"
       height={300}
-      alt="eph"
+      alt="logo equality health"
+      title="logo equality health"
       transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
     />
   ),
@@ -80,7 +82,8 @@ const grability = {
       src="../../static/images/bvc.jpg"
       placeholder="blurred"
       height={300}
-      alt="eph"
+      alt="logo bolsa de valores de colombia"
+      title="logo bolsa de valores de colombia"
       transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
     />
   ),
@@ -102,7 +105,8 @@ const pearls = {
       src="../../static/images/cyberbank.png"
       placeholder="blurred"
       height={300}
-      alt="eph"
+      alt="logo cyberbank"
+      tiitle= "logo cyberbank"
       transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
     />
   ),

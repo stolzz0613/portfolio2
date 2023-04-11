@@ -13,7 +13,8 @@ export const logos = () => ({
       src="../../../static/images/globant.png"
       placeholder="blurred"
       height={50}
-      alt="globant"
+      alt="logo globant"
+      title="logo globant"
       transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
       className={`${componentName}-logo_globant`}
     />
@@ -23,7 +24,8 @@ export const logos = () => ({
       src="../../../static/images/epam.png"
       placeholder="blurred"
       height={50}
-      alt="epam"
+      alt="logo epam"
+      title="logo epam"
       transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
       className={`${componentName}-logo_epam`}
     />
@@ -33,7 +35,8 @@ export const logos = () => ({
       src="../../../static/images/grability.png"
       placeholder="blurred"
       height={50}
-      alt="grability"
+      alt="logo grability"
+      title="logo grability"
       transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
       className={`${componentName}-logo_grability`}
     />
@@ -43,7 +46,8 @@ export const logos = () => ({
       src="../../../static/images/10Pearls.png"
       placeholder="blurred"
       height={50}
-      alt="10Pearls"
+      alt="logo 10Pearls"
+      title="logo 10Pearls"
       transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
       className={`${componentName}-logo_10Pearls`}
     />

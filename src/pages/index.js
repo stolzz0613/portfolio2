@@ -5,7 +5,7 @@ import { loadFull } from "tsparticles";
 import { loadCardsShape } from "tsparticles-shape-cards";
 import { tsParticles } from "tsparticles-engine";
 import { options } from '../utils/backgroundOptions'
-import {Modal, Companies, Technologies, UtilsBar} from '../components'
+import {Modal, Companies, Technologies, UtilsBar, SEO} from '../components'
 import { AnimatePresence } from 'framer-motion'
 
 import '../styles/p-index.scss'
@@ -45,7 +45,7 @@ const IndexPage = () => {
       <UtilsBar />
       <div className={`${componentName}-info`}>
         <h1>{`<Andres Bustos />`}</h1>
-        <p className={`${componentName}-info_position`}>FullStack developer</p>
+        <h2 className={`${componentName}-info_position`}>FullStack developer</h2>
         <p className={`${componentName}-info_description`}>Passionate developer with +5 years of experience. Committed to delivering clean, responsive, and accessible websites optimized for performance and usability. Dedicated to providing the best possible user experience.</p>
         <Technologies stack={['react', 'nextjs', 'node', 'salesforce', 'javascript', 'native']}/>
       </div>
@@ -55,7 +55,8 @@ const IndexPage = () => {
           placeholder='blurred'
           width={600}
           height={600}
-          alt='developer'
+          alt='main image developer'
+          title='main image developer'
           transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
           loading='eager'
         />
@@ -65,6 +66,6 @@ const IndexPage = () => {
   )
 }
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => <SEO />
 
 export default IndexPage

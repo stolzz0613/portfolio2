@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "My Super Cool Blog",
+    title: "Andres Bustos FullStack developer",
+    description: "Passionate developer with +5 years of experience. Committed to delivering clean, responsive, and accessible websites optimized for performance and usability. Dedicated to providing the best possible user experience.",
+    siteUrl: "https://andresb.dev",
   },
   plugins: [
     "gatsby-plugin-image",
