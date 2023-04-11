@@ -116,7 +116,7 @@ const pearls = {
   ],
 }
 
-const Modal = ({ handleClose, text }) => {
+export default function Modal({ handleClose, text }) {
   const [content, setContent] = useState(globant);
 
   useEffect(() => {
@@ -137,7 +137,7 @@ const Modal = ({ handleClose, text }) => {
         break;
     }
   }, [text])
-  
+
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
@@ -150,9 +150,9 @@ const Modal = ({ handleClose, text }) => {
       >
         <div className="content">
           <div className="header">
-            <h1>{content.title}</h1>
+            <h1>{content?.title}</h1>
             <Technologies
-              stack={content.stack}
+              stack={content?.stack}
               styles={{
                 marginTop: '0',
                 marginBottom: '20px',
@@ -161,8 +161,8 @@ const Modal = ({ handleClose, text }) => {
             />
           </div>
           <div className="image">
-            {content.image}
-            <a href={content.link} target="_blank">
+            {content?.image}
+            <a href={content?.link} target="_blank">
               <div>
                 <button className='button-86'>
                   LIVE
@@ -175,5 +175,3 @@ const Modal = ({ handleClose, text }) => {
     </Backdrop>
   )
 }
-
-export default Modal

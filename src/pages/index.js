@@ -9,6 +9,9 @@ import { loadFull } from "tsparticles";
 import { loadCardsShape } from "tsparticles-shape-cards";
 import { tsParticles } from "tsparticles-engine";
 import UtilsBar from '../components/UtilsBar'
+import { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
+import Modal from '../components/Modal'
 
 const componentName = 'p-index'
 
@@ -18,6 +21,17 @@ const IndexPage = () => {
     loadCardsShape(tsParticles);
   };
 
+  const handleClick = (name) => {
+    modalOpen ? close() : open()
+    setText('globant')
+  }
+
+  const [modalOpen, setModalOpen] = useState(false)
+  const [text, setText] = useState('')
+
+  const close = () => setModalOpen(false)
+  const open = () => setModalOpen(true)
+
   return (
     <div className={`${componentName}`}>
       <Particles
@@ -25,6 +39,11 @@ const IndexPage = () => {
         init={particlesInit}
         options={options}
       />
+      <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
+        {modalOpen && (
+          <Modal handleClose={close} text={text}/>
+        )}
+      </AnimatePresence>
       <UtilsBar />
       <div className={`${componentName}-info`}>
         <h1>{`<Andres Bustos />`}</h1>
@@ -43,7 +62,7 @@ const IndexPage = () => {
           loading='eager'
         />
       </div>
-      <Companies />
+      <Companies handleClick={handleClick}/>
     </div>
   )
 }
