@@ -1,0 +1,71 @@
+# Every day: pull the latest Google Health data for "Crónica del Aventurero", ask the Sage (Claude)
+# for this week's advice, commit both JSON files and redeploy andresb.dev to GitHub Pages.
+#
+# Secrets (Settings → Secrets and variables → Actions):
+#   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN  (required)
+#   ANTHROPIC_API_KEY                                             (optional: without it the advice isn't refreshed)
+#   ANTHROPIC_WORKSPACE_ID                                        (only for keys not scoped to a workspace)
+#   BIRTH_DATE                                                    (optional, YYYY-MM-DD, for the physiological age)
+name: Crónica del Aventurero
+
+on:
+  schedule:
+    - cron: "50 11 * * *" # 06:50 in Colombia (UTC-5)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cronica
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      HAS_ANTHROPIC_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Sync Google Health
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          BIRTH_DATE: ${{ secrets.BIRTH_DATE }}
+          CRONICA_OUT: static/proyectos/cronica-del-aventurero/data/days.json
+        run: node scripts/cronica/sync.mjs
+
+      - name: Ask the Sage
+        if: env.HAS_ANTHROPIC_KEY == 'true'
+        continue-on-error: true # keep deploying the new data even if Claude fails
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_WORKSPACE_ID: ${{ secrets.ANTHROPIC_WORKSPACE_ID }}
+        run: |
+          npx playwright install --with-deps chromium
+          node scripts/cronica/sage.mjs
+
+      - name: Commit the new data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add static/proyectos/cronica-del-aventurero/data
+          git diff --cached --quiet || git commit -m "Update Crónica del Aventurero data"
+          git push
+
+      - name: Build and deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx gatsby build
+          npx gh-pages -d public -u "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
+            -r "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"

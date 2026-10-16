@@ -5,7 +5,7 @@ import { loadFull } from "tsparticles";
 import { loadCardsShape } from "tsparticles-shape-cards";
 import { tsParticles } from "tsparticles-engine";
 import { options } from '../utils/backgroundOptions'
-import {Modal, Companies, Technologies, UtilsBar, SEO} from '../components'
+import {Modal, Companies, Technologies, UtilsBar, SEO, Projects} from '../components'
 import { AnimatePresence } from 'framer-motion'
 
 import '../styles/p-index.scss'
@@ -31,6 +31,7 @@ const IndexPage = () => {
   const open = () => setModalOpen(true)
 
   return (
+    <>
     <div className={`${componentName}`}>
       <Particles
         id="tsparticles"
@@ -63,6 +64,8 @@ const IndexPage = () => {
       </div>
       <Companies handleClick={handleClick}/>
     </div>
+    <Projects />
+    </>
   )
 }
 

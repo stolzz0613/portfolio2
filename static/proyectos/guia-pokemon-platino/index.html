@@ -1,0 +1,3189 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Guía de Pokémon Platino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Chakra+Petch:wght@500;600;700&family=Silkscreen&display=swap">
+<style>
+/* Layout: a dark "Mundo Distorsión" header band with the badge case, then a two-column body —
+   sticky chapter index on the left, story chapters with checklists on the right. */
+:root {
+  --bg: #eceef2;
+  --surface: #f9fafc;
+  --surface-2: #e3e6ec;
+  --ink: #1b1f2b;
+  --muted: #586073;
+  --line: #ccd1db;
+  --crimson: #ac2238;
+  --gold: #9a711b;
+  --done: #2c7a57;
+  --done-soft: #d7ebe1;
+  --focus: #2457c5;
+  --hero-bg: #1a1722;
+  --hero-ink: #ecebf2;
+  --hero-muted: #a9a4b8;
+  --hero-stripe: #2a2433;
+  --hero-red: #d23a52;
+  --hero-gold: #e0b45a;
+  --badge-off: #3a3446;
+  --map-sea: #cdd9e5;
+  --map-land: #e3e8df;
+  --map-ridge: #bdb6aa;
+  --map-route: #9aa1ae;
+  --font-display: "Chakra Petch", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-pixel: "Silkscreen", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --radius: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121419; --surface: #1b1e26; --surface-2: #252935; --ink: #e7e9ef; --muted: #9ba2b3;
+    --line: #333847; --crimson: #e6596f; --gold: #d9af58; --done: #5cc08f; --done-soft: #1f3a2e;
+    --focus: #7ea6ff; color-scheme: dark;
+  --map-sea: #17202b; --map-land: #262c27; --map-ridge: #45434a; --map-route: #565d6d;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121419; --surface: #1b1e26; --surface-2: #252935; --ink: #e7e9ef; --muted: #9ba2b3;
+  --line: #333847; --crimson: #e6596f; --gold: #d9af58; --done: #5cc08f; --done-soft: #1f3a2e;
+  --focus: #7ea6ff; color-scheme: dark;
+  --map-sea: #17202b; --map-land: #262c27; --map-ridge: #45434a; --map-route: #565d6d;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.55; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 16px; }
+
+/* ---------- Header band ---------- */
+.hero {
+  background:
+    repeating-linear-gradient(115deg, transparent 0 46px, var(--hero-stripe) 46px 50px, transparent 50px 96px),
+    var(--hero-bg);
+  color: var(--hero-ink);
+  padding-block: 28px 24px;
+  border-bottom: 4px solid var(--hero-red);
+}
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px; align-items: end; }
+.eyebrow { font-family: var(--font-pixel); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--hero-gold); }
+.hero h1 { font-size: clamp(30px, 5vw, 48px); font-weight: 700; margin-top: 6px; letter-spacing: .01em; }
+.hero h1 span { color: var(--hero-red); }
+.hero p { color: var(--hero-muted); margin: 10px 0 0; max-width: 56ch; }
+.stats { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 18px; }
+.stat { display: grid; gap: 2px; min-width: 96px; }
+.stat b { font-family: var(--font-display); font-size: 22px; font-variant-numeric: tabular-nums; }
+.stat small { font-family: var(--font-pixel); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--hero-muted); }
+.meter { height: 8px; background: var(--badge-off); border-radius: 99px; overflow: hidden; margin-top: 16px; }
+.meter i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--hero-red), var(--hero-gold)); transition: width .4s ease; }
+
+.case { background: rgba(0,0,0,.28); border: 1px solid var(--badge-off); border-radius: 10px; padding: 14px 16px; }
+.case h2 { font-family: var(--font-pixel); font-weight: 400; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--hero-muted); }
+.badges { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+.badge { display: grid; justify-items: center; gap: 6px; text-decoration: none; color: inherit; }
+.badge .gem {
+  width: 100%; max-width: 40px; aspect-ratio: 1; background: var(--badge-off);
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  transition: background .3s, transform .3s;
+}
+.badge.on .gem { background: var(--gem); transform: rotate(22.5deg); }
+.badge span { font-size: 10px; font-family: var(--font-pixel); color: var(--hero-muted); text-align: center; line-height: 1.2; }
+.badge.on span { color: var(--hero-ink); }
+.save { margin-top: 12px; font-size: 13px; color: var(--hero-muted); display: flex; align-items: center; gap: 8px; }
+.save::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--hero-gold); flex: none; }
+.save[data-mode="account"]::before { background: #5cc08f; }
+
+/* ---------- Toolbar ---------- */
+.toolbar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.toolbar .wrap { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; padding-block: 10px; }
+.seg { display: flex; flex-wrap: wrap; gap: 4px; background: var(--surface-2); padding: 3px; border-radius: 8px; }
+.seg button { border: 0; background: transparent; color: var(--muted); font: 600 14px var(--font-display); padding: 6px 11px; border-radius: 6px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+.search { flex: 1 1 200px; min-width: 0; }
+.search input { width: 100%; font: 15px var(--font-body); padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); }
+.toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); cursor: pointer; user-select: none; }
+.toggle input { width: 18px; height: 18px; accent-color: var(--crimson); }
+.btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 600 14px var(--font-display); padding: 7px 12px; border-radius: 8px; cursor: pointer; }
+.btn:hover { border-color: var(--crimson); }
+.btn.primary { background: var(--crimson); border-color: var(--crimson); color: #fff; }
+
+/* ---------- Body layout ---------- */
+.layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 32px; padding-block: 28px 64px; }
+.index { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 70px); align-self: start; max-height: calc(100vh - 90px); overflow-y: auto; padding-right: 4px; }
+.index h2 { font-family: var(--font-pixel); font-weight: 400; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.index ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.index a { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 6px 8px; border-radius: 6px; color: var(--ink); text-decoration: none; font-size: 14px; line-height: 1.25; }
+.index a:hover { background: var(--surface-2); }
+.index a .n { font-family: var(--font-pixel); font-size: 11px; color: var(--muted); }
+.index a .pct { font-family: var(--font-pixel); font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.index a.complete .pct { color: var(--done); }
+.index a.complete .n { color: var(--done); }
+
+.chapters { display: grid; gap: 22px; min-width: 0; }
+.chapter { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; scroll-margin-top: 84px; min-width: 0; }
+.chapter.complete { border-color: color-mix(in srgb, var(--done) 55%, var(--line)); }
+.ch-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: 18px 20px 12px; }
+.ch-num { font-family: var(--font-pixel); font-size: 12px; color: var(--crimson); padding-top: 6px; }
+.ch-head h2 { font-size: clamp(20px, 2.6vw, 25px); font-weight: 700; }
+.places { margin-top: 4px; color: var(--muted); font-size: 14px; }
+.ch-prog { display: grid; justify-items: end; gap: 6px; padding-top: 4px; }
+.ch-prog b { font-family: var(--font-display); font-size: 15px; font-variant-numeric: tabular-nums; }
+.ch-prog .bar { width: 84px; height: 6px; background: var(--surface-2); border-radius: 99px; overflow: hidden; }
+.ch-prog .bar i { display: block; height: 100%; width: 0; background: var(--done); transition: width .3s; }
+.collapse { border: 0; background: none; color: var(--muted); font: 13px var(--font-body); cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 3px; }
+.ch-body { padding: 0 20px 20px; display: grid; gap: 18px; }
+.chapter.closed .ch-body { display: none; }
+.intro { margin: 0; max-width: 70ch; }
+.tip { margin: 0; padding: 10px 14px; border-left: 3px solid var(--gold); background: color-mix(in srgb, var(--gold) 9%, transparent); border-radius: 0 6px 6px 0; font-size: 15px; max-width: 75ch; }
+.tip strong { font-family: var(--font-display); }
+.tip.trick { border-left-color: var(--crimson); background: color-mix(in srgb, var(--crimson) 7%, transparent); }
+.tip.trick strong { color: var(--crimson); }
+
+/* Reference cards (Pokémon raros y trucos) */
+.guides { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; align-items: start; }
+.guide { border: 1px solid var(--line); border-top: 3px solid var(--crimson); border-radius: 8px; padding: 12px 14px; display: grid; gap: 10px; min-width: 0; }
+.guide h3 { font-size: 17px; font-weight: 700; }
+.guide dl { margin: 0; display: grid; gap: 9px; }
+.g-row { display: grid; gap: 1px; padding-bottom: 9px; border-bottom: 1px dashed var(--line); }
+.g-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.g-row dt { font-family: var(--font-pixel); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); }
+.g-row dd { margin: 0; font-size: 14.5px; line-height: 1.45; }
+
+.group h3 { font-family: var(--font-pixel); font-weight: 400; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: flex; gap: 8px; align-items: baseline; }
+.group h3 em { font-style: normal; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* Checklist rows */
+.rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.row { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; align-items: start; padding: 6px 8px; border-radius: 6px; cursor: pointer; }
+.row:hover { background: var(--surface-2); }
+.row input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--done); cursor: pointer; }
+.row .txt { min-width: 0; }
+.row .note { color: var(--muted); font-size: 14px; }
+.row.done .main { color: var(--muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--muted) 60%, transparent); }
+.items .row .main { font-weight: 700; }
+.tag { font-family: var(--font-pixel); font-size: 10px; letter-spacing: .04em; padding: 1px 6px; border-radius: 4px; background: var(--surface-2); color: var(--muted); margin-right: 6px; white-space: nowrap; vertical-align: 1px; }
+.tag.mo { background: color-mix(in srgb, var(--crimson) 16%, transparent); color: var(--crimson); }
+.tag.mt { background: color-mix(in srgb, var(--gold) 18%, transparent); color: var(--gold); }
+.tag.key { background: color-mix(in srgb, var(--focus) 15%, transparent); color: var(--focus); }
+
+/* Pokémon chips, split by method */
+.mon-groups { display: grid; gap: 14px; }
+.mon-sub { display: grid; gap: 6px; }
+.mon-sub h4 { margin: 0; font-family: var(--font-display); font-size: 14px; font-weight: 600; color: var(--ink); display: flex; gap: 8px; align-items: baseline; }
+.mon-sub h4 em { font-style: normal; font-family: var(--font-pixel); font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.mon-sub[data-g="hierba"] h4::before, .mon-sub[data-g="surf"] h4::before, .mon-sub[data-g="cana"] h4::before, .mon-sub[data-g="otros"] h4::before { content: ""; width: 10px; height: 10px; border-radius: 3px; align-self: center; }
+.mon-sub[data-g="hierba"] h4::before { background: var(--done); }
+.mon-sub[data-g="surf"] h4::before { background: var(--focus); }
+.mon-sub[data-g="cana"] h4::before { background: var(--gold); }
+.mon-sub[data-g="otros"] h4::before { background: var(--crimson); }
+.dex { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px; }
+.mon { display: grid; grid-template-columns: 22px minmax(0, 1fr) 56px; gap: 9px; align-items: center; padding: 6px 6px 6px 10px; border: 1px solid var(--line); border-radius: var(--radius); cursor: pointer; background: var(--surface); }
+.mon:hover { border-color: var(--muted); }
+.mon input { position: absolute; opacity: 0; pointer-events: none; }
+.ball { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--muted); position: relative; background: linear-gradient(var(--surface-2) 0 45%, var(--muted) 45% 55%, var(--surface) 55%); }
+.ball::after { content: ""; position: absolute; inset: 5px; border-radius: 50%; background: var(--surface); border: 2px solid var(--muted); }
+.mon.done { background: var(--done-soft); border-color: color-mix(in srgb, var(--done) 50%, var(--line)); }
+.mon.done .ball { border-color: var(--ink); background: linear-gradient(var(--crimson) 0 45%, var(--ink) 45% 55%, #fff 55%); }
+.mon.done .ball::after { border-color: var(--ink); background: #fff; }
+.mon input:focus-visible + .ball { outline: 2px solid var(--focus); outline-offset: 2px; }
+.mon .nm { font-weight: 700; font-size: 15px; display: block; line-height: 1.2; }
+.mon .how { font-size: 12.5px; color: var(--muted); display: block; line-height: 1.3; }
+.mon.special .nm::after { content: " ★"; color: var(--gold); }
+.mon .rate { display: block; font-size: 12px; line-height: 1.3; margin-top: 3px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.mon .rate b { font-weight: 700; }
+.mon .rate.easy b { color: var(--done); }
+.mon .rate.mid b { color: var(--gold); }
+.mon .rate.hard b { color: var(--crimson); }
+.mon .enc { display: block; font-size: 12px; line-height: 1.3; margin-top: 2px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.mon-txt { min-width: 0; }
+/* Platinum sprites: greyed out until caught, full colour once marked. */
+.mon .sprite { width: 56px; height: 56px; object-fit: contain; image-rendering: pixelated; filter: grayscale(1); opacity: .5; transition: filter .3s, opacity .3s, transform .3s; }
+.mon:hover .sprite { opacity: .8; }
+.mon.done .sprite { filter: none; opacity: 1; }
+@media (prefers-reduced-motion: no-preference) { .mon.done .sprite { animation: caught .45s ease-out; } }
+@keyframes caught { 0% { transform: scale(.8); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
+.mon .also { font-family: var(--font-pixel); font-size: 9.5px; letter-spacing: .04em; color: var(--muted); display: block; margin-top: 3px; }
+.mon.done .also { color: var(--done); }
+
+/* Chapter maps */
+.ch-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 300px); gap: 18px; align-items: start; }
+.ch-map { margin: 0; display: grid; gap: 4px; }
+.ch-map svg { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--line); }
+.ch-map figcaption { font-size: 11.5px; color: var(--muted); text-align: right; }
+.m-sea { fill: var(--map-sea); }
+.m-land { fill: var(--map-land); }
+.m-ridge { fill: var(--map-ridge); }
+.m-lake { fill: var(--map-sea); }
+.m-route { stroke: var(--map-route); stroke-width: .8; stroke-linecap: round; }
+.m-route.dash { stroke-dasharray: 1.6 1.4; }
+.m-route.on { stroke: var(--crimson); stroke-width: 1.6; }
+.m-node { fill: var(--map-route); }
+.m-node.on { fill: var(--crimson); stroke: var(--surface); stroke-width: .6; }
+.m-label, .m-rnum { font-family: var(--font-display); font-weight: 700; fill: var(--ink); paint-order: stroke; stroke: var(--map-land); stroke-width: .9; stroke-linejoin: round; }
+.m-label { font-size: 3.6px; }
+.m-rnum { font-family: var(--font-pixel); font-weight: 400; font-size: 2.8px; fill: var(--crimson); text-anchor: middle; }
+@media (max-width: 760px) { .ch-top { grid-template-columns: minmax(0, 1fr); } .ch-map { max-width: 380px; } }
+
+/* Pokédex */
+.pokedex { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.dexmon { position: relative; display: grid; justify-items: center; align-content: start; gap: 3px; padding: 10px 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); cursor: pointer; text-align: center; min-width: 0; }
+.dexmon:hover { border-color: var(--muted); }
+.dexmon input { position: absolute; opacity: 0; pointer-events: none; }
+.dexmon .ball { position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; }
+.dexmon .ball::after { inset: 3px; }
+.dexmon input:focus-visible + .ball { outline: 2px solid var(--focus); outline-offset: 2px; }
+.dexmon.done { background: var(--done-soft); border-color: color-mix(in srgb, var(--done) 50%, var(--line)); }
+.dexmon.done .ball { border-color: var(--ink); background: linear-gradient(var(--crimson) 0 45%, var(--ink) 45% 55%, #fff 55%); }
+.dexmon.done .ball::after { border-color: var(--ink); background: #fff; }
+.dex-num { justify-self: start; font-family: var(--font-pixel); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.dexmon .sprite { width: 72px; height: 72px; object-fit: contain; image-rendering: pixelated; filter: grayscale(1); opacity: .5; transition: filter .3s, opacity .3s; }
+.dexmon:hover .sprite { opacity: .8; }
+.dexmon.done .sprite { filter: none; opacity: 1; }
+.dexmon .nm { font-weight: 700; font-size: 15px; line-height: 1.2; }
+.types { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
+.type { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; line-height: 1; padding: 3px 6px; border-radius: 99px; background: var(--surface-2); color: var(--ink); }
+.type::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--t); flex: none; }
+.dexmon .where { font-size: 12px; line-height: 1.3; color: var(--muted); overflow-wrap: anywhere; }
+.dex-ch { font-size: 12px; color: var(--muted); }
+.dex-ch a { color: var(--crimson); }
+
+/* Battles */
+.battles { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.battle { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 8px; align-content: start; background: var(--surface); }
+.battle.boss { border-top: 3px solid var(--crimson); }
+.battle.gym { border-top: 3px solid var(--gold); }
+.battle.done { background: var(--done-soft); }
+.b-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: start; }
+.b-who { font-family: var(--font-display); font-weight: 700; font-size: 17px; line-height: 1.2; }
+.b-role { font-size: 13px; color: var(--muted); }
+.b-check { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.b-check input { width: 18px; height: 18px; accent-color: var(--done); }
+.team { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; font-size: 14.5px; }
+.team li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; border-bottom: 1px dashed var(--line); padding-bottom: 2px; }
+.team li:last-child { border-bottom: 0; }
+.team .lv { font-family: var(--font-pixel); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.team .ace { color: var(--crimson); font-weight: 700; }
+.b-note { font-size: 13.5px; color: var(--muted); margin: 0; }
+.reward { font-size: 13.5px; margin: 0; }
+.reward b { color: var(--gold); font-family: var(--font-display); }
+
+.empty-filter { display: none; padding: 40px 20px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; }
+.hidden-by-filter { display: none !important; }
+
+.dialog { position: fixed; inset: 0; background: rgba(10,10,16,.55); display: grid; place-items: center; padding: 16px; z-index: 20; }
+.dialog .card { background: var(--surface); color: var(--ink); border-radius: 12px; padding: 20px; max-width: 380px; width: 100%; display: grid; gap: 12px; border: 1px solid var(--line); }
+.dialog .card div { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+
+footer { color: var(--muted); font-size: 13px; padding-block: 0 40px; }
+footer a { color: inherit; }
+
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .index { position: static; max-height: none; overflow: visible; }
+  .index ol { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; }
+  .index li { flex: none; }
+  .index a { grid-template-columns: auto auto; background: var(--surface); border: 1px solid var(--line); }
+  .index a .t { display: none; }
+}
+@media (max-width: 560px) {
+  .badges { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ch-head { grid-template-columns: minmax(0, 1fr) auto; }
+  .ch-num { grid-column: 1 / -1; padding-top: 0; }
+  .ch-head, .ch-body { padding-inline: 14px; }
+  .dex { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Sinnoh · Nintendo DS</div>
+      <h1>Guía de Pokémon <span>Platino</span></h1>
+      <p>La historia completa en orden, de Pueblo Hojaverde a la Liga y el post-juego. Marca los Pokémon que capturas, los objetos que recoges, los pasos de la historia y los combates que ganas. Un Pokémon marcado en una ruta queda marcado en todas, y el progreso se guarda solo. Al final tienes los Pokémon raros, las evoluciones especiales, trucos para toda la partida y la Pokédex de Sinnoh completa.</p>
+      <div class="stats" aria-live="polite">
+        <div class="stat"><b id="st-total">0%</b><small>Progreso</small></div>
+        <div class="stat"><b id="st-dex">0/210</b><small>Pokédex</small></div>
+        <div class="stat"><b id="st-mon">0/0</b><small>Pokémon guía</small></div>
+        <div class="stat"><b id="st-item">0/0</b><small>Objetos</small></div>
+        <div class="stat"><b id="st-story">0/0</b><small>Historia</small></div>
+        <div class="stat"><b id="st-battle">0/0</b><small>Combates</small></div>
+      </div>
+      <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+    </div>
+    <div class="case">
+      <h2>Estuche de medallas</h2>
+      <div class="badges" id="badges"></div>
+      <div class="save" id="save" data-mode="local">Guardado en este navegador</div>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Mostrar">
+      <button type="button" data-kind="all" aria-pressed="true">Todo</button>
+      <button type="button" data-kind="story" aria-pressed="false">Historia</button>
+      <button type="button" data-kind="mon" aria-pressed="false">Pokémon</button>
+      <button type="button" data-kind="item" aria-pressed="false">Objetos</button>
+      <button type="button" data-kind="battle" aria-pressed="false">Combates</button>
+    </div>
+    <label class="search"><input id="q" type="search" placeholder="Buscar: Gible, MO03, Cintia, Eevee…" aria-label="Buscar en la guía"></label>
+    <label class="toggle"><input id="hide-done" type="checkbox"> Ocultar lo completado</label>
+    <button class="btn primary" id="go-next" type="button">Ir a donde voy</button>
+  </div>
+</div>
+
+<div class="wrap layout">
+  <nav class="index" aria-label="Capítulos">
+    <h2>Capítulos</h2>
+    <ol id="index"></ol>
+  </nav>
+  <main class="chapters" id="chapters">
+    <div class="empty-filter" id="empty">Nada coincide con el filtro. Prueba otra búsqueda o desactiva "Ocultar lo completado".</div>
+  </main>
+</div>
+
+<footer class="wrap">
+  <p>Nombres de la versión en español. Datos de combates, objetos y apariciones contrastados con la guía de Pokémon Platino de <a href="https://www.wikidex.net/wiki/Gu%C3%ADa_de_Pok%C3%A9mon_Platino" target="_blank" rel="noopener">WikiDex</a>. Las apariciones salvajes cambian según la hora (mañana, día, noche) y el método; ★ marca Pokémon de regalo, legendarios o difíciles de conseguir.</p>
+  <p><button class="btn" id="reset" type="button">Borrar todo el progreso</button></p>
+</footer>
+
+<script>
+// ---------------------------------------------------------------------------
+// Data. Story order follows Pokémon Platino (Fantina is the 3rd gym).
+// mon: [name, how, special?]   item: [name, where, tag?]   tag: "mo" | "mt" | "key"
+// battle: { who, role, kind: "gym"|"boss"|"rival"|"trainer", team: [[name, lv, ace?]], note, reward, badge }
+// ---------------------------------------------------------------------------
+const BADGES = [
+  { id: "lignito", name: "Lignito", color: "#8a8f99" },
+  { id: "bosque", name: "Bosque", color: "#4caf50" },
+  { id: "reliquia", name: "Reliquia", color: "#9b6ad6" },
+  { id: "adoquin", name: "Adoquín", color: "#c97b3c" },
+  { id: "cienaga", name: "Ciénaga", color: "#3d9ad9" },
+  { id: "mina", name: "Mina", color: "#c9ced6" },
+  { id: "carambano", name: "Carámbano", color: "#9ee3f5" },
+  { id: "faro", name: "Faro", color: "#f2c94c" },
+];
+
+const CHAPTERS = [
+{
+  id: "hojaverde", title: "Pueblo Hojaverde y el Lago Veraz", places: "Pueblo Hojaverde · Ruta 201 · Lago Veraz",
+  intro: "Empiezas en tu habitación viendo un reportaje del Profesor Serbal. Tu vecino Israel irrumpe con un plan: ir al lago a buscar un Pokémon legendario. En la Ruta 201 el profesor os detiene, y tras un susto en la hierba alta te deja elegir tu primer Pokémon de su maletín.",
+  story: [
+    "Ver el reportaje del Profesor Serbal en la televisión",
+    "Bajar a hablar con tu madre y visitar a Israel en su casa",
+    "En la Ruta 201, abrir el maletín del profesor y elegir tu Pokémon inicial",
+    "Ganar el primer combate contra Israel",
+    "Recibir las Deportivas de tu madre (corre manteniendo B)",
+    "Ir con Israel al Lago Veraz y encontrarte con Helio, que se presenta sin decir quién es",
+  ],
+  mon: [
+    ["Bidoof", "Hierba alta, Ruta 201", false, "hierba"],
+    ["Starly", "Hierba alta, Ruta 201", false, "hierba"],
+    ["Kricketot", "Hierba alta, mañana y noche", false, "hierba"],
+    ["Psyduck", "Lago Veraz, Pueblo Hojaverde", false, "surf"],
+    ["Golduck", "Lago Veraz, Pueblo Hojaverde", false, "surf"],
+    ["Magikarp", "Lago Veraz, Pueblo Hojaverde", false, "cana"],
+    ["Gyarados", "Lago Veraz, Pueblo Hojaverde", false, "cana"],
+    ["Goldeen", "Lago Veraz, Pueblo Hojaverde", false, "cana"],
+    ["Seaking", "Lago Veraz, Pueblo Hojaverde", false, "cana"],
+    ["Turtwig", "Inicial (Planta). Elige uno", true, "otros"],
+    ["Chimchar", "Inicial (Fuego). Elige uno", true, "otros"],
+    ["Piplup", "Inicial (Agua). Elige uno", true, "otros"],
+  ],
+  item: [["Deportivas", "Tu madre, en casa", "key"]],
+  battle: [
+    { who: "Israel", role: "Rival · Ruta 201", kind: "rival", team: [["Inicial con ventaja sobre el tuyo", 5]], note: "No hay ventaja de tipo para ninguno todavía; ataca sin miedo." },
+  ],
+  tip: "Chimchar hace el principio más fácil (Roco y Gardenia caen ante Monferno). Piplup y Turtwig sufren más contra Brega y Fantina, pero Empoleon y Torterra aguantan muy bien el final.",
+  tips: [["Truco", "El juego sigue el reloj de la DS: mañana de 4:00 a 9:59, día de 10:00 a 19:59 y noche de 20:00 a 3:59. Algunos Pokémon solo salen a ciertas horas."]],
+},
+{
+  id: "arena", title: "Pueblo Arena y la Pokédex", places: "Pueblo Arena · Ruta 202",
+  intro: "Maya o León (el personaje que no elegiste) te lleva al laboratorio. Serbal te confía la Pokédex y la misión de registrar a todos los Pokémon de Sinnoh. Antes de partir, vuelve a casa: tu madre y la de Israel tienen algo para ti.",
+  story: [
+    "Entrar al laboratorio y recibir la Pokédex",
+    "Volver a Pueblo Hojaverde: recibir el Diario de tu madre",
+    "Recoger el paquete de la madre de Israel (contiene el mapa)",
+    "En la Ruta 202, aprender a capturar con Maya/León",
+  ],
+  mon: [
+    ["Bidoof", "Ruta 202", false, "hierba"],
+    ["Shinx", "Hierba alta, Ruta 202", false, "hierba"],
+    ["Starly", "Ruta 202", false, "hierba"],
+    ["Kricketot", "Ruta 202", false, "hierba"],
+  ],
+  item: [
+    ["Pokédex", "Profesor Serbal", "key"],
+    ["MT27 Retroceso", "Serbal, al salir del laboratorio", "mt"],
+    ["Diario", "Tu madre", "key"],
+    ["Paquete para Israel", "Madre de Israel", "key"],
+    ["Antídoto", "Playa bajo la casa de Maya/León (Ruta 219)"],
+    ["Poké Ball ×5", "Maya/León tras el tutorial"],
+    ["Poción", "Ruta 202, a la izquierda antes de salir"],
+  ],
+  battle: [],
+},
+{
+  id: "jubileo", title: "Ciudad Jubileo", places: "Ciudad Jubileo",
+  intro: "La gran ciudad de Sinnoh. Aquí conoces al detective Handsome, entregas el paquete a Israel en la Escuela de Entrenadores y consigues el Poké-reloj resolviendo los acertijos de tres payasos.",
+  story: [
+    "Hablar con Handsome y recibir la Cámara lucha",
+    "Entregar el paquete a Israel y quedarte con un Mapa de Sinnoh",
+    "Encontrar a los tres payasos y responder sus preguntas para conseguir los cupones",
+    "Canjear los cupones en Poké-reloj S.A. por el Poké-reloj",
+  ],
+  mon: [],
+  item: [
+    ["Cámara lucha", "Handsome", "key"],
+    ["Mapa", "Israel, del paquete", "key"],
+    ["Poké-reloj", "Presidente de Poké-reloj S.A.", "key"],
+    ["Ataque X", "Escuela de Entrenadores, a la izquierda"],
+    ["Poción", "Escolar Joaquín tras vencerle"],
+    ["Garra rápida", "Una chica en el edificio del este"],
+    ["Caña vieja", "Pescador en la salida oeste", "key"],
+  ],
+  battle: [
+    { who: "Escolares Joaquín y Araceli", role: "Escuela de Entrenadores", kind: "trainer", team: [["Starly", 6], ["Bidoof", 6], ["Bidoof", 6]] },
+  ],
+},
+{
+  id: "pirita", title: "Ciudad Pirita y la primera medalla", places: "Ruta 203 · Puerta Pirita · Ciudad Pirita · Mina Pirita",
+  intro: "Israel te espera en la Ruta 203 para medir fuerzas. Cruzas la Puerta Pirita hasta la ciudad minera, donde el líder Roco está buscando fósiles en la mina. Su gimnasio de tipo Roca es el primer gran muro.",
+  story: [
+    "Vencer a Israel en la Ruta 203",
+    "Conseguir la MO06 Golpe roca de un montañero en la Puerta Pirita",
+    "Buscar a Roco en la Mina Pirita",
+    "Ganar la Medalla Lignito en el Gimnasio de Pirita",
+  ],
+  mon: [
+    ["Geodude", "Puerta Pirita, Mina Pirita", false, "hierba"],
+    ["Zubat", "Puerta Pirita, Mina; de noche en rutas", false, "hierba"],
+    ["Psyduck", "Puerta Pirita", false, "hierba"],
+    ["Starly", "Ruta 203", false, "hierba"],
+    ["Bidoof", "Ruta 203", false, "hierba"],
+    ["Shinx", "Ruta 203", false, "hierba"],
+    ["Abra", "Ruta 203 (huye en su primer turno: lanza la Ball enseguida)", false, "hierba"],
+    ["Onix", "Mina Pirita", false, "hierba"],
+    ["Kricketot", "Ruta 203", false, "hierba"],
+    ["Golbat", "Puerta Pirita", false, "hierba"],
+    ["Machop", "Ruta 207, al norte de la ciudad", false, "hierba"],
+    ["Psyduck", "Puerta Pirita, Ruta 203", false, "surf"],
+    ["Zubat", "Puerta Pirita", false, "surf"],
+    ["Golduck", "Puerta Pirita, Ruta 203", false, "surf"],
+    ["Golbat", "Puerta Pirita", false, "surf"],
+    ["Magikarp", "Cualquier caña", false, "cana"],
+    ["Gyarados", "Puerta Pirita, Ruta 203", false, "cana"],
+    ["Barboach", "Puerta Pirita", false, "cana"],
+    ["Whiscash", "Puerta Pirita", false, "cana"],
+    ["Goldeen", "Ruta 203", false, "cana"],
+    ["Seaking", "Ruta 203", false, "cana"],
+  ],
+  item: [
+    ["MO06 Golpe roca", "Montañero en la Puerta Pirita", "mo"],
+    ["Poké Ball", "Ruta 203, al norte"],
+    ["Defensa X", "Ruta 203, pasado el puente"],
+    ["Repelente", "Ruta 203, junto al lago"],
+    ["Sana Ball", "Niño de Pirita si llevas un Geodude primero"],
+    ["Ocaso Ball", "Chica en la 2.ª planta, dos casas a la izquierda de la tienda"],
+    ["Superpoción", "Obrero de la Mina, al sureste"],
+    ["Cuerda huida", "Mina Pirita"],
+    ["MT76 Trampa rocas", "Recompensa de Roco", "mt"],
+  ],
+  battle: [
+    { who: "Israel", role: "Rival · Ruta 203", kind: "rival", team: [["Starly", 7], ["Su inicial", 9]] },
+    { who: "Roco", role: "Líder de Gimnasio · Roca", kind: "gym", badge: "lignito", team: [["Geodude", 12], ["Onix", 12], ["Cranidos", 14, true]], note: "Agua, Planta o Lucha. Monferno con Ultrapuño o Grotle con Hoja afilada lo barren.", reward: "Medalla Lignito · MT76 Trampa rocas · Golpe roca fuera de combate" },
+  ],
+  tips: [["Truco", "Abra siempre usa Teletransporte en su primer turno. Lanza la Poké Ball nada más empezar el combate, sin atacar."], ["Truco", "El Museo de la Mina Pirita revive los fósiles que encuentres en el Subsuelo."]],
+},
+{
+  id: "desolada", title: "Rumbo a Aromaflor por la Senda Desolada", places: "Ciudad Jubileo · Ruta 204 · Senda Desolada",
+  intro: "De vuelta en Jubileo, dos reclutas del Equipo Galaxia molestan al presidente de Poké-reloj S.A. Con Maya/León de compañero los espantas en tu primer combate doble. Luego cruzas la Senda Desolada rompiendo rocas con Golpe roca.",
+  story: [
+    "Ganar el combate doble contra el Equipo Galaxia en Jubileo",
+    "Recibir la Caja corazón tras el combate y la función Bloc del Poké-reloj",
+    "Atravesar la Senda Desolada con Golpe roca",
+  ],
+  mon: [
+    ["Zubat", "Senda Desolada, Ruta 204", false, "hierba"],
+    ["Psyduck", "Senda Desolada", false, "hierba"],
+    ["Budew", "Ruta 204", false, "hierba"],
+    ["Starly", "Ruta 204", false, "hierba"],
+    ["Bidoof", "Ruta 204", false, "hierba"],
+    ["Shinx", "Ruta 204", false, "hierba"],
+    ["Wurmple", "Ruta 204", false, "hierba"],
+    ["Kricketot", "Ruta 204", false, "hierba"],
+    ["Psyduck", "Senda Desolada, Ruta 204", false, "surf"],
+    ["Zubat", "Senda Desolada", false, "surf"],
+    ["Golduck", "Senda Desolada, Ruta 204", false, "surf"],
+    ["Golbat", "Senda Desolada", false, "surf"],
+    ["Magikarp", "Senda Desolada, Ruta 204", false, "cana"],
+    ["Gyarados", "Senda Desolada, Ruta 204", false, "cana"],
+    ["Barboach", "Senda Desolada, Caña buena", false, "cana"],
+    ["Whiscash", "Senda Desolada", false, "cana"],
+    ["Goldeen", "Ruta 204", false, "cana"],
+    ["Seaking", "Ruta 204", false, "cana"],
+  ],
+  item: [
+    ["Caja corazón", "Un chico tras vencer al Equipo Galaxia", "key"],
+    ["Máscara de tu inicial", "Jubileo TV, señor de gafas"],
+    ["MT70 Destello", "Senda Desolada, rocas del norte", "mt"],
+    ["MT39 Tumba rocas", "Senda Desolada, rocas del oeste", "mt"],
+    ["Polvoestelar", "Senda Desolada"],
+    ["Antiparalizante", "Ruta 204, rodeando la laguna"],
+    ["Despertar", "Ruta 204 norte, tras la escalera"],
+    ["MT09 Recurrente", "Ruta 204 norte, tras las Gemelas", "mt"],
+  ],
+  battle: [
+    { who: "Reclutas Galaxia", role: "Combate doble · Ciudad Jubileo", kind: "boss", team: [["Glameow", 11], ["Stunky", 11]], note: "Maya/León lucha a tu lado." },
+  ],
+},
+{
+  id: "aromaflor", title: "Pueblo Aromaflor y el Valle Eólico", places: "Pueblo Aromaflor · Ruta 205 · Valle Eólico · Prado Aromaflor",
+  intro: "Una niña te pide ayuda: el Equipo Galaxia ha tomado la central del Valle Eólico con su padre dentro. La llave está en manos de dos reclutas en el Prado Aromaflor. Dentro te espera la comandante Venus.",
+  story: [
+    "Recibir la Psydugadera en la Floristería Arco Iris",
+    "Vencer al recluta que bloquea la central del Valle Eólico",
+    "Derrotar a los reclutas del Prado Aromaflor y conseguir la Llave central",
+    "Entrar en la central y vencer a la comandante Venus",
+  ],
+  mon: [
+    ["Shellos", "Ruta 205 y Valle Eólico (forma Oeste)", false, "hierba"],
+    ["Magnemite", "Forja Fuego", false, "hierba"],
+    ["Magmar", "Forja Fuego", false, "hierba"],
+    ["Buizel", "Ruta 205, Valle Eólico", false, "hierba"],
+    ["Floatzel", "Forja Fuego", false, "hierba"],
+    ["Gastrodon", "Forja Fuego", false, "hierba"],
+    ["Shinx", "Valle Eólico", false, "hierba"],
+    ["Pachirisu", "Ruta 205, Valle Eólico", false, "hierba"],
+    ["Bidoof", "Ruta 205", false, "hierba"],
+    ["Tentacool", "Surf, Ruta 205", false, "surf"],
+    ["Shellos", "Forja Fuego, Ruta 205, Valle Eólico", false, "surf"],
+    ["Tentacruel", "Forja Fuego, Ruta 205, Valle Eólico", false, "surf"],
+    ["Gastrodon", "Forja Fuego, Ruta 205, Valle Eólico", false, "surf"],
+    ["Magikarp", "Forja Fuego, Ruta 205, Valle Eólico", false, "cana"],
+    ["Finneon", "Caña buena, Ruta 205", false, "cana"],
+    ["Lumineon", "Forja Fuego, Ruta 205, Valle Eólico", false, "cana"],
+    ["Gyarados", "Forja Fuego, Ruta 205, Valle Eólico", false, "cana"],
+    ["Shellder", "Forja Fuego, Ruta 205, Valle Eólico", false, "cana"],
+    ["Drifloon", "Valle Eólico, solo los viernes tras vencer a Venus", true, "otros"],
+    ["Combee", "Árbol de miel", false, "otros"],
+    ["Burmy", "Árbol de miel", false, "otros"],
+    ["Cherubi", "Árbol de miel", false, "otros"],
+    ["Aipom", "Árbol de miel", false, "otros"],
+    ["Heracross", "Árbol de miel (raro)", false, "otros"],
+    ["Munchlax", "Árbol de miel, solo 4 árboles concretos (1%)", true, "otros"],
+  ],
+  item: [
+    ["Psydugadera", "Floristería Arco Iris", "key"],
+    ["MT88 Picoteo", "Niña en la casa de la izquierda", "mt"],
+    ["Llave central", "Reclutas del Prado Aromaflor", "key"],
+    ["Miel", "Hombre del Prado Aromaflor (úntala en árboles dorados)"],
+    ["Baya Zreza y Baya Aranja", "Entrada de la Floristería"],
+    ["Poción", "Valle Eólico, al este"],
+  ],
+  battle: [
+    { who: "Venus", role: "Comandante Galaxia · Valle Eólico", kind: "boss", team: [["Zubat", 15], ["Purugly", 17, true]], note: "Machop, Pachirisu o Kadabra con Confusión van bien contra Purugly." },
+  ],
+  tip: "Deja Miel en varios árboles dorados ahora. Aparecen Pokémon tras unas 6 horas y la miel se seca a las 24.",
+  tips: [["Truco", "Solo los Combee hembra evolucionan a Vespiquen (nivel 21), y apenas 1 de cada 8 lo es. Mira el símbolo de sexo antes de quedarte uno."], ["Truco", "Pachirisu puede tener la habilidad Recogida: tras los combates encuentra objetos por su cuenta, mejores cuanto más nivel tenga."]],
+},
+{
+  id: "vetusta", title: "Bosque Vetusto y Ciudad Vetusta", places: "Bosque Vetusto · Ruta 205 norte · Ciudad Vetusta",
+  intro: "Malta, una entrenadora con su Chansey, te acompaña por el bosque y cura a tu equipo tras cada combate. En Vetusta conoces a Cintia, que te da Corte, y a Gardenia, la líder de tipo Planta.",
+  story: [
+    "Cruzar el Bosque Vetusto con Malta (combates dobles)",
+    "Ver la estatua legendaria con Israel; aparecen Helio y Cintia",
+    "Recibir la MO01 Corte de Cintia",
+    "Recibir el Kit de exploración del Hombre Topo (abre el Subsuelo)",
+    "Ganar la Medalla Bosque en el Gimnasio de Vetusta",
+  ],
+  mon: [
+    ["Gastly", "Bosque Vetusto, de noche", false, "hierba"],
+    ["Budew", "Bosque Vetusto, Ruta 205", false, "hierba"],
+    ["Bidoof", "Bosque Vetusto, Ruta 205", false, "hierba"],
+    ["Buneary", "Bosque Vetusto", false, "hierba"],
+    ["Hoothoot", "Bosque Vetusto, de noche", false, "hierba"],
+    ["Silcoon", "Bosque Vetusto", false, "hierba"],
+    ["Cascoon", "Bosque Vetusto", false, "hierba"],
+    ["Wurmple", "Bosque Vetusto, Ruta 205", false, "hierba"],
+    ["Kricketot", "Bosque Vetusto, Ruta 205", false, "hierba"],
+    ["Beautifly", "Bosque Vetusto", false, "hierba"],
+    ["Dustox", "Bosque Vetusto", false, "hierba"],
+    ["Psyduck", "Ciudad Vetusta, Ruta 205", false, "surf"],
+    ["Golduck", "Ciudad Vetusta, Ruta 205", false, "surf"],
+    ["Magikarp", "Ciudad Vetusta, Ruta 205", false, "cana"],
+    ["Gyarados", "Ciudad Vetusta, Ruta 205", false, "cana"],
+    ["Barboach", "Ciudad Vetusta, Ruta 205", false, "cana"],
+    ["Whiscash", "Ciudad Vetusta, Ruta 205", false, "cana"],
+    ["Rotom", "Vieja Mansión (con Corte), televisor de 20:00 a 04:00", true, "otros"],
+  ],
+  item: [
+    ["Campana alivio", "Malta, al despedirse", "key"],
+    ["MO01 Corte", "Cintia", "mo"],
+    ["Indicador de amistad", "Centro Pokémon de Vetusta (Poké-reloj)", "key"],
+    ["Kit de exploración", "Hombre Topo, junto al Centro Pokémon", "key"],
+    ["MT67 Reciclaje", "Anciana, 2.ª planta del edificio tras el gimnasio", "mt"],
+    ["MT86 Hierba lazo", "Recompensa de Gardenia", "mt"],
+    ["Superpoción", "Ruta 205 norte, zona sin hierba"],
+  ],
+  battle: [
+    { who: "Gardenia", role: "Líder de Gimnasio · Planta", kind: "gym", badge: "bosque", team: [["Cherrim", 20], ["Turtwig", 20], ["Roserade", 22, true]], note: "Fuego y Volador. Roserade tiene Punto tóxico: cuidado con el contacto.", reward: "Medalla Bosque · MT86 Hierba lazo · Corte fuera de combate" },
+  ],
+  tips: [["Truco", "El Kit de exploración abre el Subsuelo. Excava los muros para sacar fósiles, piedras evolutivas, Tablas, Esferas y Escamas corazón."], ["Truco", "La roca cubierta de musgo del Bosque Vetusto evoluciona a Eevee en Leafeon si sube de nivel cerca. Eevee te lo regalan en Ciudad Corazón."]],
+},
+{
+  id: "edificio", title: "El Edificio Galaxia de Vetusta", places: "Edificio Galaxia · Tienda de bicis",
+  intro: "El dueño de la tienda de bicis está retenido en el Edificio Galaxia. Handsome, disfrazado, te da una pista sobre las escaleras. En la 4.ª planta, la comandante Ceres.",
+  story: [
+    "Entrar al Edificio Galaxia y subir por las escaleras marcadas",
+    "Derrotar a la comandante Ceres y liberar a Pepe Volata",
+    "Recibir el Huevo de Togepi de Cintia",
+    "Recibir la Bici en la tienda de Pepe Volata",
+  ],
+  mon: [
+    ["Togepi", "Huevo de Cintia (eclosiona tras ~2550 pasos)", true, "otros"],
+  ],
+  item: [
+    ["Bici", "Pepe Volata (B cambia de marcha)", "key"],
+    ["MT46 Ladrón", "Corta el árbol al este del edificio", "mt"],
+    ["Repartir experiencia", "Ayudante de Serbal si has visto 35 Pokémon", "key"],
+  ],
+  battle: [
+    { who: "Ceres", role: "Comandante Galaxia · Edificio Galaxia", kind: "boss", team: [["Zubat", 21], ["Skuntank", 23, true]], note: "Ataques de tipo Tierra contra Skuntank (Geodude aprende Magnitud)." },
+  ],
+  tips: [["Truco", "Togepi evoluciona a Togetic con la amistad alta, y Togetic a Togekiss con una Piedra día."]],
+},
+{
+  id: "corona1", title: "Ruta Ciclista, Monte Corona y Ruta 208", places: "Ruta 206 · Cueva Extravío · Ruta 207 · Monte Corona · Ruta 208",
+  intro: "Bajas en bici por la Ruta Ciclista hacia el sur. Bajo el puente se esconde la entrada a la Cueva Extravío, hogar de Gible. Cruzas el Monte Corona, donde Helio te habla de su visión del mundo, y sales hacia Ciudad Corazón.",
+  story: [
+    "Bajar la Ruta 206 en bici",
+    "Encontrar la entrada oculta de la Cueva Extravío bajo el puente",
+    "Recibir el Buscapelea y la función Zahorí de Maya/León en la Ruta 207",
+    "Cruzar el Monte Corona y hablar con Helio",
+    "Recibir la función Buscabayas en la Ruta 208",
+  ],
+  mon: [
+    ["Machop", "Monte Corona, Ruta 206, Ruta 207", false, "hierba"],
+    ["Geodude", "Monte Corona, Ruta 206, Ruta 207 …", false, "hierba"],
+    ["Ponyta", "Ruta 206, Ruta 207", false, "hierba"],
+    ["Bronzor", "Cueva Extravío", false, "hierba"],
+    ["Budew", "Ruta 208", false, "hierba"],
+    ["Gible", "Cueva Extravío, entrada oculta bajo el puente (Nv. 17-22)", true, "hierba"],
+    ["Gligar", "Ruta 206", false, "hierba"],
+    ["Meditite", "Monte Corona", false, "hierba"],
+    ["Bibarel", "Ruta 208", false, "hierba"],
+    ["Bidoof", "Ruta 208", false, "hierba"],
+    ["Ralts", "Ruta 208", false, "hierba"],
+    ["Roselia", "Ruta 208", false, "hierba"],
+    ["Zubat", "Monte Corona, Ruta 206, Ruta 207 …", false, "hierba"],
+    ["Onix", "Cueva Extravío", false, "hierba"],
+    ["Kricketune", "Ruta 206", false, "hierba"],
+    ["Chingling", "Monte Corona (raro)", false, "hierba"],
+    ["Clefairy", "Monte Corona (muy raro)", false, "hierba"],
+    ["Kricketot", "Ruta 207", false, "hierba"],
+    ["Nosepass", "Monte Corona", false, "hierba"],
+    ["Zubat", "Monte Corona", false, "surf"],
+    ["Psyduck", "Ruta 208", false, "surf"],
+    ["Golbat", "Monte Corona", false, "surf"],
+    ["Golduck", "Ruta 208", false, "surf"],
+    ["Magikarp", "Monte Corona, Ruta 208", false, "cana"],
+    ["Gyarados", "Monte Corona, Ruta 208", false, "cana"],
+    ["Barboach", "Monte Corona", false, "cana"],
+    ["Whiscash", "Monte Corona", false, "cana"],
+    ["Goldeen", "Ruta 208", false, "cana"],
+    ["Seaking", "Ruta 208", false, "cana"],
+  ],
+  item: [
+    ["Bandera", "Chica rubia en la caseta de la Ruta 206"],
+    ["Buscapelea", "Maya/León, Ruta 207", "key"],
+    ["Carameloraro", "Ruta 207, oculto en la esquina superior izquierda"],
+    ["Piedra espíritu", "Karateka al final de la Ruta 208", "key"],
+    ["Baya del Bayólogo", "Casa de la Ruta 208"],
+  ],
+  battle: [],
+  tip: "Gible es una apuesta fuerte: Garchomp es el as de Cintia. Lleva MT70 Destello para ver dentro de la cueva.",
+  tips: [["Truco", "Gible crece despacio, pero evoluciona a Gabite a nivel 24 y a Garchomp a nivel 48, uno de los Pokémon más fuertes del juego."]],
+},
+{
+  id: "corazon", title: "Ciudad Corazón y Fantina", places: "Ciudad Corazón",
+  intro: "La ciudad de los concursos. Aquí tu madre te regala tu traje para los Súper Concursos y Fantina, la líder de tipo Fantasma, te espera en su gimnasio de puertas misteriosas. En Platino, es la tercera medalla.",
+  story: [
+    "Atrapar al Buneary escapado del juez",
+    "Recibir el traje para Súper Concursos en el Auditorio",
+    "Hablar con Fantina en el Auditorio",
+    "Recibir la Pokochera en el Club de Fans",
+    "Ganar la Medalla Reliquia en el Gimnasio de Corazón",
+  ],
+  mon: [
+    ["Eevee", "Regalo en una casa junto al Centro Pokémon (Nv. 20)", true, "otros"],
+  ],
+  item: [
+    ["Pokochera", "Presidente del Club de Fans Pokémon", "key"],
+    ["Campana concha", "Planta alta del edificio junto al Club de Fans"],
+    ["Traje de concurso", "Tu madre, en el Auditorio"],
+    ["MT65 Garra umbría", "Recompensa de Fantina", "mt"],
+  ],
+  battle: [
+    { who: "Fantina", role: "Líder de Gimnasio · Fantasma", kind: "gym", badge: "reliquia", team: [["Duskull", 24], ["Haunter", 24], ["Mismagius", 26, true]], note: "Siniestro, o Mordisco con Luxio o Grotle. Mismagius usa Bola sombra, Psicorrayo y Hoja mágica.", reward: "Medalla Reliquia · MT65 Garra umbría · Despejar fuera de combate" },
+  ],
+  tips: [["Truco", "Eevee tiene siete evoluciones en Platino. Antes de darle una piedra, mira la sección Pokémon raros y trucos, al final de la guía."], ["Truco", "En la Plaza Amistad puedes pasear con algunos Pokémon pequeños, como Pachirisu, Buneary, Psyduck o Drifloon. Mientras paseáis recogen objetos."]],
+},
+{
+  id: "sosiego", title: "Ruta 209, Torre Perdida y Pueblo Sosiego", places: "Ruta 209 · Torre Perdida · Pueblo Sosiego · Ruinas Sosiego",
+  intro: "Israel te intercepta a la salida de Corazón. Al norte, la Torre Perdida está cubierta de niebla: necesitas Despejar, que encontrarás en las Ruinas Sosiego, llenas de Unown. Pueblo Sosiego tiene la Guardería.",
+  story: [
+    "Vencer a Israel en la Ruta 209",
+    "Colocar la Piedra espíritu en la Torre Sagrada de la Ruta 209",
+    "Conseguir la MO05 Despejar en las Ruinas Sosiego",
+    "Subir a la Torre Perdida y hablar con las dos ancianas",
+    "Recibir las funciones Historial e Indicador Guardería del Poké-reloj",
+  ],
+  mon: [
+    ["Unown", "Ruinas Sosiego (28 formas)", false, "hierba"],
+    ["Gastly", "Torre Perdida", false, "hierba"],
+    ["Zubat", "Torre Perdida, Ruta 209", false, "hierba"],
+    ["Bibarel", "Ruta 209", false, "hierba"],
+    ["Roselia", "Ruta 209", false, "hierba"],
+    ["Staravia", "Ruta 209", false, "hierba"],
+    ["Duskull", "Torre Perdida, de noche", false, "hierba"],
+    ["Ralts", "Ruta 209", false, "hierba"],
+    ["Golbat", "Torre Perdida", false, "hierba"],
+    ["Chansey", "Ruta 209 (raro)", false, "hierba"],
+    ["Bonsly", "Jardín Trofeo (Ruta 212), solo el día que lo menciona el dueño de la mansión", false, "hierba"],
+    ["Psyduck", "Ruta 209", false, "surf"],
+    ["Golduck", "Ruta 209", false, "surf"],
+    ["Magikarp", "Ruta 209", false, "cana"],
+    ["Gyarados", "Ruta 209", false, "cana"],
+    ["Goldeen", "Ruta 209", false, "cana"],
+    ["Seaking", "Ruta 209", false, "cana"],
+  ],
+  item: [
+    ["MO05 Despejar", "Ruinas Sosiego", "mo"],
+    ["Caña buena", "Primer pescador de la Ruta 209", "key"],
+    ["MT47 Ala de acero", "Ruta 209, árbol al este de la primera rampa de barro", "mt"],
+    ["Hechizo y Amuleto", "Ancianas de la última planta de la Torre Perdida"],
+    ["Piedra fuego, trueno y agua", "Salas con una sola roca en las Ruinas Sosiego"],
+    ["Caja sellos", "Señora en la casa junto a las Ruinas", "key"],
+    ["Superball ×2", "Ruta 209, hierba alta"],
+    ["Hiperpoción ×2", "Ruta 209"],
+  ],
+  battle: [
+    { who: "Israel", role: "Rival · Ruta 209", kind: "rival", team: [["Staravia", 25], ["Dos de: Buizel, Roselia, Ponyta", 23], ["Su inicial (2.ª fase)", 27, true]], note: "Niveles aproximados (23-27); el equipo depende de tu inicial." },
+  ],
+  tips: [["Truco", "La Guardería de Sosiego cría huevos si dejas dos Pokémon compatibles, y los que dejes suben de nivel mientras caminas."], ["Truco", "Spiritomb: con la Piedra espíritu ya colocada en la Torre Sagrada, habla con 32 personas en el Subsuelo y vuelve a examinar la torre."]],
+},
+{
+  id: "rocavelo", title: "Ciudad Rocavelo y el Almacén Galaxia", places: "Ruta 210 sur · Ruta 215 · Ciudad Rocavelo",
+  intro: "Unos Psyduck bloquean el norte de la Ruta 210, así que vas al este bajo la lluvia de la Ruta 215. En Rocavelo está la sede del Equipo Galaxia y Brega, la líder de tipo Lucha. Después, el Almacén Galaxia esconde la Pokédex robada de tu amigo y la MO02 Vuelo.",
+  story: [
+    "Ganar la Medalla Adoquín en el Gimnasio de Rocavelo",
+    "Vencer a los dos reclutas del Almacén Galaxia",
+    "Recuperar la Pokédex robada de Maya/León",
+    "Conseguir la MO02 Vuelo dentro del almacén",
+    "Recibir la función MarcaMapa en Poké-reloj S.A. (Jubileo)",
+  ],
+  mon: [
+    ["Marill", "Ruta 215", false, "hierba"],
+    ["Staravia", "Ruta 210, Ruta 215", false, "hierba"],
+    ["Ponyta", "Ruta 210", false, "hierba"],
+    ["Geodude", "Ruta 210", false, "hierba"],
+    ["Scyther", "Ruta 210 sur", false, "hierba"],
+    ["Roselia", "Ruta 210", false, "hierba"],
+    ["Abra", "Ruta 215", false, "hierba"],
+    ["Kadabra", "Ruta 215", false, "hierba"],
+    ["Lickitung", "Ruta 215", false, "hierba"],
+    ["Hoothoot", "Ruta 210", false, "hierba"],
+    ["Noctowl", "Ruta 210", false, "hierba"],
+    ["Chansey", "Ruta 210", false, "hierba"],
+    ["Porygon", "Regalo en una casa de Rocavelo", true, "otros"],
+  ],
+  item: [
+    ["MO02 Vuelo", "Almacén Galaxia", "mo"],
+    ["MT51 Respiro", "Chica del camino central, Ruta 210", "mt"],
+    ["MT66 Vendetta", "Karateka de la Ruta 215", "mt"],
+    ["MT60 Puño drenaje", "Recompensa de Brega", "mt"],
+    ["MT64 Explosión", "Mostrador de la casa de masajes", "mt"],
+    ["MT63 Embargo", "Hombre calvo fuera de las casas", "mt"],
+    ["Monedero", "Payaso junto a la casa del gimnasio", "key"],
+    ["Carameloraro", "Zona izquierda de la sede Galaxia"],
+    ["Leche Mu-Mu", "Café Rodeo, Ruta 210"],
+  ],
+  battle: [
+    { who: "Brega", role: "Líder de Gimnasio · Lucha", kind: "gym", badge: "adoquin", team: [["Meditite", 28], ["Machoke", 29], ["Lucario", 32, true]], note: "Volador o Psíquico. Para Lucario: Fuego, Tierra o Lucha.", reward: "Medalla Adoquín · MT60 Puño drenaje · Vuelo fuera de combate" },
+    { who: "Reclutas Galaxia", role: "Almacén Galaxia", kind: "boss", team: [["Zubat", 24], ["Croagunk", 26], ["Zubat", 24], ["Stunky", 26]] },
+  ],
+  tips: [["Truco", "La casa de masajes de Rocavelo da un masaje al día a uno de tus Pokémon y le sube la amistad. Útil para Riolu, Togepi, Eevee o Budew."], ["Truco", "Los Grandes Almacenes de Rocavelo venden MT, vitaminas y objetos de combate que no hay en otras tiendas."]],
+},
+{
+  id: "pradera", title: "Lago Valor, Ciudad Pradera y Mananti", places: "Ruta 214 · Orilla Valor · Ruta 213 · Ciudad Pradera · Gran Pantano",
+  intro: "Bajas junto al Lago Valor hasta Ciudad Pradera, puerta del Gran Pantano (la zona safari). Tras el gimnasio de Mananti, un recluta Galaxia huye con un rumor de bomba; al perseguirlo te encuentras con Cintia, que te pide un favor.",
+  story: [
+    "Encontrar las llaves de la chica del hotel con el Zahorí",
+    "Vencer a Israel antes del gimnasio de Pradera",
+    "Ganar la Medalla Ciénaga en el Gimnasio de Pradera",
+    "Perseguir al recluta Galaxia hasta la Ruta 213",
+    "Recibir de Cintia la Poción secreta y el Talismán para su abuela",
+  ],
+  mon: [
+    ["Shellos", "Ruta 212, Ruta 213", false, "hierba"],
+    ["Marill", "Ruta 212", false, "hierba"],
+    ["Wooper", "Gran Pantano", false, "hierba"],
+    ["Buizel", "Ruta 212, Ruta 213", false, "hierba"],
+    ["Roselia", "Ruta 212, Jardín Trofeo", false, "hierba"],
+    ["Staravia", "Ruta 212, Jardín Trofeo, Orilla Valor", false, "hierba"],
+    ["Graveler", "Ruta 214", false, "hierba"],
+    ["Rhyhorn", "Ruta 214", false, "hierba"],
+    ["Quagsire", "Gran Pantano", false, "hierba"],
+    ["Pichu", "Jardín Trofeo, Ruta 212", false, "hierba"],
+    ["Bibarel", "Gran Pantano, Orilla Valor", false, "hierba"],
+    ["Houndour", "Ruta 214", false, "hierba"],
+    ["Girafarig", "Orilla Valor, junto a la Ruta 214", false, "hierba"],
+    ["Yanma", "Gran Pantano", false, "hierba"],
+    ["Tangela", "Gran Pantano", false, "hierba"],
+    ["Chatot", "Ruta 213", false, "hierba"],
+    ["Wingull", "Ruta 213", false, "hierba"],
+    ["Noctowl", "Gran Pantano", false, "hierba"],
+    ["Tropius", "Gran Pantano", false, "hierba"],
+    ["Hoothoot", "Gran Pantano", false, "hierba"],
+    ["Kirlia", "Ruta 212", false, "hierba"],
+    ["Geodude", "Ruta 214", false, "hierba"],
+    ["Kricketune", "Jardín Trofeo, Orilla Valor", false, "hierba"],
+    ["Croagunk", "Gran Pantano", false, "hierba"],
+    ["Pikachu", "Jardín Trofeo, Ruta 212", false, "hierba"],
+    ["Ralts", "Ruta 212", false, "hierba"],
+    ["Zubat", "Ruta 214", false, "hierba"],
+    ["Carnivine", "Gran Pantano", false, "hierba"],
+    ["Skorupi", "Gran Pantano", false, "hierba"],
+    ["Wooper", "Gran Pantano", false, "surf"],
+    ["Psyduck", "Ruta 212, Ruta 214", false, "surf"],
+    ["Tentacool", "Ciudad Pradera, Ruta 212, Ruta 213", false, "surf"],
+    ["Shellos", "Ciudad Pradera, Ruta 212, Ruta 213", false, "surf"],
+    ["Wingull", "Ciudad Pradera, Ruta 213", false, "surf"],
+    ["Quagsire", "Gran Pantano", false, "surf"],
+    ["Golduck", "Ruta 212, Ruta 214", false, "surf"],
+    ["Gastrodon", "Ciudad Pradera, Ruta 212, Ruta 213", false, "surf"],
+    ["Tentacruel", "Ciudad Pradera, Ruta 212, Ruta 213", false, "surf"],
+    ["Magikarp", "Gran Pantano, Ciudad Pradera, Ruta 212 …", false, "cana"],
+    ["Gyarados", "Gran Pantano, Ciudad Pradera, Ruta 212 …", false, "cana"],
+    ["Carvanha", "Gran Pantano", false, "cana"],
+    ["Barboach", "Gran Pantano", false, "cana"],
+    ["Remoraid", "Ciudad Pradera, Ruta 212, Ruta 213", false, "cana"],
+    ["Octillery", "Ciudad Pradera, Ruta 212, Ruta 213", false, "cana"],
+    ["Goldeen", "Ruta 212, Ruta 214", false, "cana"],
+    ["Seaking", "Ruta 212, Ruta 214", false, "cana"],
+    ["Whiscash", "Gran Pantano", false, "cana"],
+  ],
+  item: [
+    ["Flauta blanca", "Chica del hotel de la Orilla Valor"],
+    ["Cinta Huella", "Dr. Pisada, si tu Pokémon te tiene cariño"],
+    ["Zinc", "Oculto en el charco grande de Pradera"],
+    ["MT55 Salmuera", "Recompensa de Mananti", "mt"],
+    ["Poción secreta", "Cintia, Ruta 213", "key"],
+    ["Talismán", "Cintia, para su abuela", "key"],
+  ],
+  battle: [
+    { who: "Israel", role: "Rival · Ciudad Pradera", kind: "rival", team: [["Staravia", 34], ["Dos de: Buizel, Roselia, Ponyta", 32], ["Su inicial (2.ª fase)", 36, true]], note: "Niveles aproximados (32-36); el equipo depende de tu inicial." },
+    { who: "Mananti", role: "Líder de Gimnasio · Agua", kind: "gym", badge: "cienaga", team: [["Gyarados", 33], ["Quagsire", 34], ["Floatzel", 37, true]], note: "Eléctrico y Planta. Quagsire es inmune a Eléctrico: guarda un ataque Planta para él.", reward: "Medalla Ciénaga · MT55 Salmuera · Surf fuera de combate" },
+  ],
+  tips: [["Truco", "En la azotea del edificio de entrada al Gran Pantano hay unos prismáticos: muestran qué Pokémon especiales hay hoy en el pantano."], ["Truco", "En Pradera vive el Recordador de movimientos: a cambio de una Escama corazón (búscalas en el Subsuelo) enseña ataques olvidados."]],
+},
+{
+  id: "caelestis", title: "Pueblo Caelestis y el primer duelo con Helio", places: "Ruta 210 norte · Pueblo Caelestis · Ruta 211",
+  intro: "Con la Poción secreta curas a los Psyduck y subes por la niebla de la Ruta 210. En Pueblo Caelestis, el Equipo Galaxia amenaza las ruinas. La abuela de Cintia te cuenta la leyenda de Sinnoh y Helio, el líder Galaxia, te desafía en persona.",
+  story: [
+    "Dar la Poción secreta a los Psyduck de la Ruta 210",
+    "Despejar la niebla de la Ruta 210 norte",
+    "Vencer al recluta Galaxia de Pueblo Caelestis",
+    "Entregar el Talismán a la abuela de Cintia",
+    "Ver los murales de Uxie, Mesprit y Azelf en las ruinas",
+    "Vencer a Helio en Pueblo Caelestis",
+    "Recibir la MO03 Surf de la abuela",
+  ],
+  mon: [
+    ["Meditite", "Monte Corona, Ruta 210, Ruta 211", false, "hierba"],
+    ["Swablu", "Ruta 210 norte, en la niebla", false, "hierba"],
+    ["Geodude", "Monte Corona", false, "hierba"],
+    ["Bronzor", "Monte Corona, Ruta 211", false, "hierba"],
+    ["Bibarel", "Ruta 210", false, "hierba"],
+    ["Graveler", "Ruta 211", false, "hierba"],
+    ["Bidoof", "Ruta 211", false, "hierba"],
+    ["Zubat", "Monte Corona, Ruta 211", false, "hierba"],
+    ["Machop", "Monte Corona, Ruta 210, Ruta 211", false, "hierba"],
+    ["Chingling", "Monte Corona, Ruta 211", false, "hierba"],
+    ["Machoke", "Ruta 210, Ruta 211", false, "hierba"],
+    ["Scyther", "Ruta 210", false, "hierba"],
+    ["Cleffa", "Monte Corona", false, "hierba"],
+    ["Hoothoot", "Ruta 210, Ruta 211", false, "hierba"],
+    ["Noctowl", "Ruta 210, Ruta 211", false, "hierba"],
+    ["Nosepass", "Monte Corona", false, "hierba"],
+    ["Altaria", "Ruta 210 norte, en la niebla", false, "hierba"],
+    ["Psyduck", "Pueblo Caelestis, Ruta 210", false, "surf"],
+    ["Golduck", "Pueblo Caelestis, Ruta 210", false, "surf"],
+    ["Magikarp", "Pueblo Caelestis, Ruta 210", false, "cana"],
+    ["Gyarados", "Pueblo Caelestis, Ruta 210", false, "cana"],
+    ["Goldeen", "Pueblo Caelestis", false, "cana"],
+    ["Whiscash", "Ruta 210", false, "cana"],
+    ["Corphish", "Pueblo Caelestis", false, "cana"],
+    ["Barboach", "Ruta 210", false, "cana"],
+    ["Crawdaunt", "Pueblo Caelestis", false, "cana"],
+    ["Seaking", "Pueblo Caelestis", false, "cana"],
+  ],
+  item: [
+    ["MO03 Surf", "Abuela de Cintia", "mo"],
+    ["MT30 Bola sombra", "Ruta 210 norte, pasado el puente (requiere Golpe roca)", "mt"],
+    ["Roca del rey", "Pueblo Caelestis, con el Zahorí"],
+    ["MT77 Más psique", "Niño de la Ruta 211 sur", "mt"],
+  ],
+  battle: [
+    { who: "Recluta Galaxia", role: "Pueblo Caelestis", kind: "boss", team: [["Golbat", 30], ["Houndour", 32]] },
+    { who: "Helio", role: "Líder del Equipo Galaxia · Pueblo Caelestis", kind: "boss", team: [["Sneasel", 34], ["Golbat", 34], ["Murkrow", 36, true]], note: "Lucha contra Sneasel, Eléctrico o Roca contra los voladores." },
+  ],
+},
+{
+  id: "canal", title: "Ciudad Canal e Isla Hierro", places: "Ruta 218 · Ciudad Canal · Isla Hierro",
+  intro: "Surfeas al oeste de Jubileo hasta Ciudad Canal. Israel te reta en el puente. En Isla Hierro conoces a Quinoa, que te da Fuerza y te deja un Huevo especial. El líder Acerón usa tipo Acero en un gimnasio de plataformas.",
+  story: [
+    "Surfear desde Jubileo por la Ruta 218",
+    "Vencer a Israel en el puente de Canal",
+    "Recibir la MO04 Fuerza de Quinoa en Isla Hierro",
+    "Explorar Isla Hierro con Quinoa y vencer al Equipo Galaxia",
+    "Recibir el Huevo de Riolu de Quinoa",
+    "Ganar la Medalla Mina en el Gimnasio de Canal",
+  ],
+  mon: [
+    ["Graveler", "Isla Hierro", false, "hierba"],
+    ["Floatzel", "Surf, Ruta 218", false, "hierba"],
+    ["Gastrodon", "Ruta 218", false, "hierba"],
+    ["Geodude", "Isla Hierro", false, "hierba"],
+    ["Steelix", "Isla Hierro (sótanos)", false, "hierba"],
+    ["Mr. Mime", "Ruta 218", false, "hierba"],
+    ["Sudowoodo", "Ruta 221", false, "hierba"],
+    ["Girafarig", "Ruta 221", false, "hierba"],
+    ["Roselia", "Ruta 221", false, "hierba"],
+    ["Golbat", "Isla Hierro", false, "hierba"],
+    ["Onix", "Isla Hierro", false, "hierba"],
+    ["Chatot", "Ruta 218", false, "hierba"],
+    ["Zubat", "Isla Hierro", false, "hierba"],
+    ["Tentacool", "Ciudad Canal, Isla Hierro, Ruta 218 …", false, "surf"],
+    ["Wingull", "Isla Hierro, Ruta 219, Ruta 221 …", false, "surf"],
+    ["Shellos", "Ciudad Canal, Ruta 218", false, "surf"],
+    ["Tentacruel", "Ciudad Canal, Isla Hierro, Ruta 218 …", false, "surf"],
+    ["Pelipper", "Isla Hierro, Ruta 219, Ruta 221 …", false, "surf"],
+    ["Gastrodon", "Surf", false, "surf"],
+    ["Magikarp", "Ciudad Canal, Isla Hierro, Ruta 218 …", false, "cana"],
+    ["Gyarados", "Ciudad Canal, Isla Hierro, Ruta 218 …", false, "cana"],
+    ["Finneon", "Ciudad Canal, Isla Hierro, Ruta 218 …", false, "cana"],
+    ["Lumineon", "Ciudad Canal, Isla Hierro, Ruta 218 …", false, "cana"],
+    ["Staryu", "Ciudad Canal", false, "cana"],
+    ["Qwilfish", "Isla Hierro", false, "cana"],
+    ["Chinchou", "Ruta 220", false, "cana"],
+    ["Riolu", "Huevo de Quinoa, Isla Hierro", true, "otros"],
+  ],
+  item: [
+    ["MO04 Fuerza", "Quinoa, Isla Hierro", "mo"],
+    ["Tabla acero", "Isla Hierro, con el Zahorí"],
+    ["MT91 Foco resplandor", "Recompensa de Acerón", "mt"],
+    ["Carameloraro", "Ruta 218, arriba a la derecha con Surf"],
+    ["Hiperpoción", "Ruta 218, carril de agua inferior"],
+    ["Precisión X", "Ruta 218, carril superior"],
+  ],
+  battle: [
+    { who: "Israel", role: "Rival · Ciudad Canal", kind: "rival", team: [["Floatzel", 35], ["Staraptor", 36], ["Roserade o Rapidash", 37], ["Heracross", 38], ["Su inicial (fase final)", null, true]] },
+    { who: "Quinoa", role: "Compañero · Isla Hierro", kind: "trainer", team: [["Lucario", 41]], note: "Lucha a tu lado contra los reclutas." },
+    { who: "Acerón", role: "Líder de Gimnasio · Acero", kind: "gym", badge: "mina", team: [["Magneton", 37], ["Steelix", 38], ["Bastiodon", 41, true]], note: "Lucha y Tierra contra Bastiodon y Magneton; Agua o Fuego contra Steelix. Bastiodon lleva Baya Zidra.", reward: "Medalla Mina · MT91 Foco resplandor · Fuerza fuera de combate" },
+  ],
+  tips: [["Truco", "En Ciudad Canal vive el Olvidamovimientos: borra las MO de tus Pokémon para que no ocupen un hueco de ataque."], ["Truco", "Riolu evoluciona a Lucario si sube de nivel de día con la amistad alta."]],
+},
+{
+  id: "lagos", title: "La crisis de los tres lagos", places: "Biblioteca de Canal · Lago Valor · Lago Veraz",
+  intro: "Mientras Serbal os explica la leyenda en la biblioteca de Canal, una explosión seca el Lago Valor. El Equipo Galaxia está capturando a los guardianes de los lagos. Corres a Valor y después a Veraz, donde Venus ya ha derrotado a Serbal y a tu amigo.",
+  story: [
+    "Reunirte con Serbal, Israel y Maya/León en la biblioteca de Canal",
+    "Ir al Lago Valor y vencer a Saturno en la cueva",
+    "Ir al Lago Veraz y vencer a Venus",
+  ],
+  mon: [
+    ["Starly", "Lago Veraz", false, "hierba"],
+    ["Bidoof", "Lago Veraz", false, "hierba"],
+    ["Staravia", "Lago Valor", false, "hierba"],
+    ["Bibarel", "Lago Valor", false, "hierba"],
+    ["Psyduck", "Lago Valor", false, "hierba"],
+    ["Golduck", "Lago Valor", false, "hierba"],
+    ["Psyduck", "Lago Valor, Lago Veraz", false, "surf"],
+    ["Golduck", "Lago Valor, Lago Veraz", false, "surf"],
+    ["Magikarp", "Lago Valor, Lago Veraz", false, "cana"],
+    ["Gyarados", "Lago Valor, Lago Veraz", false, "cana"],
+    ["Seaking", "Lago Valor, Lago Veraz", false, "cana"],
+    ["Goldeen", "Lago Valor, Lago Veraz", false, "cana"],
+  ],
+  item: [],
+  battle: [
+    { who: "Saturno", role: "Comandante Galaxia · Lago Valor", kind: "boss", team: [["Golbat", 38], ["Bronzor", 38], ["Toxicroak", 40, true]] },
+    { who: "Venus", role: "Comandante Galaxia · Lago Veraz", kind: "boss", team: [["Golbat", 38], ["Bronzor", 38], ["Purugly", 40, true]] },
+  ],
+},
+{
+  id: "puntaneva", title: "La nieve: rutas 216, 217 y Ciudad Puntaneva", places: "Monte Corona · Ruta 216 · Ruta 217 · Orilla Agudeza · Ciudad Puntaneva",
+  intro: "Desde Vetusta entras al Monte Corona con Fuerza y sales a la nieve. En la tormenta de la Ruta 217 encuentras Treparrocas, imprescindible para el Lago Agudeza. Inverna, la líder de tipo Hielo, te espera en Puntaneva.",
+  story: [
+    "Cruzar el Monte Corona usando Fuerza",
+    "Atravesar la tormenta de nieve de las rutas 216 y 217",
+    "Encontrar la MO08 Treparrocas en la Ruta 217",
+    "Ganar la Medalla Carámbano en el Gimnasio de Puntaneva",
+  ],
+  mon: [
+    ["Snover", "Rutas 216 y 217", false, "hierba"],
+    ["Sneasel", "Rutas 216 y 217, Lago Agudeza", false, "hierba"],
+    ["Swinub", "Rutas 216 y 217", false, "hierba"],
+    ["Graveler", "Monte Corona, Ruta 216", false, "hierba"],
+    ["Medicham", "Monte Corona", false, "hierba"],
+    ["Snorunt", "Rutas 216 y 217", false, "hierba"],
+    ["Meditite", "Monte Corona, Ruta 216", false, "hierba"],
+    ["Bronzor", "Monte Corona", false, "hierba"],
+    ["Bronzong", "Monte Corona", false, "hierba"],
+    ["Golbat", "Monte Corona", false, "hierba"],
+    ["Clefairy", "Monte Corona", false, "hierba"],
+    ["Machoke", "Monte Corona", false, "hierba"],
+    ["Chingling", "Monte Corona", false, "hierba"],
+    ["Zubat", "Ruta 216", false, "hierba"],
+    ["Nosepass", "Monte Corona", false, "hierba"],
+    ["Zubat", "Monte Corona", false, "surf"],
+    ["Golbat", "Monte Corona", false, "surf"],
+    ["Magikarp", "Monte Corona", false, "cana"],
+    ["Gyarados", "Monte Corona", false, "cana"],
+    ["Barboach", "Monte Corona", false, "cana"],
+    ["Whiscash", "Monte Corona", false, "cana"],
+    ["Feebas", "Lago del Monte Corona, en 4 casillas al azar (Surf)", true, "cana"],
+  ],
+  item: [
+    ["MO08 Treparrocas", "Detrás de una casa en la Ruta 217", "mo"],
+    ["Tabla helada", "Montañero de la casa de la Ruta 217"],
+    ["Refleluz", "Isla de la sala con niebla del Monte Corona (Surf)"],
+    ["MT72 Alud", "Recompensa de Inverna", "mt"],
+    ["Ultraball", "Puerto de Puntaneva"],
+  ],
+  battle: [
+    { who: "Inverna", role: "Líder de Gimnasio · Hielo", kind: "gym", badge: "carambano", team: [["Sneasel", 40], ["Piloswine", 40], ["Abomasnow", 42], ["Froslass", 44, true]], note: "Fuego, Lucha, Acero o Roca. Abomasnow invoca granizo. Froslass lleva Baya Zidra.", reward: "Medalla Carámbano · MT72 Alud · Treparrocas fuera de combate" },
+  ],
+  tips: [["Truco", "La roca helada de la Ruta 217 evoluciona a Eevee en Glaceon si sube de nivel cerca."], ["Truco", "Snorunt hembra con una Piedra alba evoluciona a Froslass, y Kirlia macho con una Piedra alba a Gallade."]],
+},
+{
+  id: "sede", title: "Lago Agudeza y la sede Galaxia", places: "Lago Agudeza · Ciudad Rocavelo · Sede del Equipo Galaxia",
+  intro: "Llegas tarde al Lago Agudeza: Ceres se ha llevado a Uxie e Israel está abatido. Toca asaltar la sede Galaxia en Rocavelo con ayuda de Handsome. Helio te entrega la Master Ball tras el combate, y en el laboratorio liberas a los tres guardianes de los lagos.",
+  story: [
+    "Subir al Lago Agudeza con Treparrocas y hablar con Israel",
+    "Entrar al almacén de Rocavelo con Handsome",
+    "Conseguir la Llave Galaxia y abrir la sede",
+    "Vencer a Helio en la sede Galaxia",
+    "Vencer a Saturno en el laboratorio",
+    "Liberar a Uxie, Mesprit y Azelf",
+  ],
+  mon: [
+    ["Snover", "Lago Agudeza", false, "hierba"],
+    ["Bibarel", "Lago Agudeza", false, "hierba"],
+    ["Snorunt", "Lago Agudeza", false, "hierba"],
+    ["Golduck", "Lago Agudeza", false, "hierba"],
+    ["Sneasel", "Lago Agudeza", false, "hierba"],
+    ["Psyduck", "Lago Agudeza", false, "hierba"],
+    ["Psyduck", "Lago Agudeza", false, "surf"],
+    ["Golduck", "Lago Agudeza", false, "surf"],
+    ["Magikarp", "Lago Agudeza", false, "cana"],
+    ["Gyarados", "Lago Agudeza", false, "cana"],
+    ["Seaking", "Lago Agudeza", false, "cana"],
+    ["Goldeen", "Lago Agudeza", false, "cana"],
+  ],
+  item: [
+    ["Master Ball", "Helio, tras vencerle", "key"],
+    ["Llave Galaxia", "Dentro de la base", "key"],
+    ["Tela terrible", "Lago Agudeza, a la derecha"],
+    ["Piedra noche", "Junto a Handsome en el almacén"],
+    ["Pokémuñeco", "A los pies de la cama derecha del edificio"],
+  ],
+  battle: [
+    { who: "Helio", role: "Líder del Equipo Galaxia · Sede", kind: "boss", team: [["Sneasel", 44], ["Crobat", 44], ["Honchkrow", 46, true]] },
+    { who: "Saturno", role: "Comandante Galaxia · Laboratorio", kind: "boss", team: [["Golbat", 42], ["Bronzor", 42], ["Toxicroak", 44, true]] },
+  ],
+  tip: "Guarda la Master Ball. Es ideal para Mesprit, que huye por todo Sinnoh, o para Giratina si te cuesta.",
+},
+{
+  id: "columna", title: "Columna Lanza y el Mundo Distorsión", places: "Monte Corona · Columna Lanza · Mundo Distorsión",
+  intro: "La cima del Monte Corona. Helio usa la Cadena roja para invocar a Dialga y Palkia, pero Giratina irrumpe desde otra dimensión y os arrastra a ti y a Cintia al Mundo Distorsión, donde la gravedad no funciona como debería. Allí se decide todo.",
+  story: [
+    "Subir el Monte Corona con Surf, Fuerza y Treparrocas",
+    "Ganar el combate múltiple con Israel contra Venus y Ceres en la Columna Lanza",
+    "Seguir a Cintia por el Mundo Distorsión y resolver los puzles de rocas",
+    "Vencer a Helio en el Mundo Distorsión",
+    "Capturar (o derrotar) a Giratina en su forma Origen",
+  ],
+  mon: [
+    ["Graveler", "Monte Corona", false, "hierba"],
+    ["Abomasnow", "Monte Corona", false, "hierba"],
+    ["Medicham", "Monte Corona", false, "hierba"],
+    ["Bronzong", "Monte Corona", false, "hierba"],
+    ["Snover", "Monte Corona", false, "hierba"],
+    ["Golbat", "Monte Corona", false, "hierba"],
+    ["Clefairy", "Monte Corona", false, "hierba"],
+    ["Machoke", "Monte Corona", false, "hierba"],
+    ["Chingling", "Monte Corona", false, "hierba"],
+    ["Chimecho", "Monte Corona", false, "hierba"],
+    ["Noctowl", "Monte Corona", false, "hierba"],
+    ["Nosepass", "Monte Corona", false, "hierba"],
+    ["Absol", "Monte Corona", false, "hierba"],
+    ["Zubat", "Monte Corona", false, "surf"],
+    ["Golbat", "Monte Corona", false, "surf"],
+    ["Magikarp", "Monte Corona", false, "cana"],
+    ["Barboach", "Monte Corona", false, "cana"],
+    ["Gyarados", "Monte Corona", false, "cana"],
+    ["Dratini", "Monte Corona", false, "cana"],
+    ["Whiscash", "Monte Corona", false, "cana"],
+    ["Dragonair", "Monte Corona", false, "cana"],
+    ["Giratina", "Mundo Distorsión, Nv. 47 (forma Origen)", true, "otros"],
+    ["Uxie", "Lago Agudeza tras el Mundo Distorsión, Nv. 50", true, "otros"],
+    ["Azelf", "Lago Valor tras el Mundo Distorsión, Nv. 50", true, "otros"],
+    ["Mesprit", "Despiértalo en la Caverna Veraz; luego vaga por Sinnoh, Nv. 50", true, "otros"],
+  ],
+  item: [
+    ["Flauta negra", "Handsome, en el Monte Corona"],
+  ],
+  battle: [
+    { who: "Venus y Ceres", role: "Combate múltiple con Israel · Columna Lanza", kind: "boss", team: [["Bronzor", 44], ["Golbat", 44], ["Skuntank", 44], ["Bronzor", 44], ["Golbat", 44], ["Purugly", 46, true]] },
+    { who: "Helio", role: "Líder del Equipo Galaxia · Mundo Distorsión", kind: "boss", team: [["Houndoom", 45], ["Gyarados", 46], ["Crobat", 46], ["Honchkrow", 47], ["Weavile", 48, true]], note: "Weavile lleva Baya Zidra. Lucha, Fuego y Eléctrico cubren casi todo su equipo." },
+  ],
+  tip: "Guarda antes de enfrentarte a Giratina. Si lo derrotas sin querer, vuelve a aparecer tras la Liga en la Cueva Retorno.",
+  tips: [["Truco", "Mesprit vaga por Sinnoh y cambia de ruta cada vez que entras o sales de una. Sigue su posición con la función MarcaMapa del Poké-reloj."]],
+},
+{
+  id: "marina", title: "Ciudad Marina y la octava medalla", places: "Ruta 222 · Ciudad Marina",
+  intro: "La Ruta 222 por fin está abierta. En Ciudad Marina, Fausto del Alto Mando te pide que animes a Lectro, el líder de tipo Eléctrico, aburrido de retadores débiles. Encuéntralo en el Faro Visión y luego derrótalo en su gimnasio de engranajes.",
+  story: [
+    "Hablar con Fausto en Ciudad Marina",
+    "Encontrar a Lectro en el Faro Visión",
+    "Ganar la Medalla Faro en el Gimnasio de Marina",
+    "Recibir la MO07 Cascada de Yasmina en la playa",
+  ],
+  mon: [
+    ["Floatzel", "Ruta 222", false, "hierba"],
+    ["Electabuzz", "Ruta 222", false, "hierba"],
+    ["Luxio", "Ruta 222", false, "hierba"],
+    ["Magnemite", "Ruta 222", false, "hierba"],
+    ["Wingull", "Ruta 222", false, "hierba"],
+    ["Chatot", "Ruta 222", false, "hierba"],
+    ["Magneton", "Ruta 222", false, "hierba"],
+    ["Pelipper", "Ruta 222", false, "hierba"],
+    ["Tentacool", "Ruta 222, Ciudad Marina", false, "surf"],
+    ["Wingull", "Ruta 222, Ciudad Marina", false, "surf"],
+    ["Tentacruel", "Ruta 222, Ciudad Marina", false, "surf"],
+    ["Pelipper", "Ruta 222, surf", false, "surf"],
+    ["Magikarp", "Ruta 222, Ciudad Marina", false, "cana"],
+    ["Gyarados", "Ruta 222, Ciudad Marina", false, "cana"],
+    ["Remoraid", "Ruta 222, Ciudad Marina", false, "cana"],
+    ["Octillery", "Ruta 222, Ciudad Marina", false, "cana"],
+    ["Staryu", "Ciudad Marina", false, "cana"],
+  ],
+  item: [
+    ["MO07 Cascada", "Yasmina, en la playa", "mo"],
+    ["MT57 Rayo carga", "Recompensa de Lectro", "mt"],
+    ["MT56 Lanzamiento", "Mujer de espaldas en la Ruta 222", "mt"],
+    ["Cinta Esfuerzo", "Chica de Marina (con esfuerzo al máximo)"],
+  ],
+  battle: [
+    { who: "Lectro", role: "Líder de Gimnasio · Eléctrico", kind: "gym", badge: "faro", team: [["Jolteon", 46], ["Raichu", 46], ["Luxray", 48], ["Electivire", 50, true]], note: "Tierra es casi obligatorio: ninguno de sus Pokémon lo resiste.", reward: "Medalla Faro · MT57 Rayo carga · Cascada fuera de combate" },
+  ],
+  tips: [["Truco", "Con la Medalla Faro te obedecen los Pokémon intercambiados de cualquier nivel."]],
+},
+{
+  id: "liga", title: "Calle Victoria y la Liga Pokémon", places: "Ruta 223 · Calle Victoria · Liga Pokémon",
+  intro: "Surfeas por la Ruta 223 y subes la cascada hasta la Calle Victoria, que exige todas las MO de exploración. En la Liga, Israel te reta una última vez antes de enfrentarte al Alto Mando y a la Campeona Cintia. No hay Centro Pokémon entre combates.",
+  story: [
+    "Surfear la Ruta 223 y subir la cascada",
+    "Cruzar la Calle Victoria (Golpe roca, Fuerza, Treparrocas y Surf)",
+    "Vencer a Israel en la entrada de la Liga",
+    "Vencer a Alecrán, Gaia, Fausto y Delos",
+    "Vencer a la Campeona Cintia y entrar en el Hall de la Fama",
+  ],
+  mon: [
+    ["Steelix", "Calle Victoria", false, "hierba"],
+    ["Floatzel", "Calle Victoria", false, "hierba"],
+    ["Azumarill", "Calle Victoria", false, "hierba"],
+    ["Graveler", "Calle Victoria", false, "hierba"],
+    ["Magneton", "Calle Victoria", false, "hierba"],
+    ["Onix", "Calle Victoria", false, "hierba"],
+    ["Rhyhorn", "Calle Victoria", false, "hierba"],
+    ["Rhydon", "Calle Victoria", false, "hierba"],
+    ["Golbat", "Calle Victoria", false, "hierba"],
+    ["Dewgong", "Calle Victoria", false, "hierba"],
+    ["Gabite", "Calle Victoria", false, "hierba"],
+    ["Floatzel", "Calle Victoria", false, "surf"],
+    ["Tentacruel", "Liga Pokémon, Ruta 223", false, "surf"],
+    ["Wingull", "Liga Pokémon", false, "surf"],
+    ["Pelipper", "Liga Pokémon, Ruta 223", false, "surf"],
+    ["Dewgong", "Calle Victoria", false, "surf"],
+    ["Mantyke", "Ruta 223", false, "surf"],
+    ["Golbat", "Calle Victoria", false, "surf"],
+    ["Lapras", "Calle Victoria", false, "surf"],
+    ["Magikarp", "Liga Pokémon, Ruta 223, Calle Victoria", false, "cana"],
+    ["Gyarados", "Liga Pokémon, Ruta 223, Calle Victoria", false, "cana"],
+    ["Remoraid", "Liga Pokémon, Ruta 223", false, "cana"],
+    ["Octillery", "Liga Pokémon, Ruta 223", false, "cana"],
+    ["Wailmer", "Ruta 223", false, "cana"],
+    ["Luvdisc", "Liga Pokémon", false, "cana"],
+    ["Wailord", "Ruta 223", false, "cana"],
+  ],
+  item: [],
+  battle: [
+    { who: "Israel", role: "Rival · Liga Pokémon", kind: "rival", team: [["Staraptor", 48], ["Heracross", 48], ["Snorlax", 49], ["Dos de: Floatzel, Roserade, Rapidash", 47], ["Su inicial (fase final)", 51, true]] },
+    { who: "Alecrán", role: "Alto Mando · Bicho", kind: "boss", team: [["Yanmega", 49], ["Scizor", 49], ["Vespiquen", 50], ["Heracross", 51], ["Drapion", 53, true]], note: "Fuego y Volador; Drapion solo teme a Tierra." },
+    { who: "Gaia", role: "Alto Mando · Tierra", kind: "boss", team: [["Whiscash", 50], ["Hippowdon", 52], ["Golem", 52], ["Gliscor", 53], ["Rhyperior", 55, true]], note: "Agua y Planta; para Gliscor, Hielo (le hace ×4)." },
+    { who: "Fausto", role: "Alto Mando · Fuego", kind: "boss", team: [["Houndoom", 52], ["Rapidash", 53], ["Flareon", 55], ["Infernape", 55], ["Magmortar", 57, true]], note: "Agua y Tierra." },
+    { who: "Delos", role: "Alto Mando · Psíquico", kind: "boss", team: [["Mr. Mime", 53], ["Bronzong", 54], ["Espeon", 55], ["Alakazam", 56], ["Gallade", 59, true]], note: "Siniestro y Fantasma. Bronzong es Acero/Psíquico: usa Fantasma, Siniestro o Fuego." },
+    { who: "Cintia", role: "Campeona de Sinnoh", kind: "boss", team: [["Spiritomb", 58], ["Roserade", 58], ["Milotic", 58], ["Lucario", 60], ["Togekiss", 60], ["Garchomp", 62, true]], note: "Garchomp es rapidísimo y lleva Baya Zidra: un ataque de Hielo fuerte lo derriba. Spiritomb no tiene debilidades." },
+  ],
+  tip: "Llega con tu equipo cerca del nivel 55-60 y una buena reserva de Revivir e Hiperpociones.",
+  tips: [["Truco", "Puedes guardar entre combates del Alto Mando, pero no salir. Si pierdes, empiezas el Alto Mando desde el principio."]],
+},
+{
+  id: "postgame", title: "Después de la Liga", places: "Zona de Combate · Pueblo Arena · Parque Compi · Montaña Dura · Templo Puntaneva",
+  intro: "Con los créditos vistos se abre la Bahía de la Zona de Combate y el Frente Batalla. Completa la Pokédex de Sinnoh para que el Profesor Oak te dé la Pokédex Nacional, y ve a por los legendarios que quedan.",
+  story: [
+    "Viajar desde Puntaneva a la Zona de Combate",
+    "Vencer a Lectro y Fausto con Israel para entrar al Frente Batalla",
+    "Ver los 210 Pokémon de Sinnoh y recibir la Pokédex Nacional",
+    "Hablar con Oak en Vetusta: Articuno, Zapdos y Moltres vagan por Sinnoh",
+    "Ayudar a Bulgur en la Montaña Dura y frustrar el plan de Plutón",
+    "Recoger la Diamansfera y la Lustresfera en el Monte Corona",
+    "Ganar un Súper Concurso de nivel experto",
+    "Conseguir los símbolos del Frente Batalla",
+  ],
+  mon: [
+    ["Golbat", "Fuente Despedida, Ruta 227, Templo Puntaneva …", false, "hierba"],
+    ["Roselia", "Ruta 224, Ruta 229, Ruta 230", false, "hierba"],
+    ["Cacturne", "Ruta 228", false, "hierba"],
+    ["Magcargo", "Montaña Dura", false, "hierba"],
+    ["Haunter", "Cueva Retorno", false, "hierba"],
+    ["Gastly", "Cueva Retorno", false, "hierba"],
+    ["Graveler", "Fuente Despedida, Ruta 225, Ruta 227 …", false, "hierba"],
+    ["Bibarel", "Fuente Despedida", false, "hierba"],
+    ["Pelipper", "Ruta 224, Ruta 230", false, "hierba"],
+    ["Fearow", "Ruta 225, Ruta 227, Ruta 226 …", false, "hierba"],
+    ["Dugtrio", "Ruta 228", false, "hierba"],
+    ["Floatzel", "Ruta 224, Ruta 230", false, "hierba"],
+    ["Machoke", "Ruta 225, Ruta 226", false, "hierba"],
+    ["Pidgey", "Ruta 229", false, "hierba"],
+    ["Staravia", "Fuente Despedida", false, "hierba"],
+    ["Oddish", "Ruta 224, Ruta 230", false, "hierba"],
+    ["Bellsprout", "Ruta 224, Ruta 230", false, "hierba"],
+    ["Banette", "Ruta 225, Ruta 226", false, "hierba"],
+    ["Rhydon", "Ruta 227, Ruta 228, Montaña Dura", false, "hierba"],
+    ["Camerupt", "Ruta 227, Montaña Dura", false, "hierba"],
+    ["Hippowdon", "Ruta 228", false, "hierba"],
+    ["Ledian", "Ruta 229", false, "hierba"],
+    ["Ariados", "Ruta 229", false, "hierba"],
+    ["Bronzong", "Cueva Retorno", false, "hierba"],
+    ["Bronzor", "Cueva Retorno", false, "hierba"],
+    ["Dusclops", "Fuente Despedida, Cueva Retorno", false, "hierba"],
+    ["Raticate", "Ruta 225, Ruta 226", false, "hierba"],
+    ["Weezing", "Ruta 227, Montaña Dura", false, "hierba"],
+    ["Wingull", "Ruta 226, Ruta 230", false, "hierba"],
+    ["Chingling", "Fuente Despedida, Cueva Retorno", false, "hierba"],
+    ["Gastrodon", "Ruta 224", false, "hierba"],
+    ["Volbeat", "Ruta 229", false, "hierba"],
+    ["Illumise", "Ruta 229", false, "hierba"],
+    ["Sneasel", "Templo Puntaneva", false, "hierba"],
+    ["Smoochum", "Templo Puntaneva", false, "hierba"],
+    ["Jynx", "Templo Puntaneva", false, "hierba"],
+    ["Chimecho", "Cueva Retorno", false, "hierba"],
+    ["Gloom", "Ruta 224, Ruta 230", false, "hierba"],
+    ["Weepinbell", "Ruta 224, Ruta 230", false, "hierba"],
+    ["Beautifly", "Ruta 224, Ruta 229", false, "hierba"],
+    ["Dustox", "Ruta 224, Ruta 229", false, "hierba"],
+    ["Rattata", "Ruta 225, Ruta 226", false, "hierba"],
+    ["Spearow", "Ruta 225", false, "hierba"],
+    ["Rhyhorn", "Ruta 227, Montaña Dura", false, "hierba"],
+    ["Skarmory", "Ruta 227, Montaña Dura", false, "hierba"],
+    ["Numel", "Ruta 227, Montaña Dura", false, "hierba"],
+    ["Diglett", "Ruta 228", false, "hierba"],
+    ["Cacnea", "Ruta 228", false, "hierba"],
+    ["Slugma", "Montaña Dura", false, "hierba"],
+    ["Koffing", "Montaña Dura", false, "hierba"],
+    ["Duskull", "Cueva Retorno", false, "hierba"],
+    ["Golduck", "Área Reposo, Fuente Despedida, Ruta 225", false, "surf"],
+    ["Surskit", "Ruta 229", false, "surf"],
+    ["Poliwhirl", "Ruta 227, Ruta 228", false, "surf"],
+    ["Pelipper", "Ruta 224, Ruta 226, Ruta 230", false, "surf"],
+    ["Wingull", "Ruta 226", false, "surf"],
+    ["Sealeo", "Ruta 230", false, "surf"],
+    ["Tentacruel", "Ruta 224, Ruta 226, Ruta 230", false, "surf"],
+    ["Poliwag", "Ruta 227, Ruta 228", false, "surf"],
+    ["Psyduck", "Área Reposo, Ruta 225", false, "surf"],
+    ["Gastrodon", "Ruta 224", false, "surf"],
+    ["Masquerain", "Ruta 229", false, "surf"],
+    ["Magikarp", "Área Reposo, Fuente Despedida, Ruta 224 …", false, "cana"],
+    ["Gyarados", "Fuente Despedida, Ruta 224, Ruta 225 …", false, "cana"],
+    ["Goldeen", "Fuente Despedida, Ruta 229", false, "cana"],
+    ["Seaking", "Fuente Despedida, Ruta 229", false, "cana"],
+    ["Remoraid", "Ruta 224, Ruta 230", false, "cana"],
+    ["Octillery", "Ruta 224, Ruta 230", false, "cana"],
+    ["Barboach", "Ruta 225, Ruta 227, Ruta 228", false, "cana"],
+    ["Whiscash", "Ruta 225, Ruta 227, Ruta 228", false, "cana"],
+    ["Horsea", "Ruta 226", false, "cana"],
+    ["Seadra", "Ruta 226", false, "cana"],
+    ["Wailmer", "Ruta 230", false, "cana"],
+    ["Luvdisc", "Ruta 224", false, "cana"],
+    ["Relicanth", "Ruta 226", false, "cana"],
+    ["Wailord", "Ruta 230", false, "cana"],
+    ["Dratini", "Supercaña en el Monte Corona (4.ª planta)", false, "cana"],
+    ["Giratina", "Cueva Retorno, Nv. 70 (si no lo capturaste antes)", true, "otros"],
+    ["Dialga", "Columna Lanza, Nv. 70", true, "otros"],
+    ["Palkia", "Columna Lanza, Nv. 70", true, "otros"],
+    ["Heatran", "Montaña Dura, tras el evento con Bulgur", true, "otros"],
+    ["Cresselia", "Isla Plenilunio, luego vaga por Sinnoh (Nv. 50)", true, "otros"],
+    ["Regigigas", "Templo Puntaneva con Regirock, Regice y Registeel en el equipo (Nv. 1)", true, "otros"],
+    ["Articuno", "Vaga por Sinnoh (Nv. 60)", true, "otros"],
+    ["Zapdos", "Vaga por Sinnoh (Nv. 60)", true, "otros"],
+    ["Moltres", "Vaga por Sinnoh (Nv. 60)", true, "otros"],
+    ["Spiritomb", "Torre Sagrada (Ruta 209) tras hablar con 32 personas en el Subsuelo", true, "otros"],
+  ],
+  item: [
+    ["Pokéradar", "Profesor Serbal con la Pokédex Nacional", "key"],
+    ["Pokédex Nacional", "Profesor Oak, en Pueblo Arena", "key"],
+    ["Griseosfera", "Cueva Retorno, tras Giratina"],
+    ["Diamansfera", "Monte Corona, sala tras la cascada (Tabla pétrea primero)"],
+    ["Lustresfera", "Monte Corona, sala tras la cascada"],
+    ["Pluma lunar", "Isla Plenilunio, para el hijo del marinero de Canal"],
+  ],
+  battle: [
+    { who: "Lectro y Fausto", role: "Combate doble con Israel · Zona de Combate", kind: "boss", team: [["Luxray", 56], ["Jolteon", 56], ["Electivire", 58, true], ["Houndoom", 56], ["Flareon", 56], ["Magmortar", 58, true]] },
+    { who: "Venus y Ceres", role: "Comandantes Galaxia · Montaña Dura", kind: "boss", team: [["Bronzong", 58], ["Golbat", 58], ["Purugly", 60, true], ["Bronzong", 58], ["Golbat", 58], ["Skuntank", 60, true]] },
+  ],
+  tip: "Para Articuno, Zapdos y Moltres usa un Pokémon rápido con Mal de ojo o Bloqueo: huyen en el primer turno. Darkrai, Shaymin y Arceus solo se consiguen con objetos de evento.",
+  tips: [["Truco", "Giratina solo adopta la forma Origen fuera del Mundo Distorsión si lleva la Griseosfera."]],
+},
+{
+  id: "secretos",
+  extra: true,
+  title: "Pokémon raros y trucos",
+  places: "Referencia para toda la partida",
+  intro: "Dónde están los Pokémon difíciles de encontrar, cómo evolucionan los que no lo hacen por nivel, y trucos de captura, Subsuelo, objetos y variocolores. Los Pokémon que marques aquí se marcan también en su capítulo.",
+  story: [],
+  mon: [
+    ["Gible", "Cueva Extravío, por la entrada oculta bajo la Ruta Ciclista (206). Lleva Destello", true],
+    ["Munchlax", "Árboles de miel. Solo 4 árboles de Sinnoh pueden darlo, según tu ID: unta Miel en todos y revísalos entre 6 y 24 h después", true],
+    ["Feebas", "Lago subterráneo del Monte Corona. Pesca en 4 casillas concretas que cambian cada día", true],
+    ["Rotom", "Vieja Mansión (Bosque Vetusto, con Corte). Examina el televisor de noche", true],
+    ["Spiritomb", "Torre Sagrada, Ruta 209. Piedra espíritu en la torre y hablar con 32 personas en el Subsuelo", true],
+    ["Drifloon", "Valle Eólico, solo los viernes, tras vencer a Venus", true],
+    ["Riolu", "Huevo de Quinoa en Isla Hierro", true],
+    ["Togepi", "Huevo de Cintia en Ciudad Vetusta", true],
+    ["Eevee", "Regalo en Ciudad Corazón", true],
+    ["Porygon", "Regalo en Ciudad Rocavelo", true],
+    ["Heracross", "Árboles de miel (raro)", true],
+    ["Combee", "Árboles de miel. Solo la hembra evoluciona a Vespiquen", true],
+    ["Chansey", "Ruta 209 (muy raro)", true],
+    ["Chingling", "Monte Corona (raro)", true],
+    ["Clefairy", "Monte Corona (muy raro)", true],
+    ["Cranidos", "Revive un Fósil cráneo del Subsuelo en el Museo de la Mina Pirita", true],
+    ["Shieldon", "Revive un Fósil coraza del Subsuelo en el Museo de la Mina Pirita", true],
+    ["Uxie", "Lago Agudeza, tras el Mundo Distorsión", true],
+    ["Azelf", "Lago Valor, tras el Mundo Distorsión", true],
+    ["Mesprit", "Vaga por Sinnoh. Síguelo con MarcaMapa", true],
+    ["Giratina", "Mundo Distorsión; si lo derrotas, Cueva Retorno tras la Liga", true],
+    ["Dialga", "Columna Lanza, tras la Liga", true],
+    ["Palkia", "Columna Lanza, tras la Liga", true],
+    ["Heatran", "Montaña Dura, tras el evento con Bulgur", true],
+    ["Cresselia", "Isla Plenilunio; luego vaga por Sinnoh", true],
+    ["Regigigas", "Templo Puntaneva, con Regirock, Regice y Registeel en el equipo", true],
+    ["Articuno", "Vaga por Sinnoh tras hablar con Oak", true],
+    ["Zapdos", "Vaga por Sinnoh tras hablar con Oak", true],
+    ["Moltres", "Vaga por Sinnoh tras hablar con Oak", true],
+  ],
+  item: [],
+  battle: [],
+  guides: [
+    {
+      title: "Evoluciones especiales",
+      rows: [
+        [
+          "Eevee",
+          "Vaporeon, Jolteon y Flareon con Piedra agua, trueno o fuego (Ruinas Sosiego). Espeon de día y Umbreon de noche con la amistad alta. Leafeon junto a la roca de musgo del Bosque Vetusto, Glaceon junto a la roca helada de la Ruta 217."
+        ],
+        [
+          "Monte Corona",
+          "Magneton evoluciona a Magnezone y Nosepass a Probopass si suben de nivel dentro del Monte Corona."
+        ],
+        [
+          "Piedra alba",
+          "Kirlia macho a Gallade. Snorunt hembra a Froslass."
+        ],
+        [
+          "Piedra día y noche",
+          "Piedra día: Roselia a Roserade, Togetic a Togekiss. Piedra noche: Murkrow a Honchkrow, Misdreavus a Mismagius."
+        ],
+        [
+          "Objeto, de noche",
+          "Sneasel con Garra afilada a Weavile. Gligar con Colmillo agudo a Gliscor. Tienen que subir de nivel de noche llevando el objeto."
+        ],
+        [
+          "Con un ataque",
+          "Poder pasado: Yanma a Yanmega, Piloswine a Mamoswine, Tangela a Tangrowth. Doble golpe: Aipom a Ambipom. Desenrollar: Lickitung a Lickilicky. Mimético: Bonsly a Sudowoodo, Mime Jr. a Mr. Mime."
+        ],
+        [
+          "Amistad",
+          "Budew y Riolu de día, Chingling de noche. Golbat, Pichu, Togepi, Munchlax y Azurill a cualquier hora."
+        ],
+        [
+          "Otros",
+          "Happiny con Piedra oval, de día, a Chansey. Mantyke con un Remoraid en el equipo a Mantine. Feebas con la belleza al máximo (Pokochos azules) a Milotic."
+        ],
+        [
+          "Intercambio",
+          "Kadabra, Machoke, Graveler y Haunter. Con objeto: Onix y Scyther (Revestimiento metálico), Rhydon (Protector), Electabuzz (Electrizador), Magmar (Magmatizador), Porygon (Mejora), Porygon2 (Disco extraño) y Dusclops (Tela terrible)."
+        ]
+      ]
+    },
+    {
+      title: "Trucos de captura",
+      rows: [
+        [
+          "Ratio de captura",
+          "Cada especie tiene un ratio de 3 a 255: cuanto más alto, más fácil (verde desde 150, rojo por debajo de 60). El porcentaje de cada tarjeta es la probabilidad con una Ultra Ball y el Pokémon a 1 PS. Si está dormido se duplica; con una Poké Ball normal, se reduce a la mitad."
+        ],
+        [
+          "Ratio de aparición",
+          "La probabilidad de que el siguiente Pokémon salvaje de esa zona sea ese, según la franja horaria: mañana de 4 a 10 h, día de 10 a 20 h y noche de 20 a 4 h. Si dice \"mejor zona\", es la parte de la ruta o cueva donde más sale. No incluye el Pokéradar, los enjambres ni los juegos de GBA en la ranura 2."
+        ],
+        [
+          "Bájale los PS",
+          "Cuantos menos PS le queden, más fácil. Falso tortazo lo deja a 1 PS sin riesgo de debilitarlo."
+        ],
+        [
+          "Estados",
+          "Dormido o congelado multiplica la probabilidad por 2; paralizado, envenenado o quemado, por 1,5."
+        ],
+        [
+          "Balls",
+          "Veloz Ball en el primer turno (×4). Ocaso Ball de noche o en cuevas (×3,5). Turno Ball en combates largos. Malla Ball contra Bicho y Agua. Acopio Ball con especies que ya tienes."
+        ],
+        [
+          "Errantes",
+          "Mesprit, Cresselia y las aves huyen en el primer turno. Síguelos con MarcaMapa y atrápalos con Mal de ojo o Bloqueo. El daño y el estado que les causes se mantienen entre encuentros."
+        ],
+        [
+          "Sincronía",
+          "Si tu primer Pokémon tiene Sincronía (Abra, Ralts), la mitad de las veces el salvaje tendrá su misma naturaleza."
+        ],
+        [
+          "Encuentros",
+          "Dulce aroma provoca un encuentro al momento. Un Repelente aleja a los salvajes de menor nivel que tu primer Pokémon."
+        ]
+      ]
+    },
+    {
+      title: "Subsuelo",
+      rows: [
+        [
+          "Excavar",
+          "Toca la pantalla táctil para lanzar el radar: los destellos marcan tesoros en los muros. Cuidado con las grietas, si el muro se derrumba pierdes lo que quede."
+        ],
+        [
+          "Fósiles",
+          "Antes de la Pokédex Nacional solo sale el Fósil cráneo (Cranidos) o el Fósil coraza (Shieldon), según si tu número de ID es par o impar. Después aparecen también fósiles de otras regiones."
+        ],
+        [
+          "Escamas corazón",
+          "Cámbialas en Ciudad Pradera para recordar ataques olvidados."
+        ],
+        [
+          "Fragmentos",
+          "El tutor de movimientos de la Ruta 212 sur cobra en Fragmentos rojos, azules, amarillos y verdes."
+        ],
+        [
+          "Spiritomb",
+          "Cuenta cada persona con la que hablas en el Subsuelo. A las 32, Spiritomb aparece en la Torre Sagrada."
+        ]
+      ]
+    },
+    {
+      title: "Objetos y entrenamiento",
+      rows: [
+        [
+          "Recogida",
+          "Pachirisu, Aipom y Munchlax pueden tener Recogida y encuentran objetos sin luchar; a nivel alto, incluso Caramelos raros."
+        ],
+        [
+          "Zahorí",
+          "La función Zahorí del Poké-reloj marca los objetos ocultos que tienes cerca."
+        ],
+        [
+          "Revanchas",
+          "Con el Buscapelea vuelves a retar a los entrenadores de una ruta: experiencia y dinero fáciles."
+        ],
+        [
+          "Repartir experiencia",
+          "El Pokémon que lo lleva recibe la mitad de la experiencia de cada combate aunque no luche. Ideal para subir a un Pokémon recién capturado."
+        ],
+        [
+          "Amistad",
+          "Sube caminando con el Pokémon en el equipo, con la Campana alivio, con el masaje diario de Rocavelo y evitando que se debilite."
+        ]
+      ]
+    },
+    {
+      title: "Variocolores",
+      rows: [
+        [
+          "Probabilidad",
+          "1 de cada 8192 encuentros normales."
+        ],
+        [
+          "Pokéradar",
+          "Tras la Pokédex Nacional. Captura o derrota seguido al mismo Pokémon en la hierba que tiembla. Cuanto más larga la cadena (hasta 40), más probable es un variocolor."
+        ],
+        [
+          "Método Masuda",
+          "Cría con un Pokémon de un juego en otro idioma: la probabilidad de que el huevo salga variocolor se multiplica por cinco."
+        ]
+      ]
+    }
+  ]
+}
+];
+
+// Base catch rate (3-255, higher is easier) of every species, from PokéAPI.
+// Gifts, eggs, starters and fossils have none: they aren't captured.
+const CATCH_RATE = {
+  "Abomasnow": 60,
+  "Abra": 200,
+  "Absol": 30,
+  "Aipom": 45,
+  "Alakazam": 50,
+  "Altaria": 45,
+  "Ambipom": 45,
+  "Arbok": 90,
+  "Ariados": 90,
+  "Aron": 180,
+  "Articuno": 3,
+  "Azelf": 3,
+  "Azumarill": 75,
+  "Azurill": 150,
+  "Bagon": 45,
+  "Baltoy": 255,
+  "Banette": 45,
+  "Barboach": 190,
+  "Bastiodon": 45,
+  "Beautifly": 45,
+  "Beldum": 3,
+  "Bellsprout": 255,
+  "Bibarel": 127,
+  "Bidoof": 255,
+  "Blissey": 30,
+  "Bonsly": 255,
+  "Bronzong": 90,
+  "Bronzor": 255,
+  "Budew": 255,
+  "Buizel": 190,
+  "Buneary": 190,
+  "Burmy": 120,
+  "Cacnea": 190,
+  "Cacturne": 60,
+  "Camerupt": 150,
+  "Carnivine": 200,
+  "Carvanha": 225,
+  "Cascoon": 120,
+  "Castform": 45,
+  "Caterpie": 255,
+  "Chansey": 30,
+  "Chatot": 30,
+  "Cherrim": 75,
+  "Cherubi": 190,
+  "Chimchar": 45,
+  "Chimecho": 45,
+  "Chinchou": 190,
+  "Chingling": 120,
+  "Clefable": 25,
+  "Clefairy": 150,
+  "Cleffa": 150,
+  "Combee": 120,
+  "Corphish": 205,
+  "Corsola": 60,
+  "Cranidos": 45,
+  "Crawdaunt": 155,
+  "Cresselia": 3,
+  "Croagunk": 140,
+  "Crobat": 90,
+  "Cubone": 190,
+  "Delibird": 45,
+  "Dewgong": 75,
+  "Dialga": 3,
+  "Diglett": 255,
+  "Ditto": 35,
+  "Doduo": 190,
+  "Dragonair": 45,
+  "Drapion": 45,
+  "Dratini": 45,
+  "Drifblim": 60,
+  "Drifloon": 125,
+  "Drowzee": 190,
+  "Dugtrio": 50,
+  "Dunsparce": 190,
+  "Dusclops": 90,
+  "Dusknoir": 45,
+  "Duskull": 190,
+  "Dustox": 45,
+  "Eevee": 45,
+  "Ekans": 255,
+  "Electabuzz": 45,
+  "Electivire": 30,
+  "Electrike": 120,
+  "Elekid": 45,
+  "Empoleon": 45,
+  "Espeon": 45,
+  "Exeggcute": 90,
+  "Farfetch’d": 45,
+  "Fearow": 90,
+  "Feebas": 255,
+  "Finneon": 190,
+  "Flaaffy": 120,
+  "Flareon": 45,
+  "Floatzel": 75,
+  "Froslass": 75,
+  "Gabite": 45,
+  "Gallade": 45,
+  "Garchomp": 45,
+  "Gardevoir": 45,
+  "Gastly": 190,
+  "Gastrodon": 75,
+  "Gengar": 45,
+  "Geodude": 255,
+  "Gible": 45,
+  "Girafarig": 60,
+  "Giratina": 3,
+  "Glaceon": 45,
+  "Glalie": 75,
+  "Glameow": 190,
+  "Gligar": 60,
+  "Gliscor": 30,
+  "Gloom": 120,
+  "Golbat": 90,
+  "Goldeen": 225,
+  "Golduck": 75,
+  "Golem": 45,
+  "Graveler": 120,
+  "Grimer": 190,
+  "Grotle": 45,
+  "Growlithe": 190,
+  "Gulpin": 225,
+  "Gyarados": 45,
+  "Happiny": 130,
+  "Haunter": 90,
+  "Heatran": 3,
+  "Heracross": 45,
+  "Hippopotas": 140,
+  "Hippowdon": 60,
+  "Honchkrow": 30,
+  "Hoothoot": 255,
+  "Hoppip": 255,
+  "Horsea": 225,
+  "Houndoom": 45,
+  "Houndour": 120,
+  "Igglybuff": 170,
+  "Illumise": 150,
+  "Infernape": 45,
+  "Jigglypuff": 170,
+  "Jolteon": 45,
+  "Jynx": 45,
+  "Kadabra": 100,
+  "Kakuna": 120,
+  "Kangaskhan": 45,
+  "Kecleon": 200,
+  "Kirlia": 120,
+  "Koffing": 190,
+  "Krabby": 225,
+  "Kricketot": 255,
+  "Kricketune": 45,
+  "Lapras": 45,
+  "Larvitar": 45,
+  "Leafeon": 45,
+  "Ledian": 90,
+  "Lickilicky": 30,
+  "Lickitung": 45,
+  "Lombre": 120,
+  "Lopunny": 60,
+  "Lotad": 255,
+  "Loudred": 120,
+  "Lucario": 45,
+  "Lumineon": 75,
+  "Lunatone": 45,
+  "Luvdisc": 225,
+  "Luxio": 120,
+  "Luxray": 45,
+  "Machamp": 45,
+  "Machoke": 90,
+  "Machop": 180,
+  "Magby": 45,
+  "Magcargo": 75,
+  "Magikarp": 255,
+  "Magmar": 45,
+  "Magmortar": 30,
+  "Magnemite": 190,
+  "Magneton": 60,
+  "Magnezone": 30,
+  "Makuhita": 180,
+  "Mamoswine": 50,
+  "Manaphy": 3,
+  "Mankey": 190,
+  "Mantine": 25,
+  "Mantyke": 25,
+  "Mareep": 235,
+  "Marill": 190,
+  "Masquerain": 75,
+  "Mawile": 45,
+  "Medicham": 90,
+  "Meditite": 180,
+  "Meowth": 255,
+  "Mesprit": 3,
+  "Metapod": 120,
+  "Milotic": 60,
+  "Miltank": 45,
+  "Mime Jr.": 145,
+  "Minun": 200,
+  "Misdreavus": 45,
+  "Mismagius": 45,
+  "Moltres": 3,
+  "Monferno": 45,
+  "Mothim": 45,
+  "Mr. Mime": 45,
+  "Munchlax": 50,
+  "Murkrow": 30,
+  "Natu": 190,
+  "Nidoran♀": 235,
+  "Nidoran♂": 235,
+  "Nidorina": 120,
+  "Nidorino": 120,
+  "Nincada": 255,
+  "Noctowl": 90,
+  "Nosepass": 255,
+  "Numel": 255,
+  "Nuzleaf": 120,
+  "Octillery": 75,
+  "Oddish": 255,
+  "Onix": 45,
+  "Pachirisu": 200,
+  "Palkia": 3,
+  "Paras": 190,
+  "Pelipper": 45,
+  "Phanpy": 120,
+  "Pichu": 190,
+  "Pidgey": 255,
+  "Pikachu": 190,
+  "Piloswine": 75,
+  "Pineco": 190,
+  "Pinsir": 45,
+  "Piplup": 45,
+  "Plusle": 200,
+  "Poliwag": 255,
+  "Poliwhirl": 120,
+  "Ponyta": 190,
+  "Poochyena": 255,
+  "Porygon": 45,
+  "Porygon-Z": 30,
+  "Porygon2": 45,
+  "Primeape": 75,
+  "Prinplup": 45,
+  "Probopass": 60,
+  "Psyduck": 190,
+  "Purugly": 75,
+  "Quagsire": 90,
+  "Qwilfish": 45,
+  "Raichu": 75,
+  "Ralts": 235,
+  "Rampardos": 45,
+  "Rapidash": 60,
+  "Raticate": 127,
+  "Rattata": 255,
+  "Regigigas": 3,
+  "Relicanth": 25,
+  "Remoraid": 190,
+  "Rhydon": 60,
+  "Rhyhorn": 120,
+  "Rhyperior": 30,
+  "Riolu": 75,
+  "Roselia": 150,
+  "Roserade": 75,
+  "Rotom": 45,
+  "Sableye": 45,
+  "Sandshrew": 255,
+  "Sandslash": 90,
+  "Scizor": 25,
+  "Scyther": 45,
+  "Seadra": 75,
+  "Seaking": 60,
+  "Sealeo": 120,
+  "Seedot": 255,
+  "Sentret": 255,
+  "Seviper": 90,
+  "Shellder": 190,
+  "Shellos": 190,
+  "Shieldon": 45,
+  "Shinx": 235,
+  "Shroomish": 255,
+  "Shuckle": 190,
+  "Silcoon": 120,
+  "Skarmory": 25,
+  "Skitty": 255,
+  "Skorupi": 120,
+  "Skuntank": 60,
+  "Slakoth": 255,
+  "Slowpoke": 190,
+  "Slugma": 190,
+  "Smeargle": 45,
+  "Smoochum": 45,
+  "Sneasel": 60,
+  "Snorlax": 25,
+  "Snorunt": 190,
+  "Snover": 120,
+  "Snubbull": 190,
+  "Solrock": 45,
+  "Spearow": 255,
+  "Spinda": 255,
+  "Spiritomb": 100,
+  "Spoink": 255,
+  "Stantler": 45,
+  "Staraptor": 45,
+  "Staravia": 120,
+  "Starly": 255,
+  "Staryu": 225,
+  "Steelix": 25,
+  "Stunky": 225,
+  "Sudowoodo": 65,
+  "Sunkern": 235,
+  "Surskit": 200,
+  "Swablu": 255,
+  "Swellow": 45,
+  "Swinub": 225,
+  "Tangela": 45,
+  "Tangrowth": 30,
+  "Tauros": 45,
+  "Teddiursa": 120,
+  "Tentacool": 190,
+  "Tentacruel": 60,
+  "Togekiss": 30,
+  "Togepi": 190,
+  "Togetic": 75,
+  "Torkoal": 90,
+  "Torterra": 45,
+  "Toxicroak": 75,
+  "Tropius": 200,
+  "Turtwig": 45,
+  "Tyrogue": 75,
+  "Umbreon": 45,
+  "Unown": 225,
+  "Ursaring": 60,
+  "Uxie": 3,
+  "Vaporeon": 45,
+  "Venomoth": 75,
+  "Venonat": 190,
+  "Vespiquen": 45,
+  "Volbeat": 150,
+  "Voltorb": 190,
+  "Vulpix": 190,
+  "Wailmer": 125,
+  "Wailord": 60,
+  "Weavile": 45,
+  "Weedle": 255,
+  "Weepinbell": 120,
+  "Weezing": 60,
+  "Whiscash": 75,
+  "Wingull": 190,
+  "Wobbuffet": 45,
+  "Wooper": 255,
+  "Wormadam": 45,
+  "Wurmple": 255,
+  "Yanma": 75,
+  "Yanmega": 30,
+  "Zangoose": 90,
+  "Zapdos": 3,
+  "Zigzagoon": 255,
+  "Zubat": 255,
+};
+// Encounter rate on each card ("chapter|species|method"): the share of wild encounters in that place,
+// by time of day (mañana 4-10 h, día 10-20 h, noche 20-4 h). From PokéAPI's Platinum data,
+// without Pokéradar, swarms or a GBA game in slot 2.
+const ENCOUNTER = {
+  "hojaverde|Bidoof|hierba": "Aparición (mejor zona): mañana/día 50% · noche 60% · Nv. 2-4",
+  "hojaverde|Starly|hierba": "Aparición: mañana/día 50% · noche 40% · Nv. 2-4",
+  "hojaverde|Kricketot|hierba": "Aparición: mañana/noche 10% · día 0% · Nv. 3",
+  "hojaverde|Psyduck|surf": "Aparición: 90% · Nv. 20-30",
+  "hojaverde|Golduck|surf": "Aparición: 10% · Nv. 20-40",
+  "hojaverde|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "hojaverde|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "hojaverde|Goldeen|cana": "Aparición: Caña buena 45% · Nv. 15-35",
+  "hojaverde|Seaking|cana": "Aparición: Caña buena 5% · Supercaña 45% · Nv. 25-55",
+  "arena|Bidoof|hierba": "Aparición: mañana 40% · día/noche 50% · Nv. 2-4",
+  "arena|Shinx|hierba": "Aparición: 30% · Nv. 3-4",
+  "arena|Starly|hierba": "Aparición: mañana/día 20% · noche 10% · Nv. 2-4",
+  "arena|Kricketot|hierba": "Aparición: mañana/noche 10% · día 0% · Nv. 3-4",
+  "pirita|Geodude|hierba": "Aparición: hasta 65% · Nv. 4-9",
+  "pirita|Zubat|hierba": "Aparición: hasta 50% · Nv. 4-9",
+  "pirita|Psyduck|hierba": "Aparición: 35% · Nv. 5-10",
+  "pirita|Starly|hierba": "Aparición: mañana/día 35% · noche 25% · Nv. 4-7",
+  "pirita|Bidoof|hierba": "Aparición: mañana/noche 15% · día 25% · Nv. 4-7",
+  "pirita|Shinx|hierba": "Aparición: 25% · Nv. 4-5",
+  "pirita|Abra|hierba": "Aparición: 15% · Nv. 4-5",
+  "pirita|Onix|hierba": "Aparición: 10% · Nv. 6-9",
+  "pirita|Kricketot|hierba": "Aparición: mañana/noche 10% · día 0% · Nv. 4-5",
+  "pirita|Golbat|hierba": "Aparición: 5% · Nv. 10",
+  "pirita|Machop|hierba": "Aparición: mañana/noche 35% · día 45%",
+  "pirita|Psyduck|surf": "Aparición: hasta 90% · Nv. 20-30",
+  "pirita|Zubat|surf": "Aparición: 30% · Nv. 20-30",
+  "pirita|Golduck|surf": "Aparición: hasta 10% · Nv. 20-40",
+  "pirita|Golbat|surf": "Aparición: 5% · Nv. 20-40",
+  "pirita|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "pirita|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "pirita|Barboach|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "pirita|Whiscash|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "pirita|Goldeen|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "pirita|Seaking|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "desolada|Zubat|hierba": "Aparición: hasta 65% · Nv. 3-8",
+  "desolada|Psyduck|hierba": "Aparición: 35% · Nv. 4-6",
+  "desolada|Budew|hierba": "Aparición: mañana/noche 15% · día 25% · Nv. 3-10",
+  "desolada|Starly|hierba": "Aparición: 25% · Nv. 4-11",
+  "desolada|Bidoof|hierba": "Aparición: 25% · Nv. 4-11",
+  "desolada|Shinx|hierba": "Aparición: 15% · Nv. 4-10",
+  "desolada|Wurmple|hierba": "Aparición: mañana/día 10% · noche 0% · Nv. 4-9",
+  "desolada|Kricketot|hierba": "Aparición: mañana/noche 10% · día 0% · Nv. 3-9",
+  "desolada|Psyduck|surf": "Aparición: hasta 90% · Nv. 20-30",
+  "desolada|Zubat|surf": "Aparición: 30% · Nv. 20-30",
+  "desolada|Golduck|surf": "Aparición: hasta 10% · Nv. 20-40",
+  "desolada|Golbat|surf": "Aparición: 5% · Nv. 20-40",
+  "desolada|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "desolada|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "desolada|Barboach|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "desolada|Whiscash|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "desolada|Goldeen|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "desolada|Seaking|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "aromaflor|Shellos|hierba": "Aparición: hasta 65% · Nv. 9-12",
+  "aromaflor|Magnemite|hierba": "Aparición: 30% · Nv. 28-30",
+  "aromaflor|Magmar|hierba": "Aparición: mañana/día 30% · noche 20% · Nv. 28-29",
+  "aromaflor|Buizel|hierba": "Aparición: hasta 25% · Nv. 9-11",
+  "aromaflor|Floatzel|hierba": "Aparición: 25% · Nv. 29-31",
+  "aromaflor|Gastrodon|hierba": "Aparición: mañana/día 15% · noche 25% · Nv. 29-31",
+  "aromaflor|Shinx|hierba": "Aparición: 20% · Nv. 10",
+  "aromaflor|Pachirisu|hierba": "Aparición: 10% · Nv. 9-11",
+  "aromaflor|Bidoof|hierba": "Aparición: 10% · Nv. 10",
+  "aromaflor|Tentacool|surf": "Aparición: hasta 60% · Nv. 20-30",
+  "aromaflor|Shellos|surf": "Aparición: hasta 60% · Nv. 20-30",
+  "aromaflor|Tentacruel|surf": "Aparición: hasta 9% · Nv. 20-40",
+  "aromaflor|Gastrodon|surf": "Aparición: hasta 9% · Nv. 20-40",
+  "aromaflor|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "aromaflor|Finneon|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "aromaflor|Lumineon|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "aromaflor|Gyarados|cana": "Aparición: Supercaña 40% · Nv. 30-55",
+  "aromaflor|Shellder|cana": "Aparición: Supercaña 15% · Nv. 20-50",
+  "aromaflor|Drifloon|otros": "Encuentro único",
+  "aromaflor|Combee|otros": "Aparición en árbol de miel: hasta 40%",
+  "aromaflor|Burmy|otros": "Aparición en árbol de miel: hasta 40%",
+  "aromaflor|Cherubi|otros": "Aparición en árbol de miel: hasta 20%",
+  "aromaflor|Aipom|otros": "Aparición en árbol de miel: hasta 10%",
+  "aromaflor|Heracross|otros": "Aparición en árbol de miel: hasta 5%",
+  "aromaflor|Munchlax|otros": "Aparición: muy baja, y solo en sus 4 árboles",
+  "vetusta|Gastly|hierba": "Aparición: hasta 100% · Nv. 13-17",
+  "vetusta|Budew|hierba": "Aparición (mejor zona): mañana/noche 30% · día 40% · Nv. 10-14",
+  "vetusta|Bidoof|hierba": "Aparición: hasta 30% · Nv. 12-14",
+  "vetusta|Buneary|hierba": "Aparición: 24% · Nv. 11-13",
+  "vetusta|Hoothoot|hierba": "Aparición: mañana/día 0% · noche 10% · Nv. 12",
+  "vetusta|Silcoon|hierba": "Aparición: hasta 10% · Nv. 12-14",
+  "vetusta|Cascoon|hierba": "Aparición: hasta 10% · Nv. 12-14",
+  "vetusta|Wurmple|hierba": "Aparición: mañana/día 10% · noche 0% · Nv. 10-13",
+  "vetusta|Kricketot|hierba": "Aparición: mañana/noche 10% · día 0% · Nv. 10-13",
+  "vetusta|Beautifly|hierba": "Aparición: 1% · Nv. 14-15",
+  "vetusta|Dustox|hierba": "Aparición: 1% · Nv. 14-15",
+  "vetusta|Psyduck|surf": "Aparición: 90% · Nv. 20-30",
+  "vetusta|Golduck|surf": "Aparición: 10% · Nv. 20-40",
+  "vetusta|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "vetusta|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "vetusta|Barboach|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "vetusta|Whiscash|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "vetusta|Rotom|otros": "Encuentro único",
+  "corona1|Machop|hierba": "Aparición (mejor zona): mañana/noche 35% · día 45% · Nv. 5-20",
+  "corona1|Geodude|hierba": "Aparición: hasta 40% · Nv. 5-20",
+  "corona1|Ponyta|hierba": "Aparición (mejor zona): mañana/noche 20% · día 30% · Nv. 5-17",
+  "corona1|Bronzor|hierba": "Aparición: hasta 30% · Nv. 18-20",
+  "corona1|Budew|hierba": "Aparición: mañana/día 30% · noche 20% · Nv. 18-19",
+  "corona1|Gible|hierba": "Aparición: 20% · Nv. 17-20",
+  "corona1|Gligar|hierba": "Aparición: mañana/día 20% · noche 10% · Nv. 16-18",
+  "corona1|Meditite|hierba": "Aparición: mañana/día 20% · noche 10% · Nv. 18-20",
+  "corona1|Bibarel|hierba": "Aparición: 20% · Nv. 18-20",
+  "corona1|Bidoof|hierba": "Aparición: 20% · Nv. 18",
+  "corona1|Ralts|hierba": "Aparición: 15% · Nv. 17-18",
+  "corona1|Roselia|hierba": "Aparición: 15% · Nv. 19-20",
+  "corona1|Zubat|hierba": "Aparición (mejor zona): mañana/día 5% · noche 15% · Nv. 5-19",
+  "corona1|Onix|hierba": "Aparición: 15% · Nv. 18-20",
+  "corona1|Kricketune|hierba": "Aparición: mañana/noche 10% · día 0% · Nv. 17-18",
+  "corona1|Chingling|hierba": "Aparición: 10% · Nv. 17-19",
+  "corona1|Clefairy|hierba": "Aparición: mañana/noche 10% · día 0% · Nv. 17",
+  "corona1|Kricketot|hierba": "Aparición: mañana/noche 10% · día 0% · Nv. 5-6",
+  "corona1|Nosepass|hierba": "Aparición: 5% · Nv. 18",
+  "corona1|Zubat|surf": "Aparición: 90% · Nv. 20-30",
+  "corona1|Psyduck|surf": "Aparición: 90% · Nv. 20",
+  "corona1|Golbat|surf": "Aparición: 10% · Nv. 20-40",
+  "corona1|Golduck|surf": "Aparición: 10% · Nv. 20-40",
+  "corona1|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "corona1|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 20-55",
+  "corona1|Barboach|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "corona1|Whiscash|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "corona1|Goldeen|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "corona1|Seaking|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "sosiego|Unown|hierba": "Aparición: 100% · Nv. 20-30",
+  "sosiego|Gastly|hierba": "Aparición (mejor zona): mañana/día 65% · noche 45% · Nv. 17-22",
+  "sosiego|Zubat|hierba": "Aparición: hasta 35% · Nv. 17-21",
+  "sosiego|Bibarel|hierba": "Aparición: 30% · Nv. 18-19",
+  "sosiego|Roselia|hierba": "Aparición: 25% · Nv. 19-20",
+  "sosiego|Staravia|hierba": "Aparición: mañana/día 20% · noche 10% · Nv. 18-19",
+  "sosiego|Duskull|hierba": "Aparición (mejor zona): mañana/día 0% · noche 20% · Nv. 17-21",
+  "sosiego|Ralts|hierba": "Aparición: mañana/día 20% · noche 10% · Nv. 17-19",
+  "sosiego|Golbat|hierba": "Aparición: hasta 10% · Nv. 21-22",
+  "sosiego|Chansey|hierba": "Aparición: 5% · Nv. 17-19",
+  "sosiego|Bonsly|hierba": "Aparición: 10% solo el día que lo menciona el dueño del jardín",
+  "sosiego|Psyduck|surf": "Aparición: 90% · Nv. 20-30",
+  "sosiego|Golduck|surf": "Aparición: 10% · Nv. 20-40",
+  "sosiego|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "sosiego|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "sosiego|Goldeen|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "sosiego|Seaking|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "rocavelo|Marill|hierba": "Aparición: mañana/día 25% · noche 45% · Nv. 20-22",
+  "rocavelo|Staravia|hierba": "Aparición (mejor zona): mañana 30% · día 40% · noche 20% · Nv. 19-22",
+  "rocavelo|Ponyta|hierba": "Aparición: mañana 25% · día 35% · noche 15% · Nv. 19-21",
+  "rocavelo|Geodude|hierba": "Aparición: 20% · Nv. 18",
+  "rocavelo|Scyther|hierba": "Aparición: mañana 15% · día/noche 5% · Nv. 19-22",
+  "rocavelo|Roselia|hierba": "Aparición: 15% · Nv. 20-21",
+  "rocavelo|Abra|hierba": "Aparición: 10% · Nv. 19",
+  "rocavelo|Kadabra|hierba": "Aparición: 10% · Nv. 21-22",
+  "rocavelo|Lickitung|hierba": "Aparición: 10% · Nv. 20",
+  "rocavelo|Hoothoot|hierba": "Aparición: mañana/día 0% · noche 10% · Nv. 20",
+  "rocavelo|Noctowl|hierba": "Aparición: mañana/día 0% · noche 10% · Nv. 21",
+  "rocavelo|Chansey|hierba": "Aparición: 5% · Nv. 19-21",
+  "pradera|Shellos|hierba": "Aparición: hasta 45% · Nv. 23-26",
+  "pradera|Marill|hierba": "Aparición: mañana/día 25% · noche 45% · Nv. 21-23",
+  "pradera|Wooper|hierba": "Aparición: hasta 40% · Nv. 26-30",
+  "pradera|Buizel|hierba": "Aparición (mejor zona): mañana/día 25% · noche 35% · Nv. 23-25",
+  "pradera|Roselia|hierba": "Aparición: hasta 35% · Nv. 22-24",
+  "pradera|Staravia|hierba": "Aparición (mejor zona): mañana 25% · día 35% · noche 15% · Nv. 21-28",
+  "pradera|Graveler|hierba": "Aparición: mañana/día 35% · noche 25% · Nv. 22-24",
+  "pradera|Rhyhorn|hierba": "Aparición: mañana/día 30% · noche 20% · Nv. 21-24",
+  "pradera|Quagsire|hierba": "Aparición: hasta 30% · Nv. 24-30",
+  "pradera|Pichu|hierba": "Aparición: 30% · Nv. 21-22",
+  "pradera|Bibarel|hierba": "Aparición (mejor zona): mañana/día 30% · noche 20% · Nv. 25-28",
+  "pradera|Houndour|hierba": "Aparición (mejor zona): mañana/día 15% · noche 25% · Nv. 22-28",
+  "pradera|Girafarig|hierba": "Aparición: 25% · Nv. 26-28",
+  "pradera|Yanma|hierba": "Aparición (mejor zona): mañana/día 25% · noche 15% · Nv. 26-31",
+  "pradera|Tangela|hierba": "Aparición (mejor zona): mañana/día 25% · noche 15% · Nv. 27-31",
+  "pradera|Chatot|hierba": "Aparición: mañana/día 20% · noche 0% · Nv. 23-25",
+  "pradera|Wingull|hierba": "Aparición: 20% · Nv. 24-26",
+  "pradera|Noctowl|hierba": "Aparición (mejor zona): mañana/día 0% · noche 20% · Nv. 28-30",
+  "pradera|Tropius|hierba": "Aparición: mañana/día 20% · noche 0% · Nv. 28-30",
+  "pradera|Hoothoot|hierba": "Aparición (mejor zona): mañana/día 0% · noche 20% · Nv. 26-27",
+  "pradera|Kirlia|hierba": "Aparición: mañana 20% · día/noche 10% · Nv. 22-24",
+  "pradera|Geodude|hierba": "Aparición: 20% · Nv. 21",
+  "pradera|Kricketune|hierba": "Aparición (mejor zona): mañana 10% · día 0% · noche 20% · Nv. 22-27",
+  "pradera|Croagunk|hierba": "Aparición: 10% · Nv. 24-25",
+  "pradera|Pikachu|hierba": "Aparición: 10% · Nv. 22-24",
+  "pradera|Ralts|hierba": "Aparición: mañana/noche 0% · día 10% · Nv. 22",
+  "pradera|Zubat|hierba": "Aparición: mañana/día 0% · noche 10% · Nv. 22",
+  "pradera|Carnivine|hierba": "Aparición: 10% solo los días que toca (mira los prismáticos)",
+  "pradera|Skorupi|hierba": "Aparición: 10% solo los días que toca (mira los prismáticos)",
+  "pradera|Wooper|surf": "Aparición: 90% · Nv. 20-30",
+  "pradera|Psyduck|surf": "Aparición: 90% · Nv. 20-30",
+  "pradera|Tentacool|surf": "Aparición: hasta 60% · Nv. 20-30",
+  "pradera|Shellos|surf": "Aparición: hasta 60% · Nv. 20-30",
+  "pradera|Wingull|surf": "Aparición: hasta 30% · Nv. 20-30",
+  "pradera|Quagsire|surf": "Aparición: 10% · Nv. 20-40",
+  "pradera|Golduck|surf": "Aparición: 10% · Nv. 20-40",
+  "pradera|Gastrodon|surf": "Aparición: hasta 9% · Nv. 20-40",
+  "pradera|Tentacruel|surf": "Aparición: hasta 5% · Nv. 20-40",
+  "pradera|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "pradera|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "pradera|Carvanha|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "pradera|Barboach|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "pradera|Remoraid|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "pradera|Octillery|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "pradera|Goldeen|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "pradera|Seaking|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "pradera|Whiscash|cana": "Aparición: Supercaña 15% · Nv. 20-50",
+  "caelestis|Meditite|hierba": "Aparición (mejor zona): mañana/día 40% · noche 20% · Nv. 13-29",
+  "caelestis|Swablu|hierba": "Aparición: mañana/noche 20% · día 30% · Nv. 27",
+  "caelestis|Geodude|hierba": "Aparición: mañana/noche 20% · día 30% · Nv. 13-15",
+  "caelestis|Bronzor|hierba": "Aparición: hasta 20% · Nv. 14-29",
+  "caelestis|Bibarel|hierba": "Aparición: 20% · Nv. 28",
+  "caelestis|Graveler|hierba": "Aparición: 20% · Nv. 28",
+  "caelestis|Bidoof|hierba": "Aparición: 20% · Nv. 14",
+  "caelestis|Zubat|hierba": "Aparición (mejor zona): mañana/día 5% · noche 15% · Nv. 14-28",
+  "caelestis|Machop|hierba": "Aparición: hasta 15% · Nv. 14-29",
+  "caelestis|Chingling|hierba": "Aparición: hasta 15% · Nv. 13-30",
+  "caelestis|Machoke|hierba": "Aparición: hasta 15% · Nv. 29-30",
+  "caelestis|Scyther|hierba": "Aparición: mañana 15% · día/noche 5% · Nv. 27-29",
+  "caelestis|Cleffa|hierba": "Aparición: mañana/noche 10% · día 0% · Nv. 13",
+  "caelestis|Hoothoot|hierba": "Aparición: mañana/día 0% · noche 10% · Nv. 15-27",
+  "caelestis|Noctowl|hierba": "Aparición: mañana/día 0% · noche 10% · Nv. 27-29",
+  "caelestis|Nosepass|hierba": "Aparición: 5% · Nv. 14",
+  "caelestis|Psyduck|surf": "Aparición: 90% · Nv. 20-30",
+  "caelestis|Golduck|surf": "Aparición: 10% · Nv. 20-40",
+  "caelestis|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "caelestis|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "caelestis|Goldeen|cana": "Aparición: Caña buena 45% · Nv. 15-35",
+  "caelestis|Whiscash|cana": "Aparición: Caña buena 5% · Supercaña 45% · Nv. 25-55",
+  "caelestis|Corphish|cana": "Aparición: Supercaña 40% · Nv. 30-40",
+  "caelestis|Barboach|cana": "Aparición: Caña buena 40% · Nv. 15-20",
+  "caelestis|Crawdaunt|cana": "Aparición: Supercaña 15% · Nv. 40-55",
+  "caelestis|Seaking|cana": "Aparición: Supercaña 5% · Nv. 40-55",
+  "canal|Graveler|hierba": "Aparición: hasta 70% · Nv. 30-34",
+  "canal|Floatzel|hierba": "Aparición (mejor zona): mañana/día 30% · noche 40% · Nv. 28-31",
+  "canal|Gastrodon|hierba": "Aparición: mañana/día 25% · noche 35% · Nv. 28-30",
+  "canal|Geodude|hierba": "Aparición: 35% · Nv. 30-32",
+  "canal|Steelix|hierba": "Aparición: hasta 30% · Nv. 32-35",
+  "canal|Mr. Mime|hierba": "Aparición: 25% · Nv. 29-31",
+  "canal|Sudowoodo|hierba": "Aparición: 25% · Nv. 29-31",
+  "canal|Girafarig|hierba": "Aparición: 25% · Nv. 28-30",
+  "canal|Roselia|hierba": "Aparición: mañana/día 25% · noche 15% · Nv. 28-30",
+  "canal|Golbat|hierba": "Aparición: hasta 20% · Nv. 30-33",
+  "canal|Onix|hierba": "Aparición: hasta 20% · Nv. 31-33",
+  "canal|Chatot|hierba": "Aparición: mañana/día 20% · noche 0% · Nv. 28-30",
+  "canal|Zubat|hierba": "Aparición: 10% · Nv. 30",
+  "canal|Tentacool|surf": "Aparición: hasta 60% · Nv. 20-30",
+  "canal|Wingull|surf": "Aparición: hasta 60% · Nv. 20-30",
+  "canal|Shellos|surf": "Aparición: 30% · Nv. 20-30",
+  "canal|Tentacruel|surf": "Aparición: hasta 9% · Nv. 20-40",
+  "canal|Pelipper|surf": "Aparición: hasta 9% · Nv. 20-40",
+  "canal|Gastrodon|surf": "Aparición: 1% · Nv. 20-40",
+  "canal|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "canal|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "canal|Finneon|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "canal|Lumineon|cana": "Aparición: Caña buena 5% · Supercaña 45% · Nv. 25-55",
+  "canal|Staryu|cana": "Aparición: Supercaña 15% · Nv. 20-50",
+  "canal|Qwilfish|cana": "Aparición: Supercaña 15% · Nv. 20-50",
+  "canal|Chinchou|cana": "Aparición: Supercaña 15% · Nv. 20-50",
+  "lagos|Starly|hierba": "Aparición: 50% · Nv. 2-4",
+  "lagos|Bidoof|hierba": "Aparición: 50% · Nv. 2-4",
+  "lagos|Staravia|hierba": "Aparición: 35% · Nv. 38-40",
+  "lagos|Bibarel|hierba": "Aparición: 35% · Nv. 39-41",
+  "lagos|Psyduck|hierba": "Aparición: 15% · Nv. 38-39",
+  "lagos|Golduck|hierba": "Aparición: 15% · Nv. 40-41",
+  "lagos|Psyduck|surf": "Aparición: 90% · Nv. 20-30",
+  "lagos|Golduck|surf": "Aparición: 10% · Nv. 20-40",
+  "lagos|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "lagos|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "lagos|Seaking|cana": "Aparición: Caña buena 5% · Supercaña 45% · Nv. 25-55",
+  "lagos|Goldeen|cana": "Aparición: Caña buena 40% · Nv. 15-20",
+  "puntaneva|Snover|hierba": "Aparición: mañana/día 40% · noche 30% · Nv. 32-35",
+  "puntaneva|Sneasel|hierba": "Aparición: hasta 35% · Nv. 33-35",
+  "puntaneva|Swinub|hierba": "Aparición: 35% · Nv. 32-34",
+  "puntaneva|Graveler|hierba": "Aparición (mejor zona): mañana/noche 20% · día 30% · Nv. 32-38",
+  "puntaneva|Medicham|hierba": "Aparición (mejor zona): mañana/día 21% · noche 11% · Nv. 37-39",
+  "puntaneva|Snorunt|hierba": "Aparición (mejor zona): mañana/día 0% · noche 20% · Nv. 32-33",
+  "puntaneva|Meditite|hierba": "Aparición: mañana/día 20% · noche 10% · Nv. 32-35",
+  "puntaneva|Bronzor|hierba": "Aparición: 20% · Nv. 33",
+  "puntaneva|Bronzong|hierba": "Aparición: 20% · Nv. 37",
+  "puntaneva|Golbat|hierba": "Aparición (mejor zona): mañana/día 5% · noche 15% · Nv. 33-38",
+  "puntaneva|Clefairy|hierba": "Aparición: mañana/noche 10% · día 0% · Nv. 32-36",
+  "puntaneva|Machoke|hierba": "Aparición: 10% · Nv. 35-39",
+  "puntaneva|Chingling|hierba": "Aparición: 10% · Nv. 32-38",
+  "puntaneva|Zubat|hierba": "Aparición: mañana/día 0% · noche 10% · Nv. 32",
+  "puntaneva|Nosepass|hierba": "Aparición: 5% · Nv. 33-37",
+  "puntaneva|Zubat|surf": "Aparición: 90% · Nv. 20-30",
+  "puntaneva|Golbat|surf": "Aparición: 10% · Nv. 20-40",
+  "puntaneva|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "puntaneva|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "puntaneva|Barboach|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "puntaneva|Whiscash|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "puntaneva|Feebas|cana": "Aparición pescando en sus casillas: 50%",
+  "sede|Snover|hierba": "Aparición: mañana/día 45% · noche 25% · Nv. 38-41",
+  "sede|Bibarel|hierba": "Aparición: 25% · Nv. 39-40",
+  "sede|Snorunt|hierba": "Aparición: mañana/día 0% · noche 20% · Nv. 39-40",
+  "sede|Golduck|hierba": "Aparición: 15% · Nv. 39-40",
+  "sede|Sneasel|hierba": "Aparición: 10% · Nv. 41",
+  "sede|Psyduck|hierba": "Aparición: 5% · Nv. 38",
+  "sede|Psyduck|surf": "Aparición: 90% · Nv. 20-30",
+  "sede|Golduck|surf": "Aparición: 10% · Nv. 20-40",
+  "sede|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "sede|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "sede|Seaking|cana": "Aparición: Caña buena 5% · Supercaña 45% · Nv. 25-55",
+  "sede|Goldeen|cana": "Aparición: Caña buena 40% · Nv. 15-20",
+  "columna|Graveler|hierba": "Aparición (mejor zona): mañana/noche 40% · día 50% · Nv. 36-38",
+  "columna|Abomasnow|hierba": "Aparición: mañana/día 30% · noche 20% · Nv. 38-39",
+  "columna|Medicham|hierba": "Aparición: mañana/día 20% · noche 10% · Nv. 37-40",
+  "columna|Bronzong|hierba": "Aparición: 20% · Nv. 37",
+  "columna|Snover|hierba": "Aparición: 20% · Nv. 36",
+  "columna|Golbat|hierba": "Aparición (mejor zona): mañana/día 5% · noche 15% · Nv. 37-38",
+  "columna|Clefairy|hierba": "Aparición: mañana/noche 10% · día 0% · Nv. 36",
+  "columna|Machoke|hierba": "Aparición: 10% · Nv. 39-40",
+  "columna|Chingling|hierba": "Aparición: hasta 10% · Nv. 36-39",
+  "columna|Chimecho|hierba": "Aparición: hasta 10% · Nv. 39-41",
+  "columna|Noctowl|hierba": "Aparición: mañana/día 0% · noche 10% · Nv. 39",
+  "columna|Nosepass|hierba": "Aparición: 5% · Nv. 37-38",
+  "columna|Absol|hierba": "Aparición: 5% · Nv. 38-40",
+  "columna|Zubat|surf": "Aparición: 90% · Nv. 20-30",
+  "columna|Golbat|surf": "Aparición: 10% · Nv. 20-40",
+  "columna|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "columna|Barboach|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "columna|Gyarados|cana": "Aparición: Supercaña 40% · Nv. 30-55",
+  "columna|Dratini|cana": "Aparición: Supercaña 40% · Nv. 15-25",
+  "columna|Whiscash|cana": "Aparición: Supercaña 15% · Nv. 20-50",
+  "columna|Dragonair|cana": "Aparición: Supercaña 5% · Nv. 20-55",
+  "columna|Giratina|otros": "Encuentro único",
+  "columna|Uxie|otros": "Encuentro único",
+  "columna|Azelf|otros": "Encuentro único",
+  "columna|Mesprit|otros": "Errante: aparece al azar en la ruta donde esté",
+  "marina|Floatzel|hierba": "Aparición: mañana/día 20% · noche 40% · Nv. 38-41",
+  "marina|Electabuzz|hierba": "Aparición: mañana/día 30% · noche 20% · Nv. 39-41",
+  "marina|Luxio|hierba": "Aparición: 10% · Nv. 38-40",
+  "marina|Magnemite|hierba": "Aparición: 10% · Nv. 39",
+  "marina|Wingull|hierba": "Aparición: 10% · Nv. 38",
+  "marina|Chatot|hierba": "Aparición: mañana/día 10% · noche 0% · Nv. 38",
+  "marina|Magneton|hierba": "Aparición: 5% · Nv. 41",
+  "marina|Pelipper|hierba": "Aparición: 5% · Nv. 40",
+  "marina|Tentacool|surf": "Aparición: 60% · Nv. 30-40",
+  "marina|Wingull|surf": "Aparición: 30% · Nv. 30-40",
+  "marina|Tentacruel|surf": "Aparición: 9% · Nv. 30-50",
+  "marina|Pelipper|surf": "Aparición: 1% · Nv. 30-50",
+  "marina|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 55% · Nv. 3-25",
+  "marina|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "marina|Remoraid|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "marina|Octillery|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "marina|Staryu|cana": "Aparición: Supercaña 15% · Nv. 20-50",
+  "liga|Steelix|hierba": "Aparición: hasta 40% · Nv. 42-50",
+  "liga|Floatzel|hierba": "Aparición: hasta 35% · Nv. 42-50",
+  "liga|Azumarill|hierba": "Aparición: 30% · Nv. 41-49",
+  "liga|Graveler|hierba": "Aparición (mejor zona): mañana/día 30% · noche 20% · Nv. 40-49",
+  "liga|Magneton|hierba": "Aparición: 30% · Nv. 41-43",
+  "liga|Onix|hierba": "Aparición: hasta 20% · Nv. 41-50",
+  "liga|Rhyhorn|hierba": "Aparición: 20% · Nv. 41",
+  "liga|Rhydon|hierba": "Aparición: 15% · Nv. 41-43",
+  "liga|Golbat|hierba": "Aparición: mañana/día 5% · noche 15% · Nv. 41-50",
+  "liga|Dewgong|hierba": "Aparición: 15% · Nv. 48-50",
+  "liga|Gabite|hierba": "Aparición: 5% · Nv. 41-50",
+  "liga|Floatzel|surf": "Aparición: hasta 90% · Nv. 30-55",
+  "liga|Tentacruel|surf": "Aparición: hasta 60% · Nv. 30-50",
+  "liga|Wingull|surf": "Aparición: 60% · Nv. 30-40",
+  "liga|Pelipper|surf": "Aparición: hasta 35% · Nv. 30-50",
+  "liga|Dewgong|surf": "Aparición: 30% · Nv. 35-55",
+  "liga|Mantyke|surf": "Aparición: 10% · Nv. 30-40",
+  "liga|Golbat|surf": "Aparición: 10% · Nv. 30-50",
+  "liga|Lapras|surf": "Aparición: 10% · Nv. 35-55",
+  "liga|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 100% · Nv. 3-25",
+  "liga|Gyarados|cana": "Aparición: Supercaña 100% · Nv. 30-55",
+  "liga|Remoraid|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "liga|Octillery|cana": "Aparición: Caña buena 5% · Supercaña 45% · Nv. 20-55",
+  "liga|Wailmer|cana": "Aparición: Supercaña 40% · Nv. 30-40",
+  "liga|Luvdisc|cana": "Aparición: Supercaña 15% · Nv. 20-30",
+  "liga|Wailord|cana": "Aparición: Supercaña 5% · Nv. 40-55",
+  "postgame|Golbat|hierba": "Aparición: hasta 80% · Nv. 17-53",
+  "postgame|Roselia|hierba": "Aparición: hasta 45% · Nv. 48-50",
+  "postgame|Cacturne|hierba": "Aparición: mañana/día 20% · noche 40% · Nv. 50-52",
+  "postgame|Magcargo|hierba": "Aparición: hasta 40% · Nv. 53-55",
+  "postgame|Haunter|hierba": "Aparición: mañana/día 40% · noche 30% · Nv. 25-47",
+  "postgame|Gastly|hierba": "Aparición: mañana/día 40% · noche 30% · Nv. 15-17",
+  "postgame|Graveler|hierba": "Aparición (mejor zona): mañana/día 35% · noche 25% · Nv. 37-54",
+  "postgame|Bibarel|hierba": "Aparición: 30% · Nv. 37-38",
+  "postgame|Pelipper|hierba": "Aparición: hasta 30% · Nv. 48-51",
+  "postgame|Fearow|hierba": "Aparición (mejor zona): mañana/día 30% · noche 10% · Nv. 48-53",
+  "postgame|Dugtrio|hierba": "Aparición: 30% · Nv. 50-52",
+  "postgame|Floatzel|hierba": "Aparición: hasta 25% · Nv. 48-50",
+  "postgame|Machoke|hierba": "Aparición: 25% · Nv. 48-50",
+  "postgame|Pidgey|hierba": "Aparición: mañana/noche 5% · día 25% · Nv. 47-50",
+  "postgame|Staravia|hierba": "Aparición: mañana/día 20% · noche 10% · Nv. 38-40",
+  "postgame|Oddish|hierba": "Aparición: mañana/día 0% · noche 20% · Nv. 47-49",
+  "postgame|Bellsprout|hierba": "Aparición: mañana/día 20% · noche 0% · Nv. 47-49",
+  "postgame|Banette|hierba": "Aparición: mañana/día 0% · noche 20% · Nv. 48-50",
+  "postgame|Rhydon|hierba": "Aparición: hasta 20% · Nv. 50-55",
+  "postgame|Camerupt|hierba": "Aparición: 20% · Nv. 53",
+  "postgame|Hippowdon|hierba": "Aparición: mañana/día 20% · noche 10% · Nv. 50-51",
+  "postgame|Ledian|hierba": "Aparición: mañana 20% · día/noche 0% · Nv. 50",
+  "postgame|Ariados|hierba": "Aparición: mañana/día 0% · noche 20% · Nv. 50",
+  "postgame|Bronzong|hierba": "Aparición: 20% · Nv. 35-45",
+  "postgame|Bronzor|hierba": "Aparición: 20% · Nv. 15-25",
+  "postgame|Dusclops|hierba": "Aparición (mejor zona): mañana/día 5% · noche 15% · Nv. 16-48",
+  "postgame|Raticate|hierba": "Aparición: 15% · Nv. 49-50",
+  "postgame|Weezing|hierba": "Aparición: hasta 15% · Nv. 51-54",
+  "postgame|Wingull|hierba": "Aparición: hasta 15% · Nv. 47-49",
+  "postgame|Chingling|hierba": "Aparición: hasta 10% · Nv. 16-39",
+  "postgame|Gastrodon|hierba": "Aparición: 10% · Nv. 49",
+  "postgame|Volbeat|hierba": "Aparición: 10% · Nv. 49",
+  "postgame|Illumise|hierba": "Aparición: 10% · Nv. 49",
+  "postgame|Sneasel|hierba": "Aparición: 10% · Nv. 49-51",
+  "postgame|Smoochum|hierba": "Aparición: 10% · Nv. 47-49",
+  "postgame|Jynx|hierba": "Aparición: 10% · Nv. 47-51",
+  "postgame|Chimecho|hierba": "Aparición: hasta 10% · Nv. 28-47",
+  "postgame|Gloom|hierba": "Aparición: 5% · Nv. 49-51",
+  "postgame|Weepinbell|hierba": "Aparición: 5% · Nv. 49-51",
+  "postgame|Beautifly|hierba": "Aparición: 5% · Nv. 48-52",
+  "postgame|Dustox|hierba": "Aparición: 5% · Nv. 48-52",
+  "postgame|Rattata|hierba": "Aparición: 5% · Nv. 47",
+  "postgame|Spearow|hierba": "Aparición: 5% · Nv. 47",
+  "postgame|Rhyhorn|hierba": "Aparición: 5% · Nv. 52",
+  "postgame|Skarmory|hierba": "Aparición: 5% · Nv. 53",
+  "postgame|Numel|hierba": "Aparición: 5% · Nv. 51",
+  "postgame|Diglett|hierba": "Aparición: 5% · Nv. 49",
+  "postgame|Cacnea|hierba": "Aparición: 5% · Nv. 50",
+  "postgame|Slugma|hierba": "Aparición: 5% · Nv. 52-53",
+  "postgame|Koffing|hierba": "Aparición: 5% · Nv. 53",
+  "postgame|Duskull|hierba": "Aparición: hasta 5% · Nv. 18-28",
+  "postgame|Golduck|surf": "Aparición: hasta 100% · Nv. 20-55",
+  "postgame|Surskit|surf": "Aparición: 95% · Nv. 35-45",
+  "postgame|Poliwhirl|surf": "Aparición: 70% · Nv. 35-55",
+  "postgame|Pelipper|surf": "Aparición: hasta 60% · Nv. 35-55",
+  "postgame|Wingull|surf": "Aparición: 60% · Nv. 35-45",
+  "postgame|Sealeo|surf": "Aparición: 60% · Nv. 35-55",
+  "postgame|Tentacruel|surf": "Aparición: hasta 30% · Nv. 35-55",
+  "postgame|Poliwag|surf": "Aparición: 30% · Nv. 35-45",
+  "postgame|Psyduck|surf": "Aparición: 10% · Nv. 35-45",
+  "postgame|Gastrodon|surf": "Aparición: 10% · Nv. 35-55",
+  "postgame|Masquerain|surf": "Aparición: 5% · Nv. 35-55",
+  "postgame|Magikarp|cana": "Aparición: Caña vieja 100% · Caña buena 100% · Supercaña 100% · Nv. 1-100",
+  "postgame|Gyarados|cana": "Aparición: Supercaña 55% · Nv. 30-55",
+  "postgame|Goldeen|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "postgame|Seaking|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "postgame|Remoraid|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "postgame|Octillery|cana": "Aparición: Supercaña 45% · Nv. 20-55",
+  "postgame|Barboach|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "postgame|Whiscash|cana": "Aparición: Caña buena 5% · Supercaña 45% · Nv. 25-55",
+  "postgame|Horsea|cana": "Aparición: Caña buena 45% · Nv. 10-25",
+  "postgame|Seadra|cana": "Aparición: Supercaña 45% · Nv. 30-55",
+  "postgame|Wailmer|cana": "Aparición: Supercaña 40% · Nv. 30-40",
+  "postgame|Luvdisc|cana": "Aparición: Supercaña 15% · Nv. 20-30",
+  "postgame|Relicanth|cana": "Aparición: Supercaña 15% · Nv. 20-50",
+  "postgame|Wailord|cana": "Aparición: Supercaña 5% · Nv. 40-55",
+  "postgame|Dratini|cana": "Aparición con Supercaña: 40%",
+  "postgame|Giratina|otros": "Encuentro único",
+  "postgame|Dialga|otros": "Encuentro único",
+  "postgame|Palkia|otros": "Encuentro único",
+  "postgame|Heatran|otros": "Encuentro único",
+  "postgame|Cresselia|otros": "Errante: aparece al azar en la ruta donde esté",
+  "postgame|Regigigas|otros": "Encuentro único",
+  "postgame|Articuno|otros": "Errante: aparece al azar en la ruta donde esté",
+  "postgame|Zapdos|otros": "Errante: aparece al azar en la ruta donde esté",
+  "postgame|Moltres|otros": "Errante: aparece al azar en la ruta donde esté",
+  "postgame|Spiritomb|otros": "Encuentro único",
+  "secretos|Gible|": "Aparición: 20%",
+  "secretos|Munchlax|": "Aparición: muy baja, y solo en sus 4 árboles",
+  "secretos|Feebas|": "Aparición pescando en sus casillas: 50%",
+  "secretos|Rotom|": "Encuentro único",
+  "secretos|Spiritomb|": "Encuentro único",
+  "secretos|Drifloon|": "Encuentro único",
+  "secretos|Heracross|": "Aparición en árbol de miel: hasta 5%",
+  "secretos|Combee|": "Aparición en árbol de miel: hasta 40%",
+  "secretos|Chansey|": "Aparición: 5%",
+  "secretos|Chingling|": "Aparición: hasta 10%",
+  "secretos|Clefairy|": "Aparición: mañana/noche 10% · día 0%",
+  "secretos|Uxie|": "Encuentro único",
+  "secretos|Azelf|": "Encuentro único",
+  "secretos|Mesprit|": "Errante: aparece al azar en la ruta donde esté",
+  "secretos|Giratina|": "Encuentro único",
+  "secretos|Dialga|": "Encuentro único",
+  "secretos|Palkia|": "Encuentro único",
+  "secretos|Heatran|": "Encuentro único",
+  "secretos|Cresselia|": "Errante: aparece al azar en la ruta donde esté",
+  "secretos|Regigigas|": "Encuentro único",
+  "secretos|Articuno|": "Errante: aparece al azar en la ruta donde esté",
+  "secretos|Zapdos|": "Errante: aparece al azar en la ruta donde esté",
+  "secretos|Moltres|": "Errante: aparece al azar en la ruta donde esté",
+};
+const NOT_WILD = /Inicial|Regalo|Huevo|Revive/;
+// Chance with an Ultra Ball (x2) on a Pokémon at 1 HP and no status: about rate * 2 / 255.
+function catchChance(rate) {
+  const pct = Math.min(100, (rate * 2 / 255) * 100);
+  return pct < 10 ? pct.toLocaleString("es", { maximumFractionDigits: 1 }) : String(Math.round(pct));
+}
+
+// Pokédex de Sinnoh (Platino, 210): [número, nombre, tipos de 4.ª gen., dónde aparece].
+// From PokéAPI's Platinum data. Each entry shares its "mon.<especie>" id with the guide.
+const DEX = [
+  [1, "Turtwig", "Planta", "Inicial, Ruta 201"],
+  [2, "Grotle", "Planta", "Evoluciona de Turtwig"],
+  [3, "Torterra", "Planta/Tierra", "Evoluciona de Grotle"],
+  [4, "Chimchar", "Fuego", "Inicial, Ruta 201"],
+  [5, "Monferno", "Fuego/Lucha", "Evoluciona de Chimchar"],
+  [6, "Infernape", "Fuego/Lucha", "Evoluciona de Monferno"],
+  [7, "Piplup", "Agua", "Inicial, Ruta 201"],
+  [8, "Prinplup", "Agua", "Evoluciona de Piplup"],
+  [9, "Empoleon", "Agua/Acero", "Evoluciona de Prinplup"],
+  [10, "Starly", "Normal/Volador", "Ruta 201 · Lago Veraz · Ruta 203 …"],
+  [11, "Staravia", "Normal/Volador", "Ruta 215 · Lago Valor · Orilla Valor … · o evoluciona de Starly"],
+  [12, "Staraptor", "Normal/Volador", "Evoluciona de Staravia"],
+  [13, "Bidoof", "Normal", "Ruta 201 · Ruta 202 · Lago Veraz …"],
+  [14, "Bibarel", "Normal/Agua", "Lago Valor · Gran Pantano · Lago Agudeza … · o evoluciona de Bidoof"],
+  [15, "Kricketot", "Bicho", "Bosque Vetusto · Ruta 201 · Ruta 202 …"],
+  [16, "Kricketune", "Bicho", "Jardín Trofeo · Orilla Valor · Ruta 206 · o evoluciona de Kricketot"],
+  [17, "Shinx", "Eléctrico", "Ruta 202 · Ruta 203 · Valle Eólico …"],
+  [18, "Luxio", "Eléctrico", "Ruta 222 · o evoluciona de Shinx"],
+  [19, "Luxray", "Eléctrico", "Evoluciona de Luxio"],
+  [20, "Abra", "Psíquico", "Ruta 203 · Ruta 215 · Ciudad Pirita (intercambio)"],
+  [21, "Kadabra", "Psíquico", "Ruta 215 · o evoluciona de Abra"],
+  [22, "Alakazam", "Psíquico", "Evoluciona de Kadabra"],
+  [23, "Magikarp", "Agua", "Área Reposo (Caña buena) · Calle Victoria (Caña buena) · Ciudad Canal (Caña buena) …"],
+  [24, "Gyarados", "Agua/Volador", "Calle Victoria (Supercaña) · Ciudad Vetusta (Supercaña) · Ciudad Pradera (Supercaña) … · o evoluciona de Magikarp"],
+  [25, "Budew", "Planta/Veneno", "Ruta 205 · Bosque Vetusto · Ruta 208 …"],
+  [26, "Roselia", "Planta/Veneno", "Ruta 229 · Ruta 212 · Ruta 221 … · o evoluciona de Budew"],
+  [27, "Roserade", "Planta/Veneno", "Evoluciona de Roselia"],
+  [28, "Zubat", "Veneno/Volador", "Monte Corona · Senda Desolada · Puerta Pirita …"],
+  [29, "Golbat", "Veneno/Volador", "Templo Puntaneva · Monte Corona · Calle Victoria … · o evoluciona de Zubat"],
+  [30, "Crobat", "Veneno/Volador", "Evoluciona de Golbat"],
+  [31, "Geodude", "Roca/Tierra", "Cueva Ruinamaníaco · Mina Pirita · Túnel Ruinamaníaco …"],
+  [32, "Graveler", "Roca/Tierra", "Isla Hierro · Monte Corona · Fuente Despedida … · o evoluciona de Geodude"],
+  [33, "Golem", "Roca/Tierra", "Evoluciona de Graveler"],
+  [34, "Onix", "Roca/Tierra", "Cueva Extravío · Calle Victoria · Isla Hierro …"],
+  [35, "Steelix", "Acero/Tierra", "Calle Victoria · Isla Hierro · o evoluciona de Onix"],
+  [36, "Cranidos", "Roca", "Ciudad Pirita (regalo)"],
+  [37, "Rampardos", "Roca", "Evoluciona de Cranidos"],
+  [38, "Shieldon", "Roca/Acero", "Ciudad Pirita (regalo)"],
+  [39, "Bastiodon", "Roca/Acero", "Evoluciona de Shieldon"],
+  [40, "Machop", "Lucha", "Ruta 207 · Ruta 211 · Ruta 210 …"],
+  [41, "Machoke", "Lucha", "Ruta 225 · Ruta 226 · Ruta 210 … · o evoluciona de Machop"],
+  [42, "Machamp", "Lucha", "Evoluciona de Machoke"],
+  [43, "Psyduck", "Agua", "Lago Valor · Senda Desolada · Puerta Pirita …"],
+  [44, "Golduck", "Agua", "Lago Valor · Lago Agudeza · Fuente Despedida (Surf) … · o evoluciona de Psyduck"],
+  [45, "Burmy", "Bicho", "Árboles de miel"],
+  [46, "Wormadam", "Bicho/Planta", "Evoluciona de Burmy"],
+  [47, "Mothim", "Bicho/Volador", "Evoluciona de Burmy"],
+  [48, "Wurmple", "Bicho", "Bosque Vetusto · Ruta 205 · Ruta 204 …"],
+  [49, "Silcoon", "Bicho", "Ruta 205 · Bosque Vetusto · o evoluciona de Wurmple"],
+  [50, "Beautifly", "Bicho/Volador", "Ruta 224 · Ruta 229 · Bosque Vetusto … · o evoluciona de Silcoon"],
+  [51, "Cascoon", "Bicho", "Ruta 205 · Bosque Vetusto · o evoluciona de Wurmple"],
+  [52, "Dustox", "Bicho/Veneno", "Ruta 224 · Ruta 229 · Bosque Vetusto … · o evoluciona de Cascoon"],
+  [53, "Combee", "Bicho/Volador", "Árboles de miel"],
+  [54, "Vespiquen", "Bicho/Volador", "Evoluciona de Combee"],
+  [55, "Pachirisu", "Eléctrico", "Valle Eólico · Ruta 205"],
+  [56, "Buizel", "Agua", "Ruta 213 · Ruta 212 · Valle Eólico …"],
+  [57, "Floatzel", "Agua", "Calle Victoria · Ruta 218 · Ruta 222 … · o evoluciona de Buizel"],
+  [58, "Cherubi", "Planta", "Árboles de miel"],
+  [59, "Cherrim", "Planta", "Evoluciona de Cherubi"],
+  [60, "Shellos", "Agua", "Ruta 205 · Ruta 212 · Valle Eólico …"],
+  [61, "Gastrodon", "Agua/Tierra", "Ruta 218 · Forja Fuego · Ruta 224 … · o evoluciona de Shellos"],
+  [62, "Heracross", "Bicho/Lucha", "Árboles de miel"],
+  [63, "Aipom", "Normal", "Árboles de miel"],
+  [64, "Ambipom", "Normal", "Evoluciona de Aipom"],
+  [65, "Drifloon", "Fantasma/Volador", "Valle Eólico (encuentro único)"],
+  [66, "Drifblim", "Fantasma/Volador", "Evoluciona de Drifloon"],
+  [67, "Buneary", "Normal", "Bosque Vetusto"],
+  [68, "Lopunny", "Normal", "Evoluciona de Buneary"],
+  [69, "Gastly", "Fantasma/Veneno", "Torre Perdida · Vieja Mansión · Cueva Retorno …"],
+  [70, "Haunter", "Fantasma/Veneno", "Cueva Retorno · Ciudad Puntaneva (intercambio) · o evoluciona de Gastly"],
+  [71, "Gengar", "Fantasma/Veneno", "Vieja Mansión · o evoluciona de Haunter"],
+  [72, "Misdreavus", "Fantasma", "Sin datos de dónde aparece en Platino"],
+  [73, "Mismagius", "Fantasma", "Evoluciona de Misdreavus"],
+  [74, "Murkrow", "Siniestro/Volador", "Sin datos de dónde aparece en Platino"],
+  [75, "Honchkrow", "Siniestro/Volador", "Evoluciona de Murkrow"],
+  [76, "Glameow", "Normal", "Sin datos de dónde aparece en Platino"],
+  [77, "Purugly", "Normal", "Evoluciona de Glameow"],
+  [78, "Goldeen", "Agua", "Fuente Despedida (Caña buena) · Ruta 203 (Caña buena) · Ruta 204 (Caña buena) …"],
+  [79, "Seaking", "Agua", "Lago Veraz (Caña buena) · Lago Valor (Caña buena) · Lago Agudeza (Caña buena) … · o evoluciona de Goldeen"],
+  [80, "Barboach", "Agua/Tierra", "Ciudad Vetusta (Caña buena) · Monte Corona (Caña buena) · Gran Pantano (Caña buena) …"],
+  [81, "Whiscash", "Agua/Tierra", "Ruta 210 (Caña buena) · Ruta 228 (Caña buena) · Ciudad Vetusta (Supercaña) … · o evoluciona de Barboach"],
+  [82, "Chingling", "Psíquico", "Monte Corona · Fuente Despedida · Cueva Retorno …"],
+  [83, "Chimecho", "Psíquico", "Monte Corona · Cueva Retorno · o evoluciona de Chingling"],
+  [84, "Stunky", "Veneno/Siniestro", "Sin datos de dónde aparece en Platino"],
+  [85, "Skuntank", "Veneno/Siniestro", "Evoluciona de Stunky"],
+  [86, "Meditite", "Lucha/Psíquico", "Ruta 211 · Monte Corona · Ruta 210 …"],
+  [87, "Medicham", "Lucha/Psíquico", "Monte Corona · o evoluciona de Meditite"],
+  [88, "Bronzor", "Acero/Psíquico", "Cueva Extravío · Ruta 211 · Monte Corona …"],
+  [89, "Bronzong", "Acero/Psíquico", "Monte Corona · Cueva Retorno · o evoluciona de Bronzor"],
+  [90, "Ponyta", "Fuego", "Ruta 210 · Ruta 207 · Ruta 206"],
+  [91, "Rapidash", "Fuego", "Evoluciona de Ponyta"],
+  [92, "Bonsly", "Roca", "Jardín Trofeo"],
+  [93, "Sudowoodo", "Roca", "Ruta 221 · o evoluciona de Bonsly"],
+  [94, "Mime Jr.", "Psíquico", "Jardín Trofeo"],
+  [95, "Mr. Mime", "Psíquico", "Ruta 218 · o evoluciona de Mime Jr."],
+  [96, "Happiny", "Normal", "Jardín Trofeo"],
+  [97, "Chansey", "Normal", "Ruta 209 · Ruta 210 · Jardín Trofeo · o evoluciona de Happiny"],
+  [98, "Blissey", "Normal", "Evoluciona de Chansey"],
+  [99, "Cleffa", "Normal", "Monte Corona · Jardín Trofeo"],
+  [100, "Clefairy", "Normal", "Monte Corona · Jardín Trofeo · o evoluciona de Cleffa"],
+  [101, "Clefable", "Normal", "Evoluciona de Clefairy"],
+  [102, "Chatot", "Normal/Volador", "Ruta 213 · Ruta 218 · Ruta 222 …"],
+  [103, "Pichu", "Eléctrico", "Jardín Trofeo"],
+  [104, "Pikachu", "Eléctrico", "Jardín Trofeo · o evoluciona de Pichu"],
+  [105, "Raichu", "Eléctrico", "Evoluciona de Pikachu"],
+  [106, "Hoothoot", "Normal/Volador", "Gran Pantano · Bosque Vetusto · Ruta 205 …"],
+  [107, "Noctowl", "Normal/Volador", "Gran Pantano · Monte Corona · Ruta 210 … · o evoluciona de Hoothoot"],
+  [108, "Spiritomb", "Fantasma/Siniestro", "Ruta 209 (encuentro único)"],
+  [109, "Gible", "Dragón/Tierra", "Cueva Extravío"],
+  [110, "Gabite", "Dragón/Tierra", "Calle Victoria · o evoluciona de Gible"],
+  [111, "Garchomp", "Dragón/Tierra", "Evoluciona de Gabite"],
+  [112, "Munchlax", "Normal", "Árboles de miel"],
+  [113, "Snorlax", "Normal", "Evoluciona de Munchlax"],
+  [114, "Unown", "Psíquico", "Ruinas Sosiego"],
+  [115, "Riolu", "Lucha", "Isla Hierro (huevo)"],
+  [116, "Lucario", "Lucha/Acero", "Evoluciona de Riolu"],
+  [117, "Wooper", "Agua/Tierra", "Gran Pantano"],
+  [118, "Quagsire", "Agua/Tierra", "Gran Pantano · Ruta 212 · o evoluciona de Wooper"],
+  [119, "Wingull", "Agua/Volador", "Ruta 226 · Ruta 213 · Ruta 222 …"],
+  [120, "Pelipper", "Agua/Volador", "Ruta 230 · Ruta 224 · Ruta 222 … · o evoluciona de Wingull"],
+  [121, "Girafarig", "Normal/Psíquico", "Orilla Valor · Ruta 221"],
+  [122, "Hippopotas", "Tierra", "Túnel Ruinamaníaco · Cueva Ruinamaníaco"],
+  [123, "Hippowdon", "Tierra", "Ruta 228 · o evoluciona de Hippopotas"],
+  [124, "Azurill", "Normal", "Jardín Trofeo"],
+  [125, "Marill", "Agua", "Ruta 212 · Ruta 215 · Jardín Trofeo · o evoluciona de Azurill"],
+  [126, "Azumarill", "Agua", "Calle Victoria · o evoluciona de Marill"],
+  [127, "Skorupi", "Veneno/Bicho", "Gran Pantano"],
+  [128, "Drapion", "Veneno/Siniestro", "Gran Pantano · o evoluciona de Skorupi"],
+  [129, "Croagunk", "Veneno/Lucha", "Gran Pantano · Ruta 212"],
+  [130, "Toxicroak", "Veneno/Lucha", "Gran Pantano · o evoluciona de Croagunk"],
+  [131, "Carnivine", "Planta", "Gran Pantano"],
+  [132, "Remoraid", "Agua", "Ciudad Pradera (Caña buena) · Ciudad Marina (Caña buena) · Liga Pokémon (Caña buena) …"],
+  [133, "Octillery", "Agua", "Ciudad Pradera (Supercaña) · Ciudad Marina (Supercaña) · Liga Pokémon (Supercaña) … · o evoluciona de Remoraid"],
+  [134, "Finneon", "Agua", "Ciudad Canal (Caña buena) · Valle Eólico (Caña buena) · Forja Fuego (Caña buena) …"],
+  [135, "Lumineon", "Agua", "Ruta 219 (Caña buena) · Ruta 221 (Caña buena) · Ruta 220 (Caña buena) … · o evoluciona de Finneon"],
+  [136, "Tentacool", "Agua/Veneno", "Ciudad Canal (Surf) · Ciudad Pradera (Surf) · Ciudad Marina (Surf) …"],
+  [137, "Tentacruel", "Agua/Veneno", "Ruta 223 (Surf) · Ruta 224 (Surf) · Ruta 226 (Surf) … · o evoluciona de Tentacool"],
+  [138, "Feebas", "Agua", "Monte Corona (pesca)"],
+  [139, "Milotic", "Agua", "Evoluciona de Feebas"],
+  [140, "Mantyke", "Agua/Volador", "Ruta 223 (Surf)"],
+  [141, "Mantine", "Agua/Volador", "Evoluciona de Mantyke"],
+  [142, "Snover", "Planta/Hielo", "Lago Agudeza · Orilla Agudeza · Ruta 216 …"],
+  [143, "Abomasnow", "Planta/Hielo", "Monte Corona · o evoluciona de Snover"],
+  [144, "Sneasel", "Siniestro/Hielo", "Orilla Agudeza · Ruta 217 · Ruta 216 …"],
+  [145, "Weavile", "Siniestro/Hielo", "Evoluciona de Sneasel"],
+  [146, "Uxie", "Psíquico", "Caverna Agudeza (encuentro único)"],
+  [147, "Mesprit", "Psíquico", "Errante por Sinnoh"],
+  [148, "Azelf", "Psíquico", "Caverna Valor (encuentro único)"],
+  [149, "Dialga", "Acero/Dragón", "Columna Lanza (encuentro único)"],
+  [150, "Palkia", "Agua/Dragón", "Columna Lanza (encuentro único)"],
+  [151, "Manaphy", "Agua", "Sin datos de dónde aparece en Platino"],
+  [152, "Rotom", "Eléctrico/Fantasma", "Vieja Mansión (encuentro único)"],
+  [153, "Gligar", "Tierra/Volador", "Ruta 206"],
+  [154, "Gliscor", "Tierra/Volador", "Evoluciona de Gligar"],
+  [155, "Nosepass", "Roca", "Monte Corona"],
+  [156, "Probopass", "Roca/Acero", "Evoluciona de Nosepass"],
+  [157, "Ralts", "Psíquico", "Ruta 209 · Ruta 208 · Ruta 212"],
+  [158, "Kirlia", "Psíquico", "Ruta 209 · Ruta 212 · o evoluciona de Ralts"],
+  [159, "Gardevoir", "Psíquico", "Evoluciona de Kirlia"],
+  [160, "Gallade", "Psíquico/Lucha", "Evoluciona de Kirlia"],
+  [161, "Lickitung", "Normal", "Ruta 215"],
+  [162, "Lickilicky", "Normal", "Evoluciona de Lickitung"],
+  [163, "Eevee", "Normal", "Jardín Trofeo · Ciudad Corazón (regalo)"],
+  [164, "Vaporeon", "Agua", "Evoluciona de Eevee"],
+  [165, "Jolteon", "Eléctrico", "Evoluciona de Eevee"],
+  [166, "Flareon", "Fuego", "Evoluciona de Eevee"],
+  [167, "Espeon", "Psíquico", "Evoluciona de Eevee"],
+  [168, "Umbreon", "Siniestro", "Evoluciona de Eevee"],
+  [169, "Leafeon", "Planta", "Evoluciona de Eevee"],
+  [170, "Glaceon", "Hielo", "Evoluciona de Eevee"],
+  [171, "Swablu", "Normal/Volador", "Ruta 210"],
+  [172, "Altaria", "Dragón/Volador", "Evoluciona de Swablu"],
+  [173, "Togepi", "Normal", "Ruta 230 · Ciudad Vetusta (huevo)"],
+  [174, "Togetic", "Normal/Volador", "Evoluciona de Togepi"],
+  [175, "Togekiss", "Normal/Volador", "Evoluciona de Togetic"],
+  [176, "Houndour", "Siniestro/Fuego", "Ruta 214 · Orilla Valor"],
+  [177, "Houndoom", "Siniestro/Fuego", "Evoluciona de Houndour"],
+  [178, "Magnemite", "Eléctrico/Acero", "Forja Fuego · Ruta 222"],
+  [179, "Magneton", "Eléctrico/Acero", "Calle Victoria · Ruta 222 · o evoluciona de Magnemite"],
+  [180, "Magnezone", "Eléctrico/Acero", "Evoluciona de Magneton"],
+  [181, "Tangela", "Planta", "Gran Pantano"],
+  [182, "Tangrowth", "Planta", "Evoluciona de Tangela"],
+  [183, "Yanma", "Bicho/Volador", "Gran Pantano"],
+  [184, "Yanmega", "Bicho/Volador", "Evoluciona de Yanma"],
+  [185, "Tropius", "Planta/Volador", "Gran Pantano"],
+  [186, "Rhyhorn", "Tierra/Roca", "Ruta 214 · Calle Victoria · Montaña Dura …"],
+  [187, "Rhydon", "Tierra/Roca", "Ruta 228 · Montaña Dura · Ruta 227 … · o evoluciona de Rhyhorn"],
+  [188, "Rhyperior", "Tierra/Roca", "Evoluciona de Rhydon"],
+  [189, "Duskull", "Fantasma", "Torre Perdida · Ruta 209 · Cueva Retorno"],
+  [190, "Dusclops", "Fantasma", "Fuente Despedida · Cueva Retorno · o evoluciona de Duskull"],
+  [191, "Dusknoir", "Fantasma", "Evoluciona de Dusclops"],
+  [192, "Porygon", "Normal", "Ciudad Rocavelo (regalo)"],
+  [193, "Porygon2", "Normal", "Evoluciona de Porygon"],
+  [194, "Porygon-Z", "Normal", "Evoluciona de Porygon2"],
+  [195, "Scyther", "Bicho/Volador", "Ruta 210 · Ruta 215"],
+  [196, "Scizor", "Bicho/Acero", "Evoluciona de Scyther"],
+  [197, "Elekid", "Eléctrico", "Cría a Electabuzz"],
+  [198, "Electabuzz", "Eléctrico", "Ruta 222 · o evoluciona de Elekid"],
+  [199, "Electivire", "Eléctrico", "Evoluciona de Electabuzz"],
+  [200, "Magby", "Fuego", "Cría a Magmar"],
+  [201, "Magmar", "Fuego", "Forja Fuego · o evoluciona de Magby"],
+  [202, "Magmortar", "Fuego", "Evoluciona de Magmar"],
+  [203, "Swinub", "Hielo/Tierra", "Orilla Agudeza · Ruta 217"],
+  [204, "Piloswine", "Hielo/Tierra", "Ruta 217 · o evoluciona de Swinub"],
+  [205, "Mamoswine", "Hielo/Tierra", "Evoluciona de Piloswine"],
+  [206, "Snorunt", "Hielo", "Lago Agudeza · Orilla Agudeza · Ruta 217 …"],
+  [207, "Glalie", "Hielo", "Evoluciona de Snorunt"],
+  [208, "Froslass", "Hielo/Fantasma", "Evoluciona de Snorunt"],
+  [209, "Absol", "Siniestro", "Monte Corona"],
+  [210, "Giratina", "Fantasma/Dragón", "Cueva Retorno (encuentro único) · Mundo Distorsión (encuentro único)"],
+];
+const TYPE_COLOR = {"Normal": "#a8a77a", "Fuego": "#ee8130", "Agua": "#6390f0", "Planta": "#7ac74c", "Eléctrico": "#f7d02c", "Hielo": "#96d9d6", "Lucha": "#c22e28", "Veneno": "#a33ea1", "Tierra": "#e2bf65", "Volador": "#a98ff3", "Psíquico": "#f95587", "Bicho": "#a6b91a", "Roca": "#b6a136", "Fantasma": "#735797", "Dragón": "#6f35fc", "Siniestro": "#705746", "Acero": "#b7b7ce"};
+
+// Schematic map of Sinnoh (not to scale). Coordinates on a 100x100 grid.
+// node: [x, y, label, kind]  kind: "c" city, "t" town, "l" landmark, "j" route junction (not drawn)
+const MAP_NODES = {
+  verity: [8, 90, "Lago Veraz", "l"], twinleaf: [16, 90, "Pueblo Hojaverde", "t"], sandgem: [28, 90, "Pueblo Arena", "t"],
+  jubilife: [28, 72, "Ciudad Jubileo", "c"], canalave: [10, 70, "Ciudad Canal", "c"], ironisland: [4, 54, "Isla Hierro", "l"],
+  fullmoon: [4, 38, "Isla Plenilunio", "l"], oreburgh: [40, 74, "Ciudad Pirita", "c"], floaroma: [26, 54, "Pueblo Aromaflor", "t"],
+  windworks: [33, 58, "Valle Eólico", "l"], eternaforest: [31, 44, "Bosque Vetusto", "l"], eterna: [38, 34, "Ciudad Vetusta", "c"],
+  wayward: [41, 50, "Cueva Extravío", "l"], j207: [42, 64, "", "j"], coronet: [48, 44, "Monte Corona", "l"],
+  spear: [48, 26, "Columna Lanza", "l"], hearthome: [58, 62, "Ciudad Corazón", "c"], losttower: [64, 65, "Torre Perdida", "l"],
+  solaceon: [70, 60, "Pueblo Sosiego", "t"], r210: [70, 40, "", "j"], celestic: [58, 30, "Pueblo Caelestis", "t"],
+  veilstone: [84, 46, "Ciudad Rocavelo", "c"], pastoria: [64, 78, "Ciudad Pradera", "c"], greatmarsh: [62, 86, "Gran Pantano", "l"],
+  valor: [78, 74, "Lago Valor", "l"], sunyshore: [90, 84, "Ciudad Marina", "c"], victory: [90, 40, "Calle Victoria", "l"],
+  league: [90, 28, "Liga Pokémon", "c"], r216: [38, 22, "", "j"], snowpoint: [46, 10, "Ciudad Puntaneva", "c"],
+  acuity: [34, 10, "Lago Agudeza", "l"], fightarea: [76, 8, "Zona de Combate", "c"], stark: [87, 6, "Montaña Dura", "l"],
+};
+// edge: [from, to, route, dashed?] — the route id is what chapters highlight ("201", "barco-hierro", …)
+const MAP_EDGES = [
+  ["verity", "twinleaf", "201"], ["twinleaf", "sandgem", "201"], ["sandgem", "jubilife", "202"], ["jubilife", "oreburgh", "203"],
+  ["jubilife", "floaroma", "204"], ["floaroma", "windworks", "205"], ["windworks", "eternaforest", "205"], ["eternaforest", "eterna", "205"],
+  ["eterna", "wayward", "206"], ["wayward", "j207", "206"], ["oreburgh", "j207", "207"], ["j207", "coronet", "207"],
+  ["coronet", "hearthome", "208"], ["hearthome", "losttower", "209"], ["losttower", "solaceon", "209"], ["solaceon", "r210", "210"],
+  ["r210", "celestic", "210"], ["eterna", "coronet", "211"], ["coronet", "celestic", "211"], ["hearthome", "pastoria", "212"],
+  ["pastoria", "greatmarsh", "pantano"], ["pastoria", "valor", "213"], ["valor", "veilstone", "214"], ["solaceon", "veilstone", "215"],
+  ["coronet", "r216", "216"], ["r216", "snowpoint", "217"], ["snowpoint", "acuity", "agudeza"], ["canalave", "jubilife", "218"],
+  ["valor", "sunyshore", "222"], ["sunyshore", "victory", "223"], ["victory", "league", "223"], ["coronet", "spear", "lanza"],
+  ["canalave", "ironisland", "barco-hierro", true], ["canalave", "fullmoon", "barco-plenilunio", true],
+  ["snowpoint", "fightarea", "barco-zona", true], ["fightarea", "stark", "227"],
+];
+// What each chapter's map highlights: [places (nodes), routes (edges)].
+const CH_MAP = {
+  hojaverde: [["twinleaf", "verity", "sandgem"], ["201"]],
+  arena: [["sandgem", "jubilife"], ["202"]],
+  jubileo: [["jubilife"], []],
+  pirita: [["jubilife", "oreburgh"], ["203"]],
+  desolada: [["jubilife", "floaroma"], ["204"]],
+  aromaflor: [["floaroma", "windworks"], ["205"]],
+  vetusta: [["eternaforest", "eterna"], ["205"]],
+  edificio: [["eterna"], []],
+  corona1: [["eterna", "wayward", "coronet", "hearthome"], ["206", "207", "208"]],
+  corazon: [["hearthome"], []],
+  sosiego: [["hearthome", "losttower", "solaceon"], ["209"]],
+  rocavelo: [["solaceon", "veilstone"], ["215"]],
+  pradera: [["veilstone", "valor", "pastoria", "greatmarsh"], ["214", "213", "212", "pantano"]],
+  caelestis: [["solaceon", "celestic"], ["210", "211"]],
+  canal: [["jubilife", "canalave", "ironisland"], ["218", "barco-hierro"]],
+  lagos: [["canalave", "valor", "verity"], []],
+  puntaneva: [["coronet", "snowpoint", "acuity"], ["216", "217"]],
+  sede: [["acuity", "veilstone"], ["agudeza"]],
+  columna: [["coronet", "spear"], ["lanza"]],
+  marina: [["valor", "sunyshore"], ["222"]],
+  liga: [["sunyshore", "victory", "league"], ["223"]],
+  postgame: [["snowpoint", "fightarea", "stark", "sandgem", "canalave", "fullmoon", "spear"], ["barco-zona", "227", "barco-plenilunio", "lanza"]],
+};
+const SVG_NS = "http://www.w3.org/2000/svg";
+function svgEl(tag, attrs = {}, text) {
+  const el = document.createElementNS(SVG_NS, tag);
+  for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+  if (text != null) el.textContent = text;
+  return el;
+}
+function renderMap(chId) {
+  const [places, routes] = CH_MAP[chId];
+  const on = new Set(places), onRoute = new Set(routes);
+  const names = places.map((id) => MAP_NODES[id][2]).filter(Boolean);
+  const svg = svgEl("svg", { viewBox: "0 0 100 100", role: "img", "aria-label": "Mapa de Sinnoh: " + names.join(", ") });
+  svg.append(svgEl("rect", { x: 0, y: 0, width: 100, height: 100, rx: 3, class: "m-sea" }));
+  svg.append(svgEl("polygon", { class: "m-land", points: "14,97 36,97 44,93 56,93 62,97 72,95 84,93 97,89 97,50 96,22 86,18 72,20 64,4 30,2 20,12 16,28 14,44 14,62 5,62 3,80 4,97" }));
+  for (const [cx, cy, rx, ry] of [[4, 54, 3.2, 2.6], [4, 38, 2.6, 2.2], [81, 7, 9, 4.6]]) svg.append(svgEl("ellipse", { class: "m-land", cx, cy, rx, ry }));
+  svg.append(svgEl("polygon", { class: "m-ridge", points: "45,17 50,15 52,40 51,68 46,68 44,40" }));
+  for (const [cx, cy, rx, ry] of [[8, 90, 3, 2.2], [78, 74, 3.6, 2.6], [34, 10, 2.8, 2]]) svg.append(svgEl("ellipse", { class: "m-lake", cx, cy, rx, ry }));
+  const edges = svgEl("g"), labels = svgEl("g");
+  for (const [a, b, route, dashed] of MAP_EDGES) {
+    const [x1, y1] = MAP_NODES[a], [x2, y2] = MAP_NODES[b];
+    const hl = onRoute.has(route);
+    edges.append(svgEl("line", { x1, y1, x2, y2, class: "m-route" + (hl ? " on" : "") + (dashed ? " dash" : "") }));
+    if (hl && /^\d+$/.test(route)) labels.append(svgEl("text", { x: (x1 + x2) / 2, y: (y1 + y2) / 2 + 1, class: "m-rnum" }, route));
+  }
+  svg.append(edges);
+  for (const [id, [x, y, label, kind]] of Object.entries(MAP_NODES)) {
+    if (kind === "j") continue;
+    const hl = on.has(id);
+    svg.append(kind === "l"
+      ? svgEl("rect", { x: x - 1.3, y: y - 1.3, width: 2.6, height: 2.6, transform: `rotate(45 ${x} ${y})`, class: "m-node" + (hl ? " on" : "") })
+      : svgEl("circle", { cx: x, cy: y, r: kind === "c" ? 2 : 1.5, class: "m-node" + (hl ? " on" : "") }));
+    if (hl) {
+      const anchor = x > 74 ? "end" : x < 22 ? "start" : "middle";
+      const dx = anchor === "end" ? 2 : anchor === "start" ? -2 : 0;
+      labels.append(svgEl("text", { x: x - dx, y: y - 3, "text-anchor": anchor, class: "m-label" }, label));
+    }
+  }
+  svg.append(labels);
+  return h("figure", { class: "ch-map" }, svg, h("figcaption", { text: "Esquema de Sinnoh, no a escala" }));
+}
+
+// ---------------------------------------------------------------------------
+// Build stable ids for every checkable entry.
+// ---------------------------------------------------------------------------
+function slug(s) {
+  return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+// Pokémon ids are per species ("mon.abra"), not per chapter, so catching one marks it on every
+// route where it appears and the totals count each species once.
+const ENTRIES = [];          // { id, ch, kind, text, badge? } (a species repeats once per chapter)
+const byChapter = {};
+const monChapters = {};      // species id -> indexes of the chapters that list it
+CHAPTERS.forEach((ch, chIndex) => {
+  const seen = new Set();
+  const add = (kind, key, text, extra = {}) => {
+    let id = kind === "mon" ? `mon.${slug(key)}` : `${ch.id}.${kind}.${slug(key)}`;
+    if (kind === "mon") (monChapters[id] ||= []).push(chIndex);
+    else {
+      let n = 2;
+      while (seen.has(id)) id = `${ch.id}.${kind}.${slug(key)}-${n++}`;
+      seen.add(id);
+    }
+    const e = { id, ch: ch.id, kind, text: text.toLowerCase(), ...extra };
+    ENTRIES.push(e);
+    (byChapter[ch.id] ||= []).push(e);
+    return id;
+  };
+  ch._story = ch.story.map((s) => add("story", s, s));
+  ch._mon = ch.mon.map(([n, how]) => add("mon", n, `${n} ${how}`));
+  ch._item = ch.item.map(([n, where]) => add("item", n, `${n} ${where}`));
+  ch._battle = ch.battle.map((b) => add("battle", b.who, `${b.who} ${b.role} ${b.team.map((t) => t[0]).join(" ")}`, { badge: b.badge }));
+});
+const UNIQUE = [...new Map(ENTRIES.map((e) => [e.id, e])).values()];
+DEX.forEach((d) => { d.id = "mon." + slug(d[1]); d.q = [String(d[0]).padStart(3, "0"), d[1], d[2], d[3]].join(" "); });
+const ALL_IDS = [...new Set([...UNIQUE.map((e) => e.id), ...DEX.map((d) => d.id)])];
+const monInGuide = (id) => monChapters[id] || [];
+
+// ---------------------------------------------------------------------------
+// Persistence: the viewer's private db subtree when available, browser storage otherwise.
+// ---------------------------------------------------------------------------
+// Every change is written to this browser at once and to the account shortly after; on load the
+// newer of the two copies wins, and ticks made before the account answers are replayed on top.
+const LOCAL_KEY = "guia-platino-v1";
+const local = readLocal();
+let checked = local.checked;
+let updatedAt = local.updatedAt;
+let remoteRef = null, remoteReady = false;
+const earlyOps = [];         // [id, on] toggled before the account copy loaded
+let writing = false, pending = false, timer = null;
+
+// Older saves used one id per chapter ("pirita.mon.abra"); fold them into the species id.
+function migrate(ids) {
+  return new Set(ids.map((id) => id.replace(/^[^.]+\.mon\./, "mon.")));
+}
+function readLocal() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(LOCAL_KEY) || "[]");
+    if (Array.isArray(raw)) return { checked: migrate(raw), updatedAt: 0 };
+    return { checked: migrate(raw.checked || []), updatedAt: raw.updatedAt || 0 };
+  } catch { return { checked: new Set(), updatedAt: 0 }; }
+}
+function writeLocal() {
+  try { localStorage.setItem(LOCAL_KEY, JSON.stringify({ checked: [...checked], updatedAt })); } catch {}
+}
+function setSave(mode, text) {
+  const el = document.getElementById("save");
+  el.dataset.mode = mode;
+  el.textContent = text;
+}
+function scheduleRemote() {
+  if (!remoteRef) return;
+  setSave("account", "Guardando…");
+  clearTimeout(timer);
+  timer = setTimeout(flushRemote, 600);
+}
+async function flushRemote() {
+  clearTimeout(timer); timer = null;
+  if (!remoteRef) return;
+  if (writing) { pending = true; return; }
+  writing = true;
+  try {
+    await remoteRef.set({ checked: [...checked], updatedAt });
+    if (!pending) setSave("account", "Guardado en tu cuenta");
+  } catch (e) {
+    if (e && e.code === "invalid_argument") {
+      remoteRef = null;
+      setSave("local", "Guardado en este navegador");
+    } else {
+      setSave("local", "Sin conexión: guardado en este navegador");
+    }
+  } finally {
+    writing = false;
+    if (pending) { pending = false; flushRemote(); }
+  }
+}
+async function initRemote() {
+  if (!window.claude || typeof window.claude.use !== "function") { remoteReady = true; return; }
+  try {
+    const [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+    if (!db || !user) return;
+    const uid = await user.id();
+    if (!uid) return;
+    const ref = db.doc("data/users/" + uid + "/progress");
+    const snap = await ref.get();
+    const data = snap.exists ? snap.data() : null;
+    const before = JSON.stringify([...checked].sort());
+    if (data && Array.isArray(data.checked) && (data.updatedAt || 0) >= local.updatedAt) {
+      checked = migrate(data.checked);
+      updatedAt = data.updatedAt || 0;
+    }
+    for (const [id, on] of earlyOps) { if (on) checked.add(id); else checked.delete(id); }
+    const remoteIds = data && Array.isArray(data.checked) ? JSON.stringify([...new Set(data.checked)].sort()) : null;
+    const now = JSON.stringify([...checked].sort());
+    if (earlyOps.length) updatedAt = Date.now();
+    writeLocal();
+    if (now !== before) syncAll();
+    remoteRef = ref;
+    if (now !== remoteIds && (checked.size || remoteIds)) await flushRemote();
+    else setSave("account", "Guardado en tu cuenta");
+  } catch {
+    setSave("local", "Guardado en este navegador");
+  } finally {
+    remoteReady = true;
+  }
+}
+function toggle(id, on) {
+  if (on) checked.add(id); else checked.delete(id);
+  if (!remoteReady) earlyOps.push([id, on]);
+  updatedAt = Date.now();
+  writeLocal();
+  scheduleRemote();
+  syncEntry(id);
+  updateProgress();
+  applyFilters();
+}
+// Don't lose a change still waiting on the timer when the tab is hidden or closed.
+document.addEventListener("visibilitychange", () => { if (document.hidden && timer) flushRemote(); });
+window.addEventListener("pagehide", () => { if (timer) flushRemote(); });
+
+// ---------------------------------------------------------------------------
+// Rendering
+// ---------------------------------------------------------------------------
+const $ = (sel, el = document) => el.querySelector(sel);
+function h(tag, attrs = {}, ...kids) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") el.className = v;
+    else if (k === "text") el.textContent = v;
+    else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else if (v !== false && v != null) el.setAttribute(k, v === true ? "" : v);
+  }
+  for (const kid of kids.flat()) if (kid != null) el.append(kid.nodeType ? kid : document.createTextNode(kid));
+  return el;
+}
+function checkbox(id, scope) {
+  return h("input", { type: "checkbox", id: "cb-" + (scope ? scope + "-" : "") + id, "data-id": id, onchange: (e) => toggle(id, e.target.checked) });
+}
+const TAG_LABEL = { mo: "MO", mt: "MT", key: "Clave" };
+const MON_GROUPS = [["hierba", "Hierba y cuevas"], ["surf", "Surf"], ["cana", "Caña"], ["otros", "Regalos, huevos y encuentros especiales"]];
+
+const chNum = (i) => CHAPTERS[i].extra ? "★" : String(i + 1).padStart(2, "0");
+function renderChapter(ch, i) {
+  const num = chNum(i);
+  const sec = h("section", { class: "chapter", id: ch.id, "data-ch": ch.id });
+  const toggleBtn = h("button", { class: "collapse", type: "button", "aria-expanded": "true", text: "Plegar" });
+  toggleBtn.addEventListener("click", () => {
+    const closed = sec.classList.toggle("closed");
+    toggleBtn.textContent = closed ? "Desplegar" : "Plegar";
+    toggleBtn.setAttribute("aria-expanded", String(!closed));
+  });
+  sec.append(h("div", { class: "ch-head" },
+    h("div", { class: "ch-num", text: num }),
+    h("div", {}, h("h2", { text: ch.title }), h("div", { class: "places", text: ch.places })),
+    h("div", { class: "ch-prog" }, h("b", { class: "ch-count", text: "0/0" }), h("div", { class: "bar" }, h("i")), toggleBtn),
+  ));
+  const body = h("div", { class: "ch-body" });
+  if (CH_MAP[ch.id]) body.append(h("div", { class: "ch-top" }, h("p", { class: "intro", text: ch.intro }), renderMap(ch.id)));
+  else body.append(h("p", { class: "intro", text: ch.intro }));
+
+  if (ch.story.length) {
+    body.append(group("story", "Historia", ch._story, h("ul", { class: "rows" },
+      ch.story.map((s, k) => row(ch._story[k], h("span", { class: "main", text: s }))))));
+  }
+  if (ch.mon.length) {
+    const card = ([n, how, special, method], k) => {
+        const id = ch._mon[k];
+        const rate = !NOT_WILD.test(how) ? CATCH_RATE[n] : null;
+        const level = rate == null ? "" : rate >= 150 ? "easy" : rate >= 60 ? "mid" : "hard";
+        const enc = ENCOUNTER[ch.id + "|" + n + "|" + (method || "")];
+        const others = [...new Set(monChapters[id])].filter((x) => x !== i && !CHAPTERS[x].extra);
+        const also = others.length ? (ch.extra ? "Sale en cap. " : "También en cap. ") + others.map(chNum).join(", ") : null;
+        return h("label", { class: "it mon" + (special ? " special" : ""), "data-id": id, "data-kind": "mon" },
+          checkbox(id, ch.id + "-" + (method || "x")), h("span", { class: "ball", "aria-hidden": "true" }),
+          h("span", { class: "mon-txt" }, h("span", { class: "nm", text: n }), h("span", { class: "how", text: how }),
+            rate != null ? h("span", { class: "rate " + level, title: "Ratio de captura base y probabilidad con Ultra Ball a 1 PS" },
+              h("b", { text: "Ratio " + rate }), " · Ultra Ball a 1 PS: " + catchChance(rate) + "%") : null,
+            enc ? h("span", { class: "enc", text: enc }) : null,
+            also ? h("span", { class: "also", text: also }) : null),
+          h("img", { class: "sprite", src: "sprites/" + id.slice(4) + ".png", alt: "", width: 64, height: 64, loading: "lazy", decoding: "async",
+            onerror: (e) => { e.target.hidden = true; } }));
+    };
+    const cards = ch.mon.map((m, k) => [m, card(m, k)]);
+    // Story chapters split their Pokémon by how you get them; the rare list stays as one grid.
+    const content = ch.extra ? h("div", { class: "dex" }, cards.map(([, el]) => el))
+      : h("div", { class: "mon-groups" }, MON_GROUPS.map(([g, label]) => {
+          const these = cards.filter(([m]) => m[3] === g);
+          if (!these.length) return null;
+          const ids = [...new Set(these.map(([m]) => "mon." + slug(m[0])))];
+          return h("div", { class: "mon-sub", "data-g": g },
+            h("h4", {}, label, h("em", { class: "g-count", "data-ids": ids.join(" "), text: "" })),
+            h("div", { class: "dex" }, these.map(([, el]) => el)));
+        }));
+    body.append(group("mon", "Pokémon", ch._mon, content));
+  }
+  if (ch.item.length) {
+    body.append(group("item", "Objetos", ch._item, h("ul", { class: "rows items" },
+      ch.item.map(([n, where, tag], k) => row(ch._item[k],
+        h("span", {}, tag ? h("span", { class: "tag " + tag, text: TAG_LABEL[tag] }) : null, h("span", { class: "main", text: n })),
+        h("div", { class: "note", text: where }))))));
+  }
+  if (ch.battle.length) {
+    body.append(group("battle", "Combates", ch._battle, h("div", { class: "battles" },
+      ch.battle.map((b, k) => battleCard(b, ch._battle[k])))));
+  }
+  if (ch.guides) {
+    body.append(h("div", { class: "guides" }, ch.guides.map((g) =>
+      h("article", { class: "guide" }, h("h3", { text: g.title }),
+        h("dl", {}, g.rows.map(([term, text]) =>
+          h("div", { class: "g-row", "data-q": searchable(`${g.title} ${term} ${text}`) },
+            h("dt", { text: term }), h("dd", { text: text }))))))));
+  }
+  // A tip is either plain text ("Consejo") or [label, text] (e.g. "Truco").
+  for (const t of [].concat(ch.tip || [], ch.tips || [])) {
+    const [label, text] = Array.isArray(t) ? t : ["Consejo", t];
+    body.append(h("p", { class: "tip" + (label === "Truco" ? " trick" : ""), "data-q": searchable(`${label} ${text}`) },
+      h("strong", { text: label + ". " }), text));
+  }
+  sec.append(body);
+  return sec;
+}
+function group(kind, label, ids, content) {
+  return h("div", { class: "group", "data-kind": kind },
+    h("h3", {}, label, h("em", { class: "g-count", "data-ids": ids.join(" "), text: "" })), content);
+}
+function row(id, ...content) {
+  return h("li", { class: "it" }, h("label", { class: "row", "data-id": id }, checkbox(id), h("div", { class: "txt" }, ...content)));
+}
+function battleCard(b, id) {
+  const cls = b.kind === "gym" ? "gym" : b.kind === "boss" ? "boss" : "";
+  return h("article", { class: "it battle " + cls, "data-id": id, "data-kind": "battle" },
+    h("div", { class: "b-head" },
+      h("div", {}, h("div", { class: "b-who", text: b.who }), h("div", { class: "b-role", text: b.role })),
+      h("label", { class: "b-check" }, checkbox(id), "Ganado")),
+    h("ul", { class: "team" }, b.team.map(([n, lv, ace]) =>
+      h("li", {}, h("span", { class: ace ? "ace" : "", text: n }), h("span", { class: "lv", text: lv ? "Nv. " + lv : "" })))),
+    b.note ? h("p", { class: "b-note", text: b.note }) : null,
+    b.reward ? h("p", { class: "reward" }, h("b", { text: "Premio: " }), b.reward) : null);
+}
+
+function renderDex() {
+  const sec = h("section", { class: "chapter dex-section", id: "pokedex" });
+  sec.append(h("div", { class: "ch-head" },
+    h("div", { class: "ch-num", text: "№" }),
+    h("div", {}, h("h2", { text: "Pokédex de Sinnoh" }), h("div", { class: "places", text: "Los 210 Pokémon de la Pokédex regional de Platino" })),
+    h("div", { class: "ch-prog" }, h("b", { class: "ch-count", text: "0/210" }), h("div", { class: "bar" }, h("i")))));
+  const body = h("div", { class: "ch-body" });
+  body.append(h("p", { class: "intro", text: "Marca cada Pokémon que registres. Los que salen en la guía se marcan a la vez en su capítulo, y el número de capítulo te lleva a donde aparece. Para el resto se indica dónde encontrarlo o de quién evoluciona." }));
+  body.append(h("div", { class: "pokedex" }, DEX.map((d) => {
+    const [num, name, types, where] = d;
+    const chs = monInGuide(d.id).filter((x) => !CHAPTERS[x].extra);
+    return h("label", { class: "it dexmon", "data-id": d.id, "data-kind": "mon", "data-q": searchable(d.q) },
+      checkbox(d.id, "dex"), h("span", { class: "ball", "aria-hidden": "true" }),
+      h("span", { class: "dex-num", text: "#" + String(num).padStart(3, "0") }),
+      h("img", { class: "sprite", src: "sprites/" + d.id.slice(4) + ".png", alt: "", width: 64, height: 64, loading: "lazy", decoding: "async", onerror: (e) => { e.target.hidden = true; } }),
+      h("span", { class: "nm", text: name }),
+      h("span", { class: "types" }, types.split("/").map((t) => h("span", { class: "type", style: "--t:" + (TYPE_COLOR[t] || "#888"), text: t }))),
+      h("span", { class: "where", text: where }),
+      chs.length ? h("span", { class: "dex-ch" }, "Guía: ", chs.map((x, k) => [k ? ", " : "", h("a", { href: "#" + CHAPTERS[x].id, text: "cap. " + chNum(x), onclick: (e) => e.stopPropagation() })])) : null);
+  })));
+  sec.append(body);
+  return sec;
+}
+function renderIndex() {
+  const ol = document.getElementById("index");
+  CHAPTERS.forEach((ch, i) => {
+    ol.append(h("li", {}, h("a", { href: "#" + ch.id, "data-ch": ch.id },
+      h("span", { class: "n", text: chNum(i) }),
+      h("span", { class: "t", text: ch.title.replace(/^(La |El |Los )/, "") }),
+      h("span", { class: "pct", text: "0%" }))));
+  });
+}
+function renderBadges() {
+  const wrap = document.getElementById("badges");
+  for (const b of BADGES) {
+    const ch = CHAPTERS.find((c) => c.battle.some((x) => x.badge === b.id));
+    wrap.append(h("a", { class: "badge", href: "#" + ch.id, "data-badge": b.id, style: `--gem:${b.color}`, title: "Medalla " + b.name },
+      h("div", { class: "gem" }), h("span", { text: b.name })));
+  }
+}
+
+// ---------------------------------------------------------------------------
+// State sync, progress and filters
+// ---------------------------------------------------------------------------
+function syncEntry(id) {
+  const on = checked.has(id);
+  document.querySelectorAll(`[data-id="${CSS.escape(id)}"]`).forEach((el) => {
+    if (el.tagName === "INPUT") el.checked = on;
+    else el.classList.toggle("done", on);
+  });
+}
+function syncAll() {
+  ALL_IDS.forEach(syncEntry);
+  updateProgress();
+  applyFilters();
+}
+function frac(list) {
+  const ids = [...new Set(list.map((e) => e.id))];
+  return [ids.filter((id) => checked.has(id)).length, ids.length];
+}
+function updateProgress() {
+  const kinds = { mon: "st-mon", item: "st-item", story: "st-story", battle: "st-battle" };
+  for (const [k, el] of Object.entries(kinds)) {
+    const [d, t] = frac(UNIQUE.filter((e) => e.kind === k));
+    document.getElementById(el).textContent = `${d}/${t}`;
+  }
+  const [d, t] = frac(UNIQUE);
+  const pct = t ? Math.round((d / t) * 100) : 0;
+  document.getElementById("st-total").textContent = pct + "%";
+  document.getElementById("meter").style.width = pct + "%";
+
+  for (const ch of CHAPTERS) {
+    const [cd, ct] = frac(byChapter[ch.id] || []);
+    const sec = document.getElementById(ch.id);
+    const complete = ct > 0 && cd === ct;
+    $(".ch-count", sec).textContent = `${cd}/${ct}`;
+    $(".bar i", sec).style.width = (ct ? (cd / ct) * 100 : 0) + "%";
+    sec.classList.toggle("complete", complete);
+    const link = document.querySelector(`.index a[data-ch="${ch.id}"]`);
+    link.classList.toggle("complete", complete);
+    $(".pct", link).textContent = complete ? "✓" : Math.round((cd / (ct || 1)) * 100) + "%";
+  }
+  const dexDone = DEX.filter((d) => checked.has(d.id)).length;
+  const dexSec = document.getElementById("pokedex");
+  if (dexSec) {
+    document.getElementById("st-dex").textContent = `${dexDone}/${DEX.length}`;
+    $(".ch-count", dexSec).textContent = `${dexDone}/${DEX.length}`;
+    $(".bar i", dexSec).style.width = (dexDone / DEX.length) * 100 + "%";
+    const complete = dexDone === DEX.length;
+    dexSec.classList.toggle("complete", complete);
+    const link = document.querySelector('.index a[data-ch="pokedex"]');
+    link.classList.toggle("complete", complete);
+    $(".pct", link).textContent = complete ? "✓" : Math.round((dexDone / DEX.length) * 100) + "%";
+  }
+  document.querySelectorAll(".g-count").forEach((el) => {
+    const ids = [...new Set(el.dataset.ids.split(" "))];
+    el.textContent = `${ids.filter((id) => checked.has(id)).length}/${ids.length}`;
+  });
+  for (const b of BADGES) {
+    const e = ENTRIES.find((x) => x.badge === b.id);
+    document.querySelector(`[data-badge="${b.id}"]`).classList.toggle("on", e && checked.has(e.id));
+  }
+}
+
+let kindFilter = "all";
+function searchable(s) { return slug(s).replace(/-/g, " "); }
+function applyFilters() {
+  const q = searchable(document.getElementById("q").value).trim();
+  const hideDone = document.getElementById("hide-done").checked;
+  const filtering = q || hideDone || kindFilter !== "all";
+  let anyVisible = false;
+
+  for (const ch of CHAPTERS) {
+    const sec = document.getElementById(ch.id);
+    let visibleInChapter = 0;
+    for (const e of byChapter[ch.id] || []) {
+      const matchQ = !q || slug(e.text).replace(/-/g, " ").includes(q);
+      const matchKind = kindFilter === "all" || e.kind === kindFilter;
+      const show = matchQ && matchKind && !(hideDone && checked.has(e.id));
+      sec.querySelectorAll(`[data-id="${CSS.escape(e.id)}"]:not(input)`).forEach((el) => {
+        if (el.closest(".pokedex")) return;
+        const target = el.closest("li") || el;
+        target.classList.toggle("hidden-by-filter", !show);
+      });
+      if (show) visibleInChapter++;
+    }
+    sec.querySelectorAll(".mon-sub").forEach((g) =>
+      g.classList.toggle("hidden-by-filter", [...g.querySelectorAll(".it")].every((x) => x.classList.contains("hidden-by-filter"))));
+    sec.querySelectorAll(".group").forEach((g) => {
+      const kindHidden = kindFilter !== "all" && g.dataset.kind !== kindFilter;
+      const allHidden = [...g.querySelectorAll(".it")].every((x) => x.classList.contains("hidden-by-filter"));
+      g.classList.toggle("hidden-by-filter", kindHidden || allHidden);
+    });
+    // Tips and reference rows aren't checkable: they stay out of the kind filters, and a search shows the ones that match.
+    sec.querySelectorAll(".intro, .ch-map").forEach((p) => p.classList.toggle("hidden-by-filter", filtering));
+    sec.querySelectorAll(".tip, .g-row").forEach((el) => {
+      const show = kindFilter === "all" && (q ? el.dataset.q.includes(q) : !(filtering && el.classList.contains("tip")));
+      el.classList.toggle("hidden-by-filter", !show);
+      if (show && filtering) visibleInChapter++;
+    });
+    sec.querySelectorAll(".guide").forEach((g) =>
+      g.classList.toggle("hidden-by-filter", [...g.querySelectorAll(".g-row")].every((x) => x.classList.contains("hidden-by-filter"))));
+    const guides = sec.querySelector(".guides");
+    if (guides) guides.classList.toggle("hidden-by-filter", [...guides.children].every((x) => x.classList.contains("hidden-by-filter")));
+    const hideChapter = filtering && visibleInChapter === 0;
+    sec.classList.toggle("hidden-by-filter", hideChapter);
+    if (!hideChapter) anyVisible = true;
+  }
+  const dexSec = document.getElementById("pokedex");
+  if (dexSec) {
+    let dexVisible = 0;
+    dexSec.querySelectorAll(".dexmon").forEach((el) => {
+      const show = (kindFilter === "all" || kindFilter === "mon") && (!q || el.dataset.q.includes(q)) && !(hideDone && checked.has(el.dataset.id));
+      el.classList.toggle("hidden-by-filter", !show);
+      if (show) dexVisible++;
+    });
+    $(".intro", dexSec).classList.toggle("hidden-by-filter", filtering);
+    dexSec.classList.toggle("hidden-by-filter", dexVisible === 0);
+    if (dexVisible) anyVisible = true;
+  }
+  document.getElementById("empty").style.display = anyVisible ? "none" : "block";
+}
+
+// ---------------------------------------------------------------------------
+// Boot
+// ---------------------------------------------------------------------------
+renderIndex();
+renderBadges();
+const main = document.getElementById("chapters");
+CHAPTERS.forEach((ch, i) => main.append(renderChapter(ch, i)));
+main.append(renderDex());
+document.getElementById("index").append(h("li", {}, h("a", { href: "#pokedex", "data-ch": "pokedex" },
+  h("span", { class: "n", text: "№" }), h("span", { class: "t", text: "Pokédex de Sinnoh" }), h("span", { class: "pct", text: "0%" }))));
+syncAll();
+
+document.querySelectorAll(".seg button").forEach((btn) => btn.addEventListener("click", () => {
+  kindFilter = btn.dataset.kind;
+  document.querySelectorAll(".seg button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+  try { localStorage.setItem(LOCAL_KEY + ":kind", kindFilter); } catch {}
+  applyFilters();
+}));
+document.getElementById("q").addEventListener("input", applyFilters);
+document.getElementById("hide-done").addEventListener("change", (e) => {
+  try { localStorage.setItem(LOCAL_KEY + ":hide", e.target.checked ? "1" : ""); } catch {}
+  applyFilters();
+});
+document.getElementById("go-next").addEventListener("click", () => {
+  const next = CHAPTERS.find((ch) => (byChapter[ch.id] || []).some((e) => e.kind === "story" && !checked.has(e.id)))
+    || CHAPTERS.find((ch) => (byChapter[ch.id] || []).some((e) => !checked.has(e.id)));
+  const target = document.getElementById((next || CHAPTERS[CHAPTERS.length - 1]).id);
+  target.classList.remove("closed");
+  target.scrollIntoView({ block: "start" });
+});
+document.getElementById("reset").addEventListener("click", () => {
+  const dlg = h("div", { class: "dialog", role: "dialog", "aria-modal": "true", "aria-labelledby": "dlg-t" },
+    h("div", { class: "card" },
+      h("h2", { id: "dlg-t", text: "¿Borrar todo el progreso?" }),
+      h("p", { style: "margin:0;color:var(--muted)", text: "Se desmarcan todos los Pokémon, objetos, pasos y combates. No se puede deshacer." }),
+      h("div", {},
+        h("button", { class: "btn", type: "button", text: "Cancelar", onclick: () => dlg.remove() }),
+        h("button", { class: "btn primary", type: "button", text: "Borrar", onclick: () => {
+          checked = new Set(); updatedAt = Date.now(); writeLocal(); scheduleRemote(); syncAll(); dlg.remove();
+        } }))));
+  document.body.append(dlg);
+  $(".btn", dlg).focus();
+});
+
+try {
+  const k = localStorage.getItem(LOCAL_KEY + ":kind");
+  if (k) document.querySelector(`.seg button[data-kind="${k}"]`)?.click();
+  if (localStorage.getItem(LOCAL_KEY + ":hide")) { document.getElementById("hide-done").checked = true; applyFilters(); }
+} catch {}
+
+initRemote();
+</script>
+
+</body></html>
