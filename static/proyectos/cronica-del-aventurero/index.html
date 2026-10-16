@@ -40,7 +40,31 @@ body {
   background-attachment: fixed;
 }
 :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
-.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 48px; display: grid; gap: 14px; }
+.wrap { max-width: 1480px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 48px; display: grid; gap: 14px; }
+/* Two views (Aventura, Campaña) side by side with the Sage, who stays in view while scrolling.
+   Below 1180px the Sage moves above the views. */
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: 14px; align-items: start; }
+.views, .view { display: grid; gap: 14px; min-width: 0; }
+.aside { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto; min-width: 0; border-radius: 8px; }
+.sage-panel .sage { grid-template-columns: minmax(0, 1fr); justify-items: start; }
+.sage-panel .speech { font-size: 16px; }
+.sage-panel .tip { padding: 8px 10px; }
+.sage-panel .tip p { font-size: 15px; line-height: 1.4; }
+.sage-panel .tip .why { font-size: 13px; }
+@media (max-width: 1180px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .aside { position: static; max-height: none; overflow: visible; order: -1; }
+  .sage-panel .sage { grid-template-columns: 72px minmax(0, 1fr); }
+}
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.tab {
+  font: 400 11px/1 var(--font-pixel); color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: .06em;
+  background: var(--win-bot); border: 3px solid var(--frame); border-radius: 6px; padding: 12px 16px;
+  box-shadow: 0 0 0 3px var(--frame-shadow);
+}
+.tab:hover { color: var(--ink); background: var(--win-top); }
+.tab[aria-current="page"] { color: #1c1400; background: var(--gold); }
+.tab[aria-current="page"]::before { content: "\25B6 "; font-size: 9px; }
 
 /* The FF-style window */
 .win {
@@ -249,7 +273,7 @@ table.log { width: 100%; border-collapse: collapse; min-width: 520px; font-varia
 @media (prefers-reduced-motion: reduce) { .meter i { transition: none; } .levelup, .dots::after { animation: none; } }
 </style>
 
-<main class="wrap">
+<div class="wrap">
   <section class="win title" aria-label="Encabezado">
     <div>
       <h1>Crónica del Aventurero</h1>
@@ -262,6 +286,14 @@ table.log { width: 100%; border-collapse: collapse; min-width: 520px; font-varia
     <div class="source" id="source"><span class="chip demo">Datos de ejemplo</span><span>Fitbit Air todavía no está conectado: así se verá con tus datos.</span></div>
   </section>
 
+  <nav class="tabs" aria-label="Secciones">
+    <a class="tab" href="#aventura" data-view="aventura" aria-current="page">Aventura</a>
+    <a class="tab" href="#campana" data-view="campana">Campaña</a>
+  </nav>
+
+  <div class="layout">
+  <main class="views">
+  <div class="view" data-view="aventura">
   <div class="grid">
     <div class="col">
     <section class="win hero" aria-labelledby="hero-h">
@@ -316,59 +348,8 @@ table.log { width: 100%; border-collapse: collapse; min-width: 520px; font-varia
         <ul class="quests" id="quests"></ul>
       </section>
 
-      <section class="win" aria-labelledby="sage-h">
-        <h2 id="sage-h">Consejo del Sabio</h2>
-        <div class="sage">
-          <canvas id="sage-sprite" width="16" height="16" role="img" aria-label="El Sabio, un mago de túnica morada"></canvas>
-          <div class="sage-text">
-            <p class="speech" id="speech">Viajero, cuéntame tu semana y te diré cómo hacerte más fuerte. Mis consejos los escribe Claude con tus números de esta semana.</p>
-            <ul class="tips" id="tips"></ul>
-            <div class="sage-actions">
-              <button class="btn primary cursor" id="ask" type="button">Consultar al Sabio</button>
-              <button class="btn" id="stop" type="button" hidden>Detener</button>
-              <span class="note" id="sage-note">Cada consulta usa tu cuenta de Claude. No es consejo médico.</span>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   </div>
-
-  <section class="win" aria-labelledby="camp-h">
-    <h2 id="camp-h">Campaña</h2>
-    <div class="camp">
-      <div class="boss-card">
-        <canvas id="boss-scene" width="64" height="32" role="img" aria-label="Combate contra el jefe de la semana"></canvas>
-        <div class="boss-act" id="boss-act"></div>
-        <div class="boss-name" id="boss-name"></div>
-        <div class="boss-title" id="boss-title"></div>
-        <div class="bar-row"><span class="k boss-k">PV</span><div class="meter boss"><i id="boss-bar"></i></div><span class="v" id="boss-v"></span></div>
-        <div class="boss-status" id="boss-status"></div>
-      </div>
-      <div class="battle">
-        <h3 class="sub-h">Diario de combate</h3>
-        <ol class="battle-log" id="battle-log"></ol>
-        <h3 class="sub-h">Habilidades</h3>
-        <ul class="abilities" id="abilities"></ul>
-      </div>
-    </div>
-    <div class="story">
-      <div class="story-head">
-        <h3 class="sub-h">La crónica</h3>
-        <div class="weeknav">
-          <button class="btn" id="s-prev" type="button" title="Semana anterior">&lt; Ant.</button>
-          <span class="s-week" id="s-week"></span>
-          <button class="btn" id="s-next" type="button" title="Semana siguiente">Sig. &gt;</button>
-        </div>
-        <span class="note" id="s-count"></span>
-      </div>
-      <div id="chapters" class="chapters"></div>
-      <div class="sage-actions">
-        <button class="btn primary cursor" id="write" type="button" hidden>Escribir el siguiente capítulo</button>
-        <span class="note" id="story-note"></span>
-      </div>
-    </div>
-  </section>
 
   <section class="win" aria-labelledby="cmp-h">
     <h2 id="cmp-h">Comparación</h2>
@@ -410,7 +391,66 @@ table.log { width: 100%; border-collapse: collapse; min-width: 520px; font-varia
       <div><b>Edad fisiológica</b>: parte de tu edad real y suma o resta años según tus últimos 28 días. Los puntos de referencia son FC en reposo de 62 lpm (±0,4 años por lpm), 7.500 pasos al día, 150 min activos a la semana, dormir entre 7 y 8,5 h y noches regulares (±45 min). Cada factor tiene un tope y el total no pasa de ±12 años. Es una estimación motivacional, no médica.</div>
     </div>
   </section>
-</main>
+  </div>
+
+  <div class="view" data-view="campana" hidden>
+    <section class="win" aria-labelledby="camp-h">
+      <h2 id="camp-h">Campaña</h2>
+      <div class="camp">
+        <div class="boss-card">
+          <canvas id="boss-scene" width="64" height="32" role="img" aria-label="Combate contra el jefe de la semana"></canvas>
+          <div class="boss-act" id="boss-act"></div>
+          <div class="boss-name" id="boss-name"></div>
+          <div class="boss-title" id="boss-title"></div>
+          <div class="bar-row"><span class="k boss-k">PV</span><div class="meter boss"><i id="boss-bar"></i></div><span class="v" id="boss-v"></span></div>
+          <div class="boss-status" id="boss-status"></div>
+        </div>
+        <div class="battle">
+          <h3 class="sub-h">Diario de combate</h3>
+          <ol class="battle-log" id="battle-log"></ol>
+          <h3 class="sub-h">Habilidades</h3>
+          <ul class="abilities" id="abilities"></ul>
+        </div>
+      </div>
+      <div class="story">
+        <div class="story-head">
+          <h3 class="sub-h">La crónica</h3>
+          <div class="weeknav">
+            <button class="btn" id="s-prev" type="button" title="Semana anterior">&lt; Ant.</button>
+            <span class="s-week" id="s-week"></span>
+            <button class="btn" id="s-next" type="button" title="Semana siguiente">Sig. &gt;</button>
+          </div>
+          <span class="note" id="s-count"></span>
+        </div>
+        <div id="chapters" class="chapters"></div>
+        <div class="sage-actions">
+          <button class="btn primary cursor" id="write" type="button" hidden>Escribir el siguiente capítulo</button>
+          <span class="note" id="story-note"></span>
+        </div>
+      </div>
+    </section>
+  </div>
+  </main>
+
+  <aside class="aside" aria-label="Consejo del Sabio">
+  <section class="win sage-panel" aria-labelledby="sage-h">
+    <h2 id="sage-h">Consejo del Sabio</h2>
+    <div class="sage">
+      <canvas id="sage-sprite" width="16" height="16" role="img" aria-label="El Sabio, un mago de túnica morada"></canvas>
+      <div class="sage-text">
+        <p class="speech" id="speech">Viajero, cuéntame tu semana y te diré cómo hacerte más fuerte. Mis consejos los escribe Claude con tus números de esta semana.</p>
+        <ul class="tips" id="tips"></ul>
+        <div class="sage-actions">
+          <button class="btn primary cursor" id="ask" type="button">Consultar al Sabio</button>
+          <button class="btn" id="stop" type="button" hidden>Detener</button>
+          <span class="note" id="sage-note">Cada consulta usa tu cuenta de Claude. No es consejo médico.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  </aside>
+  </div>
+</div>
 
 <script>
 // ---------------------------------------------------------------------------
@@ -1367,6 +1407,15 @@ async function askSage() {
 // ---------------------------------------------------------------------------
 // Boot
 // ---------------------------------------------------------------------------
+function showView() {
+  const name = location.hash === "#campana" ? "campana" : "aventura";
+  document.querySelectorAll(".view").forEach((v) => { v.hidden = v.dataset.view !== name; });
+  document.querySelectorAll(".tab").forEach((t) => {
+    if (t.dataset.view === name) t.setAttribute("aria-current", "page"); else t.removeAttribute("aria-current");
+  });
+}
+addEventListener("hashchange", showView);
+showView();
 drawPortrait($("sage-sprite"), PX.sage).catch(() => {});
 $("prev").addEventListener("click", () => { if (sel > 0) { sel--; resetSage(); render(); } });
 $("next").addEventListener("click", () => { if (sel < weeks.length - 1) { sel++; resetSage(); render(); } });
