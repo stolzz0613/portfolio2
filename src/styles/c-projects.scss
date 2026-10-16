@@ -92,6 +92,15 @@
         }
     }
 
+    &-legal {
+        margin-top: 30px;
+        font-size: 14px;
+
+        a {
+            color: #a1a1a1;
+        }
+    }
+
     @media screen and (max-width: 414px) {
         &-title {
             font-size: 36px;
