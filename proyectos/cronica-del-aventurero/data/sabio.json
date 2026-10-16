@@ -1,26 +1,26 @@
 {
   "weeks": {
     "2026-10-12": {
-      "saludo": "Saludos, aventurero. Ojo Único tiembla con solo 394 PV, pero esta semana tu energía flaqueó: pocos pasos, un solo día de entrenamiento y una noche de apenas 0.8 h. Ajustemos el equipo y rematemos al Cíclope.",
+      "saludo": "Saludos, aventurero. A Ojo Único, el Cíclope de la Cumbre, solo le quedan 394 PV, pero esta semana tu ritmo bajó: menos pasos y menos minutos activos que la anterior. La victoria está cerca si recuperas el paso con constancia.",
       "consejos": [
         {
           "titulo": "Cardio suave para tu corazón",
-          "accion": "Haz 5 sesiones de 30 min de actividad moderada (caminar a paso ligero, bici suave o nadar), por ejemplo de lunes a viernes. Así cumples los 150 min activos de la semana.",
-          "porque": "La FC en reposo es el factor que más te envejece (+3.2 años) y subió de 68 a 72 lpm a lo largo de la semana. Además, solo el día 14 tuviste minutos activos (71). Si sigue subiendo durante varias semanas o notas palpitaciones o cansancio raro, consulta a un profesional."
+          "accion": "Haz 30 minutos de actividad moderada (caminata rápida, bici o trote suave) 5 días esta semana, para sumar 150 min activos. Repártelos en días distintos, no en uno solo. Si tu FC en reposo sigue subiendo durante varios días, consulta a un profesional.",
+          "porque": "Tu FC en reposo es el factor que más suma a tu edad fisiológica (+3,2 años) y esta semana subió de 68 a 72 lpm. Además, solo un día tuvo minutos activos (71 min el 14/10), lejos de los 247 de la semana anterior."
         },
         {
-          "titulo": "Tres paseos cortos diarios",
-          "accion": "Apunta a unos 4.500 pasos al día: da tres paseos de 10-15 min (tras desayuno, comida y cena). Los días de oficina, añade escaleras o llamadas caminando.",
-          "porque": "Tres de tus cinco días quedaron por debajo de 3.700 pasos (2.653 y 2.706 en dos de ellos), y solo el día 14 superaste esa cifra. Llevas 15.022 pasos y la meta semanal es 31.500."
+          "titulo": "Dos paseos diarios",
+          "accion": "Camina unos 15 minutos después de comer y otros 15 después de cenar. Así llegarás a unos 4.500 pasos al día, lo que suma la meta de 31.500 a la semana.",
+          "porque": "Cuatro de los cinco días quedaste por debajo de 4.000 pasos. Tu día más activo, el 14/10 con 5.638 pasos, demuestra que puedes lograrlo."
         },
         {
-          "titulo": "Hora fija de despertar",
-          "accion": "Levántate cada día a la misma hora (±30 min, también el fin de semana) y acuéstate unas 7 h antes para lograr de media 6.75 h. Deja pantallas 30 min antes de dormir.",
-          "porque": "Tu sueño osciló entre 0.8 y 7.6 h (desviación de 2.47 h) y la media cayó a 5.63 h, frente a 6.74 h la semana anterior. La irregularidad suma +1.4 años. Si la noche del 16 no fue un fallo del reloj, prioriza recuperar descanso."
+          "titulo": "Misma hora de despertar",
+          "accion": "Fija una hora de despertar con un margen de 30 minutos, todos los días, y acuéstate a una hora que te permita dormir al menos 6,75 h. Lleva el reloj puesto por la noche para que el registro sea fiable.",
+          "porque": "Tu sueño osciló entre 6,0 y 7,6 h, y la irregularidad suma +1,4 años. El 16/10 registró solo 0,8 h; si fue un fallo del registro, mejor corregirlo, y si fue real, es una señal para descansar más."
         }
       ],
-      "mision": "Misión opcional «Asalto a la Cumbre»: elige un día del fin de semana para una caminata de al menos 60 min con alguna cuesta o escaleras. El golpe final para Ojo Único: unos 7.000 pasos en un solo día.",
-      "generatedAt": "2026-10-16T20:07:31.990Z",
+      "mision": "Misión opcional «Asalto a la Cumbre»: elige un día del fin de semana para dar una caminata de 45 minutos con alguna cuesta o escaleras, y termina la noche durmiendo al menos 7 h. Puede ser el golpe final contra los 394 PV de Ojo Único.",
+      "generatedAt": "2026-10-16T20:31:59.189Z",
       "model": "claude-opus-5-5"
     }
   }
