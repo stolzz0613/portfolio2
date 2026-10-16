@@ -1,26 +1,26 @@
 {
   "weeks": {
     "2026-10-12": {
-      "saludo": "Aventurero, el Ojo Único te vigila desde la cumbre con solo 394 PV. Esta semana tu paso se ha vuelto lento: solo un día de combate de verdad y una última noche casi en vela. Ajusta tu equipo y el cíclope caerá.",
+      "saludo": "Aventurero, al Ojo Único, Cíclope de la Cumbre, solo le quedan 394 PV, pero esta semana tu espada descansó más de la cuenta: solo un día de batalla activa. Ese último registro de 331 pasos y 0,8 h de sueño parece incompleto o una noche dura. Si fue real, prioriza el descanso antes de volver al combate.",
       "consejos": [
         {
-          "titulo": "Cardio suave para tu corazón",
-          "accion": "Haz 5 sesiones de 30 minutos de caminata rápida o bici suave, en días alternos o seguidos. Así completas los 150 min activos. Si tu FC en reposo sigue subiendo durante varios días aunque descanses bien, consulta a un profesional.",
-          "porque": "La FC en reposo es el factor que más suma a tu edad fisiológica (+3,2 años). Además subió de 68 a 72 lpm a lo largo de la semana, y solo tuviste minutos activos un día (71 min el 14)."
+          "titulo": "Reparte tu entrenamiento",
+          "accion": "Haz 5 sesiones de 30 minutos de actividad moderada (caminar rápido, bici o subir cuestas), por ejemplo de lunes a viernes, hasta sumar los 150 min de la meta. Que sea a un ritmo que te deje hablar pero no cantar.",
+          "porque": "Tu FC en reposo es el factor que más años suma (+3,2), y la actividad aeróbica regular es de lo que más ayuda a mejorarla. Esta semana solo hubo 71 min activos, todos el día 14. Además, la FC subió poco a poco de 68 a 72 lpm; si sigue subiendo varias semanas o notas síntomas, consúltalo con un profesional."
         },
         {
           "titulo": "4.500 pasos cada día",
-          "accion": "Añade dos paseos de 15 minutos al día, uno tras la comida y otro tras la cena. Mira el contador antes de dormir y, si te faltan pasos para los 4.500, da una vuelta corta.",
-          "porque": "Tres días quedaste por debajo de 3.700 pasos. El único día que superaste los 5.000 fue el día que te moviste a propósito."
+          "accion": "Apunta a unos 4.500 pasos diarios (31.500 en la semana) con un paseo de 15 minutos después de comer y otro corto al terminar tu jornada. Revisa el contador a media tarde y, si vas por debajo de 2.500, sal a dar una vuelta.",
+          "porque": "Tres de tus cinco días se quedaron entre 2.650 y 3.700 pasos, y solo el día 14, con 5.638, superó la cifra objetivo. Tus pasos diarios suman +2,6 años a tu edad fisiológica."
         },
         {
-          "titulo": "Hora fija de despertar",
-          "accion": "Elige una hora de levantarte y respétala los 7 días, con 30 minutos de margen como mucho. Acuéstate unas 7 horas antes y apaga las pantallas 30 minutos antes de dormir. Objetivo: 6 h 45 min de media.",
-          "porque": "Tu sueño osciló entre 6,0 y 7,6 h, y la última noche registró solo 0,8 h. La irregularidad del sueño te suma +1,4 años, y tu media semanal bajó a 5,6 h."
+          "titulo": "Horario fijo para dormir",
+          "accion": "Fija una hora de acostarte y de levantarte y no te desvíes más de 30 minutos, también el fin de semana. Busca dormir al menos 6 h 45 min cada noche y deja las pantallas 30 minutos antes.",
+          "porque": "Tu sueño osciló mucho: 6,0 h una noche y 7,6 h otra, con una desviación de casi 2,5 h. La irregularidad del sueño suma +1,4 años y la media baja otros +0,6."
         }
       ],
-      "mision": "Asalto a la Cumbre: un día del fin de semana, haz una caminata de 45 minutos con alguna cuesta o escaleras. Solo cuenta si la noche anterior dormiste al menos 6 h 45 min. Completa ambas cosas y el golpe final al Cíclope será tuyo.",
-      "generatedAt": "2026-10-16T21:30:13.723Z",
+      "mision": "Misión del Cíclope: durante 3 días seguidos, cumple tu trío completo (unos 4.500 pasos, 30 minutos activos y 6 h 45 min de sueño). Cada día logrado es un golpe directo al Ojo Único, y con tres seguidos esos 394 PV no aguantarán.",
+      "generatedAt": "2026-10-16T21:42:52.917Z",
       "model": "claude-opus-5-5"
     }
   }
