@@ -1,0 +1,36 @@
+{
+  "prologue": {
+    "covers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "createdAt": 1792174606439,
+    "kind": "prologue",
+    "resumen": "Andrés, de Aprendiz a Guerrero de nivel 7, venció a ocho enemigos (Nyxra, Grisel, Morvath, Tejesombras, Ascuar, Kargan, Umbrog y Hielvar), ganó las habilidades Segundo aliento y ¡Crítico!, y está en las Montañas de Hierro, con la Ciudadela del Vacío por delante.",
+    "texto": "Antes de que existiera la leyenda, hubo un Aprendiz que salió a caminar entre la niebla. Así comenzó la crónica de Andrés, en el Valle de la Bruma, donde el aire pesaba como plomo y cada amanecer parecía una promesa difícil de cumplir. Allí cayó primero Nyxra, Murciélago del Crepúsculo, tras cuatro semanas de asedio; en su semana decisiva Andrés recorrió más de veintinueve mil pasos, y el domingo final su sombra se deshizo en la bruma.\n\nLe siguieron Grisel, Roedor de las Horas Perdidas, y Morvath, Espectro de la Inercia. Contra el primero marchó cuatro semanas más; contra el segundo, tres. Morvath, que había inmovilizado a tantos viajeros, cayó un viernes de mayo ante un aventurero que ya no sabía quedarse quieto. El Valle quedó atrás, y con él el nombre de Aprendiz.\n\nEn el Bosque de Ceniza, Andrés ya era Caminante. Tejesombras, Araña del Desaliento, tejió sus hilos durante cuatro semanas, pero él los cortó con casi cincuenta y ocho mil pasos en una sola semana y largas jornadas de esfuerzo sostenido. Después ardió el combate contra Ascuar, Escarabajo de Ceniza Ardiente, y en esa lucha Andrés despertó el Segundo aliento, esa fuerza oculta que llega cuando el cuerpo cree haber dado todo. Kargan, Bandido del Sendero Roto, cayó en apenas dos semanas, y el primer golpe crítico de Andrés resonó entre los árboles calcinados.\n\nAl alcanzar las Montañas de Hierro, el camino se hizo cuesta y el viento, cuchillo. Umbrog, Bestia del Musgo Negro, resistió cinco semanas enteras, y su caída, un sábado de agosto, costó a Andrés noches de descanso más breves de lo que el guerrero hubiera querido, pero su paso no flaqueó. Ya con el rango de Guerrero, enfrentó a Hielvar, Espíritu de la Ventisca; en su semana decisiva sumó más de treinta mil pasos y más de doscientos treinta minutos de marcha viva, y su corazón, que en el Bosque latía en reposo a setenta y cuatro pulsos, ahora descansaba en sesenta y nueve. La ventisca calló el último domingo de septiembre.\n\nAsí llega Andrés al presente: curtido, constante, con ocho victorias a sus espaldas. Pero las cumbres de hierro aún guardan secretos, y más allá, en el horizonte, aguarda la Ciudadela del Vacío. La crónica apenas comienza.",
+    "titulo": "Los Primeros Pasos de Andrés: del Valle de la Bruma a las Montañas de Hierro",
+    "until": "2026-10-05"
+  },
+  "weeks": {
+    "2026-10-05": {
+      "createdAt": 1792175008194,
+      "resumen": "Andrés infligió 982 de los 1315 PV a Ojo Único, que escapó con 333 PV tras una semana de buena marcha y combate, aunque con un sueño algo corto; el reencuentro será la semana siguiente.",
+      "status": "escapó",
+      "texto": "Las Montañas de Hierro amanecieron con el viento afilado de otoño, y Andrés, Guerrero de nivel 7, volvió a subir por el sendero donde Ojo Único se había refugiado. El cíclope había recuperado fuerzas durante la noche: mil trescientos quince puntos de vida latían de nuevo bajo su piel de roca, y su ojo solitario ardía como un faro maldito.\n\nEl lunes fue el día del héroe. Andrés abrió la batalla con un golpe que hizo temblar la cumbre y arrancó al gigante ciento noventa puntos de vida de un solo tajo. Ojo Único rugió, y los ecos rodaron por los desfiladeros. Pero el cíclope era astuto: a medida que avanzaban los días, su mirada fija buscó el cansancio en el guerrero. Andrés respondió con jornadas de marcha incansables, cerca de veintinueve mil pasos entre riscos y barrancos, y con doscientos cuarenta y siete minutos de combate sostenido, mucho más de lo que exigía el juramento.\n\nSin embargo, las noches fueron algo más breves y la fatiga rozó su armadura. El descanso del guerrero quedó apenas por debajo de lo que pedía la ley de la hoguera, y el cíclope supo aprovechar ese resquicio. Cuando Andrés alzó su espada para el golpe final, el gigante, con trescientos treinta y tres puntos de vida aún en su cuerpo, se desplomó en la grieta y se perdió en la oscuridad de la montaña.\n\nAndrés envainó su espada y miró hacia el abismo. \"Descansa mientras puedas, Ojo Único\", susurró. \"Cuando el sol vuelva a asomar sobre estas cumbres, te encontraré, y esta vez no escaparás.\"",
+      "titulo": "El Ojo que Aún Vigila"
+    },
+    "2026-10-12": {
+      "createdAt": 1792174962559,
+      "resumen": "Ojo Único volvió con 833 PV; Andrés le ha infligido 438 de daño (su mejor día fue el miércoles con 201), aunque con pocos pasos y poco descanso, y al Cíclope le quedan 395 PV con la semana aún en curso.",
+      "status": "combate",
+      "texto": "Las Montañas de Hierro amanecieron cubiertas de escarcha cuando Ojo Único, el Cíclope de la Cumbre, regresó a su risco. Venía herido, pero no vencido: la semana anterior había huido con apenas trescientos treinta y tres alientos de vida, y la montaña, avara y antigua, le devolvió fuerzas hasta dejarlo en ochocientos treinta y tres. Andrés, Guerrero de nivel 7, lo esperaba con la espada en alto y el recuerdo de sus ocho victorias a la espalda.\n\nEl miércoles fue el día de la gloria. Andrés ascendió por los pasos helados con el ritmo firme de quien ya conoce el camino, y su acero cayó sobre la carne del gigante con doscientos un golpes de furia. Ojo Único rugió, y las rocas temblaron en las laderas. Fue el mejor momento de la semana, y la bestia lo supo.\n\nPero el resto de los días las jornadas de marcha fueron cortas. Apenas la mitad de las leguas que exigía la cumbre quedaron atrás, y las vigilias del guerrero se hicieron breves: el sueño, esquivo, no le concedió el reposo que sus huesos pedían. El Cíclope aprovechó cada grieta en la guardia de Andrés para endurecer su piel de hierro.\n\nAun así, cuatrocientos treinta y ocho golpes han marcado ya el cuerpo del monstruo, y le restan trescientos noventa y cinco alientos. La semana no ha terminado. En lo alto de la cumbre, el único ojo del gigante se entrecierra, calculando, y Andrés afianza los pies sobre la roca. El próximo paso decidirá quién ve caer el sol.",
+      "titulo": "El Ojo que no Parpadea"
+    }
+  }
+}

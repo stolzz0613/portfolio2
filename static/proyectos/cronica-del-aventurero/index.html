@@ -1138,7 +1138,19 @@ function renderCampaign() {
 // Each chapter tells that week's battle and remembers the summaries of the weeks before it.
 const story = { weeks: {}, prologue: null };
 let storyBusy = false;
+let STATIC_STORY = false;
 async function loadStory() {
+  if (!DB && SOURCE.static) {
+    try {
+      const res = await fetch("data/cronica.json", { cache: "no-cache" });
+      if (res.ok) {
+        const data = await res.json();
+        story.weeks = data.weeks || {};
+        story.prologue = data.prologue || null;
+        STATIC_STORY = true;
+      }
+    } catch {}
+  }
   if (DB && UID) {
     try {
       const snap = await DB.doc("data/users/" + UID + "/story").get();
@@ -1171,7 +1183,7 @@ function renderStory() {
     $("chapters").replaceChildren(prologue || "", h("article", { class: "chapter" },
       h("h4", { class: "ch-title", text: ch.titulo }),
       ...String(ch.texto || "").split(/\n\s*\n/).map((p) => h("p", { text: p.trim() })),
-      stale ? h("p", { class: "meta", text: "Esta semana ha cambiado desde que se escribió: puedes reescribirla." }) : null));
+      stale ? h("p", { class: "meta", text: STATIC_STORY ? "Esta semana ha cambiado desde que se escribió: el cronista la reescribirá en la próxima actualización." : "Esta semana ha cambiado desde que se escribió: puedes reescribirla." }) : null));
   } else {
     $("chapters").replaceChildren(prologue || "", h("p", { class: "speech", text: sel === weeks.length - 1
       ? "La batalla de esta semana aún se libra. El cronista puede narrar lo ocurrido hasta hoy y reescribirlo al final de la semana."
@@ -1181,7 +1193,9 @@ function renderStory() {
   const btn = $("write");
   btn.hidden = !canWrite || storyBusy;
   btn.textContent = ch ? "Reescribir la crónica de esta semana" : "Escribir la crónica de esta semana";
-  if (!storyBusy) $("story-note").textContent = canWrite ? "La escribe Claude con tus datos reales de la semana; usa tu cuenta de Claude." : "La crónica solo se puede escribir dentro de claude.ai, con tus datos reales cargados.";
+  if (!storyBusy) $("story-note").textContent = canWrite ? "La escribe Claude con tus datos reales de la semana; usa tu cuenta de Claude."
+    : STATIC_STORY ? "Claude escribe la crónica cada día con los datos reales de la semana; el capítulo de la semana en curso se reescribe hasta que termina."
+    : "La crónica solo se puede escribir dentro de claude.ai, con tus datos reales cargados.";
 }
 // What happened in week i, in plain words, for the chronicler.
 function weekFacts(i) {
@@ -1202,17 +1216,14 @@ function weekFacts(i) {
     G.recovery ? "Era una semana de recuperación." : "",
   ].filter(Boolean).join(" ");
 }
-async function writeChapter() {
-  if (!sample || !DB || !UID || storyBusy || !weeks.length) return;
-  const i = sel, key = weeks[i].start, r = campaign()[i];
-  storyBusy = true;
-  $("write").hidden = true;
-  $("story-note").replaceChildren(h("span", { class: "dots", text: "El cronista moja la pluma en tinta" }));
+function chapterPrompt(i) {
+  const key = weeks[i].start, r = campaign()[i];
   // Continuity: the summaries of the latest written weeks before this one, plus the bare facts of
   // the previous week when it has no chapter.
   const before = Object.keys(story.weeks).filter((k) => k < key).sort().slice(-6)
     .map((k) => `Semana del ${k}: ${story.weeks[k].resumen}`);
-  if (story.prologue?.resumen) before.unshift(`Prólogo (el viaje hasta ahora): ${story.prologue.resumen}`);
+  // A prologue that sums up the journey up to a given week (`until`) only frames the weeks from then on.
+  if (story.prologue?.resumen && (!story.prologue.until || key >= story.prologue.until)) before.unshift(`Prólogo (el viaje hasta ahora): ${story.prologue.resumen}`);
   const prevFacts = i > 0 && !story.weeks[weeks[i - 1].start] ? `Lo que pasó la semana anterior (sin crónica escrita): ${weekFacts(i - 1)}` : "";
   const shape = r.status === "derrotado" ? "Cuenta la victoria y su golpe final."
     : r.status === "escapó" ? "Cuenta una batalla dura en la que el enemigo logra escapar; termina con la promesa del reencuentro."
@@ -1228,6 +1239,15 @@ async function writeChapter() {
     "Mantén la continuidad con las crónicas anteriores. Integra dos o tres datos reales de la semana de forma natural dentro de la ficción (por ejemplo, pasos como leguas o jornadas de marcha, el sueño como vigilias o descanso del guerrero), sin listas ni exceso de cifras. Longitud: 180-280 palabras, 3 a 5 párrafos.",
     'Responde SOLO con JSON: {"titulo": "título épico de la semana", "texto": "la crónica, con párrafos separados por una línea en blanco", "resumen": "una frase que resuma la semana, para recordarla en las próximas crónicas"}',
   ].filter(Boolean).join("\n\n");
+  return prompt;
+}
+async function writeChapter() {
+  if (!sample || !DB || !UID || storyBusy || !weeks.length) return;
+  const i = sel, key = weeks[i].start, r = campaign()[i];
+  storyBusy = true;
+  $("write").hidden = true;
+  $("story-note").replaceChildren(h("span", { class: "dots", text: "El cronista moja la pluma en tinta" }));
+  const prompt = chapterPrompt(i);
   let message;
   try {
     const out = await sample.json(prompt, { cache: false });
@@ -1440,8 +1460,12 @@ loadDays().then((days) => { if (SOURCE.kind === "demo") useDays(days); });
 loadRealDays().then(async (days) => {
   if (days) { useDays(days); renderSource(); }
   await loadProfile();
-  loadStory();
-  window.cronica = { source: SOURCE.kind, week: weeks[sel]?.start, prompt: sagePrompt() };
+  await loadStory();
+  window.cronica = {
+    source: SOURCE.kind, week: weeks[sel]?.start, prompt: sagePrompt(),
+    weeks: weeks.map((w, i) => ({ start: w.start, status: campaign()[i].status })),
+    chapterPrompt: (i, chapters) => { story.weeks = chapters.weeks || {}; story.prologue = chapters.prologue || null; return chapterPrompt(i); },
+  };
 });
 $("write").addEventListener("click", writeChapter);
 // The chronicle's own week selector drives the same week as the one at the top.
