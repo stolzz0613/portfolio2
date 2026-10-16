@@ -1,17 +1,25 @@
 import React from 'react'
 
-export default function SEO() {
-  const description = "Passionate developer with +5 years of experience. Committed to delivering clean, responsive, and accessible websites optimized for performance and usability. Dedicated to providing the best possible user experience.";
-  const keywords = "FullStack, developer, React, FrontEntd, UI/UX"
+const TITLE = 'Andrés Bustos · Senior Full Stack Engineer'
+const DESCRIPTION = 'Senior Full Stack Software Engineer and Technical Lead with 8+ years building enterprise web, mobile, e-commerce and AI products with React, Node.js, Salesforce Commerce Cloud and the cloud.'
+const URL = 'https://www.andresb.dev/'
 
+export default function SEO() {
   return (
     <>
-        <title>Andres Bustos FullStack developer with 5 years of experience</title>
-        <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
-        <link rel="canonical" href="https://andresb.dev" />
-        <meta name="author" content="Andres Bustos"></meta>
-        <meta name="publisher" content="Andres Bustos C" />
+      <html lang='en' />
+      <title>{TITLE}</title>
+      <meta name='description' content={DESCRIPTION} />
+      <meta name='keywords' content='Full Stack, Senior Software Engineer, Technical Lead, React, Next.js, Node.js, Salesforce Commerce Cloud, AI' />
+      <meta name='author' content='Andrés Julián Bustos' />
+      <meta name='theme-color' content='#050506' />
+      <link rel='canonical' href={URL} />
+      <meta property='og:type' content='website' />
+      <meta property='og:url' content={URL} />
+      <meta property='og:title' content={TITLE} />
+      <meta property='og:description' content={DESCRIPTION} />
+      <meta property='og:image' content={`${URL}images/image.png`} />
+      <meta name='twitter:card' content='summary_large_image' />
     </>
   )
 }
