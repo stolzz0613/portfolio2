@@ -1,0 +1,1415 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Crónica del Aventurero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;600;700&display=swap">
+<style>
+/* Layout: a single-theme 16-bit RPG menu. A title window on top, then the character sheet beside
+   the week's battle log, quests and the Sage (Claude) below, history at the bottom. Deliberately
+   dark-only: it is a game screen, so every color is set explicitly. */
+:root {
+  --bg: #05071a;
+  --bg-2: #0b1033;
+  --win-top: #2a3dae;
+  --win-bot: #0a1452;
+  --frame: #eef0ff;
+  --frame-shadow: #000312;
+  --ink: #f4f5ff;
+  --muted: #aeb6ec;
+  --gold: #ffd75e;
+  --hp: #52e08c;
+  --mp: #62b6ff;
+  --xp: #ffd75e;
+  --danger: #ff7a7a;
+  --track: #050b33;
+  --font-pixel: "Press Start 2P", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-body: "Pixelify Sans", "Trebuchet MS", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.45;
+  background:
+    radial-gradient(1px 1px at 12% 18%, #ffffff55 50%, transparent 51%),
+    radial-gradient(1px 1px at 72% 8%, #ffffff44 50%, transparent 51%),
+    radial-gradient(1px 1px at 38% 62%, #ffffff33 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 44%, #ffffff44 50%, transparent 51%),
+    radial-gradient(1px 1px at 22% 88%, #ffffff33 50%, transparent 51%),
+    linear-gradient(180deg, var(--bg-2), var(--bg) 60%);
+  background-attachment: fixed;
+}
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 48px; display: grid; gap: 14px; }
+
+/* The FF-style window */
+.win {
+  position: relative; min-width: 0;
+  background: linear-gradient(180deg, var(--win-top), var(--win-bot));
+  border: 3px solid var(--frame); border-radius: 8px;
+  box-shadow: 0 0 0 3px var(--frame-shadow), 4px 6px 0 3px #00000088;
+  padding: 16px 18px;
+}
+.win h2 { margin: 0 0 12px; font: 400 11px/1.4 var(--font-pixel); letter-spacing: .06em; color: var(--gold); text-transform: uppercase; }
+.pix { font-family: var(--font-pixel); }
+
+/* Title bar */
+.title { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; }
+.title h1 { margin: 0; font: 400 clamp(14px, 2.6vw, 20px)/1.4 var(--font-pixel); color: var(--ink); text-shadow: 2px 2px 0 #000; }
+.title .sub { color: var(--muted); font-size: 16px; }
+.weeknav { display: flex; gap: 8px; align-items: center; }
+.btn {
+  font: 400 10px/1 var(--font-pixel); color: var(--ink); background: var(--win-bot); cursor: pointer;
+  border: 2px solid var(--frame); border-radius: 4px; padding: 9px 11px; text-transform: uppercase; letter-spacing: .04em;
+}
+.btn:hover:not(:disabled) { background: var(--win-top); }
+.btn:disabled { opacity: .45; cursor: default; }
+.btn.primary { background: var(--gold); color: #1c1400; border-color: var(--frame); }
+.btn.primary:hover:not(:disabled) { background: #ffe58f; }
+.cursor::before { content: "\25B6"; color: var(--frame); margin-right: 6px; font-size: 9px; }
+.source { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 15px; color: var(--muted); }
+.chip { font: 400 9px/1 var(--font-pixel); padding: 6px 8px; border-radius: 3px; border: 2px solid currentColor; text-transform: uppercase; }
+.chip.demo { color: var(--gold); }
+.chip.live { color: var(--hp); }
+
+/* Main grid */
+.grid { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 860px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Character sheet */
+.hero { display: grid; gap: 14px; }
+.hero-top { display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 14px; align-items: center; }
+.stage { width: 148px; height: 124px; border: 2px solid var(--frame); border-radius: 4px; background: #3b7d4f; display: grid; place-items: center; overflow: hidden; }
+#sprite { width: 144px; height: 120px; max-width: none; image-rendering: pixelated; }
+.name { font: 400 13px/1.5 var(--font-pixel); }
+.job { color: var(--gold); font-size: 16px; }
+.lv { font: 400 11px/1.6 var(--font-pixel); color: var(--muted); }
+.lv b { color: var(--ink); font-weight: 400; }
+.bars { display: grid; gap: 8px; }
+.bar-row { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 8px; align-items: center; }
+.bar-row .k { font: 400 10px/1 var(--font-pixel); }
+.bar-row .v { font: 400 10px/1 var(--font-pixel); font-variant-numeric: tabular-nums; min-width: 92px; text-align: right; }
+.meter { height: 12px; background: var(--track); border: 2px solid var(--frame); border-radius: 2px; overflow: hidden; }
+.meter i { display: block; height: 100%; width: 0; transition: width .6s steps(12); }
+.meter.hp i { background: var(--hp); } .meter.mp i { background: var(--mp); } .meter.xp i { background: var(--xp); }
+.k.hp { color: var(--hp); } .k.mp { color: var(--mp); } .k.xp { color: var(--xp); }
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 16px; }
+.stat { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 6px; align-items: baseline; border-bottom: 2px dotted #ffffff30; padding-bottom: 4px; }
+.stat .k { font: 400 10px/1.4 var(--font-pixel); }
+.stat .n { font: 400 13px/1 var(--font-pixel); font-variant-numeric: tabular-nums; }
+.stat .d { font: 400 9px/1 var(--font-pixel); min-width: 28px; text-align: right; }
+.up { color: var(--hp); } .down { color: var(--danger); } .flat { color: var(--muted); }
+.stat .src { grid-column: 1 / -1; font-size: 13px; color: var(--muted); }
+.levelup { display: none; font: 400 11px/1.4 var(--font-pixel); color: var(--gold); text-align: center; animation: blink 1s steps(2) infinite; }
+.levelup.on { display: block; }
+@keyframes blink { 50% { opacity: .3; } }
+
+/* Right column */
+.col { display: grid; gap: 14px; min-width: 0; }
+.log-scroll { overflow-x: auto; }
+table.log { width: 100%; border-collapse: collapse; min-width: 520px; font-variant-numeric: tabular-nums; }
+.log th { font: 400 9px/1.4 var(--font-pixel); color: var(--muted); text-align: left; padding: 0 8px 8px; text-transform: uppercase; }
+.log td { padding: 6px 8px; border-top: 2px dotted #ffffff26; font-size: 16px; vertical-align: middle; }
+.log td.day { font: 400 10px/1 var(--font-pixel); }
+.log tr.today td.day { color: var(--gold); }
+.log tr.today td.day::before { content: "\25B6 "; }
+.log tr.future td { color: #ffffff55; }
+.mini { display: grid; grid-template-columns: minmax(60px, 1fr) auto; gap: 8px; align-items: center; }
+.mini .meter { height: 10px; }
+.mini .meter i { background: var(--xp); }
+.ok { color: var(--hp); } .low { color: var(--danger); }
+.summary { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 12px; color: var(--muted); font-size: 16px; }
+.summary b { color: var(--ink); font-weight: 600; }
+
+/* Quests */
+.quests { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.quest { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+.box { width: 18px; height: 18px; border: 2px solid var(--frame); background: var(--track); display: grid; place-items: center; font: 400 9px/1 var(--font-pixel); color: var(--hp); }
+.quest.done .box { background: #1a5a36; }
+.quest .q { min-width: 0; }
+.quest .q small { display: block; color: var(--muted); font-size: 14px; }
+.quest .p { font: 400 10px/1 var(--font-pixel); font-variant-numeric: tabular-nums; }
+.quest .meter { margin-top: 4px; height: 8px; }
+.quest .meter i { background: var(--gold); }
+.quest.done .meter i { background: var(--hp); }
+
+/* Sage */
+.sage { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 14px; align-items: start; }
+#sage-sprite { width: 72px; height: 72px; image-rendering: pixelated; border: 2px solid var(--frame); border-radius: 4px; background: radial-gradient(circle at 50% 60%, #3a2a6e, var(--track) 70%); padding: 4px; }
+.px-icon { display: inline-block; width: 32px; height: 32px; flex: none; background-image: url("px/dungeon.png"); background-size: 384px 352px; image-rendering: pixelated; vertical-align: middle; }
+.qname { display: inline-flex; gap: 8px; align-items: center; }
+.sage-text { min-width: 0; display: grid; gap: 10px; }
+.speech { margin: 0; font-size: 17px; max-width: 68ch; }
+.tips { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.tip { border: 2px solid #ffffff40; border-radius: 4px; padding: 10px 12px; background: #0000002a; }
+.tip h3 { margin: 0 0 4px; font: 400 10px/1.5 var(--font-pixel); color: var(--gold); }
+.tip p { margin: 0; }
+.tip .why { color: var(--muted); font-size: 15px; margin-top: 4px; }
+.sage-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.note { color: var(--muted); font-size: 14px; }
+.dots::after { content: ""; animation: dots 1.2s steps(4) infinite; }
+@keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
+
+/* Real vs physiological age */
+.age-body { display: grid; gap: 12px; }
+.ages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.age-card { border: 2px solid var(--frame); border-radius: 4px; padding: 10px; background: var(--track); display: grid; gap: 6px; justify-items: center; text-align: center; }
+.age-card .lbl { font: 400 8px/1.4 var(--font-pixel); color: var(--muted); text-transform: uppercase; }
+.age-card .big { font: 400 22px/1 var(--font-pixel); font-variant-numeric: tabular-nums; }
+.age-card.phys .big { color: var(--gold); }
+.age-verdict { font-size: 16px; text-align: center; }
+.age-verdict b.up { color: var(--hp); } .age-verdict b.down { color: var(--danger); }
+.factors { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.factor { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 8px; align-items: baseline; border-bottom: 2px dotted #ffffff26; padding-bottom: 3px; font-size: 15px; }
+.factor .fv { color: var(--muted); font-size: 14px; }
+.factor .fy { font: 400 9px/1 var(--font-pixel); min-width: 44px; text-align: right; font-variant-numeric: tabular-nums; }
+.age-form { display: grid; gap: 6px; }
+.age-form label { font: 400 9px/1.4 var(--font-pixel); color: var(--muted); }
+.age-form-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.age-form input { font: 16px var(--font-body); color: var(--ink); background: var(--track); border: 2px solid var(--frame); border-radius: 4px; padding: 6px 8px; color-scheme: dark; }
+.age-note { margin: 10px 0 0; }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--muted); text-decoration: underline; cursor: pointer; font: inherit; font-size: 14px; }
+.quest .q small.why { color: var(--muted); font-size: 13px; opacity: .85; }
+
+/* Campaign */
+.camp { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 760px) { .camp { grid-template-columns: minmax(0, 1fr); } }
+.boss-card { display: grid; gap: 6px; }
+#boss-scene { width: 100%; max-width: 300px; aspect-ratio: 2 / 1; height: auto; image-rendering: pixelated; border: 2px solid var(--frame); border-radius: 4px; background: #2a1c1c; }
+.boss-act { font: 400 8px/1.4 var(--font-pixel); color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.boss-name { font: 400 13px/1.4 var(--font-pixel); color: var(--danger); }
+.boss-title { color: var(--muted); font-size: 15px; margin-top: -4px; }
+.meter.boss i { background: var(--danger); }
+.k.boss-k { color: var(--danger); }
+.boss-status { font-size: 15px; }
+.boss-status b { color: var(--gold); font-weight: 600; }
+.sub-h { margin: 0 0 8px; font: 400 9px/1.4 var(--font-pixel); color: var(--gold); text-transform: uppercase; }
+.battle { min-width: 0; display: grid; gap: 4px; }
+.battle-log { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 4px; }
+.turn { display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; gap: 8px; align-items: baseline; border-bottom: 2px dotted #ffffff22; padding-bottom: 3px; font-size: 15px; }
+.turn .day { font: 400 9px/1 var(--font-pixel); color: var(--muted); }
+.turn .hits { min-width: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.turn .hits span { white-space: nowrap; }
+.turn .tag { font: 400 8px/1 var(--font-pixel); color: var(--gold); border: 1px solid currentColor; border-radius: 2px; padding: 3px 4px; }
+.turn .tag.bad { color: var(--danger); }
+.turn .dmg { font: 400 10px/1 var(--font-pixel); color: var(--danger); font-variant-numeric: tabular-nums; }
+.turn.fell .dmg { color: var(--gold); }
+.turn.none { color: #ffffff55; }
+.abilities { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ability { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 8px; font-size: 15px; }
+.ability .alv { font: 400 9px/1.6 var(--font-pixel); color: var(--gold); }
+.ability.locked { color: #ffffff60; }
+.ability.locked .alv { color: #ffffff60; }
+.ability b { font-weight: 600; }
+.story { margin-top: 16px; display: grid; gap: 10px; }
+.story-head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.story-head .sub-h { margin: 0; }
+.s-week { font: 400 9px/1.4 var(--font-pixel); color: var(--ink); min-width: 0; }
+.ch-title { margin: 0 0 4px; font: 400 11px/1.6 var(--font-pixel); color: var(--gold); text-wrap: balance; }
+.chapters { display: grid; gap: 8px; }
+.chapter { border: 2px solid #ffffff40; border-radius: 4px; background: #0000002a; padding: 10px 14px; }
+.chapter summary { cursor: pointer; font: 400 10px/1.6 var(--font-pixel); color: var(--gold); }
+.chapter p { margin: 8px 0 0; max-width: 72ch; font-size: 17px; line-height: 1.55; }
+.chapter .meta { color: var(--muted); font-size: 14px; }
+
+/* Comparison chart */
+.cmp-controls { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; }
+.seg { display: flex; flex-wrap: wrap; gap: 4px; padding: 3px; border: 2px solid var(--frame); border-radius: 4px; background: var(--track); }
+.seg button { font: 400 9px/1 var(--font-pixel); color: var(--muted); background: transparent; border: 0; padding: 8px 9px; cursor: pointer; border-radius: 2px; text-transform: uppercase; }
+.seg button[aria-pressed="true"] { background: var(--win-top); color: var(--ink); box-shadow: inset 0 0 0 2px var(--frame); }
+.seg button[aria-pressed="true"]::before { content: "\25B6 "; font-size: 7px; }
+.cmp-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px; font-size: 15px; color: var(--muted); }
+.cmp-legend span { display: inline-flex; gap: 6px; align-items: center; }
+.cmp-legend i { width: 14px; height: 10px; display: inline-block; border: 2px solid var(--frame); }
+.cmp-legend i.ghost { background: transparent; border-style: dashed; border-color: var(--muted); }
+.cmp-chart { margin-top: 8px; overflow-x: auto; }
+.cmp-chart svg { display: block; width: 100%; min-width: 520px; height: auto; shape-rendering: crispEdges; }
+.cmp-chart .grid-line { stroke: #ffffff22; stroke-width: 1; }
+.cmp-chart .axis { fill: var(--muted); font: 400 9px var(--font-pixel); }
+.cmp-chart .xlab { fill: var(--muted); font: 400 9px var(--font-pixel); text-anchor: middle; }
+.cmp-chart .xlab.cur { fill: var(--gold); }
+.cmp-chart .vlab { fill: var(--ink); font: 400 8px var(--font-pixel); text-anchor: middle; }
+.cmp-chart .ghost { fill: none; stroke: var(--muted); stroke-width: 2; stroke-dasharray: 4 3; }
+.cmp-chart .goal { stroke: var(--gold); stroke-width: 1.5; stroke-dasharray: 6 4; }
+.cmp-chart .goal-lab { fill: var(--gold); font: 400 8px var(--font-pixel); }
+.cmp-sum { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 10px; color: var(--muted); font-size: 16px; }
+.cmp-sum b { color: var(--ink); font-weight: 600; }
+
+/* History */
+.hist { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 10px; align-items: end; height: 150px; }
+.hcol { display: grid; grid-template-rows: auto 1fr auto; gap: 4px; height: 100%; min-width: 0; text-align: center; }
+.hcol .val { font: 400 9px/1 var(--font-pixel); color: var(--muted); font-variant-numeric: tabular-nums; }
+.hcol .track { display: flex; align-items: end; justify-content: center; background: repeating-linear-gradient(0deg, #ffffff10 0 2px, transparent 2px 25%); }
+.hcol .fill { width: 70%; background: var(--mp); border: 2px solid var(--frame); border-bottom: 0; }
+.hcol.sel .fill { background: var(--gold); }
+.hcol .lbl { font: 400 8px/1.3 var(--font-pixel); color: var(--muted); }
+.hcol.sel .lbl { color: var(--gold); }
+.rules { margin: 0; color: var(--muted); font-size: 15px; display: grid; gap: 4px; }
+.rules b { color: var(--ink); font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { .meter i { transition: none; } .levelup, .dots::after { animation: none; } }
+</style>
+
+<main class="wrap">
+  <section class="win title" aria-label="Encabezado">
+    <div>
+      <h1>Crónica del Aventurero</h1>
+      <div class="sub" id="week-label">Semana</div>
+    </div>
+    <div class="weeknav">
+      <button class="btn" id="prev" type="button" title="Semana anterior">&lt; Ant.</button>
+      <button class="btn" id="next" type="button" title="Semana siguiente">Sig. &gt;</button>
+    </div>
+    <div class="source" id="source"><span class="chip demo">Datos de ejemplo</span><span>Fitbit Air todavía no está conectado: así se verá con tus datos.</span></div>
+  </section>
+
+  <div class="grid">
+    <div class="col">
+    <section class="win hero" aria-labelledby="hero-h">
+      <h2 id="hero-h">Personaje</h2>
+      <div class="hero-top">
+        <div class="stage"><canvas id="sprite" width="48" height="40" role="img" aria-label="Tu personaje en pixel art"></canvas></div>
+        <div>
+          <div class="name">ANDRÉS</div>
+          <div class="job" id="job">Aprendiz</div>
+          <div class="lv">NV <b id="lv">1</b> · <span id="xp-total">0</span> XP</div>
+          <div class="lv">Jefes vencidos: <b id="wins">0</b></div>
+        </div>
+      </div>
+      <div class="levelup" id="levelup">¡Subiste de nivel!</div>
+      <div class="bars">
+        <div class="bar-row"><span class="k hp">PV</span><div class="meter hp"><i id="hp-bar"></i></div><span class="v" id="hp-v">0/999</span></div>
+        <div class="bar-row"><span class="k mp">PM</span><div class="meter mp"><i id="mp-bar"></i></div><span class="v" id="mp-v">0/999</span></div>
+        <div class="bar-row"><span class="k xp">XP</span><div class="meter xp"><i id="xp-bar"></i></div><span class="v" id="xp-v">0/0</span></div>
+      </div>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <section class="win" aria-labelledby="age-h">
+      <h2 id="age-h">Edad real vs. fisiológica</h2>
+      <div id="age-body" class="age-body"></div>
+      <form id="age-form" class="age-form" hidden>
+        <label for="birth">Tu fecha de nacimiento</label>
+        <div class="age-form-row">
+          <input id="birth" type="date" required min="1920-01-01">
+          <button class="btn primary" type="submit">Guardar</button>
+        </div>
+        <span class="note">Se guarda en tu espacio privado de esta página.</span>
+      </form>
+      <p class="note age-note">Estimación motivacional con tus últimos 28 días. No es un diagnóstico médico.</p>
+    </section>
+    </div>
+
+    <div class="col">
+      <section class="win" aria-labelledby="log-h">
+        <h2 id="log-h">Bitácora de la semana</h2>
+        <div class="log-scroll">
+          <table class="log">
+            <thead><tr><th>Día</th><th>Pasos</th><th>Sueño</th><th>Min. activos</th><th>FC reposo</th></tr></thead>
+            <tbody id="log"></tbody>
+          </table>
+        </div>
+        <div class="summary" id="summary"></div>
+      </section>
+
+      <section class="win" aria-labelledby="quest-h">
+        <h2 id="quest-h">Misiones semanales</h2>
+        <ul class="quests" id="quests"></ul>
+      </section>
+
+      <section class="win" aria-labelledby="sage-h">
+        <h2 id="sage-h">Consejo del Sabio</h2>
+        <div class="sage">
+          <canvas id="sage-sprite" width="16" height="16" role="img" aria-label="El Sabio, un mago de túnica morada"></canvas>
+          <div class="sage-text">
+            <p class="speech" id="speech">Viajero, cuéntame tu semana y te diré cómo hacerte más fuerte. Mis consejos los escribe Claude con tus números de esta semana.</p>
+            <ul class="tips" id="tips"></ul>
+            <div class="sage-actions">
+              <button class="btn primary cursor" id="ask" type="button">Consultar al Sabio</button>
+              <button class="btn" id="stop" type="button" hidden>Detener</button>
+              <span class="note" id="sage-note">Cada consulta usa tu cuenta de Claude. No es consejo médico.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section class="win" aria-labelledby="camp-h">
+    <h2 id="camp-h">Campaña</h2>
+    <div class="camp">
+      <div class="boss-card">
+        <canvas id="boss-scene" width="64" height="32" role="img" aria-label="Combate contra el jefe de la semana"></canvas>
+        <div class="boss-act" id="boss-act"></div>
+        <div class="boss-name" id="boss-name"></div>
+        <div class="boss-title" id="boss-title"></div>
+        <div class="bar-row"><span class="k boss-k">PV</span><div class="meter boss"><i id="boss-bar"></i></div><span class="v" id="boss-v"></span></div>
+        <div class="boss-status" id="boss-status"></div>
+      </div>
+      <div class="battle">
+        <h3 class="sub-h">Diario de combate</h3>
+        <ol class="battle-log" id="battle-log"></ol>
+        <h3 class="sub-h">Habilidades</h3>
+        <ul class="abilities" id="abilities"></ul>
+      </div>
+    </div>
+    <div class="story">
+      <div class="story-head">
+        <h3 class="sub-h">La crónica</h3>
+        <div class="weeknav">
+          <button class="btn" id="s-prev" type="button" title="Semana anterior">&lt; Ant.</button>
+          <span class="s-week" id="s-week"></span>
+          <button class="btn" id="s-next" type="button" title="Semana siguiente">Sig. &gt;</button>
+        </div>
+        <span class="note" id="s-count"></span>
+      </div>
+      <div id="chapters" class="chapters"></div>
+      <div class="sage-actions">
+        <button class="btn primary cursor" id="write" type="button" hidden>Escribir el siguiente capítulo</button>
+        <span class="note" id="story-note"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="win" aria-labelledby="cmp-h">
+    <h2 id="cmp-h">Comparación</h2>
+    <div class="cmp-controls">
+      <div class="seg" role="group" aria-label="Agrupar por" id="cmp-gran">
+        <button type="button" data-gran="day" aria-pressed="true">Día</button>
+        <button type="button" data-gran="week" aria-pressed="false">Semana</button>
+        <button type="button" data-gran="month" aria-pressed="false">Mes</button>
+        <button type="button" data-gran="year" aria-pressed="false">Año</button>
+      </div>
+      <div class="seg" role="group" aria-label="Métrica" id="cmp-metric">
+        <button type="button" data-metric="steps" aria-pressed="true">Pasos</button>
+        <button type="button" data-metric="sleep" aria-pressed="false">Sueño</button>
+        <button type="button" data-metric="active" aria-pressed="false">Activos</button>
+        <button type="button" data-metric="hr" aria-pressed="false">FC</button>
+      </div>
+    </div>
+    <div class="cmp-legend" id="cmp-legend"></div>
+    <div class="cmp-chart" id="cmp-chart"></div>
+    <div class="cmp-sum" id="cmp-sum"></div>
+  </section>
+
+  <section class="win" aria-labelledby="hist-h">
+    <h2 id="hist-h">Últimas 8 semanas · pasos totales</h2>
+    <div class="hist" id="hist"></div>
+  </section>
+
+  <section class="win" aria-labelledby="rules-h">
+    <h2 id="rules-h">Cómo se calcula</h2>
+    <div class="rules">
+      <div><b>XP</b>: 1 por cada 100 pasos, 2 por minuto activo y 25 por cada noche de 7 h o más. Cada nivel pide más XP que el anterior.</div>
+      <div><b>PV</b> (vida): qué tan cerca estuviste de las tres metas (pasos, sueño y actividad), de 0 a 999.</div>
+      <div><b>PM</b> (energía): tu sueño medio frente a 8 h.</div>
+      <div><b>AGI</b> viene de los pasos, <b>FUE</b> de los minutos activos, <b>ESP</b> de la regularidad del sueño y <b>VIT</b> de la frecuencia cardiaca en reposo (más baja, más VIT).</div>
+      <div><b>Metas adaptativas</b>: cada semana se calculan con tus 4 semanas anteriores. Si cumpliste la meta, sube un 10 %; si llegaste al 80 %, un 5 %; si no, se mantiene en tu nivel para que sea alcanzable. Si dormiste menos de 6 h de media o tu FC en reposo subió 4 lpm o más, es semana de recuperación: la actividad no sube y el sueño sube 30 min. Todo avanza hacia las metas de largo plazo: 70.000 pasos a la semana, 150 min activos (OMS) y 7,5 h de sueño.</div>
+      <div><b>Campaña</b>: cada semana combates contra un jefe. Cumplir todas tus metas adaptativas de la semana hace 1.000 de daño (500 por pasos, 300 por actividad, 200 por sueño); cada día con datos es un turno. Los jefes del Acto I tienen 1.000 PV, los del II 1.500, los del III 2.000 y el jefe final 2.500, así que los últimos duran varias semanas. Si un jefe sobrevive a la semana, escapa y vuelve con los PV que le quedaban más un 25 %: el esfuerzo acumulado cuenta. Tu nivel al empezar la semana desbloquea habilidades: Segundo aliento (nivel 3), Golpe crítico (5) y Descanso largo (8). Una FC en reposo 4 lpm o más por encima de tu media resta un 15 % de daño ese día.</div>
+      <div><b>Crónica</b>: cada semana es un capítulo. Claude lo escribe con tus datos reales de esa semana (victoria, huida del jefe o batalla en curso) y recuerda los capítulos anteriores. Se guarda en tu espacio privado; puedes reescribirlo, por ejemplo al terminar la semana en curso.</div>
+      <div><b>Pixel art</b>: personajes, objetos y escenario de los paquetes "Tiny Dungeon" y "Tiny Town" de <a href="https://kenney.nl" target="_blank" rel="noopener" style="color:inherit">Kenney</a>, de dominio público (CC0).</div>
+      <div><b>Edad fisiológica</b>: parte de tu edad real y suma o resta años según tus últimos 28 días. Los puntos de referencia son FC en reposo de 62 lpm (±0,4 años por lpm), 7.500 pasos al día, 150 min activos a la semana, dormir entre 7 y 8,5 h y noches regulares (±45 min). Cada factor tiene un tope y el total no pasa de ±12 años. Es una estimación motivacional, no médica.</div>
+    </div>
+  </section>
+</main>
+
+<script>
+// ---------------------------------------------------------------------------
+// Data source. Real data lives in the viewer's private store, doc data/users/<id>/health:
+// {source, syncedAt, days: [{date: "YYYY-MM-DD", steps, sleepMin, activeMin, restingHr}]},
+// written from sync.mjs's days.json (Google Health API). Any field may be null for a day the
+// watch didn't record. Without that doc the page shows clearly labelled example data.
+// ---------------------------------------------------------------------------
+let SOURCE = { kind: "demo", label: "Datos de ejemplo" };
+let DB = null, UID = null;
+// Outside claude.ai (the copy published on andresb.dev) the days come from data/days.json, which
+// the portfolio's GitHub Action refreshes every day from Google Health.
+let STATIC_BIRTH = null;
+async function loadStaticDays() {
+  try {
+    const res = await fetch("data/days.json", { cache: "no-cache" });
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!Array.isArray(data.days) || !data.days.length) return null;
+    SOURCE = { kind: "live", static: true, label: data.source || "Google Health", syncedAt: data.syncedAt };
+    STATIC_BIRTH = data.birthDate || null;
+    return data.days;
+  } catch {
+    return null;
+  }
+}
+async function loadRealDays() {
+  if (!window.claude) return loadStaticDays();
+  try {
+    const [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+    if (!db || !user) return null;
+    const uid = await user.id();
+    DB = db; UID = uid;
+    const snap = await db.doc("data/users/" + uid + "/health").get();
+    const data = snap.exists ? snap.data() : null;
+    if (!data || !Array.isArray(data.days) || !data.days.length) return null;
+    SOURCE = { kind: "live", label: data.source || "Google Health", syncedAt: data.syncedAt };
+    return data.days;
+  } catch {
+    return null;
+  }
+}
+function renderSource() {
+  if (SOURCE.kind === "live") {
+    const when = SOURCE.syncedAt ? new Date(SOURCE.syncedAt).toLocaleString("es", { dateStyle: "medium", timeStyle: "short" }) : "";
+    $("source").replaceChildren(h("span", { class: "chip live", text: SOURCE.label }), h("span", { text: SOURCE.static ? (when ? `Datos reales de Andrés, actualizados el ${when}.` : "Datos reales de Andrés.") : when ? `Tus datos, actualizados el ${when}.` : "Tus datos." }));
+  }
+}
+
+function demoDays() {
+  // Deterministic example data from 6 Jan 2025 to today, so the month and year comparisons have
+  // a previous year to compare against: slow improvement over ~14 months plus summer seasonality.
+  let seed = 7;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const today = new Date();
+  today.setHours(12, 0, 0, 0);
+  const start = new Date(2025, 0, 6, 12);
+  const days = [];
+  for (let d = new Date(start); d <= today; d.setDate(d.getDate() + 1)) {
+    const progress = Math.min((d - start) / (420 * 864e5), 1);
+    const season = Math.sin(((d.getMonth() + d.getDate() / 31 - 3) / 12) * 2 * Math.PI);
+    const weekend = d.getDay() === 0 || d.getDay() === 6;
+    days.push({
+      date: iso(d),
+      steps: Math.round(5600 + progress * 2400 + season * 1100 + rnd() * 4000 + (weekend ? 1600 : 0)),
+      sleepMin: Math.round(385 + progress * 30 - season * 10 + rnd() * 70 - (d.getDay() === 5 ? 50 : 0)),
+      activeMin: Math.round(10 + progress * 14 + season * 6 + rnd() * 24 + (weekend ? 12 : 0)),
+      restingHr: Math.round(67 - progress * 5 - season + rnd() * 3),
+    });
+  }
+  return days;
+}
+async function loadDays() {
+  return demoDays();
+}
+
+// ---------------------------------------------------------------------------
+// Dates
+// ---------------------------------------------------------------------------
+function iso(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+function startOfWeek(d) { const s = new Date(d); s.setHours(12, 0, 0, 0); s.setDate(s.getDate() - ((s.getDay() + 6) % 7)); return s; }
+const DAY_NAMES = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+const MONTHS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+const fmtDay = (d) => d.getDate() + " " + MONTHS[d.getMonth()];
+const n0 = (v) => Math.round(v).toLocaleString("es");
+
+// ---------------------------------------------------------------------------
+// Game rules: weeks, XP, levels, stats
+// ---------------------------------------------------------------------------
+// Long-term targets the weekly goals climb towards (10,000 steps/day, WHO's 150 active min/week).
+const LONG_TERM = { steps: 70000, activeMin: 150, sleepH: 7.5 };
+function groupWeeks(days) {
+  const byWeek = new Map();
+  for (const day of days) {
+    const key = iso(startOfWeek(new Date(day.date + "T12:00:00")));
+    if (!byWeek.has(key)) byWeek.set(key, []);
+    byWeek.get(key).push(day);
+  }
+  return [...byWeek.entries()].map(([start, list]) => ({ start, days: list }));
+}
+function weekStats(w) {
+  const d = w.days;
+  const sum = (k) => d.reduce((a, x) => a + (x[k] || 0), 0);
+  const sleeps = d.map((x) => x.sleepMin / 60).filter((v) => v > 0);
+  const avgSleep = sleeps.length ? sleeps.reduce((a, b) => a + b, 0) / sleeps.length : 0;
+  const sd = sleeps.length ? Math.sqrt(sleeps.reduce((a, b) => a + (b - avgSleep) ** 2, 0) / sleeps.length) : 0;
+  const hrs = d.map((x) => x.restingHr).filter(Boolean);
+  const steps = sum("steps"), active = sum("activeMin");
+  const goodNights = sleeps.filter((h) => h >= 7).length;
+  const xp = Math.floor(steps / 100) + active * 2 + goodNights * 25;
+  return {
+    days: d.length, steps, active, avgSleep, sleepSd: sd, goodNights, xp,
+    restingHr: hrs.length ? hrs.reduce((a, b) => a + b, 0) / hrs.length : null,
+  };
+}
+// Level n needs 300·n·(n-1) total XP: level 2 at 600, then each level costs 600 more than the last.
+const xpForLevel = (lv) => 300 * lv * (lv - 1);
+function levelFor(xp) { let lv = 1; while (xp >= xpForLevel(lv + 1)) lv++; return lv; }
+// [minimum level, class, Tiny Dungeon tile]: the sprite changes as the class goes up.
+const JOBS = [[1, "Aprendiz", 85], [4, "Caminante", 88], [7, "Guerrero", 87], [10, "Caballero", 97], [14, "Paladín", 96]];
+const jobFor = (lv) => JOBS.filter(([min]) => lv >= min).pop();
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+function statsFor(s) {
+  const perDay = s.days || 1;
+  return {
+    AGI: clamp(Math.round((s.steps / perDay) / 10000 * 70), 1, 99),
+    FUE: clamp(Math.round((s.active / LONG_TERM.activeMin) * 60), 1, 99),
+    ESP: clamp(Math.round(99 - s.sleepSd * 60), 1, 99),
+    VIT: s.restingHr ? clamp(Math.round(99 - (s.restingHr - 48) * 2.2), 1, 99) : 1,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Adaptive weekly goals. Week i's goals come from the 4 weeks before it, so a past week keeps
+// the goals it really had:
+//  - baseline = median of those weeks (scaled to 7 days when some days have no data)
+//  - met last week's goal: +10 %; reached 80 %: +5 %; below that: hold at the baseline
+//  - recovery week (slept < 6 h on average, or resting HR ≥ 4 bpm over its 4-week median):
+//    no increase for steps/activity, and sleep becomes the priority
+//  - never above the long-term target, never below 95 % of the baseline
+// ---------------------------------------------------------------------------
+const STARTER = { steps: 35000, activeMin: 60, sleepH: 7 };
+const median = (a) => { const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+const roundTo = (v, step) => Math.round(v / step) * step;
+const perWeek = (v, s) => (s.days ? (v * 7) / s.days : 0);
+let goalCache = new Map();
+function goalsFor(i) {
+  if (goalCache.has(i)) return goalCache.get(i);
+  const hist = weeks.slice(Math.max(0, i - 4), i).map(weekStats).filter((s) => s.days >= 4);
+  let g;
+  if (!hist.length) {
+    const why = "Meta de arranque: todavía no hay semanas previas para ajustarla.";
+    g = { ...STARTER, why: { steps: why, active: why, sleep: why }, recovery: false, baseHr: null };
+  } else {
+    const prev = weekStats(weeks[i - 1]);
+    const prevGoal = goalsFor(i - 1);
+    const baseSteps = median(hist.map((s) => perWeek(s.steps, s)));
+    const baseActive = median(hist.map((s) => perWeek(s.active, s)));
+    const sleeps = hist.map((s) => s.avgSleep).filter((v) => v > 0);
+    const baseSleep = sleeps.length ? median(sleeps) : 0;
+    const hrs = hist.map((s) => s.restingHr).filter(Boolean);
+    const baseHr = hrs.length ? median(hrs) : null;
+    const poorSleep = prev.avgSleep > 0 && prev.avgSleep < 6;
+    const hrUp = baseHr != null && prev.restingHr != null && prev.restingHr >= baseHr + 4;
+    const recovery = poorSleep || hrUp;
+    const recoveryWhy = poorSleep ? "dormiste menos de 6 h de media" : "tu FC en reposo subió " + Math.round(prev.restingHr - baseHr) + " lpm";
+    const plan = (base, ratio, cap, step, floor, unit) => {
+      if (base >= cap) return [cap, "Ya estás en la meta de largo plazo: mantenla."];
+      const growth = recovery ? 0 : ratio >= 1 ? 0.1 : ratio >= 0.8 ? 0.05 : 0;
+      const target = clamp(roundTo(Math.max(base * (1 + growth), base * 0.95), step), floor, cap);
+      const lvl = `Tu nivel: ${unit(base)}/semana.`;
+      if (recovery) return [target, `Semana de recuperación: ${recoveryWhy}, así que no subimos. ${lvl}`];
+      if (ratio >= 1) return [target, `Cumpliste la semana pasada: +10 %. ${lvl}`];
+      if (ratio >= 0.8) return [target, `Estuviste cerca (${Math.round(ratio * 100)} %): +5 %. ${lvl}`];
+      return [target, `La semana pasada llegaste al ${Math.round(ratio * 100)} %: mantenemos tu nivel para que sea alcanzable. ${lvl}`];
+    };
+    const [steps, whySteps] = plan(baseSteps, perWeek(prev.steps, prev) / prevGoal.steps, LONG_TERM.steps, 500, 14000, (v) => n0(roundTo(v, 100)) + " pasos");
+    const [activeMin, whyActive] = plan(baseActive, perWeek(prev.active, prev) / prevGoal.activeMin, LONG_TERM.activeMin, 5, 30, (v) => Math.round(v) + " min");
+    // Sleep climbs 15 min a week towards 7.5 h; in a recovery week it gets 30.
+    let sleepH = 7, whySleep = "Sin datos de sueño recientes: meta estándar de 7 h.";
+    if (baseSleep > 0) {
+      sleepH = clamp(roundTo(baseSleep + (recovery ? 0.5 : 0.25), 0.25), 6.5, LONG_TERM.sleepH);
+      whySleep = baseSleep >= LONG_TERM.sleepH ? "Ya duermes lo que buscamos: mantenlo."
+        : `Tu media reciente es ${baseSleep.toFixed(1)} h; subimos ${recovery ? "30" : "15"} min hacia ${LONG_TERM.sleepH} h.`;
+    }
+    g = { steps, activeMin, sleepH, recovery, baseHr, why: { steps: whySteps, active: whyActive, sleep: whySleep } };
+  }
+  goalCache.set(i, g);
+  return g;
+}
+
+// ---------------------------------------------------------------------------
+// Physiological age: a motivational estimate, not a medical one. It starts from the real age and
+// adds or subtracts years per factor over the last 28 days, each capped, the total within ±12.
+// Reference points: resting HR 62 bpm, 7,500 steps/day, 150 active min/week (WHO), 7-8.5 h of
+// sleep, nights within ±45 min of each other.
+// ---------------------------------------------------------------------------
+function ageOn(birthDate, onIso) {
+  const b = new Date(birthDate + "T12:00:00"), d = new Date(onIso + "T12:00:00");
+  let a = d.getFullYear() - b.getFullYear();
+  if (d.getMonth() < b.getMonth() || (d.getMonth() === b.getMonth() && d.getDate() < b.getDate())) a--;
+  return a;
+}
+function windowStats(endIso, daysBack = 28) {
+  const end = new Date(endIso + "T12:00:00"), list = [];
+  for (let i = daysBack - 1; i >= 0; i--) { const d = byDate[iso(addDays(end, -i))]; if (d) list.push(d); }
+  const vals = (k) => list.map((d) => d[k]).filter((v) => v != null);
+  const avg = (a) => (a.length ? a.reduce((x, y) => x + y, 0) / a.length : null);
+  const steps = vals("steps"), active = vals("activeMin"), sleep = vals("sleepMin").map((m) => m / 60), hr = vals("restingHr");
+  const sAvg = avg(sleep);
+  return {
+    stepDays: steps.length,
+    steps: avg(steps),
+    activeWeek: active.length ? (active.reduce((a, b) => a + b, 0) / active.length) * 7 : null,
+    sleep: sAvg,
+    sleepSd: sleep.length > 2 ? Math.sqrt(sleep.reduce((a, b) => a + (b - sAvg) ** 2, 0) / sleep.length) : null,
+    hr: avg(hr),
+  };
+}
+function physioAge(realAge, endIso) {
+  const w = windowStats(endIso);
+  if (w.stepDays < 10) return null;
+  const f = [];
+  if (w.hr != null) f.push(["FC en reposo", Math.round(w.hr) + " lpm", clamp((w.hr - 62) * 0.4, -4, 6)]);
+  f.push(["Pasos", n0(w.steps) + "/día", clamp(((7500 - w.steps) / 1000) * 0.8, -3, 4)]);
+  if (w.activeWeek != null) f.push(["Actividad", Math.round(w.activeWeek) + " min/sem", clamp(((150 - w.activeWeek) / 30) * 0.6, -2.5, 3)]);
+  if (w.sleep != null) {
+    const out = w.sleep < 7 ? 7 - w.sleep : w.sleep > 8.5 ? w.sleep - 8.5 : 0;
+    f.push(["Sueño medio", w.sleep.toFixed(1) + " h", out ? Math.min(3, out * 1.5) : -0.5]);
+  }
+  if (w.sleepSd != null) f.push(["Regularidad del sueño", "±" + w.sleepSd.toFixed(1) + " h", clamp((w.sleepSd - 0.75) * 1.2, -0.5, 2)]);
+  const total = clamp(f.reduce((a, x) => a + x[2], 0), -12, 12);
+  return { age: realAge + total, delta: total, factors: f.sort((a, b) => Math.abs(b[2]) - Math.abs(a[2])) };
+}
+
+// ---------------------------------------------------------------------------
+// Pixel art: Kenney's "Tiny Dungeon" and "Tiny Town" sheets (CC0, kenney.nl), 12×11 tiles of
+// 16 px each, published next to the page as px/dungeon.png and px/town.png. Tiles are drawn
+// onto small canvases and scaled up with image-rendering: pixelated.
+// ---------------------------------------------------------------------------
+const TILE = 16, SHEET_COLS = 12;
+const SHEETS = { dungeon: "px/dungeon.png", town: "px/town.png" };
+const sheetImgs = {};
+function loadSheet(name) {
+  return (sheetImgs[name] ||= new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error("No se pudo cargar " + SHEETS[name]));
+    img.src = SHEETS[name];
+  }));
+}
+function drawTile(ctx, img, index, dx, dy) {
+  ctx.drawImage(img, (index % SHEET_COLS) * TILE, Math.floor(index / SHEET_COLS) * TILE, TILE, TILE, dx, dy, TILE, TILE);
+}
+// Tile numbers (row × 12 + column) in each sheet.
+const PX = {
+  sage: 84,                                  // purple wizard
+  quest: { steps: 104, active: 118, sleep: 116, heart: 115 }, // sword, double axe, blue and red potions
+  grass: [1, 0, 1, 2],                       // Tiny Town grass variants
+  trees: [5, 4, 17],                         // green tree, autumn tree, small tree
+};
+// The hero's stage: a strip of trees, grass, and the class sprite standing on it.
+async function drawStage(canvas, heroTile, bob) {
+  const [dungeon, town] = await Promise.all([loadSheet("dungeon"), loadSheet("town")]);
+  const ctx = canvas.getContext("2d");
+  ctx.imageSmoothingEnabled = false;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let x = 0; x < canvas.width; x += TILE) for (let y = 12; y < canvas.height; y += TILE) drawTile(ctx, town, PX.grass[(x / TILE + y) % PX.grass.length], x, y);
+  PX.trees.forEach((t, i) => drawTile(ctx, town, t, i * TILE, -2));
+  drawTile(ctx, dungeon, heroTile, TILE, 20 - bob);
+}
+async function drawPortrait(canvas, tile) {
+  const dungeon = await loadSheet("dungeon");
+  const ctx = canvas.getContext("2d");
+  ctx.imageSmoothingEnabled = false;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawTile(ctx, dungeon, tile, 0, 0);
+}
+// A tile as a CSS sprite (used for the quest icons), scaled ×2.
+function tileIcon(index, label) {
+  const col = index % SHEET_COLS, row = Math.floor(index / SHEET_COLS);
+  return h("span", { class: "px-icon", role: "img", "aria-label": label, style: `background-position:-${col * 32}px -${row * 32}px` });
+}
+
+// ---------------------------------------------------------------------------
+// Rendering
+// ---------------------------------------------------------------------------
+const $ = (id) => document.getElementById(id);
+function h(tag, attrs = {}, ...kids) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") el.className = v; else if (k === "text") el.textContent = v;
+    else if (k === "style") el.style.cssText = v; else el.setAttribute(k, v);
+  }
+  for (const kid of kids.flat()) if (kid != null) el.append(kid.nodeType ? kid : document.createTextNode(kid));
+  return el;
+}
+function delta(cur, prev, better = "up") {
+  if (prev == null) return h("span", { class: "d flat", text: "" });
+  const diff = Math.round(cur - prev);
+  if (!diff) return h("span", { class: "d flat", text: "=" });
+  const good = better === "up" ? diff > 0 : diff < 0;
+  return h("span", { class: "d " + (good ? "up" : "down"), text: (diff > 0 ? "+" : "") + diff });
+}
+
+let weeks = [], sel = 0, bobTimer = null;
+function render() {
+  const w = weeks[sel];
+  const s = weekStats(w);
+  const prev = sel > 0 ? weekStats(weeks[sel - 1]) : null;
+  const start = new Date(w.start + "T12:00:00");
+  const end = new Date(start); end.setDate(end.getDate() + 6);
+  $("week-label").textContent = `Semana del ${fmtDay(start)} al ${fmtDay(end)} ${end.getFullYear()}` + (sel === weeks.length - 1 ? " · en curso" : "");
+  $("prev").disabled = sel === 0;
+  $("next").disabled = sel === weeks.length - 1;
+
+  // Level from all XP earned up to and including this week.
+  const totalXp = weeks.slice(0, sel + 1).reduce((a, wk) => a + weekStats(wk).xp, 0);
+  const prevXp = totalXp - s.xp;
+  const lv = levelFor(totalXp), prevLv = levelFor(prevXp);
+  const [, job, heroTile] = jobFor(lv);
+  $("lv").textContent = lv;
+  $("job").textContent = job;
+  $("xp-total").textContent = n0(totalXp);
+  $("levelup").classList.toggle("on", lv > prevLv);
+  const lo = xpForLevel(lv), hi = xpForLevel(lv + 1);
+  $("xp-bar").style.width = ((totalXp - lo) / (hi - lo)) * 100 + "%";
+  $("xp-v").textContent = `${n0(totalXp - lo)}/${n0(hi - lo)}`;
+
+  // PV measures this week's own (adaptive) goals, pro-rated for the days recorded so far.
+  const G = goalsFor(sel);
+  const goalPct = (v, g) => clamp(v / g, 0, 1);
+  const hp = Math.round(999 * ((goalPct(s.steps, (G.steps * s.days) / 7) + goalPct(s.active, (G.activeMin * s.days) / 7) + goalPct(s.avgSleep, G.sleepH)) / 3));
+  const mp = Math.round(999 * goalPct(s.avgSleep, 8));
+  $("hp-bar").style.width = hp / 9.99 + "%"; $("hp-v").textContent = `${hp}/999`;
+  $("mp-bar").style.width = mp / 9.99 + "%"; $("mp-v").textContent = `${mp}/999`;
+
+  const st = statsFor(s), pst = prev ? statsFor(prev) : null;
+  const SRC = { AGI: `${n0(s.steps / (s.days || 1))} pasos/día`, FUE: `${n0(s.active)} min activos`, ESP: `sueño ±${s.sleepSd.toFixed(1)} h`, VIT: s.restingHr ? `${s.restingHr.toFixed(0)} lpm en reposo` : "sin datos" };
+  $("stats").replaceChildren(...Object.entries(st).map(([k, v]) =>
+    h("div", { class: "stat" }, h("span", { class: "k", text: k }), h("span", { class: "n", text: v }), delta(v, pst?.[k]), h("span", { class: "src", text: SRC[k] }))));
+
+  // Stage: the class's sprite on grass, with a small idle bob unless reduced motion is on.
+  clearInterval(bobTimer);
+  let frame = 0;
+  const stage = $("sprite");
+  stage.setAttribute("aria-label", `Tu personaje: ${job}, nivel ${lv}`);
+  drawStage(stage, heroTile, 0).catch(() => {});
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) bobTimer = setInterval(() => drawStage(stage, heroTile, (frame = 1 - frame)).catch(() => {}), 520);
+
+  // Battle log: Monday..Sunday, future days greyed out.
+  const todayIso = iso(new Date());
+  const byDate = Object.fromEntries(w.days.map((d) => [d.date, d]));
+  $("log").replaceChildren(...DAY_NAMES.map((name, i) => {
+    const dt = new Date(start); dt.setDate(dt.getDate() + i);
+    const key = iso(dt), d = byDate[key];
+    const cls = (key === todayIso ? "today" : "") + (!d ? " future" : "");
+    if (!d) return h("tr", { class: cls.trim() }, h("td", { class: "day", text: name }), h("td", { text: "—" }), h("td", { text: "—" }), h("td", { text: "—" }), h("td", { text: "—" }));
+    const sh = d.sleepMin != null ? d.sleepMin / 60 : null;
+    return h("tr", { class: cls.trim() },
+      h("td", { class: "day", text: name }),
+      d.steps != null
+        ? h("td", {}, h("div", { class: "mini" }, h("div", { class: "meter" }, h("i", { style: `width:${clamp(d.steps / 15000, 0, 1) * 100}%` })), h("span", { text: n0(d.steps) })))
+        : h("td", { text: "—" }),
+      sh != null ? h("td", { class: sh >= 7 ? "ok" : "low", text: `${Math.floor(sh)} h ${String(Math.round((sh % 1) * 60)).padStart(2, "0")}` }) : h("td", { text: "—" }),
+      h("td", { text: d.activeMin != null ? `${d.activeMin} min` : "—" }),
+      h("td", { text: d.restingHr != null ? `${d.restingHr} lpm` : "—" }));
+  }));
+  $("summary").replaceChildren(
+    h("span", {}, "Pasos: ", h("b", { text: n0(s.steps) })),
+    h("span", {}, "Sueño medio: ", h("b", { text: s.avgSleep.toFixed(1) + " h" })),
+    h("span", {}, "Activos: ", h("b", { text: n0(s.active) + " min" })),
+    h("span", {}, "XP ganada: ", h("b", { text: "+" + n0(s.xp) })));
+
+  // Quests
+  const hrTrend = prev && prev.restingHr && s.restingHr ? s.restingHr - prev.restingHr : null;
+  const quests = [
+    ["Peregrinación", PX.quest.steps, "espada", `${n0(G.steps)} pasos esta semana`, G.why.steps, s.steps / G.steps, `${n0(s.steps)}/${n0(G.steps)}`],
+    ["Entrenamiento", PX.quest.active, "hacha doble", `${G.activeMin} min activos`, G.why.active, s.active / G.activeMin, `${s.active}/${G.activeMin}`],
+    ["Descanso del héroe", PX.quest.sleep, "poción azul", `Dormir ${String(G.sleepH).replace(".", ",")} h de media`, G.why.sleep, s.avgSleep / G.sleepH, `${s.avgSleep.toFixed(1)}/${G.sleepH} h`],
+    ["Corazón sereno", PX.quest.heart, "poción roja", "FC en reposo estable o bajando", "Comparada con la semana anterior.", hrTrend == null ? 0 : hrTrend <= 0.5 ? 1 : 0.4, hrTrend == null ? "sin dato" : `${hrTrend > 0 ? "+" : ""}${hrTrend.toFixed(1)} lpm`],
+  ];
+  $("quest-h").textContent = G.recovery ? "Misiones semanales · recuperación" : "Misiones semanales";
+  $("quests").replaceChildren(...quests.map(([name, icon, iconLabel, desc, why, pct, val]) => {
+    const done = pct >= 1;
+    return h("li", { class: "quest" + (done ? " done" : "") },
+      h("span", { class: "box", "aria-hidden": "true", text: done ? "✓" : "" }),
+      h("div", { class: "q" }, h("span", { class: "qname" }, tileIcon(icon, iconLabel), name), h("small", { text: desc }), h("small", { class: "why", text: why }), h("div", { class: "meter" }, h("i", { style: `width:${clamp(pct, 0, 1) * 100}%` }))),
+      h("span", { class: "p", text: val }));
+  }));
+  renderAge();
+  renderCampaign();
+
+  // History
+  const from = Math.max(0, sel - 7), shown = weeks.slice(from, sel + 1);
+  const max = Math.max(...shown.map((wk) => weekStats(wk).steps), G.steps);
+  $("hist").replaceChildren(...shown.map((wk, j) => {
+    const i = from + j;
+    const ws = weekStats(wk), dt = new Date(wk.start + "T12:00:00");
+    const col = h("button", { class: "hcol" + (i === sel ? " sel" : ""), type: "button", style: "background:none;border:0;padding:0;color:inherit;cursor:pointer;font:inherit", "aria-label": `Ver semana del ${fmtDay(dt)}` },
+      h("span", { class: "val", text: n0(ws.steps / 1000) + "k" }),
+      h("span", { class: "track" }, h("span", { class: "fill", style: `height:${(ws.steps / max) * 100}%` })),
+      h("span", { class: "lbl", text: fmtDay(dt) }));
+    col.addEventListener("click", () => { sel = i; resetSage(); render(); });
+    return col;
+  }));
+  renderChart();
+}
+
+// ---------------------------------------------------------------------------
+// Comparison chart: buckets at the chosen granularity, each against the previous equivalent
+// period (outlined bar). Sums for steps/active minutes, averages for sleep/heart rate. A partial
+// bucket (this week/month/year) is compared only up to the same point of the earlier period.
+// ---------------------------------------------------------------------------
+const METRICS = {
+  steps: { label: "Pasos", field: "steps", agg: "sum", color: "var(--gold)", fmt: (v) => n0(v), better: "up" },
+  sleep: { label: "Sueño", field: "sleepMin", agg: "avg", color: "var(--mp)", fmt: (v) => (v / 60).toFixed(1) + " h", better: "up" },
+  active: { label: "Min. activos", field: "activeMin", agg: "sum", color: "var(--hp)", fmt: (v) => n0(v) + " min", better: "up" },
+  hr: { label: "FC reposo", field: "restingHr", agg: "avg", color: "var(--danger)", fmt: (v) => Math.round(v) + " lpm", better: "down" },
+};
+const SVG_NS = "http://www.w3.org/2000/svg";
+let gran = "day", metric = "steps", byDate = {};
+const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+const addYears = (d, n) => { const x = new Date(d); x.setFullYear(x.getFullYear() + n); return x; };
+function aggregate(m, from, to) {
+  const vals = [];
+  for (let d = new Date(from); d <= to; d = addDays(d, 1)) {
+    const day = byDate[iso(d)];
+    if (day && day[m.field] != null) vals.push(day[m.field]);
+  }
+  if (!vals.length) return null;
+  const sum = vals.reduce((a, b) => a + b, 0);
+  return m.agg === "sum" ? sum : sum / vals.length;
+}
+function buckets() {
+  const today = new Date(); today.setHours(12, 0, 0, 0);
+  const anchor = new Date(weeks[sel].start + "T12:00:00");
+  const clipEnd = (end) => (end > today ? today : end);
+  const out = [];
+  // Each bucket: [label, from, to, prevFrom, prevTo]; prev covers the same span of the earlier period.
+  const push = (label, from, to, shift) => {
+    const end = clipEnd(to);
+    if (from > today) { out.push({ label, empty: true }); return; }
+    out.push({ label, from, to: end, prevFrom: shift(from), prevTo: shift(end), partial: end < to });
+  };
+  if (gran === "day") {
+    for (let i = 0; i < 7; i++) { const d = addDays(anchor, i); push(DAY_NAMES[i], d, d, (x) => addDays(x, -7)); }
+  } else if (gran === "week") {
+    for (let i = 7; i >= 0; i--) { const s = addDays(anchor, -7 * i); push(fmtDay(s), s, addDays(s, 6), (x) => addDays(x, -364)); }
+  } else if (gran === "month") {
+    const y = anchor.getFullYear();
+    for (let mth = 0; mth < 12; mth++) push(MONTHS[mth], new Date(y, mth, 1, 12), new Date(y, mth + 1, 0, 12), (x) => addYears(x, -1));
+  } else {
+    const first = new Date(Object.keys(byDate).sort()[0] + "T12:00:00").getFullYear();
+    for (let y = first; y <= anchor.getFullYear(); y++) push(String(y), new Date(y, 0, 1, 12), new Date(y, 11, 31, 12), (x) => addYears(x, -1));
+  }
+  return out;
+}
+const COMPARE_LABEL = { day: "mismo día de la semana anterior", week: "misma semana del año anterior", month: "mismo mes del año anterior", year: "año anterior hasta la misma fecha" };
+const CURRENT_LABEL = { day: "día", week: "semana", month: "mes", year: "año" };
+function renderChart() {
+  const m = METRICS[metric];
+  const data = buckets().map((b) => b.empty ? b : { ...b, cur: aggregate(m, b.from, b.to), prev: aggregate(m, b.prevFrom, b.prevTo) });
+  const vals = data.flatMap((b) => [b.cur, b.prev]).filter((v) => v != null);
+  const W = 640, H = 250, L = 64, R = 12, T = 16, B = 30;
+  const svg = document.createElementNS(SVG_NS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", `${m.label} por ${CURRENT_LABEL[gran]}, comparado con el ${COMPARE_LABEL[gran]}`);
+  const add = (tag, attrs, text) => { const el = document.createElementNS(SVG_NS, tag); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); if (text != null) el.textContent = text; svg.append(el); return el; };
+  if (!vals.length) {
+    add("text", { x: W / 2, y: H / 2, class: "xlab" }, "Sin datos en este periodo");
+    $("cmp-chart").replaceChildren(svg); $("cmp-sum").replaceChildren(); return;
+  }
+  // HR reads best on a zoomed axis; the rest start at zero.
+  let lo = metric === "hr" ? Math.floor(Math.min(...vals) - 3) : 0;
+  let hi = Math.max(...vals);
+  // Goal line: the selected week's adaptive goal (per day in the day view, per week in the week view).
+  const G = goalsFor(sel);
+  const perGran = (weekly) => (gran === "day" ? weekly / 7 : gran === "week" ? weekly : null);
+  const goal = metric === "sleep" ? G.sleepH * 60 : metric === "steps" ? perGran(G.steps) : metric === "active" ? perGran(G.activeMin) : null;
+  if (goal) hi = Math.max(hi, goal);
+  hi = hi + (hi - lo) * 0.12;
+  const y = (v) => T + (H - T - B) * (1 - (v - lo) / (hi - lo));
+  for (let i = 0; i <= 4; i++) {
+    const v = lo + ((hi - lo) * i) / 4, yy = y(v);
+    add("line", { x1: L, x2: W - R, y1: yy, y2: yy, class: "grid-line" });
+    add("text", { x: L - 8, y: yy + 3, class: "axis", "text-anchor": "end" }, metric === "sleep" ? (v / 60).toFixed(1) : metric === "hr" ? Math.round(v) : v >= 10000 ? Math.round(v / 1000) + "k" : n0(v));
+  }
+  if (goal) {
+    add("line", { x1: L, x2: W - R, y1: y(goal), y2: y(goal), class: "goal" });
+    add("text", { x: W - R, y: y(goal) - 4, class: "goal-lab", "text-anchor": "end" }, "META");
+  }
+  const slot = (W - L - R) / data.length, bw = Math.min(46, slot * 0.56);
+  data.forEach((b, i) => {
+    const cx = L + slot * i + slot / 2;
+    const isCur = !b.empty && b.partial || (gran === "day" && b.from && iso(b.from) === iso(new Date()));
+    add("text", { x: cx, y: H - 10, class: "xlab" + (isCur ? " cur" : "") }, b.label);
+    if (b.empty) return;
+    if (b.prev != null) {
+      const r = add("rect", { x: cx - bw / 2 - 4, y: y(b.prev), width: bw + 8, height: Math.max(1, y(lo) - y(b.prev)), class: "ghost" });
+      r.append(Object.assign(document.createElementNS(SVG_NS, "title"), { textContent: `${b.label}, periodo anterior: ${m.fmt(b.prev)}` }));
+    }
+    if (b.cur != null) {
+      const r = add("rect", { x: cx - bw / 2, y: y(b.cur), width: bw, height: Math.max(1, y(lo) - y(b.cur)), fill: m.color, stroke: "var(--frame)", "stroke-width": 2 });
+      r.append(Object.assign(document.createElementNS(SVG_NS, "title"), { textContent: `${b.label}: ${m.fmt(b.cur)}` + (b.prev != null ? ` (antes ${m.fmt(b.prev)})` : "") }));
+      if (data.length <= 8) add("text", { x: cx, y: y(b.cur) - 5, class: "vlab" }, metric === "steps" ? (b.cur >= 10000 ? (b.cur / 1000).toFixed(1) + "k" : n0(b.cur)) : m.fmt(b.cur).replace(" min", "").replace(" lpm", ""));
+    }
+  });
+  $("cmp-chart").replaceChildren(svg);
+
+  // Summary: the whole visible range against the same range one period earlier.
+  const both = data.filter((b) => !b.empty && b.cur != null && b.prev != null);
+  const sumOf = (k) => m.agg === "sum" ? both.reduce((a, b) => a + b[k], 0) : both.reduce((a, b) => a + b[k], 0) / (both.length || 1);
+  const items = [];
+  if (both.length) {
+    const cur = sumOf("cur"), prev = sumOf("prev"), pct = prev ? ((cur - prev) / prev) * 100 : 0;
+    const good = m.better === "up" ? pct >= 0 : pct <= 0;
+    items.push(h("span", {}, `${m.agg === "sum" ? "Total" : "Media"} del periodo: `, h("b", { text: m.fmt(cur) })));
+    items.push(h("span", {}, "Antes: ", h("b", { text: m.fmt(prev) })));
+    items.push(h("span", {}, "Cambio: ", h("b", { class: good ? "up" : "down", text: (pct >= 0 ? "+" : "") + pct.toFixed(1) + " %" })));
+  } else {
+    items.push(h("span", { text: "No hay datos del periodo anterior para comparar." }));
+  }
+  $("cmp-sum").replaceChildren(...items);
+  $("cmp-legend").replaceChildren(
+    h("span", {}, h("i", { style: `background:${m.color}` }), `${m.label} por ${CURRENT_LABEL[gran]}`),
+    h("span", {}, h("i", { class: "ghost" }), `Comparado con el ${COMPARE_LABEL[gran]}`));
+}
+function wireSeg(groupId, attr, set) {
+  const btns = [...document.querySelectorAll(`#${groupId} button`)];
+  btns.forEach((b) => b.addEventListener("click", () => {
+    btns.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    set(b.dataset[attr]); renderChart();
+  }));
+}
+
+// ---------------------------------------------------------------------------
+// Campaign: bosses fought week by week. Meeting every adaptive goal in a week deals 1,000 damage
+// (500 from steps, 300 activity, 200 sleep). Each day of data is a turn; the level at the start
+// of the week unlocks abilities that change the damage. Bosses get tougher by act (1,000 HP in
+// Act I up to 2,500 for the final one), so later fights span weeks. A boss that survives a week
+// escapes and returns with the HP it had left plus 25 % of its maximum, so persistence pays off.
+// The story only advances on a win.
+// ---------------------------------------------------------------------------
+const ACTS = ["El Valle de la Bruma", "El Bosque de Ceniza", "Las Montañas de Hierro", "La Ciudadela del Vacío"];
+const BOSSES = [
+  { tile: 120, name: "Nyxra", title: "Murciélago del Crepúsculo", act: 0 },
+  { tile: 124, name: "Grisel", title: "Roedor de las Horas Perdidas", act: 0 },
+  { tile: 108, name: "Morvath", title: "Espectro de la Inercia", act: 0 },
+  { tile: 122, name: "Tejesombras", title: "Araña del Desaliento", act: 1 },
+  { tile: 123, name: "Ascuar", title: "Escarabajo de Ceniza Ardiente", act: 1 },
+  { tile: 112, name: "Kargan", title: "Bandido del Sendero Roto", act: 1 },
+  { tile: 111, name: "Umbrog", title: "Bestia del Musgo Negro", act: 2 },
+  { tile: 121, name: "Hielvar", title: "Espíritu de la Ventisca", act: 2 },
+  { tile: 109, name: "Ojo Único", title: "Cíclope de la Cumbre", act: 2 },
+  { tile: 110, name: "Carmesí", title: "Devorador del Vacío", act: 3 },
+];
+// After the last boss the campaign goes on with stronger echoes of the earlier ones.
+const ACT_HP = [1000, 1500, 2000, 2500], ECHO_HP = 2000;
+function bossFor(k) {
+  if (k < BOSSES.length) return { ...BOSSES[k], k, maxHp: ACT_HP[BOSSES[k].act] };
+  const b = BOSSES[k % BOSSES.length];
+  return { ...b, k, act: 3, name: "Eco de " + b.name, echo: true, maxHp: ECHO_HP };
+}
+const ABILITIES = [
+  { lv: 3, name: "Segundo aliento", desc: "El primer día de la semana sin datos de pasos cuenta como tu media de los demás días." },
+  { lv: 5, name: "Golpe crítico", desc: "Los días con el 150 % o más de tu meta diaria de pasos hacen el doble de daño con los pasos." },
+  { lv: 8, name: "Descanso largo", desc: "Después de una noche de 7 h o más, ese día haces +25 % de daño." },
+];
+const SHARE = { steps: 500, active: 300, sleep: 200 };
+function battleDays(w, G, lv) {
+  const dSteps = G.steps / 7, dActive = G.activeMin / 7;
+  const known = w.days.map((d) => d.steps).filter((v) => v != null);
+  const avgSteps = known.length ? known.reduce((a, b) => a + b, 0) / known.length : null;
+  let windUsed = false;
+  return w.days.map((d) => {
+    const notes = [];
+    let steps = d.steps;
+    if (steps == null && lv >= 3 && !windUsed && avgSteps) { steps = avgSteps; windUsed = true; notes.push("Segundo aliento"); }
+    const ratio = steps != null ? steps / dSteps : 0;
+    let sDmg = (Math.min(ratio, 1.5) * SHARE.steps) / 7;
+    if (lv >= 5 && ratio >= 1.5) { sDmg *= 2; notes.push("¡Crítico!"); }
+    const aDmg = d.activeMin != null ? (Math.min(d.activeMin / dActive, 2) * SHARE.active) / 7 : 0;
+    const hours = d.sleepMin != null ? d.sleepMin / 60 : null;
+    const zDmg = hours != null ? (Math.min(hours / G.sleepH, 1) * SHARE.sleep) / 7 : 0;
+    let mult = 1;
+    if (lv >= 8 && hours != null && hours >= 7) { mult *= 1.25; notes.push("Descansado +25 %"); }
+    if (G.baseHr != null && d.restingHr != null && d.restingHr >= G.baseHr + 4) { mult *= 0.85; notes.push("Fatiga −15 %"); }
+    return { date: d.date, steps: Math.round(sDmg * mult), active: Math.round(aDmg * mult), sleep: Math.round(zDmg * mult), notes, total: Math.round((sDmg + aDmg + zDmg) * mult) };
+  });
+}
+let campaignCache = null;
+function campaign() {
+  if (campaignCache) return campaignCache;
+  const out = [];
+  let defeats = 0, carry = null, xp = 0;
+  weeks.forEach((w, i) => {
+    const G = goalsFor(i), lv = levelFor(xp), boss = bossFor(defeats);
+    const returning = carry != null;
+    const startHp = returning ? Math.min(boss.maxHp, carry + Math.round(boss.maxHp * 0.25)) : boss.maxHp;
+    const log = battleDays(w, G, lv);
+    let left = startHp, fellOn = null;
+    for (const d of log) { left -= d.total; if (left <= 0 && !fellOn) fellOn = d.date; }
+    const hp = Math.max(0, left), current = i === weeks.length - 1;
+    const status = hp === 0 ? "derrotado" : current ? "combate" : "escapó";
+    out.push({ i, boss, lv, startHp, hp, log, status, fellOn, returning, defeatsBefore: defeats });
+    if (hp === 0) { defeats++; carry = null; } else if (!current) carry = hp;
+    xp += weekStats(w).xp;
+  });
+  return (campaignCache = out);
+}
+
+// --- Campaign UI ---------------------------------------------------------------------------
+const ROMAN = ["I", "II", "III", "IV"];
+const WEEKDAY = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+const ACT_SKY = ["#3d3a63", "#4a2f24", "#3a4250", "#1b1030"];
+const weekdayOf = (isoDate) => WEEKDAY[new Date(isoDate + "T12:00:00").getDay()];
+async function drawBattle(canvas, heroTile, bossTile, act, defeated) {
+  const dungeon = await loadSheet("dungeon");
+  const ctx = canvas.getContext("2d");
+  ctx.imageSmoothingEnabled = false;
+  ctx.fillStyle = ACT_SKY[act] || ACT_SKY[0];
+  ctx.fillRect(0, 0, 64, 32);
+  ctx.fillStyle = "#00000055";
+  ctx.fillRect(0, 26, 64, 6);
+  drawTile(ctx, dungeon, heroTile, 8, 11);
+  ctx.globalAlpha = defeated ? 0.3 : 1;
+  drawTile(ctx, dungeon, bossTile, 40, 11);
+  ctx.globalAlpha = 1;
+}
+function renderCampaign() {
+  const c = campaign(), r = c[sel];
+  if (!r) return;
+  const b = r.boss, heroTile = jobFor(r.lv)[2];
+  const winsSoFar = c.slice(0, sel + 1).filter((x) => x.status === "derrotado").length;
+  $("wins").textContent = winsSoFar;
+  drawBattle($("boss-scene"), heroTile, b.tile, b.act, r.status === "derrotado").catch(() => {});
+  $("boss-scene").setAttribute("aria-label", `${jobFor(r.lv)[1]} contra ${b.name}, ${b.title}`);
+  $("boss-act").textContent = `Acto ${ROMAN[b.act]} · ${ACTS[b.act]}`;
+  $("boss-name").textContent = b.name;
+  $("boss-title").textContent = b.title;
+  $("boss-bar").style.width = (r.hp / b.maxHp) * 100 + "%";
+  $("boss-v").textContent = `${n0(r.hp)}/${n0(b.maxHp)}`;
+  const fightWeeks = c.filter((x) => x.boss.k === b.k && x.i <= r.i).length;
+  const back = r.returning ? "Regresó de la semana pasada con " + n0(r.startHp) + " PV. " : "";
+  let status;
+  if (r.status === "derrotado") {
+    status = [back, "¡Derrotado el ", h("b", { text: weekdayOf(r.fellOn) }), fightWeeks > 1 ? ` tras ${fightWeeks} semanas de combate!` : "!"];
+  } else if (r.status === "escapó") {
+    status = [back, "Escapó con ", h("b", { text: n0(r.hp) + " PV" }), `. Volverá la semana siguiente con ${n0(Math.min(b.maxHp, r.hp + Math.round(b.maxHp * 0.25)))} PV.`];
+  } else {
+    const today = new Date(); today.setHours(12, 0, 0, 0);
+    const sunday = addDays(new Date(weeks[sel].start + "T12:00:00"), 6);
+    const left = Math.max(1, Math.round((sunday - today) / 864e5) + 1);
+    status = [back, "Le quedan ", h("b", { text: n0(r.hp) + " PV" }), `. Necesitas unos ${n0(Math.ceil(r.hp / left))} de daño al día en los ${left} días que quedan (un día con todas tus metas cumplidas hace ~143).`];
+  }
+  $("boss-status").replaceChildren(...status);
+
+  // Battle log, Monday to Sunday.
+  const start = new Date(weeks[sel].start + "T12:00:00");
+  const byDay = Object.fromEntries(r.log.map((t) => [t.date, t]));
+  $("battle-log").replaceChildren(...DAY_NAMES.map((name, i) => {
+    const key = iso(addDays(start, i)), t = byDay[key];
+    if (!t) return h("li", { class: "turn none" }, h("span", { class: "day", text: name }), h("span", { text: "—" }), h("span"));
+    return h("li", { class: "turn" + (key === r.fellOn ? " fell" : "") },
+      h("span", { class: "day", text: name }),
+      h("span", { class: "hits" },
+        h("span", { title: "Daño por pasos", text: "⚔ " + t.steps }),
+        h("span", { title: "Daño por minutos activos", text: "✦ " + t.active }),
+        h("span", { title: "Daño por sueño", text: "☾ " + t.sleep }),
+        t.notes.map((n) => h("span", { class: "tag" + (n.startsWith("Fatiga") ? " bad" : ""), text: n }))),
+      h("span", { class: "dmg", text: key === r.fellOn ? "¡KO!" : "−" + t.total }));
+  }));
+
+  $("abilities").replaceChildren(...ABILITIES.map((a) =>
+    h("li", { class: "ability" + (r.lv >= a.lv ? "" : " locked") },
+      h("span", { class: "alv", text: r.lv >= a.lv ? "✓ NV " + a.lv : "NV " + a.lv }),
+      h("span", {}, h("b", { text: a.name }), ". " + a.desc))));
+  renderStory();
+}
+
+// --- The chronicle: one chapter per week, written by Claude on request and kept in the private
+// store (doc data/users/<id>/story, {weeks: {"YYYY-MM-DD": {titulo, texto, resumen, status, createdAt}}}).
+// Each chapter tells that week's battle and remembers the summaries of the weeks before it.
+const story = { weeks: {}, prologue: null };
+let storyBusy = false;
+async function loadStory() {
+  if (DB && UID) {
+    try {
+      const snap = await DB.doc("data/users/" + UID + "/story").get();
+      const data = snap.exists ? snap.data() : {};
+      if (data.weeks) story.weeks = data.weeks;
+      // A prologue from the earlier per-boss format ({chapters: [{kind: "prologue", ...}]}) is kept.
+      story.prologue = data.prologue || (Array.isArray(data.chapters) && data.chapters.find((c) => c.kind === "prologue")) || null;
+    } catch {}
+  }
+  renderStory();
+}
+const saveStory = () => DB.doc("data/users/" + UID + "/story").set({ weeks: story.weeks, prologue: story.prologue, updatedAt: Date.now() });
+function weekRange(i) {
+  const start = new Date(weeks[i].start + "T12:00:00"), end = addDays(start, 6);
+  return `${fmtDay(start)} al ${fmtDay(end)}`;
+}
+function renderStory() {
+  if (!weeks.length) return;
+  const key = weeks[sel].start, ch = story.weeks[key];
+  const r = campaign()[sel];
+  $("s-week").textContent = `Semana del ${weekRange(sel)}` + (sel === weeks.length - 1 ? " · en curso" : "");
+  $("s-prev").disabled = sel === 0;
+  $("s-next").disabled = sel === weeks.length - 1;
+  const written = Object.keys(story.weeks).length;
+  $("s-count").textContent = written ? `${written} de ${weeks.length} semanas escritas` : "";
+  const prologue = story.prologue ? h("details", { class: "chapter" }, h("summary", { text: "Prólogo · " + story.prologue.titulo }),
+    ...String(story.prologue.texto || "").split(/\n\s*\n/).map((p) => h("p", { text: p.trim() }))) : null;
+  if (ch) {
+    const stale = ch.status !== r.status;
+    $("chapters").replaceChildren(prologue || "", h("article", { class: "chapter" },
+      h("h4", { class: "ch-title", text: ch.titulo }),
+      ...String(ch.texto || "").split(/\n\s*\n/).map((p) => h("p", { text: p.trim() })),
+      stale ? h("p", { class: "meta", text: "Esta semana ha cambiado desde que se escribió: puedes reescribirla." }) : null));
+  } else {
+    $("chapters").replaceChildren(prologue || "", h("p", { class: "speech", text: sel === weeks.length - 1
+      ? "La batalla de esta semana aún se libra. El cronista puede narrar lo ocurrido hasta hoy y reescribirlo al final de la semana."
+      : "Esta semana todavía no tiene crónica." }));
+  }
+  const canWrite = sample && DB && UID;
+  const btn = $("write");
+  btn.hidden = !canWrite || storyBusy;
+  btn.textContent = ch ? "Reescribir la crónica de esta semana" : "Escribir la crónica de esta semana";
+  if (!storyBusy) $("story-note").textContent = canWrite ? "La escribe Claude con tus datos reales de la semana; usa tu cuenta de Claude." : "La crónica solo se puede escribir dentro de claude.ai, con tus datos reales cargados.";
+}
+// What happened in week i, in plain words, for the chronicler.
+function weekFacts(i) {
+  const r = campaign()[i], s = weekStats(weeks[i]), G = goalsFor(i), b = r.boss;
+  const dmg = r.log.reduce((a, t) => a + t.total, 0);
+  const best = r.log.reduce((a, t) => (t.total > (a?.total ?? -1) ? t : a), null);
+  const effects = [...new Set(r.log.flatMap((t) => t.notes))];
+  const outcome = r.status === "derrotado" ? `Andrés lo derrotó el ${weekdayOf(r.fellOn)}.`
+    : r.status === "escapó" ? `${b.name} sobrevivió con ${r.hp} PV y escapó; volverá la semana siguiente.`
+    : `La batalla sigue en curso: a ${b.name} le quedan ${r.hp} PV y la semana aún no termina.`;
+  return [
+    `Semana del ${weekRange(i)}. Acto ${ROMAN[b.act]}: ${ACTS[b.act]}. Andrés es ${jobFor(r.lv)[1]} de nivel ${r.lv}.`,
+    `Enemigo: ${b.name}, ${b.title}${r.returning ? ` (regresaba de la semana anterior con ${r.startHp} PV)` : ""}. Daño total infligido: ${dmg} de ${r.startHp} PV. ${outcome}`,
+    `Datos reales: ${n0(s.steps)} pasos (meta ${n0(G.steps)}), ${s.active} minutos activos (meta ${G.activeMin}), sueño medio ${s.avgSleep ? s.avgSleep.toFixed(1) + " h" : "sin datos"} (meta ${G.sleepH} h)` +
+      (s.restingHr ? `, FC en reposo ${Math.round(s.restingHr)} lpm` : "") + `, ${s.days} días con datos.`,
+    best ? `El día más fuerte fue el ${weekdayOf(best.date)} (${best.total} de daño).` : "",
+    effects.length ? `Habilidades y efectos que aparecieron: ${effects.join(", ")}.` : "",
+    G.recovery ? "Era una semana de recuperación." : "",
+  ].filter(Boolean).join(" ");
+}
+async function writeChapter() {
+  if (!sample || !DB || !UID || storyBusy || !weeks.length) return;
+  const i = sel, key = weeks[i].start, r = campaign()[i];
+  storyBusy = true;
+  $("write").hidden = true;
+  $("story-note").replaceChildren(h("span", { class: "dots", text: "El cronista moja la pluma en tinta" }));
+  // Continuity: the summaries of the latest written weeks before this one, plus the bare facts of
+  // the previous week when it has no chapter.
+  const before = Object.keys(story.weeks).filter((k) => k < key).sort().slice(-6)
+    .map((k) => `Semana del ${k}: ${story.weeks[k].resumen}`);
+  if (story.prologue?.resumen) before.unshift(`Prólogo (el viaje hasta ahora): ${story.prologue.resumen}`);
+  const prevFacts = i > 0 && !story.weeks[weeks[i - 1].start] ? `Lo que pasó la semana anterior (sin crónica escrita): ${weekFacts(i - 1)}` : "";
+  const shape = r.status === "derrotado" ? "Cuenta la victoria y su golpe final."
+    : r.status === "escapó" ? "Cuenta una batalla dura en la que el enemigo logra escapar; termina con la promesa del reencuentro."
+    : "La semana sigue en curso: cuenta lo ocurrido hasta hoy y termina en suspenso, con la batalla aún abierta.";
+  const prompt = [
+    "Eres el cronista de \"Crónica del Aventurero\", una saga de fantasía épica en español con tono serio y heroico, al estilo de los Final Fantasy clásicos, narrada en tercera persona.",
+    "El protagonista es Andrés, un aventurero cuyo progreso real de salud mueve la historia: cada jefe encarna un enemigo de la vida sana (la inercia, el desaliento, el insomnio…) y pierde fuerza cuando Andrés camina, entrena y descansa de verdad.",
+    `El mundo tiene cuatro actos: ${ACTS.map((a, j) => ROMAN[j] + ". " + a).join("; ")}.`,
+    `Crónicas anteriores (resúmenes):\n${before.length ? before.join("\n") : "Ninguna todavía: si es la primera, presenta brevemente a Andrés y su viaje."}`,
+    prevFacts,
+    `Escribe la crónica de ESTA semana, que es un capítulo de la saga:\n${weekFacts(i)}`,
+    shape,
+    "Mantén la continuidad con las crónicas anteriores. Integra dos o tres datos reales de la semana de forma natural dentro de la ficción (por ejemplo, pasos como leguas o jornadas de marcha, el sueño como vigilias o descanso del guerrero), sin listas ni exceso de cifras. Longitud: 180-280 palabras, 3 a 5 párrafos.",
+    'Responde SOLO con JSON: {"titulo": "título épico de la semana", "texto": "la crónica, con párrafos separados por una línea en blanco", "resumen": "una frase que resuma la semana, para recordarla en las próximas crónicas"}',
+  ].filter(Boolean).join("\n\n");
+  let message;
+  try {
+    const out = await sample.json(prompt, { cache: false });
+    if (!out?.titulo || !out?.texto) throw { code: "invalid_json" };
+    story.weeks[key] = { titulo: out.titulo, texto: out.texto, resumen: out.resumen || "", status: r.status, createdAt: Date.now() };
+    await saveStory();
+    message = "Crónica guardada.";
+  } catch (e) {
+    message = SAGE_ERRORS[e?.code] || "No se pudo escribir la crónica ahora. Vuelve a intentarlo en un momento.";
+  } finally {
+    storyBusy = false;
+    if (weeks[sel]?.start === key) { renderStory(); if (message) $("story-note").textContent = message; }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Real vs physiological age. The birth date lives in the viewer's private store
+// (data/users/<id>/profile), with a browser copy as a fallback outside claude.ai.
+// ---------------------------------------------------------------------------
+const profile = { birthDate: null };
+let editingAge = false;
+async function loadProfile() {
+  try { const v = localStorage.getItem("cronica:birthDate"); if (v) profile.birthDate = v; } catch {}
+  if (STATIC_BIRTH) profile.birthDate = STATIC_BIRTH;
+  if (DB && UID) {
+    try {
+      const snap = await DB.doc("data/users/" + UID + "/profile").get();
+      if (snap.exists && snap.data().birthDate) profile.birthDate = snap.data().birthDate;
+    } catch {}
+  }
+  renderAge();
+}
+async function saveProfile(birthDate) {
+  profile.birthDate = birthDate;
+  editingAge = false;
+  try { localStorage.setItem("cronica:birthDate", birthDate); } catch {}
+  renderAge();
+  if (DB && UID) {
+    try { await DB.doc("data/users/" + UID + "/profile").set({ birthDate, updatedAt: Date.now() }); } catch {}
+  }
+}
+function currentAgeInfo() {
+  if (!profile.birthDate || !weeks.length) return null;
+  const today = new Date(); today.setHours(12, 0, 0, 0);
+  let end = addDays(new Date(weeks[sel].start + "T12:00:00"), 6);
+  if (end > today) end = today;
+  const real = ageOn(profile.birthDate, iso(end));
+  return { end, real, phys: physioAge(real, iso(end)) };
+}
+function renderAge() {
+  if (!weeks.length) return;
+  const body = $("age-body"), form = $("age-form");
+  $("birth").max = iso(new Date());
+  if (!profile.birthDate || editingAge) {
+    form.hidden = false;
+    if (profile.birthDate) $("birth").value = profile.birthDate;
+    body.replaceChildren(h("p", { class: "speech", text: "Dime tu fecha de nacimiento y calcularé cuántos años tiene tu cuerpo según tus datos." }));
+    return;
+  }
+  form.hidden = true;
+  const change = h("button", { class: "linkbtn", type: "button", text: "Cambiar fecha de nacimiento" });
+  change.addEventListener("click", () => { editingAge = true; renderAge(); });
+  const info = currentAgeInfo(), p = info.phys;
+  if (!p) {
+    body.replaceChildren(h("p", { class: "speech", text: "Faltan datos: necesito al menos 10 días con pasos en las 4 semanas anteriores." }), change);
+    return;
+  }
+  const d = p.delta;
+  const verdict = d <= -0.5 ? ["Tu cuerpo funciona como el de alguien ", `${Math.abs(d).toFixed(1)} años más joven`, "up"]
+    : d >= 0.5 ? ["Tu cuerpo funciona como el de alguien ", `${d.toFixed(1)} años mayor`, "down"]
+    : ["Tu cuerpo va ", "a la par con tu edad", "up"];
+  const earlierEnd = addDays(info.end, -84);
+  const earlier = physioAge(ageOn(profile.birthDate, iso(earlierEnd)), iso(earlierEnd));
+  const worst = p.factors.filter((f) => f[2] > 0.25)[0];
+  body.replaceChildren(
+    h("div", { class: "ages" },
+      h("div", { class: "age-card" }, h("span", { class: "lbl", text: "Edad real" }), h("span", { class: "big", text: String(info.real) })),
+      h("div", { class: "age-card phys" }, h("span", { class: "lbl", text: "Edad fisiológica" }), h("span", { class: "big", text: p.age.toFixed(1) }))),
+    h("div", { class: "age-verdict" }, verdict[0], h("b", { class: verdict[2], text: verdict[1] }), "."),
+    earlier ? h("div", { class: "note", text: `Hace 12 semanas: ${earlier.age.toFixed(1)} (${(p.age - earlier.age) <= 0 ? "" : "+"}${(p.age - earlier.age).toFixed(1)} desde entonces).` }) : null,
+    h("ul", { class: "factors" }, p.factors.map(([name, val, yrs]) =>
+      h("li", { class: "factor" }, h("span", {}, name), h("span", { class: "fv", text: val }),
+        h("span", { class: "fy " + (yrs < -0.05 ? "up" : yrs > 0.05 ? "down" : "flat"), text: (yrs > 0 ? "+" : "") + yrs.toFixed(1) + " a" })))),
+    worst ? h("div", { class: "note", text: `Lo que más te suma: ${worst[0].toLowerCase()} (+${worst[2].toFixed(1)} años). Es tu mejor palanca para rejuvenecer.` }) : null,
+    change);
+}
+$("age-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const v = $("birth").value;
+  if (v) saveProfile(v);
+});
+
+// ---------------------------------------------------------------------------
+// The Sage: Claude reads this week's numbers and writes three concrete recommendations.
+// ---------------------------------------------------------------------------
+let sample = null, ctl = null;
+const SAGE_ERRORS = {
+  not_granted: "No diste permiso para consultar a Claude desde esta página. Puedes cambiarlo en los permisos del artefacto.",
+  sampling_disabled: "Claude no está disponible para esta página ahora mismo.",
+  session_expired: "Tu sesión de Claude caducó. Recarga la página para iniciar sesión otra vez.",
+  rate_limited: "Demasiadas consultas seguidas. Espera un momento y vuelve a intentarlo.",
+  invalid_json: "El Sabio respondió en un formato que no pude leer. Vuelve a consultarle.",
+  refused: "Claude no quiso responder a esta consulta.",
+};
+let STATIC_SAGE = null;
+function resetSage() {
+  $("tips").replaceChildren();
+  $("speech").textContent = "Viajero, cuéntame tu semana y te diré cómo hacerte más fuerte. Mis consejos los escribe Claude con tus números de esta semana.";
+  if (!STATIC_SAGE || !weeks.length) return;
+  const saved = STATIC_SAGE.weeks?.[weeks[sel].start];
+  if (saved) {
+    renderSageAnswer(saved);
+    const when = new Date(saved.generatedAt).toLocaleString("es", { dateStyle: "medium", timeStyle: "short" });
+    $("sage-note").textContent = `Consejos escritos por Claude el ${when} con los datos de esta semana. No es consejo médico.`;
+  } else {
+    $("sage-note").textContent = "El Sabio no dejó consejos para esta semana.";
+  }
+}
+async function loadStaticSage() {
+  try {
+    const res = await fetch("data/sabio.json", { cache: "no-cache" });
+    if (res.ok) STATIC_SAGE = await res.json();
+  } catch {}
+  resetSage();
+}
+function weekForPrompt(w) {
+  const v = (x, f, missing) => (x == null ? missing : f(x));
+  return w.days.map((d) => `${d.date}: ${v(d.steps, (x) => x + " pasos", "pasos sin dato")}, ${v(d.sleepMin, (x) => (x / 60).toFixed(1) + " h sueño", "sueño sin dato")}, ${v(d.activeMin, (x) => x + " min activos", "min activos sin dato")}, ${v(d.restingHr, (x) => "FC reposo " + x + " lpm", "FC reposo sin dato")}`).join("\n");
+}
+function sagePrompt() {
+  const w = weeks[sel], s = weekStats(w), prev = sel > 0 ? weekStats(weeks[sel - 1]) : null;
+  const prompt = [
+    "Eres el Sabio de un RPG de 16 bits que aconseja a un aventurero sobre su salud real. Escribe en español, con un toque de personaje (breve, sin exagerar) y recomendaciones concretas y prácticas para la próxima semana.",
+    "No des diagnósticos médicos ni cifras clínicas; si algo parece preocupante (por ejemplo, FC en reposo que sube mucho), sugiere consultar a un profesional.",
+    (() => {
+      // The selected week's adaptive goals and age estimate: what the advice should aim at.
+      const G = goalsFor(sel), info = currentAgeInfo();
+      return [
+        `Metas adaptativas de esta semana (se ajustan cada semana según su progreso): ${G.steps} pasos, ${G.activeMin} min activos, ${G.sleepH} h de sueño de media.${G.recovery ? " Es una semana de recuperación." : ""}`,
+        `Motivo de cada meta: pasos: ${G.why.steps} Actividad: ${G.why.active} Sueño: ${G.why.sleep}`,
+        `Metas de largo plazo: ${LONG_TERM.steps} pasos/semana, ${LONG_TERM.activeMin} min activos/semana, ${LONG_TERM.sleepH} h de sueño.`,
+        info?.phys ? `Edad real ${info.real}, edad fisiológica estimada ${info.phys.age.toFixed(1)}. Factores (años que suman o restan): ${info.phys.factors.map(([n, v, y]) => `${n} ${v}: ${y > 0 ? "+" : ""}${y.toFixed(1)}`).join("; ")}. Usa el factor que más suma para priorizar un consejo.` : "",
+        (() => { const r = campaign()[sel]; return r ? `Jefe de la semana: ${r.boss.name}, ${r.boss.title}; ${r.status === "derrotado" ? "ya fue derrotado" : `le quedan ${r.hp} de ${r.boss.maxHp} PV`}. Puedes mencionarlo en el saludo.` : ""; })(),
+        "Los consejos deben ser alcanzables con esas metas semanales, no con las de largo plazo.",
+      ].filter(Boolean).join("\n");
+    })(),
+    `Semana (${w.days.length} días con datos):\n${weekForPrompt(w)}`,
+    `Totales: ${s.steps} pasos, ${s.active} min activos, sueño medio ${s.avgSleep.toFixed(2)} h (desviación ${s.sleepSd.toFixed(2)} h), FC reposo media ${s.restingHr?.toFixed(1) ?? "sin dato"}.`,
+    prev ? `Semana anterior: ${prev.steps} pasos, ${prev.active} min activos, sueño medio ${prev.avgSleep.toFixed(2)} h, FC reposo media ${prev.restingHr?.toFixed(1) ?? "sin dato"}.` : "No hay semana anterior.",
+    'Responde SOLO con JSON: {"saludo": "una o dos frases del Sabio sobre la semana", "consejos": [{"titulo": "máx. 5 palabras", "accion": "qué hacer, concreto y medible", "porque": "qué dato de la semana lo justifica"}], "mision": "una misión extra opcional para la semana que viene"}. Exactamente 3 consejos.',
+  ].join("\n\n");
+}
+function renderSageAnswer(r) {
+  $("speech").textContent = r.saludo || "";
+  const tips = (r.consejos || []).slice(0, 3).map((c) => h("li", { class: "tip" }, h("h3", { text: c.titulo || "" }), h("p", { text: c.accion || "" }), h("p", { class: "why", text: c.porque || "" })));
+  if (r.mision) tips.push(h("li", { class: "tip" }, h("h3", { text: "Misión extra" }), h("p", { text: r.mision })));
+  $("tips").replaceChildren(...tips);
+}
+async function askSage() {
+  if (!sample) return;
+  const prompt = sagePrompt();
+  ctl = new AbortController();
+  $("ask").disabled = true; $("stop").hidden = false;
+  $("tips").replaceChildren();
+  $("speech").replaceChildren(h("span", { class: "dots", text: "El Sabio consulta las estrellas" }));
+  try {
+    const r = await sample.json(prompt, { signal: ctl.signal });
+    renderSageAnswer(r);
+  } catch (e) {
+    $("speech").textContent = e.code === "cancelled" ? "Dejemos la consulta para otro momento, viajero." : (SAGE_ERRORS[e.code] || "No pude consultar a Claude ahora mismo. Vuelve a intentarlo en un momento.");
+    if (e.code === "not_granted" || e.code === "sampling_disabled") $("ask").hidden = true;
+  } finally {
+    $("ask").disabled = false; $("stop").hidden = true;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Boot
+// ---------------------------------------------------------------------------
+drawPortrait($("sage-sprite"), PX.sage).catch(() => {});
+$("prev").addEventListener("click", () => { if (sel > 0) { sel--; resetSage(); render(); } });
+$("next").addEventListener("click", () => { if (sel < weeks.length - 1) { sel++; resetSage(); render(); } });
+$("ask").addEventListener("click", askSage);
+$("stop").addEventListener("click", () => ctl?.abort());
+$("ask").disabled = true;
+$("sage-note").textContent = "Conectando con Claude…";
+
+wireSeg("cmp-gran", "gran", (v) => { gran = v; });
+wireSeg("cmp-metric", "metric", (v) => { metric = v; });
+function useDays(days) {
+  byDate = Object.fromEntries(days.map((d) => [d.date, d]));
+  weeks = groupWeeks(days);
+  goalCache = new Map();
+  campaignCache = null;
+  sel = weeks.length - 1;
+  resetSage();
+  render();
+}
+// Show the example right away, then swap in the viewer's own data once the store answers.
+loadDays().then((days) => { if (SOURCE.kind === "demo") useDays(days); });
+loadRealDays().then(async (days) => {
+  if (days) { useDays(days); renderSource(); }
+  await loadProfile();
+  loadStory();
+  window.cronica = { source: SOURCE.kind, week: weeks[sel]?.start, prompt: sagePrompt() };
+});
+$("write").addEventListener("click", writeChapter);
+// The chronicle's own week selector drives the same week as the one at the top.
+$("s-prev").addEventListener("click", () => $("prev").click());
+$("s-next").addEventListener("click", () => $("next").click());
+(async () => {
+  try { sample = window.claude ? await window.claude.use("sample") : null; } catch { sample = null; }
+  if (!sample) {
+    $("ask").hidden = true;
+    $("sage-note").textContent = "Los consejos de Claude solo funcionan dentro de claude.ai.";
+    loadStaticSage();
+    return;
+  }
+  $("ask").disabled = false;
+  $("sage-note").textContent = "Cada consulta usa tu cuenta de Claude. No es consejo médico.";
+  renderStory();
+})();
+</script>
+
+</body></html>
