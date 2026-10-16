@@ -1,0 +1,27 @@
+{
+  "weeks": {
+    "2026-10-12": {
+      "saludo": "Saludos, aventurero. Ojo Único tiembla con solo 394 PV, pero esta semana tu energía flaqueó: pocos pasos, un solo día de entrenamiento y una noche de apenas 0.8 h. Ajustemos el equipo y rematemos al Cíclope.",
+      "consejos": [
+        {
+          "titulo": "Cardio suave para tu corazón",
+          "accion": "Haz 5 sesiones de 30 min de actividad moderada (caminar a paso ligero, bici suave o nadar), por ejemplo de lunes a viernes. Así cumples los 150 min activos de la semana.",
+          "porque": "La FC en reposo es el factor que más te envejece (+3.2 años) y subió de 68 a 72 lpm a lo largo de la semana. Además, solo el día 14 tuviste minutos activos (71). Si sigue subiendo durante varias semanas o notas palpitaciones o cansancio raro, consulta a un profesional."
+        },
+        {
+          "titulo": "Tres paseos cortos diarios",
+          "accion": "Apunta a unos 4.500 pasos al día: da tres paseos de 10-15 min (tras desayuno, comida y cena). Los días de oficina, añade escaleras o llamadas caminando.",
+          "porque": "Tres de tus cinco días quedaron por debajo de 3.700 pasos (2.653 y 2.706 en dos de ellos), y solo el día 14 superaste esa cifra. Llevas 15.022 pasos y la meta semanal es 31.500."
+        },
+        {
+          "titulo": "Hora fija de despertar",
+          "accion": "Levántate cada día a la misma hora (±30 min, también el fin de semana) y acuéstate unas 7 h antes para lograr de media 6.75 h. Deja pantallas 30 min antes de dormir.",
+          "porque": "Tu sueño osciló entre 0.8 y 7.6 h (desviación de 2.47 h) y la media cayó a 5.63 h, frente a 6.74 h la semana anterior. La irregularidad suma +1.4 años. Si la noche del 16 no fue un fallo del reloj, prioriza recuperar descanso."
+        }
+      ],
+      "mision": "Misión opcional «Asalto a la Cumbre»: elige un día del fin de semana para una caminata de al menos 60 min con alguna cuesta o escaleras. El golpe final para Ojo Único: unos 7.000 pasos en un solo día.",
+      "generatedAt": "2026-10-16T20:07:31.990Z",
+      "model": "claude-opus-5-5"
+    }
+  }
+}
