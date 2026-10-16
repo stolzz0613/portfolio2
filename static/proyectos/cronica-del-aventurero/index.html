@@ -1319,7 +1319,7 @@ function weekForPrompt(w) {
 }
 function sagePrompt() {
   const w = weeks[sel], s = weekStats(w), prev = sel > 0 ? weekStats(weeks[sel - 1]) : null;
-  const prompt = [
+  return [
     "Eres el Sabio de un RPG de 16 bits que aconseja a un aventurero sobre su salud real. Escribe en español, con un toque de personaje (breve, sin exagerar) y recomendaciones concretas y prácticas para la próxima semana.",
     "No des diagnósticos médicos ni cifras clínicas; si algo parece preocupante (por ejemplo, FC en reposo que sube mucho), sugiere consultar a un profesional.",
     (() => {
