@@ -13,7 +13,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build && gh-pages -d public"
+    "deploy": "node scripts/cronica/restore-data.mjs && gatsby build && gh-pages -d public"
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",

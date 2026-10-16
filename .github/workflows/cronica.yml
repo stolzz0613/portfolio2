@@ -1,5 +1,6 @@
 # Every day: pull the latest Google Health data for "Crónica del Aventurero", ask the Sage (Claude)
-# for this week's advice, commit both JSON files and redeploy andresb.dev to GitHub Pages.
+# for this week's advice and redeploy andresb.dev to GitHub Pages. master is protected, so the data
+# isn't committed there: it lives in the published gh-pages branch and is restored from it first.
 #
 # Secrets (Settings → Secrets and variables → Actions):
 #   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN  (required)
@@ -35,6 +36,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Restore the published data
+        run: node scripts/cronica/restore-data.mjs
+
       - name: Sync Google Health
         env:
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
@@ -54,18 +58,10 @@ jobs:
           npx playwright install --with-deps chromium
           node scripts/cronica/sage.mjs
 
-      - name: Commit the new data
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add static/proyectos/cronica-del-aventurero/data
-          git diff --cached --quiet || git commit -m "Update Crónica del Aventurero data"
-          git push
-
       - name: Build and deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx gatsby build
-          npx gh-pages -d public -u "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
+          npx gh-pages -d public -m "Update Crónica del Aventurero data" -u "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
             -r "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
