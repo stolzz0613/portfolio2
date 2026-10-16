@@ -89,6 +89,11 @@ export const experience = [
 
 export const projects = [
   {
+    slug: 'impostor',
+    title: 'Impostor',
+    text: 'Pass-the-phone party game: everyone sees the secret word except the impostor. 345 words known in Colombia, round timer and accusations.',
+  },
+  {
     slug: 'cronica-del-aventurero',
     title: 'Crónica del Aventurero',
     text: 'My Google Health data as a 16-bit RPG, refreshed every morning, with advice and weekly chapters written by Claude.',

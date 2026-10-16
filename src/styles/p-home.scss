@@ -99,14 +99,14 @@ section { display: grid; gap: 28px; scroll-margin-top: 48px; min-width: 0; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .chips li { font: 400 12px/1 var(--font-mono); color: #ffb3b5; background: rgba(245, 30, 36, .1); border: 1px solid rgba(245, 30, 36, .25); padding: 6px 9px; border-radius: 99px; }
 
-.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.proj { display: grid; text-decoration: none; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: rgba(13, 12, 15, .8); transition: transform .25s, border-color .25s; }
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+.proj { display: grid; grid-template-rows: auto 1fr; text-decoration: none; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: rgba(13, 12, 15, .8); transition: transform .25s, border-color .25s; }
 .proj:hover { transform: translateY(-4px); border-color: var(--red); }
 .proj img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-bottom: 1px solid var(--line); }
-.proj div { padding: 18px; display: grid; gap: 8px; }
+.proj div { padding: 18px; display: flex; flex-direction: column; gap: 8px; }
 .proj h3 { margin: 0; font: 700 20px/1.2 var(--font-display); }
 .proj p { margin: 0; color: var(--muted); font-size: 14.5px; }
-.proj .go { font: 500 12px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--red-soft); }
+.proj .go { margin-top: auto; padding-top: 4px; font: 500 12px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--red-soft); }
 
 .skills { display: grid; gap: 22px; }
 .icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 10px; }
