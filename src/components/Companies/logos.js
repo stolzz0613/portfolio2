@@ -10,7 +10,7 @@ export const getLogo = (name) => {
 export const logos = () => ({
   globant: (
     <StaticImage
-      src="../../../static/images/globant.png"
+      src="../../../static/images/Globant.png"
       placeholder="blurred"
       height={50}
       alt="logo globant"

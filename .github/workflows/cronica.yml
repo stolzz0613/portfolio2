@@ -63,5 +63,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx gatsby build
-          npx gh-pages -d public -m "Update Crónica del Aventurero data" -u "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
+          # gh-pages takes the commit author from git config (its -u option can't parse the bot's name).
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          npx gh-pages -d public -m "Update Crónica del Aventurero data" \
             -r "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
