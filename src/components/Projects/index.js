@@ -45,6 +45,9 @@ export default function Projects() {
           </a>
         ))}
       </div>
+      <p className={`${componentName}-legal`}>
+        <a href='/privacy/'>Privacy policy</a> · <a href='/terms/'>Terms of service</a>
+      </p>
     </section>
   )
 }
