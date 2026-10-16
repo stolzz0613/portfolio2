@@ -87,6 +87,10 @@ if (data.source !== "live" || !data.week) {
   console.error("La página no cargó data/days.json. Ejecuta antes sync.mjs.");
   process.exit(1);
 }
+if (typeof data.prompt !== "string" || !data.prompt.trim()) {
+  console.error("La página no devolvió el prompt del Sabio.");
+  process.exit(1);
+}
 
 let result;
 try {
