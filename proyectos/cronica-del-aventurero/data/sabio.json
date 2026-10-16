@@ -1,26 +1,26 @@
 {
   "weeks": {
     "2026-10-12": {
-      "saludo": "Aventurero, Ojo Único tiembla con solo 394 PV, pero esta semana tu espada pesó poco: la actividad cayó de 247 a 71 minutos y tus noches fueron irregulares. Escucha al Sabio y la Cumbre será tuya.",
+      "saludo": "Saludos, aventurero. Esta semana diste pocos pasos (15.022 frente a 29.186) y solo una jornada activa. Aun así, Ojo Único tiene apenas 394 PV y tambalea en la cumbre. El registro del día 16 (0,8 h de sueño y 331 pasos) parece incompleto; si de verdad dormiste tan poco, descansa bien antes de la próxima batalla.",
       "consejos": [
         {
-          "titulo": "Corazón templado, paso firme",
-          "accion": "Haz 5 sesiones de 30 minutos de actividad moderada (caminata rápida, bici o subir escaleras) en días distintos, para llegar a los 150 minutos activos. Anótalas en tu pergamino al terminar.",
-          "porque": "Tu FC en reposo es el factor que más años suma (+3,2), y la actividad regular es una de las mejores aliadas para mejorarla. Esta semana tuviste 0 minutos activos en 4 de 5 días. Además, tu FC en reposo subió poco a poco de 68 a 72; si sigue subiendo durante varias semanas, consúltalo con un profesional."
+          "titulo": "Calma el tambor interior",
+          "accion": "Haz 5 sesiones de 30 min de actividad moderada (caminata rápida, bici suave o natación) para sumar 150 min. Evita la cafeína después de las 14:00. Anota cada mañana tu FC en reposo, al despertar. Si sigue subiendo varios días seguidos o notas palpitaciones o mareo, consulta a un profesional.",
+          "porque": "La FC en reposo es el factor que más años suma a tu edad fisiológica (+3,2). Además, subió de 68 a 72 lpm a lo largo de la semana, y solo un día tuvo minutos activos (71)."
         },
         {
           "titulo": "4.500 pasos cada día",
-          "accion": "Suma dos paseos de 15 minutos al día, uno tras la comida y otro tras la cena, para rondar los 4.500 pasos diarios y alcanzar los 31.500 semanales.",
-          "porque": "En 3 de los 5 días te quedaste por debajo de 3.000 pasos, y en total llevas 15.022 frente a los 29.186 de la semana anterior. Los pasos suman +2,6 años a tu edad fisiológica."
+          "accion": "Camina 15 min después de comer y otros 15 min después de cenar (unos 3.000 pasos entre ambos). Completa el resto con escaleras y desplazamientos cortos hasta llegar a 4.500 diarios, que son 31.500 a la semana.",
+          "porque": "Tres de tus cinco días quedaron por debajo de 3.700 pasos, y solo el día activo (14 de octubre) llegó a 5.638. Los pasos suman +2,6 años a tu edad fisiológica."
         },
         {
-          "titulo": "Hora fija para despertar",
-          "accion": "Elige una hora de despertar y respétala todos los días, con un margen de unos 30 minutos. Acuéstate lo bastante temprano para dormir al menos 6 h 45 min y apaga las pantallas 30 minutos antes.",
-          "porque": "Tus noches oscilaron entre 0,8 y 7,6 h, con una desviación de 2,47 h, y la irregularidad del sueño suma +1,4 años. Si las 0,8 h del día 16 no fueron un fallo del registro, prioriza recuperar descanso esa noche."
+          "titulo": "Mismo despertar, misma almohada",
+          "accion": "Fija una hora de despertar igual todos los días, fin de semana incluido, con un margen de 30 min. Acuéstate 7 h antes para lograr una media de al menos 6 h 45 min. Apaga las pantallas 30 min antes de dormir.",
+          "porque": "Tu sueño osciló entre 6,0 y 7,6 h, con una desviación de casi 2,5 h. La irregularidad suma +1,4 años y la media de esta semana se quedó por debajo de la meta de 6,75 h."
         }
       ],
-      "mision": "Asalto a la Cumbre: el fin de semana, haz una caminata de 60 minutos que incluya una cuesta o escaleras. Ese único golpe aporta casi la mitad de una de tus metas diarias de pasos y 60 minutos activos, suficiente para derribar a Ojo Único.",
-      "generatedAt": "2026-10-16T21:57:00.520Z",
+      "mision": "Asalto a la Cumbre del Cíclope: elige un día y suma 8.000 pasos que incluyan una subida (cuesta, colina o 10 tramos de escaleras). Ese golpe bastará para derribar a Ojo Único.",
+      "generatedAt": "2026-10-16T22:15:16.518Z",
       "model": "claude-opus-5-5"
     }
   }
