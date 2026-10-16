@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // The published copy on the gh-pages branch is where "Crónica del Aventurero" keeps its data:
-// the daily GitHub Action can't commit to master (it's protected), so it deploys days.json and
-// sabio.json straight to gh-pages. This copies the published files back into static/ before a
+// the daily GitHub Action can't commit to master (it's protected), so it deploys days.json,
+// sabio.json and cronica.json straight to gh-pages. This copies the published files back into static/ before a
 // sync or a build, so the history keeps growing and a manual `npm run deploy` doesn't roll the
 // live data back to the older copy in master.
 
@@ -11,7 +11,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-const FILES = ["days.json", "sabio.json"];
+const FILES = ["days.json", "sabio.json", "cronica.json"];
 const git = (...args) => execFileSync("git", args, { cwd: REPO, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
 
 try {
