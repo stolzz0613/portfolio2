@@ -1,26 +1,26 @@
 {
   "weeks": {
     "2026-10-12": {
-      "saludo": "Saludos, aventurero. A Ojo Único, el Cíclope de la Cumbre, solo le quedan 394 PV, pero esta semana tu ritmo bajó: menos pasos y menos minutos activos que la anterior. La victoria está cerca si recuperas el paso con constancia.",
+      "saludo": "Aventurero, al Cíclope de la Cumbre solo le quedan 394 PV, pero esta semana tu energía flaqueó: pocos pasos, solo un día de entrenamiento y una última noche de apenas 0,8 h. Recupera el ritmo y el Ojo Único caerá.",
       "consejos": [
         {
-          "titulo": "Cardio suave para tu corazón",
-          "accion": "Haz 30 minutos de actividad moderada (caminata rápida, bici o trote suave) 5 días esta semana, para sumar 150 min activos. Repártelos en días distintos, no en uno solo. Si tu FC en reposo sigue subiendo durante varios días, consulta a un profesional.",
-          "porque": "Tu FC en reposo es el factor que más suma a tu edad fisiológica (+3,2 años) y esta semana subió de 68 a 72 lpm. Además, solo un día tuvo minutos activos (71 min el 14/10), lejos de los 247 de la semana anterior."
+          "titulo": "Calma tu corazón guerrero",
+          "accion": "Haz 5 sesiones de 30 minutos de caminata rápida o bici suave, de lunes a viernes, para sumar los 150 min activos. Cada noche, antes de dormir, dedica 5 minutos a respirar despacio y evita la cafeína después de las 16:00.",
+          "porque": "La FC en reposo es el factor que más años te suma (+3,2) y fue subiendo de 68 a 72 lpm durante la semana. El ejercicio aeróbico regular y el buen descanso suelen ayudar. Si sigue subiendo durante varias semanas, consulta a un profesional."
         },
         {
-          "titulo": "Dos paseos diarios",
-          "accion": "Camina unos 15 minutos después de comer y otros 15 después de cenar. Así llegarás a unos 4.500 pasos al día, lo que suma la meta de 31.500 a la semana.",
-          "porque": "Cuatro de los cinco días quedaste por debajo de 4.000 pasos. Tu día más activo, el 14/10 con 5.638 pasos, demuestra que puedes lograrlo."
+          "titulo": "4.500 pasos cada día",
+          "accion": "Camina unos 4.500 pasos diarios para llegar a 31.500 en la semana. Un truco: paseo de 15 minutos después de comer y otro después de cenar. Si un día te quedas corto, compénsalo con 20 minutos extra al día siguiente.",
+          "porque": "En 5 días sumaste 15.022 pasos, unos 3.000 al día, muy por debajo de los 29.186 de la semana anterior. El 16 apenas llegaste a 331 pasos."
         },
         {
-          "titulo": "Misma hora de despertar",
-          "accion": "Fija una hora de despertar con un margen de 30 minutos, todos los días, y acuéstate a una hora que te permita dormir al menos 6,75 h. Lleva el reloj puesto por la noche para que el registro sea fiable.",
-          "porque": "Tu sueño osciló entre 6,0 y 7,6 h, y la irregularidad suma +1,4 años. El 16/10 registró solo 0,8 h; si fue un fallo del registro, mejor corregirlo, y si fue real, es una señal para descansar más."
+          "titulo": "Hora fija de descanso",
+          "accion": "Elige una hora para acostarte y otra para levantarte, y cúmplelas todos los días con un margen de 30 minutos, también el fin de semana. Busca dormir unas 6 h 45 min por noche y deja las pantallas 30 minutos antes de acostarte.",
+          "porque": "Tu sueño osciló entre 0,8 y 7,6 h (desviación de 2,47 h) y la media bajó a 5,63 h. La regularidad del sueño te suma 1,4 años. Si la noche del 16 no llevabas el dispositivo, póntelo para que el registro sea fiel."
         }
       ],
-      "mision": "Misión opcional «Asalto a la Cumbre»: elige un día del fin de semana para dar una caminata de 45 minutos con alguna cuesta o escaleras, y termina la noche durmiendo al menos 7 h. Puede ser el golpe final contra los 394 PV de Ojo Único.",
-      "generatedAt": "2026-10-16T20:31:59.189Z",
+      "mision": "Asalto a la Cumbre: un día del fin de semana, haz una caminata de 45 minutos, si puedes por una cuesta o una colina, y supera los 7.000 pasos ese día. Ese golpe crítico podría acabar con los últimos PV del Cíclope.",
+      "generatedAt": "2026-10-16T21:13:13.117Z",
       "model": "claude-opus-5-5"
     }
   }
