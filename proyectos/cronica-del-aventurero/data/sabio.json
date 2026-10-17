@@ -1,26 +1,26 @@
 {
   "weeks": {
     "2026-10-12": {
-      "saludo": "Bienvenido, aventurero. Al Ojo Único le quedan solo 244 PV: un último esfuerzo y caerá. Esta semana cumpliste los minutos activos, pero tus pasos y tu descanso flaquearon, sobre todo esa noche de apenas 0,8 h.",
+      "saludo": "¡Aventurero! Al Ojo Único, Cíclope de la Cumbre, solo le quedan 206 PV: un último empujón y caerá. Pero tu semana fue irregular, con una noche casi en vela y un último día casi inmóvil, y el Sabio lo ha notado.",
       "consejos": [
         {
-          "titulo": "Fortalece tu corazón con calma",
-          "accion": "Haz 3 sesiones de 35-40 min de caminata rápida o bici a ritmo en que puedas conversar (por ejemplo, lunes, miércoles y sábado). Con lo que sumes el resto de días llegarás a los 150 min activos.",
-          "porque": "Tu FC en reposo es el factor que más años suma (+3,2) y pasó de 68 a 72 lpm entre el 13 y el 16. El ejercicio aeróbico suave y regular suele ayudar. Si sigue subiendo durante varios días o notas algo raro, consulta a un profesional."
+          "titulo": "Calma tu corazón en reposo",
+          "accion": "Reparte tus 150 min activos en 5 sesiones de 30 min de cardio suave (caminar rápido, bici o nadar a un ritmo que te deje hablar), en lugar de concentrarlos en dos días. Si tu FC en reposo sigue subiendo varios días seguidos, consulta a un profesional de la salud.",
+          "porque": "La FC en reposo es el factor que más años suma a tu edad fisiológica (+3,2). Además, subió de 68 a 74 lpm a lo largo de la semana, justo después de la noche de 0,8 h de sueño. Tus minutos activos se concentraron en solo 2 de 6 días."
         },
         {
-          "titulo": "4.500 pasos cada día",
-          "accion": "Da dos paseos de 15 min al día, uno después de comer y otro después de cenar (unos 1.500-2.000 pasos cada uno). Así llegarás a unos 4.500 pasos diarios, es decir, 31.500 a la semana.",
-          "porque": "En los días sin actividad no pasaste de unos 2.700 pasos (13 y 15 de octubre) y sumaste 19.057 en 5 días, por debajo de tu ritmo de la semana anterior (29.186)."
+          "titulo": "Pasos diarios sin huecos",
+          "accion": "Apunta a unos 4.500 pasos cada día para llegar a 31.500 en la semana. Añade dos paseos de 15 min (uno tras comer y otro al final de la tarde) y no dejes ningún día por debajo de 3.000 pasos.",
+          "porque": "Este fue tu peor ritmo: 19.634 pasos frente a los 29.186 de la semana anterior. Los días sin actividad rondaron los 2.700 pasos, y el 17 solo hiciste 185."
         },
         {
-          "titulo": "Horario fijo de descanso",
-          "accion": "Elige una hora de acostarte y respétala con un margen de ±30 min todas las noches, apuntando a 6 h 45 min en la cama como mínimo. Deja la pantalla 30 min antes. Si la noche del 16 el reloj no registró bien, asegúrate de llevarlo puesto al dormir.",
-          "porque": "Tu sueño osciló entre 0,8 y 7,6 h (desviación de 2,47 h) y la media cayó a 5,63 h, frente a 6,74 h la semana anterior. La irregularidad del sueño también te suma años."
+          "titulo": "Hora fija para dormir",
+          "accion": "Elige una hora de acostarte y otra de levantarte y respétalas con un margen de 30 min todos los días, buscando unas 6,75 h de media. Deja las pantallas 30 min antes de dormir y no sacrifiques una noche entera por nada.",
+          "porque": "Tu sueño medio bajó a 5,93 h, con muchísima variación: de 0,8 h a 7,6 h. La irregularidad del sueño ya te suma +1,3 años, y la noche del 16 coincidió con la subida de tu FC en reposo."
         }
       ],
-      "mision": "Golpe final al Cíclope: el fin de semana, haz una ruta a pie de 60 min por un parque o un sendero y supera los 8.000 pasos ese día.",
-      "generatedAt": "2026-10-17T02:05:10.097Z",
+      "mision": "Misión de la Constancia: completa 7 días seguidos con al menos 3.000 pasos y acostándote a tu hora fija. Si lo logras, el Sabio te concede el título de «Guardián del Ritmo» (y tu corazón te lo agradecerá).",
+      "generatedAt": "2026-10-17T14:30:08.092Z",
       "model": "claude-opus-5-5"
     }
   }
