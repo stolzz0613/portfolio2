@@ -1,3 +1,6 @@
 node_modules/
 .cache/
 public
+
+# Generated daily by scripts/cronica/widget.mjs in the GitHub Action
+static/proyectos/cronica-del-aventurero/data/widget/
