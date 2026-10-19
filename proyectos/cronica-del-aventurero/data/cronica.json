@@ -26,11 +26,11 @@
       "titulo": "El Ojo que Aún Vigila"
     },
     "2026-10-12": {
-      "titulo": "El Ojo que No Cierra",
-      "texto": "Ojo Único no había muerto en la caverna. Durante la tregua lamió sus heridas junto a los fuegos de la roca viva, y cuando Andrés volvió a encontrarlo, el Cíclope de la Cumbre se alzaba de nuevo con 833 PV, su pupila ardiendo como una forja encendida en mitad de la noche.\n\nEl Guerrero de nivel 7 no retrocedió. Aunque sus marchas fueron más cortas de lo que exigía el camino, apenas veintitrés mil pasos entre los desfiladeros de hierro, lejos de la meta que se había impuesto, compensó la distancia con acero. Ciento sesenta y seis minutos de combate feroz, más de lo que pedía el código del guerrero, hicieron retumbar las laderas con cada embestida.\n\nEl miércoles fue su jornada más gloriosa. Esquivando el puño de piedra del gigante, Andrés trepó por una cornisa helada y descargó una serie de golpes que arrancaron 201 PV a la bestia. El Cíclope bramó, y su grito desprendió aludes que rodaron hacia los valles.\n\nPero el descanso del guerrero seguía siendo escaso. Sus vigilias junto a la hoguera apenas alcanzaban las seis horas, y el cansancio se le enredaba en los hombros como cadenas invisibles. Aun así, golpe a golpe, arrebató 714 PV al monstruo.\n\nAhora Ojo Único se tambalea al borde del abismo con solo 119 PV, sangrando sobre la nieve. Su mirada, sin embargo, no se apaga: aguarda el instante en que el agotamiento venza al héroe. Andrés aprieta la empuñadura. La semana aún no ha terminado, y el último golpe está por decidirse.",
-      "resumen": "Andrés, Guerrero de nivel 7, marchó menos de lo previsto pero combatió más de lo exigido con un sueño corto, arrebatando 714 PV a Ojo Único, que había regresado con 833 PV y queda acorralado con solo 119 PV, con la batalla aún abierta.",
-      "status": "combate",
-      "createdAt": 1792335328021,
+      "titulo": "La Grieta del Ojo Sangrante",
+      "texto": "En la caverna inexplorada donde se había refugiado, Ojo Único lamió sus heridas en la penumbra, y la roca viva de la montaña le devolvió buena parte del vigor perdido. Cuando Andrés, Guerrero de las Montañas de Hierro, cruzó el umbral helado, el Cíclope de la Cumbre lo aguardaba de nuevo en pie, con su único ojo ardiendo como una brasa entre las sombras.\n\nSiete jornadas duró el asedio. Andrés recorrió cerca de veintisiete mil pasos por galerías y cornisas, menos leguas de las que su senda le exigía, pero en el choque de acero no escatimó esfuerzo: casi tres horas de combate encendido, más de lo que cualquier juramento le pedía.\n\nEl miércoles fue su jornada más gloriosa. Esquivando la maza de piedra, el guerrero saltó sobre una roca desprendida y hundió su hoja en la coraza del gigante, abriendo una grieta que resonó por toda la montaña. El cíclope rugió, y por un instante pareció que la caverna entera se derrumbaría sobre él.\n\nPero las vigilias pesaban. Apenas seis horas de descanso por noche dejaron el brazo de Andrés más lento de lo que la victoria reclamaba, y en el último asalto su golpe final llegó un latido tarde. Malherido, con el ojo sangrante y un hilo de vida, Ojo Único se arrastró por una fisura hacia las entrañas de la montaña.\n\nAndrés envainó su espada y miró la oscuridad que se tragaba al gigante. Le quedaba muy poco aliento al cíclope. La próxima vez, se juró el guerrero, descansaría como corresponde a un héroe, y ninguna grieta bastaría para salvarlo.",
+      "resumen": "Andrés infligió 768 de los 833 PV a Ojo Único con un gran golpe el miércoles y mucho combate, pero con pasos cortos y sueño escaso el cíclope escapó con solo 65 PV por una fisura hacia las entrañas de la montaña.",
+      "status": "escapó",
+      "createdAt": 1792432189632,
       "model": "claude-opus-5-5"
     },
     "2026-03-02": {
@@ -279,6 +279,14 @@
       "resumen": "Semana del 2026-09-28: Andrés, Guerrero de nivel 7, marchó las siete jornadas con más de treinta y cinco mil pasos superando su meta, combatió casi el doble de lo exigido y cumplió su descanso con siete horas por noche; asestó un crítico el sábado, su mejor día, y arrebató 1185 PV a Ojo Único, Cíclope de la Cumbre, que escapó con 815 PV hacia una caverna inexplorada.",
       "status": "escapó",
       "createdAt": 1792187479769,
+      "model": "claude-opus-5-5"
+    },
+    "2026-10-19": {
+      "titulo": "El Regreso del Cíclope desde las Entrañas",
+      "texto": "En las entrañas de las Montañas de Hierro, donde el eco de la última batalla aún retumbaba entre las grietas, Ojo Único había lamido sus heridas. La fisura por la que huyó con apenas un aliento de vida se convirtió en su refugio, y de las vetas ardientes del mineral bebió fuerza hasta alzarse de nuevo con 565 PV. Andrés, ya Guerrero de nivel 8, sintió el temblor bajo sus botas antes de ver el resplandor del ojo solitario.\n\nEl lunes descendió a su encuentro. Fue una jornada corta, apenas unos cuatro mil pasos por galerías estrechas, y el combate duró lo que tarda una antorcha en consumir su mecha: trece minutos de acero contra piedra. Aun así, cada golpe halló su blanco, y el cíclope perdió 114 PV entre rugidos que hacían llover polvo del techo.\n\nPero el guerrero arrastraba una carga invisible. Sus vigilias habían sido largas y su descanso breve, poco más de cinco horas antes de que el frío de la roca lo despertara. Su corazón seguía firme, mas sus brazos pesaban más de lo que estaba dispuesto a admitir.\n\nDesde entonces, la caverna guarda silencio. Ojo Único aguarda en la penumbra con 451 PV, paciente como la montaña misma, sabiendo que el sueño escaso y la marcha detenida son sus mejores aliados. Andrés afila su espada junto a una lumbre que apenas calienta.\n\nLa semana aún no ha terminado. En algún lugar más hondo, el ojo se abre de nuevo, y el guerrero deberá decidir si avanza hacia la oscuridad o deja que la bruma de la inercia vuelva a cubrir el camino.",
+      "resumen": "Ojo Único regresó fortalecido con 565 PV y Andrés, Guerrero de nivel 8, le arrebató 114 PV el lunes en una breve incursión con poca marcha y sueño escaso; la semana sigue abierta con el cíclope acechando con 451 PV.",
+      "status": "combate",
+      "createdAt": 1792432209114,
       "model": "claude-opus-5-5"
     }
   }
