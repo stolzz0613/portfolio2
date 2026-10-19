@@ -1425,6 +1425,38 @@ async function askSage() {
 }
 
 // ---------------------------------------------------------------------------
+// Widget summary: the current week as the page shows it, for scripts/cronica/widget.mjs.
+// ---------------------------------------------------------------------------
+function widgetSummary() {
+  const i = weeks.length - 1, w = weeks[i], s = weekStats(w), G = goalsFor(i), c = campaign(), r = c[i];
+  const totalXp = weeks.reduce((a, wk) => a + weekStats(wk).xp, 0);
+  const lv = levelFor(totalXp), lo = xpForLevel(lv), hi = xpForLevel(lv + 1);
+  const [, job, heroTile] = jobFor(lv);
+  const goalPct = (v, g) => clamp(v / g, 0, 1);
+  const hp = Math.round(999 * ((goalPct(s.steps, (G.steps * s.days) / 7) + goalPct(s.active, (G.activeMin * s.days) / 7) + goalPct(s.avgSleep, G.sleepH)) / 3));
+  const last = w.days[w.days.length - 1], info = currentAgeInfo();
+  return {
+    syncedAt: SOURCE.syncedAt, weekStart: w.start, name: "Andrés", job, level: lv,
+    xp: { value: totalXp - lo, next: hi - lo }, hp, mp: Math.round(999 * goalPct(s.avgSleep, 8)),
+    wins: c.filter((x) => x.status === "derrotado").length,
+    week: { steps: s.steps, stepsGoal: G.steps, activeMin: s.active, activeGoal: G.activeMin, sleepH: +s.avgSleep.toFixed(1), sleepGoal: G.sleepH, days: s.days, recovery: !!G.recovery },
+    lastDay: { date: last.date, steps: last.steps, sleepMin: last.sleepMin, activeMin: last.activeMin, restingHr: last.restingHr },
+    boss: { name: r.boss.name, title: r.boss.title, act: ACTS[r.boss.act], hp: r.hp, maxHp: r.boss.maxHp, status: r.status },
+    age: info?.phys ? { real: info.real, phys: +info.phys.age.toFixed(1) } : null,
+    tiles: { hero: heroTile, boss: r.boss.tile, sage: PX.sage },
+  };
+}
+// One Tiny Dungeon tile drawn at `scale`× with hard pixel edges, as a PNG data URL.
+async function tilePng(tile, scale = 8) {
+  const img = await loadSheet("dungeon"), cv = document.createElement("canvas");
+  cv.width = cv.height = TILE * scale;
+  const ctx = cv.getContext("2d");
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(img, (tile % SHEET_COLS) * TILE, Math.floor(tile / SHEET_COLS) * TILE, TILE, TILE, 0, 0, cv.width, cv.height);
+  return cv.toDataURL("image/png");
+}
+
+// ---------------------------------------------------------------------------
 // Boot
 // ---------------------------------------------------------------------------
 function showView() {

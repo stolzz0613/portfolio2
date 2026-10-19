@@ -1,0 +1,53 @@
+{
+  "syncedAt": "2026-10-19T22:46:13.723Z",
+  "weekStart": "2026-10-19",
+  "name": "Andrés",
+  "job": "Guerrero",
+  "level": 8,
+  "xp": {
+    "value": 213,
+    "next": 4800
+  },
+  "hp": 799,
+  "mp": 668,
+  "wins": 8,
+  "week": {
+    "steps": 4873,
+    "stepsGoal": 31500,
+    "activeMin": 13,
+    "activeGoal": 150,
+    "sleepH": 5.3,
+    "sleepGoal": 6.75,
+    "days": 1,
+    "recovery": false
+  },
+  "lastDay": {
+    "date": "2026-10-19",
+    "steps": 4873,
+    "sleepMin": 321,
+    "activeMin": 13,
+    "restingHr": 71
+  },
+  "boss": {
+    "name": "Ojo Único",
+    "title": "Cíclope de la Cumbre",
+    "act": "Las Montañas de Hierro",
+    "hp": 439,
+    "maxHp": 2000,
+    "status": "combate"
+  },
+  "age": {
+    "real": 31,
+    "phys": 37
+  },
+  "sage": {
+    "greeting": "Aventurero, el Cíclope de la Cumbre tambalea con solo 439 PV: has empezado la semana con buen paso, pero tus noches cortas te restan fuerzas. Afina el descanso y su único ojo se cerrará para siempre.",
+    "tip": {
+      "title": "Templa tu corazón",
+      "action": "Haz 3 caminatas a paso ligero de 30 minutos (por ejemplo, lunes, miércoles y sábado). Al terminar el día, dedica 5 minutos a respirar lento: inhala 4 segundos y exhala 6."
+    },
+    "mission": "Misión de la Cumbre (opcional): el fin de semana, sube a pie a un mirador, una colina o unas escaleras largas de tu ciudad, en una salida de unos 45 minutos. Contemplar la vista desde lo alto será el golpe final al Cíclope."
+  },
+  "chapter": "El Ojo que Volvió a Encenderse",
+  "generatedAt": "2026-10-19T22:47:12.199Z"
+}

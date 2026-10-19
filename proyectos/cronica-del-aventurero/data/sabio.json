@@ -24,26 +24,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-10-19": {
-      "saludo": "Saludos, aventurero. Ojo Único se tambalea con solo 451 PV, pero esta semana apenas tengo un día de tu crónica: 4098 pasos y 5,3 h de descanso no bastan para el golpe final.",
+      "saludo": "Aventurero, el Cíclope de la Cumbre tambalea con solo 439 PV: has empezado la semana con buen paso, pero tus noches cortas te restan fuerzas. Afina el descanso y su único ojo se cerrará para siempre.",
       "consejos": [
         {
-          "titulo": "Calma tu corazón guerrero",
-          "accion": "Haz 3 sesiones de 30 minutos de cardio suave (caminar rápido, bici tranquila o nadar) en los que puedas hablar sin ahogarte. Añade 5 minutos de respiración lenta antes de dormir.",
-          "porque": "Tu FC en reposo (71 lpm, frente a 70,7 la semana pasada) es el factor que más años suma a tu edad fisiológica (+3,1). El ejercicio aeróbico moderado y constante ayuda a mejorarla. Si notas que sube de forma marcada o sostenida, consulta a un profesional."
+          "titulo": "Templa tu corazón",
+          "accion": "Haz 3 caminatas a paso ligero de 30 minutos (por ejemplo, lunes, miércoles y sábado). Al terminar el día, dedica 5 minutos a respirar lento: inhala 4 segundos y exhala 6.",
+          "porque": "Tu FC en reposo de 70-71 lpm es el factor que más suma a tu edad fisiológica (+3,1 años). La actividad aeróbica regular y el descanso ayudan a templarla. Se ha mantenido estable, pero si notas que sube de forma clara durante varios días, consulta a un profesional."
         },
         {
-          "titulo": "Cuatro mil quinientos pasos diarios",
-          "accion": "Camina al menos 4500 pasos cada día, unos 31500 en la semana. Añade un paseo de 15 minutos después de comer o de cenar para sumar los que te falten.",
-          "porque": "Tu único día registrado tuvo 4098 pasos, y tu media de 4404 pasos al día suma +2,5 años. La meta de esta semana solo pide un pequeño esfuerzo extra cada día."
+          "titulo": "Recupera horas de descanso",
+          "accion": "Fija una hora de acostarte y otra de levantarte, y respétalas todos los días con un margen de ±30 minutos, incluido el fin de semana. Busca dormir al menos 6 h 45 min. Deja la pantalla 30 minutos antes de dormir.",
+          "porque": "El lunes dormiste 5,3 h, lejos de la meta semanal de 6,75 h. Además, la irregularidad de tu sueño (±1,8 h) te suma 1,3 años."
         },
         {
-          "titulo": "Fija tu hora de descanso",
-          "accion": "Elige una hora fija para acostarte, con una diferencia máxima de 30 minutos entre días, y busca dormir unas 6 h 45 min cada noche. Apaga las pantallas 30 minutos antes.",
-          "porque": "Tu día registrado tuvo solo 5,3 h de sueño. La irregularidad del sueño (±1,8 h) suma +1,3 años y tu sueño corto otros +0,8."
+          "titulo": "Mantén los 4.500 pasos",
+          "accion": "Camina al menos 4.500 pasos cada día. Si a media tarde vas corto, añade un paseo de 10 minutos después de comer o de cenar.",
+          "porque": "El lunes hiciste 4.873 pasos, por encima del ritmo diario que pide la meta de 31.500. El reto es repetirlo los 7 días, porque la semana pasada te quedaste en 26.764."
         }
       ],
-      "mision": "Misión del Mapa Completo: registra los 7 días de la semana (pasos, sueño y minutos activos). Si además logras 5 noches de al menos 6 h 45 min, Ojo Único caerá ante ti.",
-      "generatedAt": "2026-10-19T17:49:31.654Z",
+      "mision": "Misión de la Cumbre (opcional): el fin de semana, sube a pie a un mirador, una colina o unas escaleras largas de tu ciudad, en una salida de unos 45 minutos. Contemplar la vista desde lo alto será el golpe final al Cíclope.",
+      "generatedAt": "2026-10-19T22:46:50.239Z",
       "model": "claude-opus-5-5"
     }
   }
