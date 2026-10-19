@@ -1,7 +1,8 @@
 # Every day: pull the latest Google Health data for "Crónica del Aventurero", ask the Sage (Claude)
 # for this week's advice, have Claude write this week's chapter of the chronicle (and any past week
-# still missing one) and redeploy andresb.dev to GitHub Pages. master is protected, so the data
-# isn't committed there: it lives in the published gh-pages branch and is restored from it first.
+# still missing one), refresh the Scriptable widget's data and redeploy andresb.dev to GitHub Pages.
+# master is protected, so the data isn't committed there: it lives in the published gh-pages branch
+# and is restored from it first.
 #
 # Secrets (Settings → Secrets and variables → Actions):
 #   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN  (required)
@@ -66,6 +67,12 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ANTHROPIC_WORKSPACE_ID: ${{ secrets.ANTHROPIC_WORKSPACE_ID }}
         run: node scripts/cronica/cronica.mjs
+
+      - name: Update the Scriptable widget data
+        continue-on-error: true # the site still deploys without it
+        run: |
+          npx playwright install --with-deps chromium
+          node scripts/cronica/widget.mjs
 
       - name: Build and deploy to GitHub Pages
         env:
