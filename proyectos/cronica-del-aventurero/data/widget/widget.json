@@ -1,53 +1,53 @@
 {
-  "syncedAt": "2026-10-19T22:46:13.723Z",
+  "syncedAt": "2026-10-20T15:52:45.336Z",
   "weekStart": "2026-10-19",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
   "xp": {
-    "value": 213,
+    "value": 358,
     "next": 4800
   },
-  "hp": 799,
-  "mp": 668,
+  "hp": 986,
+  "mp": 811,
   "wins": 8,
   "week": {
-    "steps": 4873,
+    "steps": 9450,
     "stepsGoal": 31500,
-    "activeMin": 13,
+    "activeMin": 50,
     "activeGoal": 150,
-    "sleepH": 5.3,
+    "sleepH": 6.5,
     "sleepGoal": 6.75,
-    "days": 1,
+    "days": 2,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-10-19",
-    "steps": 4873,
-    "sleepMin": 321,
-    "activeMin": 13,
-    "restingHr": 71
+    "date": "2026-10-20",
+    "steps": 3162,
+    "sleepMin": 458,
+    "activeMin": 37,
+    "restingHr": 70
   },
   "boss": {
     "name": "Ojo Único",
     "title": "Cíclope de la Cumbre",
     "act": "Las Montañas de Hierro",
-    "hp": 439,
+    "hp": 226,
     "maxHp": 2000,
     "status": "combate"
   },
   "age": {
     "real": 31,
-    "phys": 37
+    "phys": 36.9
   },
   "sage": {
-    "greeting": "Aventurero, el Cíclope de la Cumbre tambalea con solo 439 PV: has empezado la semana con buen paso, pero tus noches cortas te restan fuerzas. Afina el descanso y su único ojo se cerrará para siempre.",
+    "greeting": "Saludos, aventurero. Al Ojo Único, Cíclope de la Cumbre, solo le quedan 226 PV. Tus dos primeros días han sido dignos, pero el sueño irregular y un día de pocos pasos aún dejan grietas en tu armadura.",
     "tip": {
-      "title": "Templa tu corazón",
-      "action": "Haz 3 caminatas a paso ligero de 30 minutos (por ejemplo, lunes, miércoles y sábado). Al terminar el día, dedica 5 minutos a respirar lento: inhala 4 segundos y exhala 6."
+      "title": "Templa tu corazón caminando",
+      "action": "Haz 3 caminatas a paso ligero de 30 minutos antes del domingo, a un ritmo que te permita hablar pero no cantar. Con eso sumarás unos 90 de los 100 minutos activos que te faltan para la meta de 150."
     },
-    "mission": "Misión de la Cumbre (opcional): el fin de semana, sube a pie a un mirador, una colina o unas escaleras largas de tu ciudad, en una salida de unos 45 minutos. Contemplar la vista desde lo alto será el golpe final al Cíclope."
+    "mission": "Misión opcional «Asalto a la Cumbre»: este fin de semana, haz una caminata de 45 minutos con cuestas o escaleras para asestar el golpe final al Ojo Único. Puede contar como una de tus 3 caminatas de la semana."
   },
-  "chapter": "El Ojo que Volvió a Encenderse",
-  "generatedAt": "2026-10-19T22:47:12.199Z"
+  "chapter": "El Retorno del Cíclope desde las Entrañas de Hierro",
+  "generatedAt": "2026-10-20T15:53:48.597Z"
 }
