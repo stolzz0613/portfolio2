@@ -1,53 +1,53 @@
 {
-  "syncedAt": "2026-10-20T15:52:45.336Z",
+  "syncedAt": "2026-10-21T16:10:03.226Z",
   "weekStart": "2026-10-19",
   "name": "Andrés",
   "job": "Guerrero",
-  "level": 8,
+  "level": 7,
   "xp": {
-    "value": 358,
-    "next": 4800
+    "value": 3282,
+    "next": 4200
   },
-  "hp": 986,
-  "mp": 811,
-  "wins": 8,
+  "hp": 550,
+  "mp": 0,
+  "wins": 7,
   "week": {
-    "steps": 9450,
+    "steps": 11812,
     "stepsGoal": 31500,
     "activeMin": 50,
     "activeGoal": 150,
-    "sleepH": 6.5,
-    "sleepGoal": 6.75,
-    "days": 2,
+    "sleepH": 0,
+    "sleepGoal": 7,
+    "days": 3,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-10-20",
-    "steps": 3162,
-    "sleepMin": 458,
-    "activeMin": 37,
-    "restingHr": 70
+    "date": "2026-10-21",
+    "steps": 288,
+    "sleepMin": null,
+    "activeMin": null,
+    "restingHr": null
   },
   "boss": {
-    "name": "Ojo Único",
-    "title": "Cíclope de la Cumbre",
+    "name": "Hielvar",
+    "title": "Espíritu de la Ventisca",
     "act": "Las Montañas de Hierro",
-    "hp": 226,
+    "hp": 788,
     "maxHp": 2000,
     "status": "combate"
   },
   "age": {
     "real": 31,
-    "phys": 36.9
+    "phys": 34.7
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Al Ojo Único, Cíclope de la Cumbre, solo le quedan 226 PV. Tus dos primeros días han sido dignos, pero el sueño irregular y un día de pocos pasos aún dejan grietas en tu armadura.",
+    "greeting": "Bienvenido, aventurero. Hielvar, Espíritu de la Ventisca, ya tiembla con solo 788 PV, pero tus pasos se congelaron a mitad de semana. Aviva el fuego y la victoria será tuya.",
     "tip": {
-      "title": "Templa tu corazón caminando",
-      "action": "Haz 3 caminatas a paso ligero de 30 minutos antes del domingo, a un ritmo que te permita hablar pero no cantar. Con eso sumarás unos 90 de los 100 minutos activos que te faltan para la meta de 150."
+      "title": "Cardio suave para tu corazón",
+      "action": "Haz 3 sesiones de 30 minutos de caminata rápida o bici a un ritmo que te permita hablar sin jadear, por ejemplo lunes, miércoles y viernes. Suman 90 de tus 150 minutos activos."
     },
-    "mission": "Misión opcional «Asalto a la Cumbre»: este fin de semana, haz una caminata de 45 minutos con cuestas o escaleras para asestar el golpe final al Ojo Único. Puede contar como una de tus 3 caminatas de la semana."
+    "mission": "Misión «Deshielo»: completa 3 días seguidos con al menos 5.000 pasos y 25 minutos activos. Cada día cumplido será un golpe de fuego contra Hielvar."
   },
-  "chapter": "El Retorno del Cíclope desde las Entrañas de Hierro",
-  "generatedAt": "2026-10-20T15:53:48.597Z"
+  "chapter": "El retorno de la Ventisca en las entrañas de la montaña",
+  "generatedAt": "2026-10-21T16:12:24.351Z"
 }
