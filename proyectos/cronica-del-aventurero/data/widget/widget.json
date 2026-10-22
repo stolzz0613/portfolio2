@@ -1,53 +1,53 @@
 {
-  "syncedAt": "2026-10-21T16:10:03.226Z",
+  "syncedAt": "2026-10-22T16:06:46.856Z",
   "weekStart": "2026-10-19",
   "name": "Andrés",
   "job": "Guerrero",
-  "level": 7,
+  "level": 8,
   "xp": {
-    "value": 3282,
-    "next": 4200
+    "value": 474,
+    "next": 4800
   },
-  "hp": 550,
-  "mp": 0,
-  "wins": 7,
+  "hp": 949,
+  "mp": 792,
+  "wins": 9,
   "week": {
-    "steps": 11812,
+    "steps": 17587,
     "stepsGoal": 31500,
-    "activeMin": 50,
+    "activeMin": 80,
     "activeGoal": 150,
-    "sleepH": 0,
-    "sleepGoal": 7,
-    "days": 3,
+    "sleepH": 6.3,
+    "sleepGoal": 6.75,
+    "days": 4,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-10-21",
-    "steps": 288,
+    "date": "2026-10-22",
+    "steps": 411,
     "sleepMin": null,
     "activeMin": null,
     "restingHr": null
   },
   "boss": {
-    "name": "Hielvar",
-    "title": "Espíritu de la Ventisca",
+    "name": "Ojo Único",
+    "title": "Cíclope de la Cumbre",
     "act": "Las Montañas de Hierro",
-    "hp": 788,
+    "hp": 0,
     "maxHp": 2000,
-    "status": "combate"
+    "status": "derrotado"
   },
   "age": {
     "real": 31,
-    "phys": 34.7
+    "phys": 36.7
   },
   "sage": {
-    "greeting": "Bienvenido, aventurero. Hielvar, Espíritu de la Ventisca, ya tiembla con solo 788 PV, pero tus pasos se congelaron a mitad de semana. Aviva el fuego y la victoria será tuya.",
+    "greeting": "¡Bien hecho, aventurero! Ojo Único, el Cíclope de la Cumbre, ya mordió el polvo. Pero el Sabio ve que tu corazón late algo más deprisa de lo que debería en reposo, y esa es tu próxima conquista.",
     "tip": {
-      "title": "Cardio suave para tu corazón",
-      "action": "Haz 3 sesiones de 30 minutos de caminata rápida o bici a un ritmo que te permita hablar sin jadear, por ejemplo lunes, miércoles y viernes. Suman 90 de tus 150 minutos activos."
+      "title": "Forja un corazón sereno",
+      "action": "Haz 5 sesiones de 30 minutos de caminata rápida o bici suave, a un ritmo que te permita hablar sin jadear. Así sumas los 150 minutos activos de la semana."
     },
-    "mission": "Misión «Deshielo»: completa 3 días seguidos con al menos 5.000 pasos y 25 minutos activos. Cada día cumplido será un golpe de fuego contra Hielvar."
+    "mission": "Misión secreta «Escalera del Cíclope»: durante 5 días de la semana, sube por las escaleras en lugar de usar el ascensor al menos una vez al día. Cada tramo es un peldaño más hacia la cumbre."
   },
-  "chapter": "El retorno de la Ventisca en las entrañas de la montaña",
-  "generatedAt": "2026-10-21T16:12:24.351Z"
+  "chapter": "La caída del Ojo Único en las entrañas de hierro",
+  "generatedAt": "2026-10-22T16:09:09.493Z"
 }
