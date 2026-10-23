@@ -1,53 +1,53 @@
 {
-  "syncedAt": "2026-10-22T16:06:46.856Z",
+  "syncedAt": "2026-10-23T15:58:17.227Z",
   "weekStart": "2026-10-19",
   "name": "Andrés",
   "job": "Guerrero",
-  "level": 8,
+  "level": 7,
   "xp": {
-    "value": 474,
-    "next": 4800
+    "value": 1376,
+    "next": 4200
   },
-  "hp": 949,
-  "mp": 792,
-  "wins": 9,
+  "hp": 626,
+  "mp": 807,
+  "wins": 7,
   "week": {
-    "steps": 17587,
+    "steps": 20726,
     "stepsGoal": 31500,
-    "activeMin": 80,
-    "activeGoal": 150,
-    "sleepH": 6.3,
+    "activeMin": 0,
+    "activeGoal": 30,
+    "sleepH": 6.5,
     "sleepGoal": 6.75,
-    "days": 4,
+    "days": 5,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-10-22",
-    "steps": 411,
-    "sleepMin": null,
+    "date": "2026-10-23",
+    "steps": 602,
+    "sleepMin": 409,
     "activeMin": null,
-    "restingHr": null
+    "restingHr": 74
   },
   "boss": {
-    "name": "Ojo Único",
-    "title": "Cíclope de la Cumbre",
+    "name": "Hielvar",
+    "title": "Espíritu de la Ventisca",
     "act": "Las Montañas de Hierro",
-    "hp": 0,
+    "hp": 239,
     "maxHp": 2000,
-    "status": "derrotado"
+    "status": "combate"
   },
   "age": {
     "real": 31,
-    "phys": 36.7
+    "phys": 38.7
   },
   "sage": {
-    "greeting": "¡Bien hecho, aventurero! Ojo Único, el Cíclope de la Cumbre, ya mordió el polvo. Pero el Sabio ve que tu corazón late algo más deprisa de lo que debería en reposo, y esa es tu próxima conquista.",
+    "greeting": "Aventurero, a Hielvar, Espíritu de la Ventisca, solo le quedan 239 PV, pero tus pasos se congelaron al final de la semana (602 el último día). Recupera el ritmo con calma y el golpe final será tuyo.",
     "tip": {
-      "title": "Forja un corazón sereno",
-      "action": "Haz 5 sesiones de 30 minutos de caminata rápida o bici suave, a un ritmo que te permita hablar sin jadear. Así sumas los 150 minutos activos de la semana."
+      "title": "Despierta tu corazón guerrero",
+      "action": "Haz 3 caminatas a paso ligero de 10 minutos (por ejemplo, lunes, miércoles y viernes), a un ritmo que te deje hablar pero no cantar. Así sumarás tus 30 minutos activos. Comprueba que tu reloj o app registre los minutos activos."
     },
-    "mission": "Misión secreta «Escalera del Cíclope»: durante 5 días de la semana, sube por las escaleras en lugar de usar el ascensor al menos una vez al día. Cada tramo es un peldaño más hacia la cumbre."
+    "mission": "Misión del Pergamino Nocturno: durante 5 noches, deja el móvil fuera del dormitorio o lejos de la cama 30 minutos antes de dormir. Si lo logras, que Hielvar tiemble ante tu descanso."
   },
-  "chapter": "La caída del Ojo Único en las entrañas de hierro",
-  "generatedAt": "2026-10-22T16:09:09.493Z"
+  "chapter": "El regreso de la Ventisca",
+  "generatedAt": "2026-10-23T15:59:29.921Z"
 }
