@@ -1,53 +1,53 @@
 {
-  "syncedAt": "2026-10-23T15:58:17.227Z",
+  "syncedAt": "2026-10-24T14:56:15.745Z",
   "weekStart": "2026-10-19",
   "name": "Andrés",
   "job": "Guerrero",
-  "level": 7,
+  "level": 8,
   "xp": {
-    "value": 1376,
-    "next": 4200
+    "value": 762,
+    "next": 4800
   },
-  "hp": 626,
-  "mp": 807,
-  "wins": 7,
+  "hp": 951,
+  "mp": 826,
+  "wins": 9,
   "week": {
-    "steps": 20726,
+    "steps": 23692,
     "stepsGoal": 31500,
-    "activeMin": 0,
-    "activeGoal": 30,
-    "sleepH": 6.5,
+    "activeMin": 181,
+    "activeGoal": 150,
+    "sleepH": 6.6,
     "sleepGoal": 6.75,
-    "days": 5,
+    "days": 6,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-10-23",
-    "steps": 602,
-    "sleepMin": 409,
-    "activeMin": null,
-    "restingHr": 74
+    "date": "2026-10-24",
+    "steps": 140,
+    "sleepMin": 433,
+    "activeMin": 0,
+    "restingHr": 76
   },
   "boss": {
-    "name": "Hielvar",
-    "title": "Espíritu de la Ventisca",
+    "name": "Ojo Único",
+    "title": "Cíclope de la Cumbre",
     "act": "Las Montañas de Hierro",
-    "hp": 239,
+    "hp": 0,
     "maxHp": 2000,
-    "status": "combate"
+    "status": "derrotado"
   },
   "age": {
     "real": 31,
-    "phys": 38.7
+    "phys": 37
   },
   "sage": {
-    "greeting": "Aventurero, a Hielvar, Espíritu de la Ventisca, solo le quedan 239 PV, pero tus pasos se congelaron al final de la semana (602 el último día). Recupera el ritmo con calma y el golpe final será tuyo.",
+    "greeting": "¡Bien hecho, aventurero! Ojo Único, el Cíclope de la Cumbre, ya yace derrotado, y superaste tus minutos activos. Pero el Sabio ve que tu corazón late algo más rápido en reposo y que tus pasos se apagaron al final de la semana.",
     "tip": {
-      "title": "Despierta tu corazón guerrero",
-      "action": "Haz 3 caminatas a paso ligero de 10 minutos (por ejemplo, lunes, miércoles y viernes), a un ritmo que te deje hablar pero no cantar. Así sumarás tus 30 minutos activos. Comprueba que tu reloj o app registre los minutos activos."
+      "title": "Vigila tu pulso en reposo",
+      "action": "Cada mañana, al despertar y antes de levantarte, anota tu FC en reposo. Reparte tus 150 min activos en 5 sesiones de 30 min de intensidad moderada, como caminar a paso vivo, en lugar de concentrarlos en un solo día. Si sigue subiendo durante otra semana o notas cansancio inusual, consulta a un profesional."
     },
-    "mission": "Misión del Pergamino Nocturno: durante 5 noches, deja el móvil fuera del dormitorio o lejos de la cama 30 minutos antes de dormir. Si lo logras, que Hielvar tiemble ante tu descanso."
+    "mission": "Misión secreta «Senda del Alba»: durante 5 días, camina 15 min con luz natural en la primera hora tras despertar. Activará tus pasos, ordenará tu reloj de sueño y quizá calme tu pulso matutino."
   },
-  "chapter": "El regreso de la Ventisca",
-  "generatedAt": "2026-10-23T15:59:29.921Z"
+  "chapter": "El ojo que se apagó en las entrañas de hierro",
+  "generatedAt": "2026-10-24T14:57:34.029Z"
 }

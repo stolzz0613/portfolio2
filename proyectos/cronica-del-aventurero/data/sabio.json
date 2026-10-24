@@ -24,26 +24,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-10-19": {
-      "saludo": "Aventurero, a Hielvar, Espíritu de la Ventisca, solo le quedan 239 PV, pero tus pasos se congelaron al final de la semana (602 el último día). Recupera el ritmo con calma y el golpe final será tuyo.",
+      "saludo": "¡Bien hecho, aventurero! Ojo Único, el Cíclope de la Cumbre, ya yace derrotado, y superaste tus minutos activos. Pero el Sabio ve que tu corazón late algo más rápido en reposo y que tus pasos se apagaron al final de la semana.",
       "consejos": [
         {
-          "titulo": "Despierta tu corazón guerrero",
-          "accion": "Haz 3 caminatas a paso ligero de 10 minutos (por ejemplo, lunes, miércoles y viernes), a un ritmo que te deje hablar pero no cantar. Así sumarás tus 30 minutos activos. Comprueba que tu reloj o app registre los minutos activos.",
-          "porque": "Tu FC en reposo es el factor que más suma a tu edad fisiológica (+3,3 años) y subió de 69 a 74 lpm en los últimos días. Si sigue subiendo durante la semana o te notas raro, consulta a un profesional sanitario."
+          "titulo": "Vigila tu pulso en reposo",
+          "accion": "Cada mañana, al despertar y antes de levantarte, anota tu FC en reposo. Reparte tus 150 min activos en 5 sesiones de 30 min de intensidad moderada, como caminar a paso vivo, en lugar de concentrarlos en un solo día. Si sigue subiendo durante otra semana o notas cansancio inusual, consulta a un profesional.",
+          "porque": "Tu FC en reposo es el factor que más suma a tu edad fisiológica (+3,4 años) y subió cada día, de 69 lpm el martes a 76 lpm el sábado. El jueves acumulaste 94 de tus 181 minutos activos."
         },
         {
-          "titulo": "Pasos diarios sin altibajos",
-          "accion": "Camina unos 4.500 pasos cada día para llegar a 31.500 en la semana. Si a media tarde llevas menos de 2.500, da un paseo de 15 minutos.",
-          "porque": "Empezaste con 6.288 pasos y acabaste con 602. Repartir el esfuerzo evita esos bajones; tus pasos suman +2,4 años a tu edad fisiológica."
+          "titulo": "Ningún día bajo 3.000",
+          "accion": "Haz un paseo de 10 min después de comer y otro después de cenar para sumar unos 2.000 pasos extra. Apunta a 4.500 pasos diarios para alcanzar los 31.500 semanales y no dejes que ningún día baje de 3.000.",
+          "porque": "Empezaste con más de 5.000 pasos diarios, pero los últimos tres días cayeron a 2.948, 3.428 y apenas 140. Cerraste con 23.692 pasos frente a los 26.765 de la semana anterior."
         },
         {
-          "titulo": "Hora fija de despertar",
-          "accion": "Fija la misma hora para levantarte todos los días (±30 min) y acuéstate unos 15 minutos antes de lo habitual, con la meta de dormir 6,75 h de media.",
-          "porque": "Tu sueño osciló entre 5,3 y 7,6 h (desviación de 0,85 h). La irregularidad suma +1,3 años y dormir poco, +0,8."
+          "titulo": "Hora fija para despertar",
+          "accion": "Elige una misma hora de despertar para los 7 días, incluido el fin de semana, y acuéstate 15 min antes de lo habitual. Busca una media de 6,75 h sin que ninguna noche baje de 6 h.",
+          "porque": "Tu sueño osciló entre 5,3 h y 7,6 h (±0,8 h), y su irregularidad te suma +1,3 años. Tu media ya mejoró de 6,1 h a 6,6 h, así que el siguiente paso está a tu alcance."
         }
       ],
-      "mision": "Misión del Pergamino Nocturno: durante 5 noches, deja el móvil fuera del dormitorio o lejos de la cama 30 minutos antes de dormir. Si lo logras, que Hielvar tiemble ante tu descanso.",
-      "generatedAt": "2026-10-23T15:58:51.794Z",
+      "mision": "Misión secreta «Senda del Alba»: durante 5 días, camina 15 min con luz natural en la primera hora tras despertar. Activará tus pasos, ordenará tu reloj de sueño y quizá calme tu pulso matutino.",
+      "generatedAt": "2026-10-24T14:56:52.268Z",
       "model": "claude-opus-5-5"
     }
   }
