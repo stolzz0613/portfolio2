@@ -1,32 +1,32 @@
 {
-  "syncedAt": "2026-10-24T14:56:15.745Z",
+  "syncedAt": "2026-10-25T15:05:13.196Z",
   "weekStart": "2026-10-19",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
   "xp": {
-    "value": 762,
+    "value": 871,
     "next": 4800
   },
-  "hp": 951,
-  "mp": 826,
+  "hp": 980,
+  "mp": 857,
   "wins": 9,
   "week": {
-    "steps": 23692,
+    "steps": 29661,
     "stepsGoal": 31500,
-    "activeMin": 181,
+    "activeMin": 193,
     "activeGoal": 150,
-    "sleepH": 6.6,
+    "sleepH": 6.9,
     "sleepGoal": 6.75,
-    "days": 6,
+    "days": 7,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-10-24",
-    "steps": 140,
-    "sleepMin": 433,
+    "date": "2026-10-25",
+    "steps": 471,
+    "sleepMin": 486,
     "activeMin": 0,
-    "restingHr": 76
+    "restingHr": 74
   },
   "boss": {
     "name": "Ojo Único",
@@ -38,16 +38,16 @@
   },
   "age": {
     "real": 31,
-    "phys": 37
+    "phys": 37.3
   },
   "sage": {
-    "greeting": "¡Bien hecho, aventurero! Ojo Único, el Cíclope de la Cumbre, ya yace derrotado, y superaste tus minutos activos. Pero el Sabio ve que tu corazón late algo más rápido en reposo y que tus pasos se apagaron al final de la semana.",
+    "greeting": "¡Aventurero! Ojo Único, el Cíclope de la Cumbre, ya yace derrotado y tus registros muestran más pasos, más minutos activos y más sueño que la semana pasada. Pero el Sabio ve una sombra en tu pulso que conviene vigilar.",
     "tip": {
-      "title": "Vigila tu pulso en reposo",
-      "action": "Cada mañana, al despertar y antes de levantarte, anota tu FC en reposo. Reparte tus 150 min activos en 5 sesiones de 30 min de intensidad moderada, como caminar a paso vivo, en lugar de concentrarlos en un solo día. Si sigue subiendo durante otra semana o notas cansancio inusual, consulta a un profesional."
+      "title": "Cuida tu pulso en reposo",
+      "action": "Reparte tus 150 minutos activos en 5 sesiones de unos 30 minutos a ritmo moderado (caminar rápido, bici suave) en lugar de concentrarlos en un solo día. Mide tu FC en reposo cada mañana al despertar, antes de levantarte. Si sigue subiendo durante la semana o notas mareos, cansancio inusual o palpitaciones, consulta a un profesional de la salud."
     },
-    "mission": "Misión secreta «Senda del Alba»: durante 5 días, camina 15 min con luz natural en la primera hora tras despertar. Activará tus pasos, ordenará tu reloj de sueño y quizá calme tu pulso matutino."
+    "mission": "Misión opcional «El Sendero del Domingo»: el próximo domingo, sal a una caminata tranquila de al menos 30 minutos al aire libre y termina el día por encima de 4500 pasos. Si lo logras, ningún día de la semana habrá caído en el abismo de la inactividad."
   },
-  "chapter": "El ojo que se apagó en las entrañas de hierro",
-  "generatedAt": "2026-10-24T14:57:34.029Z"
+  "chapter": "La caída del Ojo Único",
+  "generatedAt": "2026-10-25T15:06:25.684Z"
 }

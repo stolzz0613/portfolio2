@@ -24,26 +24,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-10-19": {
-      "saludo": "¡Bien hecho, aventurero! Ojo Único, el Cíclope de la Cumbre, ya yace derrotado, y superaste tus minutos activos. Pero el Sabio ve que tu corazón late algo más rápido en reposo y que tus pasos se apagaron al final de la semana.",
+      "saludo": "¡Aventurero! Ojo Único, el Cíclope de la Cumbre, ya yace derrotado y tus registros muestran más pasos, más minutos activos y más sueño que la semana pasada. Pero el Sabio ve una sombra en tu pulso que conviene vigilar.",
       "consejos": [
         {
-          "titulo": "Vigila tu pulso en reposo",
-          "accion": "Cada mañana, al despertar y antes de levantarte, anota tu FC en reposo. Reparte tus 150 min activos en 5 sesiones de 30 min de intensidad moderada, como caminar a paso vivo, en lugar de concentrarlos en un solo día. Si sigue subiendo durante otra semana o notas cansancio inusual, consulta a un profesional.",
-          "porque": "Tu FC en reposo es el factor que más suma a tu edad fisiológica (+3,4 años) y subió cada día, de 69 lpm el martes a 76 lpm el sábado. El jueves acumulaste 94 de tus 181 minutos activos."
+          "titulo": "Cuida tu pulso en reposo",
+          "accion": "Reparte tus 150 minutos activos en 5 sesiones de unos 30 minutos a ritmo moderado (caminar rápido, bici suave) en lugar de concentrarlos en un solo día. Mide tu FC en reposo cada mañana al despertar, antes de levantarte. Si sigue subiendo durante la semana o notas mareos, cansancio inusual o palpitaciones, consulta a un profesional de la salud.",
+          "porque": "Tu FC en reposo es el factor que más años suma a tu edad fisiológica. Esta semana subió de 69 a 76 lpm y su media pasó de 70,7 a 72,4 lpm. Además, el 22/10 acumulaste 94 de tus 193 minutos activos, mientras que otros días apenas llegaste a 0-12."
         },
         {
-          "titulo": "Ningún día bajo 3.000",
-          "accion": "Haz un paseo de 10 min después de comer y otro después de cenar para sumar unos 2.000 pasos extra. Apunta a 4.500 pasos diarios para alcanzar los 31.500 semanales y no dejes que ningún día baje de 3.000.",
-          "porque": "Empezaste con más de 5.000 pasos diarios, pero los últimos tres días cayeron a 2.948, 3.428 y apenas 140. Cerraste con 23.692 pasos frente a los 26.765 de la semana anterior."
+          "titulo": "Ningún día bajo 4500 pasos",
+          "accion": "Para alcanzar 31.500 pasos, apunta a unos 4500 pasos diarios. Añade un paseo de 10 minutos después de comer (aprox. 1000 pasos) y planifica uno más largo el domingo.",
+          "porque": "Te quedaste en 29.661 pasos, a menos de 2000 de la meta. El domingo solo diste 471 pasos y el jueves y el viernes no llegaste a 3500. Subir los días flojos basta para lograrlo."
         },
         {
-          "titulo": "Hora fija para despertar",
-          "accion": "Elige una misma hora de despertar para los 7 días, incluido el fin de semana, y acuéstate 15 min antes de lo habitual. Busca una media de 6,75 h sin que ninguna noche baje de 6 h.",
-          "porque": "Tu sueño osciló entre 5,3 h y 7,6 h (±0,8 h), y su irregularidad te suma +1,3 años. Tu media ya mejoró de 6,1 h a 6,6 h, así que el siguiente paso está a tu alcance."
+          "titulo": "Hora fija para dormir",
+          "accion": "Elige una hora de acostarte y mantenla todos los días, fin de semana incluido, con un margen máximo de 30 minutos. Intenta dormir al menos 6 h 45 min cada noche y registra el sueño todas las noches.",
+          "porque": "Tu media de 6,86 h ya supera la meta de 6,75 h, pero variaste mucho: de 5,3 h el lunes a 8,1 h el domingo, y te falta un dato. La irregularidad del sueño también suma años a tu edad fisiológica."
         }
       ],
-      "mision": "Misión secreta «Senda del Alba»: durante 5 días, camina 15 min con luz natural en la primera hora tras despertar. Activará tus pasos, ordenará tu reloj de sueño y quizá calme tu pulso matutino.",
-      "generatedAt": "2026-10-24T14:56:52.268Z",
+      "mision": "Misión opcional «El Sendero del Domingo»: el próximo domingo, sal a una caminata tranquila de al menos 30 minutos al aire libre y termina el día por encima de 4500 pasos. Si lo logras, ningún día de la semana habrá caído en el abismo de la inactividad.",
+      "generatedAt": "2026-10-25T15:06:03.562Z",
       "model": "claude-opus-5-5"
     }
   }
