@@ -45,6 +45,29 @@
       "mision": "Misión opcional «El Sendero del Domingo»: el próximo domingo, sal a una caminata tranquila de al menos 30 minutos al aire libre y termina el día por encima de 4500 pasos. Si lo logras, ningún día de la semana habrá caído en el abismo de la inactividad.",
       "generatedAt": "2026-10-25T15:06:03.562Z",
       "model": "claude-opus-5-5"
+    },
+    "2026-10-26": {
+      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, apenas ha sentido un rasguño (le quedan 2461 de 2500 PV) porque la semana acaba de empezar y solo llevas 174 pasos. La semana pasada superaste tu meta, así que tienes con qué derribarlo.",
+      "consejos": [
+        {
+          "titulo": "Calma tu corazón guerrero",
+          "accion": "Haz 5 sesiones de 30 minutos de actividad aeróbica suave a moderada esta semana (caminar rápido, bici o nadar), a un ritmo en el que puedas hablar sin ahogarte. Eso suma los 150 minutos activos de tu meta.",
+          "porque": "Tu FC en reposo es el factor que más suma a tu edad fisiológica (+3,6 años). Se ha mantenido estable (72,4 la semana pasada y 72 hoy), y la actividad aeróbica constante es una de las mejores formas de bajarla con el tiempo. Si notas que sube de forma marcada o sostenida, consulta a un profesional."
+        },
+        {
+          "titulo": "Unos 5.100 pasos diarios",
+          "accion": "Camina unos 5.100 pasos al día para llegar a 35.500 en la semana. Divide el esfuerzo en dos paseos de 15–20 minutos, uno después de comer y otro al terminar la jornada.",
+          "porque": "Llevas solo 174 pasos el primer día, y tus pasos diarios suman +2,5 años a tu edad fisiológica. La semana pasada hiciste 35.045, así que la meta está a tu alcance."
+        },
+        {
+          "titulo": "Mismo horario, mismo descanso",
+          "accion": "Fija una hora de acostarte y otra de levantarte. Mantenlas con un margen de ±30 minutos todos los días, también el fin de semana, y apunta a dormir al menos 7 horas de media.",
+          "porque": "La irregularidad de tu sueño (±1,8 h) suma +1,3 años. Tu primera noche fue buena (7,9 h), pero la media reciente es de 6,8 h. Lo que mejora el sueño es la constancia, no una noche aislada."
+        }
+      ],
+      "mision": "Misión secreta «Escaleras del Vacío»: cada día de la semana elige escaleras en lugar de ascensor al menos una vez, y regálate un paseo largo de 45 minutos el fin de semana. Cada tramo es un golpe crítico contra Carmesí.",
+      "generatedAt": "2026-10-26T17:42:40.234Z",
+      "model": "claude-opus-5-5"
     }
   }
 }

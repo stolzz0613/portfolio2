@@ -1,53 +1,53 @@
 {
-  "syncedAt": "2026-10-25T15:05:13.196Z",
-  "weekStart": "2026-10-19",
+  "syncedAt": "2026-10-26T17:42:03.264Z",
+  "weekStart": "2026-10-26",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
   "xp": {
-    "value": 871,
+    "value": 973,
     "next": 4800
   },
-  "hp": 980,
-  "mp": 857,
+  "hp": 344,
+  "mp": 984,
   "wins": 9,
   "week": {
-    "steps": 29661,
-    "stepsGoal": 31500,
-    "activeMin": 193,
+    "steps": 174,
+    "stepsGoal": 35500,
+    "activeMin": 0,
     "activeGoal": 150,
-    "sleepH": 6.9,
-    "sleepGoal": 6.75,
-    "days": 7,
+    "sleepH": 7.9,
+    "sleepGoal": 7,
+    "days": 1,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-10-25",
-    "steps": 471,
-    "sleepMin": 486,
+    "date": "2026-10-26",
+    "steps": 174,
+    "sleepMin": 473,
     "activeMin": 0,
-    "restingHr": 74
+    "restingHr": 72
   },
   "boss": {
-    "name": "Ojo Único",
-    "title": "Cíclope de la Cumbre",
-    "act": "Las Montañas de Hierro",
-    "hp": 0,
-    "maxHp": 2000,
-    "status": "derrotado"
+    "name": "Carmesí",
+    "title": "Devorador del Vacío",
+    "act": "La Ciudadela del Vacío",
+    "hp": 2461,
+    "maxHp": 2500,
+    "status": "combate"
   },
   "age": {
     "real": 31,
-    "phys": 37.3
+    "phys": 37.4
   },
   "sage": {
-    "greeting": "¡Aventurero! Ojo Único, el Cíclope de la Cumbre, ya yace derrotado y tus registros muestran más pasos, más minutos activos y más sueño que la semana pasada. Pero el Sabio ve una sombra en tu pulso que conviene vigilar.",
+    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, apenas ha sentido un rasguño (le quedan 2461 de 2500 PV) porque la semana acaba de empezar y solo llevas 174 pasos. La semana pasada superaste tu meta, así que tienes con qué derribarlo.",
     "tip": {
-      "title": "Cuida tu pulso en reposo",
-      "action": "Reparte tus 150 minutos activos en 5 sesiones de unos 30 minutos a ritmo moderado (caminar rápido, bici suave) en lugar de concentrarlos en un solo día. Mide tu FC en reposo cada mañana al despertar, antes de levantarte. Si sigue subiendo durante la semana o notas mareos, cansancio inusual o palpitaciones, consulta a un profesional de la salud."
+      "title": "Calma tu corazón guerrero",
+      "action": "Haz 5 sesiones de 30 minutos de actividad aeróbica suave a moderada esta semana (caminar rápido, bici o nadar), a un ritmo en el que puedas hablar sin ahogarte. Eso suma los 150 minutos activos de tu meta."
     },
-    "mission": "Misión opcional «El Sendero del Domingo»: el próximo domingo, sal a una caminata tranquila de al menos 30 minutos al aire libre y termina el día por encima de 4500 pasos. Si lo logras, ningún día de la semana habrá caído en el abismo de la inactividad."
+    "mission": "Misión secreta «Escaleras del Vacío»: cada día de la semana elige escaleras en lugar de ascensor al menos una vez, y regálate un paseo largo de 45 minutos el fin de semana. Cada tramo es un golpe crítico contra Carmesí."
   },
-  "chapter": "La caída del Ojo Único",
-  "generatedAt": "2026-10-25T15:06:25.684Z"
+  "chapter": "Las puertas de la Ciudadela del Vacío",
+  "generatedAt": "2026-10-26T17:42:58.527Z"
 }

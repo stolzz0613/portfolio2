@@ -288,6 +288,14 @@
       "status": "derrotado",
       "createdAt": 1792940783100,
       "model": "claude-opus-5-5"
+    },
+    "2026-10-26": {
+      "titulo": "Las puertas de la Ciudadela del Vacío",
+      "texto": "Tras la caída de Ojo Único, las Montañas de Hierro quedaron atrás como un eco de acero. Andrés, Guerrero de nivel 8, descendió por la última fisura y se halló ante lo que tantas lunas había presentido: la Ciudadela del Vacío, alzándose negra sobre un mar de nada, sin estrellas ni viento. Allí comenzaba el cuarto y último acto de su viaje.\n\nEl guerrero llegó cansado del largo combate contra el cíclope, pero la noche le concedió una tregua generosa. Durmió casi ocho horas, un descanso más hondo que el de muchas semanas pasadas, y despertó con el cuerpo templado y la mente clara. Una calma nueva le recorría las venas: la bendición de Descansado, que afiló su voluntad una cuarta parte más.\n\nEl lunes, al cruzar el primer umbral, lo recibió Carmesí, Devorador del Vacío. Su forma era una herida roja abierta en la oscuridad, y de ella brotaba un hambre que lo absorbía todo: el impulso, la marcha, el deseo de moverse. Andrés apenas dio unos pocos pasos sobre las losas heladas, menos de doscientos, y no llegó a trabarse en verdadero combate. Aun así, su estocada inaugural arrancó 39 PV a la bestia.\n\nCarmesí ni siquiera retrocedió. Sus 2461 PV restantes palpitaban como un corazón inmenso, y el silencio de la Ciudadela pareció reírse del guerrero. Pero Andrés conocía ese silencio; lo había quebrado antes en el Valle, en el Bosque, en las cumbres.\n\nLa semana aún no ha terminado. Andrés empuña de nuevo la espada, y en lo profundo del Vacío algo carmesí aguarda el siguiente golpe.",
+      "resumen": "Andrés, Guerrero de nivel 8, entró en la Ciudadela del Vacío y, bien descansado pero casi sin marchar ni combatir, solo arrebató 39 de 2500 PV a Carmesí, Devorador del Vacío, el lunes, dejando la batalla abierta con 2461 PV restantes.",
+      "status": "combate",
+      "createdAt": 1793036574670,
+      "model": "claude-opus-5-5"
     }
   }
 }
