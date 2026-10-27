@@ -1,18 +1,18 @@
 {
-  "syncedAt": "2026-10-26T17:42:03.264Z",
+  "syncedAt": "2026-10-27T16:54:44.418Z",
   "weekStart": "2026-10-26",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
   "xp": {
-    "value": 973,
+    "value": 982,
     "next": 4800
   },
-  "hp": 344,
+  "hp": 401,
   "mp": 984,
   "wins": 9,
   "week": {
-    "steps": 174,
+    "steps": 1041,
     "stepsGoal": 35500,
     "activeMin": 0,
     "activeGoal": 150,
@@ -23,7 +23,7 @@
   },
   "lastDay": {
     "date": "2026-10-26",
-    "steps": 174,
+    "steps": 1041,
     "sleepMin": 473,
     "activeMin": 0,
     "restingHr": 72
@@ -32,22 +32,22 @@
     "name": "Carmesí",
     "title": "Devorador del Vacío",
     "act": "La Ciudadela del Vacío",
-    "hp": 2461,
+    "hp": 2446,
     "maxHp": 2500,
     "status": "combate"
   },
   "age": {
     "real": 31,
-    "phys": 37.4
+    "phys": 37.2
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, apenas ha sentido un rasguño (le quedan 2461 de 2500 PV) porque la semana acaba de empezar y solo llevas 174 pasos. La semana pasada superaste tu meta, así que tienes con qué derribarlo.",
+    "greeting": "Saludos, aventurero. Tu semana arranca con poco movimiento (1041 pasos, 0 min activos), pero dormiste bien (7,9 h). Carmesí, Devorador del Vacío, aún conserva 2446 de 2500 PV, así que es hora de afilar la espada.",
     "tip": {
-      "title": "Calma tu corazón guerrero",
-      "action": "Haz 5 sesiones de 30 minutos de actividad aeróbica suave a moderada esta semana (caminar rápido, bici o nadar), a un ritmo en el que puedas hablar sin ahogarte. Eso suma los 150 minutos activos de tu meta."
+      "title": "Forja tu corazón tranquilo",
+      "action": "Haz 3 sesiones de 30 min de cardio suave (caminata rápida, bici o elíptica) a un ritmo que te permita hablar, por ejemplo lunes, miércoles y sábado. Suman 90 de tus 150 min activos."
     },
-    "mission": "Misión secreta «Escaleras del Vacío»: cada día de la semana elige escaleras en lugar de ascensor al menos una vez, y regálate un paseo largo de 45 minutos el fin de semana. Cada tramo es un golpe crítico contra Carmesí."
+    "mission": "Misión opcional «El Sendero del Alba»: un día del fin de semana, sal a caminar 45 min por un parque o ruta nueva antes del mediodía. Cuenta como minutos activos y como pasos, y la luz de la mañana ayuda a regular tu sueño."
   },
-  "chapter": "Las puertas de la Ciudadela del Vacío",
-  "generatedAt": "2026-10-26T17:42:58.527Z"
+  "chapter": "El umbral de la Ciudadela del Vacío",
+  "generatedAt": "2026-10-27T16:55:41.340Z"
 }
