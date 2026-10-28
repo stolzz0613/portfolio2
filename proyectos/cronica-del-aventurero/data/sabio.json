@@ -47,26 +47,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-10-26": {
-      "saludo": "Saludos, aventurero. Tu semana arranca con poco movimiento (1041 pasos, 0 min activos), pero dormiste bien (7,9 h). Carmesí, Devorador del Vacío, aún conserva 2446 de 2500 PV, así que es hora de afilar la espada.",
+      "saludo": "Saludos, aventurero. Llevas dos días de semana y ya le has arrancado 300 PV a Carmesí, Devorador del Vacío; tu sueño brilla como una gema, pero tus pasos aún caminan en la sombra.",
       "consejos": [
         {
-          "titulo": "Forja tu corazón tranquilo",
-          "accion": "Haz 3 sesiones de 30 min de cardio suave (caminata rápida, bici o elíptica) a un ritmo que te permita hablar, por ejemplo lunes, miércoles y sábado. Suman 90 de tus 150 min activos.",
-          "porque": "Tu FC en reposo (71-72 lpm, estable respecto a la semana pasada) es el factor que más suma a tu edad fisiológica (+3,6 años). El ejercicio aeróbico constante es la mejor forma de mejorarla con el tiempo. Si notas que sube mucho de forma sostenida, consulta a un profesional."
+          "titulo": "Cardio suave para el corazón",
+          "accion": "Haz 3 sesiones de 25 minutos de actividad moderada (paseo a buen ritmo, bici suave) en la que puedas hablar sin ahogarte. Con eso sumas unos 75 minutos y superas los 150 activos de la semana.",
+          "porque": "Tu FC en reposo, de 71 lpm de media, es el factor que más años suma a tu edad fisiológica (+3,6). La actividad aeróbica regular suele ayudar a mejorarla con el tiempo. Si notas que sube de forma marcada o sostenida, consulta a un profesional de la salud."
         },
         {
-          "titulo": "Pasos tras cada comida",
-          "accion": "Camina 10-15 min después del almuerzo y de la cena para llegar a unos 5100 pasos diarios, que equivalen a tus 35500 semanales. Completa los 60 min activos que faltan con 2 paseos rápidos de 30 min.",
-          "porque": "Tu primer día solo registró 1041 pasos y 0 min activos. Tu media de 4470 pasos/día suma +2,4 años, y la semana pasada demostraste que puedes con unos 35000."
+          "titulo": "5.800 pasos cada día",
+          "accion": "Camina unos 5.800 pasos diarios durante los 5 días que quedan. Por ejemplo, añade un paseo de 20 minutos después de comer o cenar a tu rutina actual.",
+          "porque": "Llevas 6.885 pasos y la meta semanal es de 35.500, así que te faltan unos 28.600. Tus días han rondado los 3.000-3.800 pasos, por debajo de tu propio nivel de la semana pasada."
         },
         {
-          "titulo": "Horario de descanso fijo",
-          "accion": "Acuéstate y levántate a la misma hora todos los días, también el fin de semana, con un margen de 30 min, y reserva al menos 7 h para dormir. Deja las pantallas 30 min antes de acostarte.",
-          "porque": "Tu sueño irregular (±1,8 h) suma +1,3 años. Tus 7,9 h del primer día demuestran que puedes superar la meta de 7 h de media; ahora toca hacerlo constante."
+          "titulo": "Guarda tu horario de sueño",
+          "accion": "Mantén la misma hora de acostarte y levantarte todos los días, también el fin de semana, con un margen de ±30 minutos. Apunta a no bajar de 7 horas.",
+          "porque": "Has dormido 7,9 horas ambos días, sin variación entre ellos, por encima de la meta de 7. La irregularidad del sueño (±1,8 h) sumaba 1,3 años, y esta constancia es justo lo que conviene proteger."
         }
       ],
-      "mision": "Misión opcional «El Sendero del Alba»: un día del fin de semana, sal a caminar 45 min por un parque o ruta nueva antes del mediodía. Cuenta como minutos activos y como pasos, y la luz de la mañana ayuda a regular tu sueño.",
-      "generatedAt": "2026-10-27T16:55:25.689Z",
+      "mision": "Misión opcional: «La Ronda del Centinela». Durante 3 días, sal a caminar 10 minutos después de cada comida principal. Cada paseo es un golpe crítico contra Carmesí y te acerca a tus pasos del día sin esfuerzo heroico.",
+      "generatedAt": "2026-10-28T17:29:30.551Z",
       "model": "claude-opus-5-5"
     }
   }
