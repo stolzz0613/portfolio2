@@ -1,53 +1,53 @@
 {
-  "syncedAt": "2026-10-28T17:28:55.230Z",
+  "syncedAt": "2026-10-29T15:29:12.488Z",
   "weekStart": "2026-10-26",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
   "xp": {
-    "value": 1229,
+    "value": 1497,
     "next": 4800
   },
-  "hp": 892,
-  "mp": 984,
+  "hp": 945,
+  "mp": 885,
   "wins": 9,
   "week": {
-    "steps": 6885,
+    "steps": 16984,
     "stepsGoal": 35500,
-    "activeMin": 82,
+    "activeMin": 153,
     "activeGoal": 150,
-    "sleepH": 7.9,
+    "sleepH": 7.1,
     "sleepGoal": 7,
-    "days": 2,
+    "days": 4,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-10-27",
-    "steps": 3806,
-    "sleepMin": 473,
-    "activeMin": 82,
-    "restingHr": 70
+    "date": "2026-10-29",
+    "steps": 206,
+    "sleepMin": 425,
+    "activeMin": 0,
+    "restingHr": 72
   },
   "boss": {
     "name": "Carmesí",
     "title": "Devorador del Vacío",
     "act": "La Ciudadela del Vacío",
-    "hp": 2200,
+    "hp": 1822,
     "maxHp": 2500,
     "status": "combate"
   },
   "age": {
     "real": 31,
-    "phys": 37
+    "phys": 36.9
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Llevas dos días de semana y ya le has arrancado 300 PV a Carmesí, Devorador del Vacío; tu sueño brilla como una gema, pero tus pasos aún caminan en la sombra.",
+    "greeting": "Aventurero, ya cumpliste tus minutos activos de la semana, pero aquel día de apenas 206 pasos dio respiro a Carmesí, Devorador del Vacío, que aún conserva 1822 PV. Escucha bien: con constancia, no con proezas, caerá.",
     "tip": {
-      "title": "Cardio suave para el corazón",
-      "action": "Haz 3 sesiones de 25 minutos de actividad moderada (paseo a buen ritmo, bici suave) en la que puedas hablar sin ahogarte. Con eso sumas unos 75 minutos y superas los 150 activos de la semana."
+      "title": "Calma el corazón guerrero",
+      "action": "Reparte tus 150 minutos activos en 4 o 5 sesiones de cardio suave de 30 a 40 minutos (caminar rápido, bici o trote ligero) a un ritmo en el que puedas conversar. Evita concentrarlo todo en uno o dos días."
     },
-    "mission": "Misión opcional: «La Ronda del Centinela». Durante 3 días, sal a caminar 10 minutos después de cada comida principal. Cada paseo es un golpe crítico contra Carmesí y te acerca a tus pasos del día sin esfuerzo heroico."
+    "mission": "Misión de la Senda Constante: completa 7 días seguidos sin bajar de 4.000 pasos. Cada día cumplido es un golpe certero contra Carmesí."
   },
-  "chapter": "Ante las puertas de la Ciudadela del Vacío",
-  "generatedAt": "2026-10-28T17:29:48.537Z"
+  "chapter": "Las Puertas de la Ciudadela del Vacío",
+  "generatedAt": "2026-10-29T15:30:09.541Z"
 }
