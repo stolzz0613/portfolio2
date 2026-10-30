@@ -47,26 +47,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-10-26": {
-      "saludo": "Saludos, aventurero. Ya cumpliste tus minutos activos en solo 4 días y Carmesí, Devorador del Vacío, tiembla con 1822 de 2500 PV, pero tus días quietos le devuelven fuerzas. La constancia es la espada que lo derribará.",
+      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 1712 de 2500 PV. Tu FC en reposo bajó un poco respecto a la semana pasada, pero tu energía se concentró en solo dos días de batalla. Esta semana toca constancia, no proezas.",
       "consejos": [
         {
-          "titulo": "Calma el tambor interior",
-          "accion": "Reparte tus 150 minutos activos en 5 sesiones de unos 30 minutos de cardio suave (caminar a paso vivo, bici o trote ligero) en lugar de concentrarlos en dos días. Evita la cafeína después de las 15:00.",
-          "porque": "Tu frecuencia cardíaca en reposo es el factor que más años suma a tu edad fisiológica (+3,7). Ha bajado un poco respecto a la semana pasada; el ejercicio aeróbico regular ayuda a mantener esa tendencia. Si notaras que sube de forma clara y sostenida, consulta a un profesional."
+          "titulo": "Reparte tus minutos activos",
+          "accion": "Divide los 150 minutos en 5 sesiones de 30 minutos a ritmo moderado (caminar rápido, bici o trote suave), sin dejar más de 2 días seguidos sin moverte.",
+          "porque": "Tu FC en reposo (71 lpm) es el factor que más suma a tu edad fisiológica (+3,7 años). Tus 153 minutos activos se concentraron en solo 2 de 5 días (27 y 28), y la actividad regular repartida suele ayudar a mejorarla. Si notas que tu FC en reposo sube de forma marcada y sostenida, consulta a un profesional."
         },
         {
-          "titulo": "Ni un día en cero",
-          "accion": "Camina unos 5.100 pasos diarios para llegar a 35.500 en la semana, con un mínimo de 3.000 incluso en los días de descanso. Por ejemplo, un paseo de 20 minutos tras comer y otro tras cenar.",
-          "porque": "El 29 de octubre solo diste 206 pasos y el 26 apenas 3.079, mientras que el 28 llegaste a 8.928. Tu media de 4.574 pasos al día suma +2,3 años; repartir el esfuerzo es más fácil que compensarlo después."
+          "titulo": "Suelo diario de pasos",
+          "accion": "Alcanza al menos 5.100 pasos cada día para llegar a los 35.500 semanales. En los días flojos, añade un paseo de 15 minutos después de comer o de cenar.",
+          "porque": "Hubo días muy bajos, como el 30 con 614 pasos y el 26 con 3.079, mientras que el 28 llegaste a 8.928. Ese único día alto no compensa los demás, y tu media actual (4.597 al día) suma +2,3 años."
         },
         {
-          "titulo": "Hora fija para dormir",
-          "accion": "Elige una hora de acostarte y respétala con un margen de 30 minutos todas las noches, incluido el fin de semana, para dormir al menos 7 horas. Apaga pantallas 30 minutos antes.",
-          "porque": "Tu media de sueño fue buena (7,09 h), pero varió casi una hora de una noche a otra: el 28 dormiste solo 5,5 h frente a las 7,9 h de otras noches. La irregularidad del sueño te suma +1,3 años."
+          "titulo": "Ancla tu hora de dormir",
+          "accion": "Fija una hora de acostarte y de levantarte con un margen de ±30 minutos todos los días, y procura dormir 7 horas o más cada noche, sin bajar de 6,5 h.",
+          "porque": "Tu sueño osciló entre 5,5 h (día 28) y 7,9 h, con una desviación de 0,93 h. La irregularidad suma +1,2 años, y la meta de esta semana es una media de 7 h."
         }
       ],
-      "mision": "Misión opcional «El Paseo del Alba»: durante 5 días, da una caminata de 10 minutos al aire libre antes de las 10:00. Te ayudará a regular el sueño, sumará pasos y asestará un golpe crítico a Carmesí.",
-      "generatedAt": "2026-10-29T17:38:00.612Z",
+      "mision": "Misión opcional «La Ruta del Crepúsculo»: elige un día del fin de semana y da un paseo de 45 minutos sin prisa, por ejemplo a un parque o por un barrio que no conozcas. Sumará pasos y minutos activos, y le arrancará buenos PV a Carmesí.",
+      "generatedAt": "2026-10-30T17:17:22.217Z",
       "model": "claude-opus-5-5"
     }
   }

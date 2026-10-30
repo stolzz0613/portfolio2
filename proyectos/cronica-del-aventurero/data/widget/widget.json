@@ -1,53 +1,53 @@
 {
-  "syncedAt": "2026-10-29T17:37:11.693Z",
+  "syncedAt": "2026-10-30T17:16:46.649Z",
   "weekStart": "2026-10-26",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
   "xp": {
-    "value": 1497,
+    "value": 1547,
     "next": 4800
   },
-  "hp": 945,
-  "mp": 885,
+  "hp": 950,
+  "mp": 864,
   "wins": 9,
   "week": {
-    "steps": 16984,
+    "steps": 21901,
     "stepsGoal": 35500,
     "activeMin": 153,
     "activeGoal": 150,
-    "sleepH": 7.1,
+    "sleepH": 6.9,
     "sleepGoal": 7,
-    "days": 4,
+    "days": 5,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-10-29",
-    "steps": 206,
-    "sleepMin": 425,
+    "date": "2026-10-30",
+    "steps": 614,
+    "sleepMin": 375,
     "activeMin": 0,
-    "restingHr": 72
+    "restingHr": 70
   },
   "boss": {
     "name": "Carmesí",
     "title": "Devorador del Vacío",
     "act": "La Ciudadela del Vacío",
-    "hp": 1822,
+    "hp": 1712,
     "maxHp": 2500,
     "status": "combate"
   },
   "age": {
     "real": 31,
-    "phys": 36.9
+    "phys": 37.1
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Ya cumpliste tus minutos activos en solo 4 días y Carmesí, Devorador del Vacío, tiembla con 1822 de 2500 PV, pero tus días quietos le devuelven fuerzas. La constancia es la espada que lo derribará.",
+    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 1712 de 2500 PV. Tu FC en reposo bajó un poco respecto a la semana pasada, pero tu energía se concentró en solo dos días de batalla. Esta semana toca constancia, no proezas.",
     "tip": {
-      "title": "Calma el tambor interior",
-      "action": "Reparte tus 150 minutos activos en 5 sesiones de unos 30 minutos de cardio suave (caminar a paso vivo, bici o trote ligero) en lugar de concentrarlos en dos días. Evita la cafeína después de las 15:00."
+      "title": "Reparte tus minutos activos",
+      "action": "Divide los 150 minutos en 5 sesiones de 30 minutos a ritmo moderado (caminar rápido, bici o trote suave), sin dejar más de 2 días seguidos sin moverte."
     },
-    "mission": "Misión opcional «El Paseo del Alba»: durante 5 días, da una caminata de 10 minutos al aire libre antes de las 10:00. Te ayudará a regular el sueño, sumará pasos y asestará un golpe crítico a Carmesí."
+    "mission": "Misión opcional «La Ruta del Crepúsculo»: elige un día del fin de semana y da un paseo de 45 minutos sin prisa, por ejemplo a un parque o por un barrio que no conozcas. Sumará pasos y minutos activos, y le arrancará buenos PV a Carmesí."
   },
-  "chapter": "Las Puertas de la Ciudadela del Vacío",
-  "generatedAt": "2026-10-29T17:38:20.441Z"
+  "chapter": "Las puertas de la Ciudadela del Vacío",
+  "generatedAt": "2026-10-30T17:17:40.675Z"
 }
