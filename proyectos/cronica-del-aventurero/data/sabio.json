@@ -47,26 +47,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-10-26": {
-      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 1712 de 2500 PV. Tu FC en reposo bajó un poco respecto a la semana pasada, pero tu energía se concentró en solo dos días de batalla. Esta semana toca constancia, no proezas.",
+      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, ya tambalea con 1381 de 2500 PV, y tu pulso en reposo ha bajado un poco respecto a la semana pasada. Pero los días de quietud total le devuelven fuerzas, así que esta semana toca constancia.",
       "consejos": [
         {
-          "titulo": "Reparte tus minutos activos",
-          "accion": "Divide los 150 minutos en 5 sesiones de 30 minutos a ritmo moderado (caminar rápido, bici o trote suave), sin dejar más de 2 días seguidos sin moverte.",
-          "porque": "Tu FC en reposo (71 lpm) es el factor que más suma a tu edad fisiológica (+3,7 años). Tus 153 minutos activos se concentraron en solo 2 de 5 días (27 y 28), y la actividad regular repartida suele ayudar a mejorarla. Si notas que tu FC en reposo sube de forma marcada y sostenida, consulta a un profesional."
+          "titulo": "Reparte tu energía",
+          "accion": "Haz 150 min activos repartidos en al menos 5 días (por ejemplo, 30 min de caminata rápida o bici a un ritmo que te deje hablar). No dejes más de un día seguido sin actividad.",
+          "porque": "Tu FC en reposo es el factor que más años suma a tu edad fisiológica. Ya bajó de 72,4 a 70,5 con tus 203 min, pero tuviste 3 días con 0 min activos y todo se concentró en solo 3 días."
         },
         {
-          "titulo": "Suelo diario de pasos",
-          "accion": "Alcanza al menos 5.100 pasos cada día para llegar a los 35.500 semanales. En los días flojos, añade un paseo de 15 minutos después de comer o de cenar.",
-          "porque": "Hubo días muy bajos, como el 30 con 614 pasos y el 26 con 3.079, mientras que el 28 llegaste a 8.928. Ese único día alto no compensa los demás, y tu media actual (4.597 al día) suma +2,3 años."
+          "titulo": "Ningún día en cero",
+          "accion": "Apunta a unos 5.100 pasos diarios para llegar a 35.500 en la semana. Marca un mínimo de 3.000 pasos incluso en días de descanso, con un paseo de 15 min después de comer o cenar.",
+          "porque": "Te quedaste en 30.442 pasos, por debajo de los 35.045 de la semana anterior. El 31 de octubre solo diste 180 pasos y el 26 apenas 3.079, mientras que otros días superaste los 8.900."
         },
         {
-          "titulo": "Ancla tu hora de dormir",
-          "accion": "Fija una hora de acostarte y de levantarte con un margen de ±30 minutos todos los días, y procura dormir 7 horas o más cada noche, sin bajar de 6,5 h.",
-          "porque": "Tu sueño osciló entre 5,5 h (día 28) y 7,9 h, con una desviación de 0,93 h. La irregularidad suma +1,2 años, y la meta de esta semana es una media de 7 h."
+          "titulo": "Horario de sueño fijo",
+          "accion": "Elige una hora de acostarte y otra de levantarte, y cúmplelas todos los días con un margen de 30 min, buscando unas 7 h cada noche. Evita recortar a 5-6 h o compensar con 9 h.",
+          "porque": "Tu media de 7,27 h ya supera la meta, pero tus noches fueron de 5,5 h a 9,0 h, una variación de 1,15 h. Esa irregularidad también te suma años."
         }
       ],
-      "mision": "Misión opcional «La Ruta del Crepúsculo»: elige un día del fin de semana y da un paseo de 45 minutos sin prisa, por ejemplo a un parque o por un barrio que no conozcas. Sumará pasos y minutos activos, y le arrancará buenos PV a Carmesí.",
-      "generatedAt": "2026-10-30T17:17:22.217Z",
+      "mision": "Misión secreta «La Senda Sin Pausa»: completa 7 días seguidos con al menos 3.000 pasos y algo de movimiento intencionado, y asesta el golpe final a Carmesí. Si notas que tu pulso en reposo sube de forma clara y sostenida, o te sientes mal al esforzarte, consulta con un profesional de la salud antes de seguir la batalla.",
+      "generatedAt": "2026-10-31T16:22:56.350Z",
       "model": "claude-opus-5-5"
     }
   }
