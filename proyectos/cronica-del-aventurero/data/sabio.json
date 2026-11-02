@@ -47,26 +47,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-10-26": {
-      "saludo": "Saludos, aventurero. Esta semana superaste tus tres metas, y Carmesí, Devorador del Vacío, ya tiembla con solo 940 PV. Pero el Sabio ha visto grietas en tu armadura: ciertos días de quietud y noches muy desiguales.",
+      "saludo": "¡Bien hallado, aventurero! Superaste tus metas y a Carmesí, Devorador del Vacío, solo le quedan 907 PV. Tu corazón late algo más sereno que la semana pasada; sigamos por esa senda.",
       "consejos": [
         {
-          "titulo": "Cuida tu pulso en reposo",
-          "accion": "Reparte tus 150 minutos activos en 4 o 5 sesiones de 30 a 40 minutos de cardio suave (caminata rápida, bici o natación) a un ritmo que te permita hablar, en lugar de concentrarlo todo en pocos días.",
-          "porque": "Tu pulso en reposo es el factor que más años suma a tu edad fisiológica. Esta semana bajó un poco respecto a la anterior, y el ejercicio aeróbico constante ayuda a seguir esa tendencia. Si notas que sube de forma marcada varios días seguidos, consulta a un profesional."
+          "titulo": "Forja un corazón sereno",
+          "accion": "Haz 3 sesiones de 30-40 min de cardio suave (caminar rápido, bici o elíptica) a un ritmo que te permita hablar, en días alternos (por ejemplo, lunes, miércoles y viernes). Con eso cubres casi toda tu meta de 150 min activos.",
+          "porque": "La FC en reposo es el factor que más suma a tu edad fisiológica (+3,7 años). Ya bajó de 72,4 a 70,4 lpm de media al subir tu actividad, así que la constancia aeróbica es tu mejor arma. Si notaras que sube de forma marcada y sostenida, consulta a un profesional."
         },
         {
-          "titulo": "Ningún día bajo 4.000",
-          "accion": "Mantén un mínimo de 4.000 pasos cada día. En los días tranquilos, da un paseo de 15 minutos después de comer o de cenar. Así llegarás de sobra a los 35.500 pasos semanales.",
-          "porque": "El domingo diste menos de 2.000 pasos y el lunes poco más de 3.000, frente a los casi 9.000 de otros días. Tu media diaria sigue siendo uno de los factores que suman años."
+          "titulo": "Ningún día en blanco",
+          "accion": "Camina al menos 5.000 pasos cada día. En los días sin entrenamiento, añade un paseo de 15-20 min después de comer o de cenar. Así alcanzarás los 35.500 pasos sin depender de unos pocos días fuertes.",
+          "porque": "Tus días sin minutos activos (26, 29 de octubre y 1 de noviembre) se quedaron entre 3.079 y 4.509 pasos, mientras que los activos rondaron los 8.500-9.000. Repartir mejor el esfuerzo sube tu media diaria."
         },
         {
-          "titulo": "Horario de sueño fijo",
-          "accion": "Elige una hora de acostarte y procura no desviarte más de 30 minutos, también el fin de semana. Busca dormir al menos 7 horas cada noche.",
-          "porque": "Dormiste desde 5,5 hasta 9 horas según la noche. Esa irregularidad suma años en tu evaluación, aunque tu media ya supera la meta de 7 horas."
+          "titulo": "Domina el reloj nocturno",
+          "accion": "Fija una hora de despertar y respétala todos los días, también el fin de semana, con un margen de 30 min. Acuéstate a una hora que te permita dormir unas 7 h, y deja las pantallas 30 min antes.",
+          "porque": "Tu sueño osciló entre 5,5 h y 9,0 h (desviación de 1,07 h), y esa irregularidad suma +1,2 años. Tu media de 7,28 h ya es buena; lo que falta es estabilidad."
         }
       ],
-      "mision": "Misión «La Senda Constante»: completa 7 días seguidos con al menos 4.000 pasos y acostándote dentro de tu ventana de 30 minutos. Si lo logras, Carmesí caerá ante tu disciplina antes del domingo.",
-      "generatedAt": "2026-11-01T17:17:39.862Z",
+      "mision": "Misión opcional «El Paseo del Vacío»: el fin de semana, haz una caminata continua de 60 min por un lugar nuevo (parque, sendero o barrio). Cada paso será un golpe contra los últimos PV de Carmesí.",
+      "generatedAt": "2026-11-02T20:56:22.022Z",
       "model": "claude-opus-5-5"
     }
   }

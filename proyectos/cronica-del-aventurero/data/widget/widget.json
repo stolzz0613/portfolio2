@@ -1,18 +1,18 @@
 {
-  "syncedAt": "2026-11-01T17:17:05.736Z",
+  "syncedAt": "2026-11-02T20:55:23.066Z",
   "weekStart": "2026-10-26",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
   "xp": {
-    "value": 2000,
+    "value": 2019,
     "next": 4800
   },
   "hp": 999,
   "mp": 909,
   "wins": 9,
   "week": {
-    "steps": 40664,
+    "steps": 42555,
     "stepsGoal": 35500,
     "activeMin": 261,
     "activeGoal": 150,
@@ -23,7 +23,7 @@
   },
   "lastDay": {
     "date": "2026-11-01",
-    "steps": 1897,
+    "steps": 3788,
     "sleepMin": 442,
     "activeMin": 0,
     "restingHr": 70
@@ -32,7 +32,7 @@
     "name": "Carmesí",
     "title": "Devorador del Vacío",
     "act": "La Ciudadela del Vacío",
-    "hp": 940,
+    "hp": 907,
     "maxHp": 2500,
     "status": "combate"
   },
@@ -41,13 +41,13 @@
     "phys": 37.2
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Esta semana superaste tus tres metas, y Carmesí, Devorador del Vacío, ya tiembla con solo 940 PV. Pero el Sabio ha visto grietas en tu armadura: ciertos días de quietud y noches muy desiguales.",
+    "greeting": "¡Bien hallado, aventurero! Superaste tus metas y a Carmesí, Devorador del Vacío, solo le quedan 907 PV. Tu corazón late algo más sereno que la semana pasada; sigamos por esa senda.",
     "tip": {
-      "title": "Cuida tu pulso en reposo",
-      "action": "Reparte tus 150 minutos activos en 4 o 5 sesiones de 30 a 40 minutos de cardio suave (caminata rápida, bici o natación) a un ritmo que te permita hablar, en lugar de concentrarlo todo en pocos días."
+      "title": "Forja un corazón sereno",
+      "action": "Haz 3 sesiones de 30-40 min de cardio suave (caminar rápido, bici o elíptica) a un ritmo que te permita hablar, en días alternos (por ejemplo, lunes, miércoles y viernes). Con eso cubres casi toda tu meta de 150 min activos."
     },
-    "mission": "Misión «La Senda Constante»: completa 7 días seguidos con al menos 4.000 pasos y acostándote dentro de tu ventana de 30 minutos. Si lo logras, Carmesí caerá ante tu disciplina antes del domingo."
+    "mission": "Misión opcional «El Paseo del Vacío»: el fin de semana, haz una caminata continua de 60 min por un lugar nuevo (parque, sendero o barrio). Cada paso será un golpe contra los últimos PV de Carmesí."
   },
-  "chapter": "El Devorador de la Sala Escarlata",
-  "generatedAt": "2026-11-01T17:17:59.868Z"
+  "chapter": "Las Puertas del Vacío y el Despertar de Carmesí",
+  "generatedAt": "2026-11-02T20:56:39.040Z"
 }
