@@ -1,53 +1,53 @@
 {
-  "syncedAt": "2026-11-02T20:55:23.066Z",
-  "weekStart": "2026-10-26",
+  "syncedAt": "2026-11-03T18:41:34.201Z",
+  "weekStart": "2026-11-02",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
   "xp": {
-    "value": 2019,
+    "value": 2108,
     "next": 4800
   },
-  "hp": 999,
-  "mp": 909,
+  "hp": 513,
+  "mp": 843,
   "wins": 9,
   "week": {
-    "steps": 42555,
+    "steps": 5837,
     "stepsGoal": 35500,
-    "activeMin": 261,
+    "activeMin": 0,
     "activeGoal": 150,
-    "sleepH": 7.3,
+    "sleepH": 6.8,
     "sleepGoal": 7,
-    "days": 7,
+    "days": 2,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-01",
-    "steps": 3788,
-    "sleepMin": 442,
+    "date": "2026-11-03",
+    "steps": 1080,
+    "sleepMin": 261,
     "activeMin": 0,
-    "restingHr": 70
+    "restingHr": 71
   },
   "boss": {
     "name": "Carmesí",
     "title": "Devorador del Vacío",
     "act": "La Ciudadela del Vacío",
-    "hp": 907,
+    "hp": 1369,
     "maxHp": 2500,
     "status": "combate"
   },
   "age": {
     "real": 31,
-    "phys": 37.2
+    "phys": 37.6
   },
   "sage": {
-    "greeting": "¡Bien hallado, aventurero! Superaste tus metas y a Carmesí, Devorador del Vacío, solo le quedan 907 PV. Tu corazón late algo más sereno que la semana pasada; sigamos por esa senda.",
+    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 1369 PV, y estos dos días tu espada apenas ha salido de la vaina. Aún quedan cinco jornadas para darle la vuelta a la semana.",
     "tip": {
-      "title": "Forja un corazón sereno",
-      "action": "Haz 3 sesiones de 30-40 min de cardio suave (caminar rápido, bici o elíptica) a un ritmo que te permita hablar, en días alternos (por ejemplo, lunes, miércoles y viernes). Con eso cubres casi toda tu meta de 150 min activos."
+      "title": "Cardio suave, corazón fuerte",
+      "action": "Haz 5 sesiones de 30 minutos de caminata rápida, bici o trote suave, a un ritmo que te permita hablar. Así sumas los 150 minutos activos de la semana."
     },
-    "mission": "Misión opcional «El Paseo del Vacío»: el fin de semana, haz una caminata continua de 60 min por un lugar nuevo (parque, sendero o barrio). Cada paso será un golpe contra los últimos PV de Carmesí."
+    "mission": "Misión del Vacío (opcional): elige un día y completa 8000 pasos que incluyan 30 minutos activos seguidos. Esa noche, acuéstate a tu hora fija. Un golpe así hará temblar a Carmesí."
   },
-  "chapter": "Las Puertas del Vacío y el Despertar de Carmesí",
-  "generatedAt": "2026-11-02T20:56:39.040Z"
+  "chapter": "El hambre que regresa de las profundidades",
+  "generatedAt": "2026-11-03T18:42:47.135Z"
 }
