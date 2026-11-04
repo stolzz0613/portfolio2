@@ -1,53 +1,53 @@
 {
-  "syncedAt": "2026-11-03T18:41:34.201Z",
+  "syncedAt": "2026-11-04T18:55:48.712Z",
   "weekStart": "2026-11-02",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
   "xp": {
-    "value": 2108,
+    "value": 2345,
     "next": 4800
   },
-  "hp": 513,
-  "mp": 843,
+  "hp": 926,
+  "mp": 918,
   "wins": 9,
   "week": {
-    "steps": 5837,
+    "steps": 11865,
     "stepsGoal": 35500,
-    "activeMin": 0,
+    "activeMin": 76,
     "activeGoal": 150,
-    "sleepH": 6.8,
+    "sleepH": 7.4,
     "sleepGoal": 7,
-    "days": 2,
+    "days": 3,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-03",
-    "steps": 1080,
-    "sleepMin": 261,
+    "date": "2026-11-04",
+    "steps": 33,
+    "sleepMin": 513,
     "activeMin": 0,
-    "restingHr": 71
+    "restingHr": 72
   },
   "boss": {
     "name": "Carmesí",
     "title": "Devorador del Vacío",
     "act": "La Ciudadela del Vacío",
-    "hp": 1369,
+    "hp": 1163,
     "maxHp": 2500,
     "status": "combate"
   },
   "age": {
     "real": 31,
-    "phys": 37.6
+    "phys": 37.3
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 1369 PV, y estos dos días tu espada apenas ha salido de la vaina. Aún quedan cinco jornadas para darle la vuelta a la semana.",
+    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún resiste con 1163 de 2500 PV, y tus tres primeras jornadas fueron irregulares: un buen golpe el día 3, pero el día 4 apenas te moviste. Cuatro días bastan para rematarlo si eres constante.",
     "tip": {
-      "title": "Cardio suave, corazón fuerte",
-      "action": "Haz 5 sesiones de 30 minutos de caminata rápida, bici o trote suave, a un ritmo que te permita hablar. Así sumas los 150 minutos activos de la semana."
+      "title": "Calma tu corazón",
+      "action": "Haz 4 sesiones de 20 minutos de actividad suave pero continua (caminar rápido, bici tranquila o nadar) a un ritmo en el que puedas hablar sin jadear. Así sumas los 74 minutos que te faltan para tu meta de 150. Si tu pulso en reposo sigue subiendo o notas algo raro, consulta a un profesional."
     },
-    "mission": "Misión del Vacío (opcional): elige un día y completa 8000 pasos que incluyan 30 minutos activos seguidos. Esa noche, acuéstate a tu hora fija. Un golpe así hará temblar a Carmesí."
+    "mission": "Senda del Alba (opcional): en 3 mañanas de esta semana, sal a caminar 10 minutos con luz natural en la primera hora tras despertar. Te ayudará a regular el sueño, te dará pasos extra y le arrancará PV a Carmesí."
   },
-  "chapter": "El hambre que regresa de las profundidades",
-  "generatedAt": "2026-11-03T18:42:47.135Z"
+  "chapter": "El Despertar del Devorador",
+  "generatedAt": "2026-11-04T18:56:50.343Z"
 }

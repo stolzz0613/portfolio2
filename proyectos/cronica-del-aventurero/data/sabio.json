@@ -70,26 +70,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-11-02": {
-      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 1369 PV, y estos dos días tu espada apenas ha salido de la vaina. Aún quedan cinco jornadas para darle la vuelta a la semana.",
+      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún resiste con 1163 de 2500 PV, y tus tres primeras jornadas fueron irregulares: un buen golpe el día 3, pero el día 4 apenas te moviste. Cuatro días bastan para rematarlo si eres constante.",
       "consejos": [
         {
-          "titulo": "Cardio suave, corazón fuerte",
-          "accion": "Haz 5 sesiones de 30 minutos de caminata rápida, bici o trote suave, a un ritmo que te permita hablar. Así sumas los 150 minutos activos de la semana.",
-          "porque": "Tu FC en reposo, unos 71 lpm, es el factor que más años suma (+3,7) y llevas 0 minutos activos esta semana. La semana pasada hiciste 261, así que sabes hacerlo. Está estable, pero si notas que sube de forma clara y sostenida, consulta a un profesional."
+          "titulo": "Calma tu corazón",
+          "accion": "Haz 4 sesiones de 20 minutos de actividad suave pero continua (caminar rápido, bici tranquila o nadar) a un ritmo en el que puedas hablar sin jadear. Así sumas los 74 minutos que te faltan para tu meta de 150. Si tu pulso en reposo sigue subiendo o notas algo raro, consulta a un profesional.",
+          "porque": "Tu FC en reposo es el factor que más envejece tu cuerpo (+3,7 años) y subió de 70 a 72 lpm en tres días, por encima de la media de 70,4 de la semana pasada."
         },
         {
           "titulo": "Seis mil pasos diarios",
-          "accion": "Camina unos 6000 pasos al día durante los próximos 5 días. Por ejemplo, da un paseo de 15 minutos después de comer y otro después de cenar, y usa las escaleras siempre que puedas.",
-          "porque": "Llevas 5837 de los 35500 pasos de la meta y el martes te quedaste en 1080. Los pasos diarios bajos suman +2,3 años a tu edad fisiológica."
+          "accion": "Camina unos 6.000 pasos cada uno de los 4 días que quedan. Una forma fácil: un paseo de 10 minutos después de cada comida y otro de 15 minutos al final del día.",
+          "porque": "Llevas 11.865 de tus 35.500 pasos semanales, y el día 4 registraste solo 33 pasos. Tus pasos diarios suman +2,3 años a tu edad fisiológica."
         },
         {
-          "titulo": "Horario fijo de sueño",
-          "accion": "Elige una hora de acostarte y otra de levantarte que te den 7 horas de sueño, y respétalas todos los días con un margen de ±30 minutos, también el fin de semana. Apaga las pantallas 30 minutos antes de dormir.",
-          "porque": "Dormiste 9,2 h una noche y 4,3 h la siguiente, con una desviación de 2,4 h. La irregularidad suma +1,2 años y compensar con noches largas no la arregla."
+          "titulo": "Despierta siempre igual",
+          "accion": "Fija una misma hora de levantarte para todos los días (con un margen de 30 minutos, también el fin de semana) y métete en la cama unas 7,5 horas antes. Apunta a dormir entre 7 y 8 horas cada noche, sin bajar de 6.",
+          "porque": "Dormiste 9,2, luego 4,3 y después 8,6 horas, con una desviación de 2,14 h. Tu media de 7,35 h ya cumple la meta, pero la irregularidad suma +1,2 años."
         }
       ],
-      "mision": "Misión del Vacío (opcional): elige un día y completa 8000 pasos que incluyan 30 minutos activos seguidos. Esa noche, acuéstate a tu hora fija. Un golpe así hará temblar a Carmesí.",
-      "generatedAt": "2026-11-03T18:42:04.647Z",
+      "mision": "Senda del Alba (opcional): en 3 mañanas de esta semana, sal a caminar 10 minutos con luz natural en la primera hora tras despertar. Te ayudará a regular el sueño, te dará pasos extra y le arrancará PV a Carmesí.",
+      "generatedAt": "2026-11-04T18:56:31.989Z",
       "model": "claude-opus-5-5"
     }
   }
