@@ -5,7 +5,8 @@
 # and is restored from it first.
 #
 # Run by hand (Actions → Run workflow) it does the same, and also saves the choices typed there:
-# the character's path, the talents to learn and the pet's name (data/build.json).
+# the character's path and class, the talents to learn, the dungeon to enter and the pet's name
+# (data/build.json).
 #
 # Secrets (Settings → Secrets and variables → Actions):
 #   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN  (required)
@@ -24,10 +25,19 @@ on:
         type: choice
         options: ["sin cambio", "acero", "viento", "luna"]
         default: "sin cambio"
+      clase:
+        description: "Evolución de clase (NV 10 y NV 14). Código en la pestaña Progreso. Ej: berserker"
+        type: string
+        required: false
       talentos:
         description: "Talentos por aprender, separados por comas. Códigos en la pestaña Progreso. Ej: zancada,temple"
         type: string
         required: false
+      mazmorra:
+        description: "Mazmorra a la que entrar. Si ya estás en otra, cuenta desde el lunes"
+        type: choice
+        options: ["sin cambio", "fauces", "cripta", "sendero", "forja", "jardin", "ventisca", "pulso", "horas", "trono"]
+        default: "sin cambio"
       mascota:
         description: "Nombre de la mascota"
         type: string
@@ -68,10 +78,12 @@ jobs:
         run: node scripts/cronica/sync.mjs
 
       - name: Save the choices
-        if: github.event_name == 'workflow_dispatch' && (inputs.senda != 'sin cambio' || inputs.talentos != '' || inputs.mascota != '')
+        if: github.event_name == 'workflow_dispatch' && (inputs.senda != 'sin cambio' || inputs.mazmorra != 'sin cambio' || inputs.clase != '' || inputs.talentos != '' || inputs.mascota != '')
         env:
           SENDA: ${{ inputs.senda }}
+          CLASE: ${{ inputs.clase }}
           TALENTOS: ${{ inputs.talentos }}
+          MAZMORRA: ${{ inputs.mazmorra }}
           MASCOTA: ${{ inputs.mascota }}
         run: |
           npx playwright install --with-deps chromium
