@@ -1,9 +1,56 @@
 {
-  "syncedAt": "2026-11-05T18:04:43.215Z",
+  "syncedAt": "2026-11-05T18:22:10.110Z",
   "weekStart": "2026-11-02",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
+  "toNext": 2197,
+  "streak": 2,
+  "pet": {
+    "state": "egg",
+    "day": 4,
+    "leader": "Actividad",
+    "waiting": false,
+    "share": 28
+  },
+  "missions": [
+    {
+      "key": "steps",
+      "label": "Pasos",
+      "value": "20.649",
+      "pct": 0.582,
+      "tick": 0.571,
+      "status": "A buen ritmo",
+      "kind": "ok"
+    },
+    {
+      "key": "active",
+      "label": "Actividad",
+      "value": "161 min",
+      "pct": 1,
+      "tick": 0.571,
+      "status": "Cumplida",
+      "kind": "ok"
+    },
+    {
+      "key": "sleep",
+      "label": "Sueño",
+      "value": "6,8 h",
+      "pct": 0.974,
+      "tick": null,
+      "status": "Casi",
+      "kind": "warn"
+    },
+    {
+      "key": "heart",
+      "label": "Corazón",
+      "value": "72 lpm",
+      "pct": 0.4,
+      "tick": null,
+      "status": "Sube un poco",
+      "kind": "warn"
+    }
+  ],
   "xp": {
     "value": 2603,
     "next": 4800
@@ -12,7 +59,7 @@
   "mp": 851,
   "wins": 9,
   "week": {
-    "steps": 20626,
+    "steps": 20649,
     "stepsGoal": 35500,
     "activeMin": 161,
     "activeGoal": 150,
@@ -23,7 +70,7 @@
   },
   "lastDay": {
     "date": "2026-11-05",
-    "steps": 879,
+    "steps": 902,
     "sleepMin": 313,
     "activeMin": 10,
     "restingHr": 74
@@ -41,13 +88,13 @@
     "phys": 36.7
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, se tambalea con solo 734 PV, pero tu semana fue de altibajos: días de gran batalla seguidos de noches cortas y una jornada casi inmóvil. Con constancia, la próxima semana lo derribas.",
+    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, se tambalea con 734 PV, pero tu corazón en reposo ha latido algo más rápido cada día y tus noches han oscilado como péndulo de torre: este es el frente a vigilar.",
     "tip": {
-      "title": "Calma tu corazón guerrero",
-      "action": "Haz 3 caminatas de 25-30 minutos a ritmo suave, en el que puedas hablar sin jadear, por ejemplo lunes, miércoles y sábado. Añade 5 minutos de respiración lenta antes de dormir cada noche. Si tu pulso en reposo sigue subiendo día tras día o notas algo raro, consulta a un profesional de la salud."
+      "title": "Calma al corazón guardián",
+      "action": "Haz 5 días de 30 minutos de actividad suave y continua (caminar ligero o bici tranquila) en lugar de concentrarlo todo en dos días. Evita cafeína después de las 14:00 y cualquier alcohol en las 3 horas antes de dormir. Si tu pulso en reposo sigue subiendo la próxima semana, consúltalo con un profesional."
     },
-    "mission": "Misión del Paso Nocturno: tras la cena, camina 10 minutos durante 7 días seguidos. Cada paseo es un golpe certero contra Carmesí, y completar la racha le asesta el golpe final."
+    "mission": "Misión del Centinela del Alba: durante 5 días seguidos, al despertar, sal a caminar 10 minutos con luz natural antes de mirar el móvil. Cada amanecer cumplido es un golpe certero contra Carmesí."
   },
-  "chapter": "Las fauces rehechas de Carmesí",
-  "generatedAt": "2026-11-05T18:07:32.103Z"
+  "chapter": "El Regreso del Devorador",
+  "generatedAt": "2026-11-05T18:34:54.341Z"
 }
