@@ -19,7 +19,7 @@ const PrivacyPage = () => (
         This policy explains how <strong>Crónica del Aventurero</strong>, a personal project by Andrés Bustos
         published at <a href='https://www.andresb.dev/proyectos/cronica-del-aventurero/'>andresb.dev/proyectos/cronica-del-aventurero</a>,
         accesses, uses, stores and shares data from Google APIs. It turns daily health and fitness numbers
-        into a 16-bit RPG: levels, stats, weekly goals and advice.
+        into an RPG: levels, stats, weekly goals and advice.
       </p>
 
       <h2>Who uses the app</h2>

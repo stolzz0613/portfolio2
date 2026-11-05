@@ -25,7 +25,7 @@ const TermsPage = () => (
       <p>
         andresb.dev is a personal portfolio. Crónica del Aventurero is a personal, non-commercial app that shows
         its author's own health and fitness data, read from his Google account through the Google Health API, as
-        a 16-bit RPG. It is offered free of charge and "as is". There are no user accounts: visitors can only view
+        an RPG. It is offered free of charge and "as is". There are no user accounts: visitors can only view
         the published pages.
       </p>
 
@@ -47,8 +47,9 @@ const TermsPage = () => (
       <p>
         Don't try to disrupt the site, access it in ways other than through its public pages, or use its content
         to harm or harass anyone. Pokémon names and other trademarks belong to their owners; the Pokémon guide is
-        an unofficial fan project. The pixel art in Crónica del Aventurero comes from Kenney's public domain
-        (CC0) packs.
+        an unofficial fan project. The icons and bosses in Crónica del Aventurero come from Game Icons
+        (game-icons.net, by Lorc, Delapouite and contributors), under CC BY 3.0. Its characters, pets and
+        eggs were generated for the page.
       </p>
 
       <h2>No warranty and limitation of liability</h2>

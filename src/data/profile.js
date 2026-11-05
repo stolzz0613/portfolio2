@@ -96,7 +96,7 @@ export const projects = [
   {
     slug: 'cronica-del-aventurero',
     title: 'Crónica del Aventurero',
-    text: 'My Google Health data as a 16-bit RPG, refreshed every morning, with advice and weekly chapters written by Claude.',
+    text: 'My Google Health data as an RPG, refreshed every morning: bosses, a pet that evolves with my habits, and weekly chapters written by Claude.',
   },
   {
     slug: 'guia-pokemon-platino',

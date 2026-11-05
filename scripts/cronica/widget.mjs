@@ -2,7 +2,7 @@
 // Writes data/widget/ for the Scriptable widget (static/proyectos/cronica-del-aventurero/widget/):
 // widget.json with the current week as the page computes it (level, bars, boss, steps against the
 // goals), the Sage's first piece of advice and this week's chapter title, plus the hero, boss and
-// Sage sprites pre-scaled to 128 px with hard pixel edges. Run after sync.mjs (and the Sage and
+// Sage sprites as 256 px PNGs. Run after sync.mjs (and the Sage and
 // chronicle steps, so their latest text is included):
 //
 //   node scripts/cronica/widget.mjs
