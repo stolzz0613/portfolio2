@@ -4,6 +4,9 @@
 # master is protected, so the data isn't committed there: it lives in the published gh-pages branch
 # and is restored from it first.
 #
+# Run by hand (Actions → Run workflow) it does the same, and also saves the choices typed there:
+# the character's path, the talents to learn and the pet's name (data/build.json).
+#
 # Secrets (Settings → Secrets and variables → Actions):
 #   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN  (required)
 #   ANTHROPIC_API_KEY                                             (optional: without it the advice isn't refreshed)
@@ -15,6 +18,20 @@ on:
   schedule:
     - cron: "50 11 * * *" # 06:50 in Colombia (UTC-5)
   workflow_dispatch:
+    inputs:
+      senda:
+        description: "Senda del personaje (se abre en NV 7)"
+        type: choice
+        options: ["sin cambio", "acero", "viento", "luna"]
+        default: "sin cambio"
+      talentos:
+        description: "Talentos por aprender, separados por comas. Códigos en la pestaña Progreso. Ej: zancada,temple"
+        type: string
+        required: false
+      mascota:
+        description: "Nombre de la mascota"
+        type: string
+        required: false
 
 permissions:
   contents: write
@@ -49,6 +66,16 @@ jobs:
           BIRTH_DATE: ${{ secrets.BIRTH_DATE }}
           CRONICA_OUT: static/proyectos/cronica-del-aventurero/data/days.json
         run: node scripts/cronica/sync.mjs
+
+      - name: Save the choices
+        if: github.event_name == 'workflow_dispatch' && (inputs.senda != 'sin cambio' || inputs.talentos != '' || inputs.mascota != '')
+        env:
+          SENDA: ${{ inputs.senda }}
+          TALENTOS: ${{ inputs.talentos }}
+          MASCOTA: ${{ inputs.mascota }}
+        run: |
+          npx playwright install --with-deps chromium
+          node scripts/cronica/build.mjs
 
       - name: Ask the Sage
         if: env.HAS_ANTHROPIC_KEY == 'true'
