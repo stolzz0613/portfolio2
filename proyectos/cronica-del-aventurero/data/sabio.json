@@ -70,26 +70,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-11-02": {
-      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún resiste con 1163 de 2500 PV, y tus tres primeras jornadas fueron irregulares: un buen golpe el día 3, pero el día 4 apenas te moviste. Cuatro días bastan para rematarlo si eres constante.",
+      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, se tambalea con solo 734 PV, pero tu semana fue de altibajos: días de gran batalla seguidos de noches cortas y una jornada casi inmóvil. Con constancia, la próxima semana lo derribas.",
       "consejos": [
         {
-          "titulo": "Calma tu corazón",
-          "accion": "Haz 4 sesiones de 20 minutos de actividad suave pero continua (caminar rápido, bici tranquila o nadar) a un ritmo en el que puedas hablar sin jadear. Así sumas los 74 minutos que te faltan para tu meta de 150. Si tu pulso en reposo sigue subiendo o notas algo raro, consulta a un profesional.",
-          "porque": "Tu FC en reposo es el factor que más envejece tu cuerpo (+3,7 años) y subió de 70 a 72 lpm en tres días, por encima de la media de 70,4 de la semana pasada."
+          "titulo": "Calma tu corazón guerrero",
+          "accion": "Haz 3 caminatas de 25-30 minutos a ritmo suave, en el que puedas hablar sin jadear, por ejemplo lunes, miércoles y sábado. Añade 5 minutos de respiración lenta antes de dormir cada noche. Si tu pulso en reposo sigue subiendo día tras día o notas algo raro, consulta a un profesional de la salud.",
+          "porque": "La frecuencia cardiaca en reposo es el factor que más años suma a tu edad fisiológica, y esta semana subió un poco cada día, con el pico en tu último día registrado. El ejercicio suave y regular y el descanso son los aliados que mejor la calman."
         },
         {
-          "titulo": "Seis mil pasos diarios",
-          "accion": "Camina unos 6.000 pasos cada uno de los 4 días que quedan. Una forma fácil: un paseo de 10 minutos después de cada comida y otro de 15 minutos al final del día.",
-          "porque": "Llevas 11.865 de tus 35.500 pasos semanales, y el día 4 registraste solo 33 pasos. Tus pasos diarios suman +2,3 años a tu edad fisiológica."
+          "titulo": "Ritual de sueño fijo",
+          "accion": "Elige una hora de acostarte y otra de levantarte y respétalas todos los días con un margen de 30 minutos, incluido el fin de semana. Apunta a unas 7 horas cada noche y evita bajar de 6. Deja las pantallas 30 minutos antes de dormir.",
+          "porque": "Tu media de sueño está cerca de la meta, pero escondes un desorden: noches de 4,3 y 5,2 h alternadas con otras de 9,2 y 8,6 h. Esa irregularidad también te suma años."
         },
         {
-          "titulo": "Despierta siempre igual",
-          "accion": "Fija una misma hora de levantarte para todos los días (con un margen de 30 minutos, también el fin de semana) y métete en la cama unas 7,5 horas antes. Apunta a dormir entre 7 y 8 horas cada noche, sin bajar de 6.",
-          "porque": "Dormiste 9,2, luego 4,3 y después 8,6 horas, con una desviación de 2,14 h. Tu media de 7,35 h ya cumple la meta, pero la irregularidad suma +1,2 años."
+          "titulo": "Pasos cada día, sin vacíos",
+          "accion": "Camina unos 5.100 pasos diarios para llegar a los 35.500 semanales, y no bajes nunca de 3.500. Si a media tarde vas corto, da un paseo de 15 minutos después de comer o de cenar.",
+          "porque": "El 5 de noviembre apenas diste 879 pasos, y el día anterior casi 8.000. Repartir el esfuerzo es más fácil y sostenible que alternar días heroicos con días de quietud."
         }
       ],
-      "mision": "Senda del Alba (opcional): en 3 mañanas de esta semana, sal a caminar 10 minutos con luz natural en la primera hora tras despertar. Te ayudará a regular el sueño, te dará pasos extra y le arrancará PV a Carmesí.",
-      "generatedAt": "2026-11-04T18:56:31.989Z",
+      "mision": "Misión del Paso Nocturno: tras la cena, camina 10 minutos durante 7 días seguidos. Cada paseo es un golpe certero contra Carmesí, y completar la racha le asesta el golpe final.",
+      "generatedAt": "2026-11-05T18:07:10.986Z",
       "model": "claude-opus-5-5"
     }
   }

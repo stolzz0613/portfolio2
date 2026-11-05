@@ -1,53 +1,53 @@
 {
-  "syncedAt": "2026-11-04T18:55:48.712Z",
+  "syncedAt": "2026-11-05T18:04:43.215Z",
   "weekStart": "2026-11-02",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
   "xp": {
-    "value": 2345,
+    "value": 2603,
     "next": 4800
   },
-  "hp": 926,
-  "mp": 918,
+  "hp": 990,
+  "mp": 851,
   "wins": 9,
   "week": {
-    "steps": 11865,
+    "steps": 20626,
     "stepsGoal": 35500,
-    "activeMin": 76,
+    "activeMin": 161,
     "activeGoal": 150,
-    "sleepH": 7.4,
+    "sleepH": 6.8,
     "sleepGoal": 7,
-    "days": 3,
+    "days": 4,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-04",
-    "steps": 33,
-    "sleepMin": 513,
-    "activeMin": 0,
-    "restingHr": 72
+    "date": "2026-11-05",
+    "steps": 879,
+    "sleepMin": 313,
+    "activeMin": 10,
+    "restingHr": 74
   },
   "boss": {
     "name": "Carmesí",
     "title": "Devorador del Vacío",
     "act": "La Ciudadela del Vacío",
-    "hp": 1163,
+    "hp": 734,
     "maxHp": 2500,
     "status": "combate"
   },
   "age": {
     "real": 31,
-    "phys": 37.3
+    "phys": 36.7
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún resiste con 1163 de 2500 PV, y tus tres primeras jornadas fueron irregulares: un buen golpe el día 3, pero el día 4 apenas te moviste. Cuatro días bastan para rematarlo si eres constante.",
+    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, se tambalea con solo 734 PV, pero tu semana fue de altibajos: días de gran batalla seguidos de noches cortas y una jornada casi inmóvil. Con constancia, la próxima semana lo derribas.",
     "tip": {
-      "title": "Calma tu corazón",
-      "action": "Haz 4 sesiones de 20 minutos de actividad suave pero continua (caminar rápido, bici tranquila o nadar) a un ritmo en el que puedas hablar sin jadear. Así sumas los 74 minutos que te faltan para tu meta de 150. Si tu pulso en reposo sigue subiendo o notas algo raro, consulta a un profesional."
+      "title": "Calma tu corazón guerrero",
+      "action": "Haz 3 caminatas de 25-30 minutos a ritmo suave, en el que puedas hablar sin jadear, por ejemplo lunes, miércoles y sábado. Añade 5 minutos de respiración lenta antes de dormir cada noche. Si tu pulso en reposo sigue subiendo día tras día o notas algo raro, consulta a un profesional de la salud."
     },
-    "mission": "Senda del Alba (opcional): en 3 mañanas de esta semana, sal a caminar 10 minutos con luz natural en la primera hora tras despertar. Te ayudará a regular el sueño, te dará pasos extra y le arrancará PV a Carmesí."
+    "mission": "Misión del Paso Nocturno: tras la cena, camina 10 minutos durante 7 días seguidos. Cada paseo es un golpe certero contra Carmesí, y completar la racha le asesta el golpe final."
   },
-  "chapter": "El Despertar del Devorador",
-  "generatedAt": "2026-11-04T18:56:50.343Z"
+  "chapter": "Las fauces rehechas de Carmesí",
+  "generatedAt": "2026-11-05T18:07:32.103Z"
 }
