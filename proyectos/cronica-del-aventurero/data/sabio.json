@@ -70,26 +70,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-11-02": {
-      "saludo": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con solo 734 PV, pero tu semana ha ido a trompicones: noches muy largas seguidas de otras muy cortas y un día casi inmóvil. Afina el ritmo y caerá.",
+      "saludo": "Saludos, aventurero. El Centinela Hueco tiembla con 313 de 650 PV y ya superaste tus minutos activos, pero tu descanso fue irregular y tu pulso en reposo subió día a día: la armadura vacía se alimenta de noches desordenadas.",
       "consejos": [
         {
-          "titulo": "Calma tu corazón guerrero",
-          "accion": "Haz 4 caminatas de 30 min a ritmo cómodo (puedes hablar sin jadear), evita cafeína después de las 15:00 y dedica 5 min a respiración lenta antes de dormir. Anota cada mañana tu FC en reposo; si sigue subiendo durante la semana o notas mareos, palpitaciones o cansancio raro, consulta a un profesional.",
-          "porque": "La FC en reposo es el factor que más suma a tu edad fisiológica y ha subido cada día de la semana (de 70 a 74 lpm), por encima de la media de la semana anterior."
+          "titulo": "Calma el pulso en reposo",
+          "accion": "Reparte tus 150 min activos en 5 sesiones de 30 min a ritmo cómodo (paseo rápido o bici suave) en lugar de pocas sesiones intensas, evita la cafeína después de las 14:00 y mide tu pulso al despertar cada mañana. Si sigue subiendo durante la semana, consulta a un profesional sanitario.",
+          "porque": "Tu frecuencia en reposo es el factor que más años suma a tu edad fisiológica (+3,7) y subió cada día de la semana, de 70 a 74 lpm."
         },
         {
-          "titulo": "Horario fijo de descanso",
-          "accion": "Elige una hora de despertar y respétala los 7 días (fin de semana incluido, con margen de 30 min). Acuéstate unas 7 h y 15 min antes y deja pantallas 30 min antes de la cama. Meta: media de 7 h sin noches por debajo de 6 h.",
-          "porque": "Tu sueño osciló entre 4,3 h y 9,2 h; esa irregularidad suma años a tu edad fisiológica más que la propia media de sueño."
+          "titulo": "Horario fijo de sueño",
+          "accion": "Elige una hora para acostarte y otra para levantarte y respétalas los 7 días con un margen de 30 minutos, buscando dormir unas 7 h cada noche, sin compensar con noches largas.",
+          "porque": "Tu sueño osciló entre 4,3 h y 9,2 h (desviación de unas 2 h); la irregularidad suma +1,1 años, aunque tu media de 6,8 h está cerca de la meta."
         },
         {
-          "titulo": "Ningún día sin pasos",
-          "accion": "Apunta a unos 5.100 pasos diarios para llegar a 35.500 esta semana, con un suelo de 3.000 pasos incluso en días ocupados: camina 10 min después de comer y de cenar.",
-          "porque": "Un día con solo 902 pasos hundió tu media; los días de 7.000-8.000 demuestran que puedes, solo falta constancia."
+          "titulo": "Suelo diario de pasos",
+          "accion": "Camina al menos 5.100 pasos cada día (unos 35.500 en la semana): añade un paseo de 15-20 min tras la comida o la cena los días que vayas por detrás.",
+          "porque": "Tuviste días de casi 8.000 pasos, pero el 5 de noviembre solo hiciste 1.458; un mínimo diario evita esos bajones."
         }
       ],
-      "mision": "Misión del Vacío: encadena 7 días seguidos superando 4.000 pasos y despertándote a la misma hora. Si lo logras, Carmesí caerá y ganarás el título de Guardián del Ritmo.",
-      "generatedAt": "2026-11-05T19:05:33.859Z",
+      "mision": "Misión del Centinela: durante 5 noches seguidas apaga las pantallas 30 minutos antes de tu hora fija de dormir y anota cada mañana tu pulso al despertar. Cada noche cumplida es un golpe certero a la armadura sin dueño.",
+      "generatedAt": "2026-11-05T23:46:49.623Z",
       "model": "claude-opus-5-5"
     }
   }

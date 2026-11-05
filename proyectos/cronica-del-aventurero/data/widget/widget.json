@@ -1,10 +1,10 @@
 {
-  "syncedAt": "2026-11-05T19:05:01.052Z",
+  "syncedAt": "2026-11-05T23:46:14.578Z",
   "weekStart": "2026-11-02",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
-  "toNext": 2197,
+  "toNext": 3066,
   "streak": 2,
   "pet": {
     "state": "egg",
@@ -17,8 +17,8 @@
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "20.649",
-      "pct": 0.582,
+      "value": "21.205",
+      "pct": 0.597,
       "tick": 0.571,
       "status": "A buen ritmo",
       "kind": "ok"
@@ -52,14 +52,14 @@
     }
   ],
   "xp": {
-    "value": 2603,
+    "value": 1734,
     "next": 4800
   },
   "hp": 990,
   "mp": 851,
   "wins": 9,
   "week": {
-    "steps": 20649,
+    "steps": 21205,
     "stepsGoal": 35500,
     "activeMin": 161,
     "activeGoal": 150,
@@ -70,31 +70,36 @@
   },
   "lastDay": {
     "date": "2026-11-05",
-    "steps": 902,
+    "steps": 1458,
     "sleepMin": 313,
     "activeMin": 10,
     "restingHr": 74
   },
   "boss": {
-    "name": "Carmesí",
-    "title": "Devorador del Vacío",
-    "act": "La Ciudadela del Vacío",
-    "hp": 734,
-    "maxHp": 2500,
+    "name": "Centinela Hueco",
+    "title": "Piso 2 de 4",
+    "act": "Fauces del Vacío",
+    "hp": 313,
+    "maxHp": 650,
     "status": "combate"
+  },
+  "dungeon": {
+    "name": "Fauces del Vacío",
+    "floor": 2,
+    "floors": 4
   },
   "age": {
     "real": 31,
     "phys": 36.7
   },
   "sage": {
-    "greeting": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con solo 734 PV, pero tu semana ha ido a trompicones: noches muy largas seguidas de otras muy cortas y un día casi inmóvil. Afina el ritmo y caerá.",
+    "greeting": "Saludos, aventurero. El Centinela Hueco tiembla con 313 de 650 PV y ya superaste tus minutos activos, pero tu descanso fue irregular y tu pulso en reposo subió día a día: la armadura vacía se alimenta de noches desordenadas.",
     "tip": {
-      "title": "Calma tu corazón guerrero",
-      "action": "Haz 4 caminatas de 30 min a ritmo cómodo (puedes hablar sin jadear), evita cafeína después de las 15:00 y dedica 5 min a respiración lenta antes de dormir. Anota cada mañana tu FC en reposo; si sigue subiendo durante la semana o notas mareos, palpitaciones o cansancio raro, consulta a un profesional."
+      "title": "Calma el pulso en reposo",
+      "action": "Reparte tus 150 min activos en 5 sesiones de 30 min a ritmo cómodo (paseo rápido o bici suave) en lugar de pocas sesiones intensas, evita la cafeína después de las 14:00 y mide tu pulso al despertar cada mañana. Si sigue subiendo durante la semana, consulta a un profesional sanitario."
     },
-    "mission": "Misión del Vacío: encadena 7 días seguidos superando 4.000 pasos y despertándote a la misma hora. Si lo logras, Carmesí caerá y ganarás el título de Guardián del Ritmo."
+    "mission": "Misión del Centinela: durante 5 noches seguidas apaga las pantallas 30 minutos antes de tu hora fija de dormir y anota cada mañana tu pulso al despertar. Cada noche cumplida es un golpe certero a la armadura sin dueño."
   },
-  "chapter": "El Devorador renace en las salas sin luz",
-  "generatedAt": "2026-11-05T19:05:51.671Z"
+  "chapter": "Las Fauces del Vacío: el Centinela sin dueño",
+  "generatedAt": "2026-11-05T23:48:42.855Z"
 }
