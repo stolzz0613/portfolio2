@@ -4,3 +4,4 @@ public
 
 # Generated daily by scripts/cronica/widget.mjs in the GitHub Action
 static/proyectos/cronica-del-aventurero/data/widget/
+scripts/cronica/sprites/sprites.js
