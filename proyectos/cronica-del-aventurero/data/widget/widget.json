@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-11-05T18:22:10.110Z",
+  "syncedAt": "2026-11-05T19:05:01.052Z",
   "weekStart": "2026-11-02",
   "name": "Andrés",
   "job": "Guerrero",
@@ -88,13 +88,13 @@
     "phys": 36.7
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, se tambalea con 734 PV, pero tu corazón en reposo ha latido algo más rápido cada día y tus noches han oscilado como péndulo de torre: este es el frente a vigilar.",
+    "greeting": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con solo 734 PV, pero tu semana ha ido a trompicones: noches muy largas seguidas de otras muy cortas y un día casi inmóvil. Afina el ritmo y caerá.",
     "tip": {
-      "title": "Calma al corazón guardián",
-      "action": "Haz 5 días de 30 minutos de actividad suave y continua (caminar ligero o bici tranquila) en lugar de concentrarlo todo en dos días. Evita cafeína después de las 14:00 y cualquier alcohol en las 3 horas antes de dormir. Si tu pulso en reposo sigue subiendo la próxima semana, consúltalo con un profesional."
+      "title": "Calma tu corazón guerrero",
+      "action": "Haz 4 caminatas de 30 min a ritmo cómodo (puedes hablar sin jadear), evita cafeína después de las 15:00 y dedica 5 min a respiración lenta antes de dormir. Anota cada mañana tu FC en reposo; si sigue subiendo durante la semana o notas mareos, palpitaciones o cansancio raro, consulta a un profesional."
     },
-    "mission": "Misión del Centinela del Alba: durante 5 días seguidos, al despertar, sal a caminar 10 minutos con luz natural antes de mirar el móvil. Cada amanecer cumplido es un golpe certero contra Carmesí."
+    "mission": "Misión del Vacío: encadena 7 días seguidos superando 4.000 pasos y despertándote a la misma hora. Si lo logras, Carmesí caerá y ganarás el título de Guardián del Ritmo."
   },
-  "chapter": "El Regreso del Devorador",
-  "generatedAt": "2026-11-05T18:34:54.341Z"
+  "chapter": "El Devorador renace en las salas sin luz",
+  "generatedAt": "2026-11-05T19:05:51.671Z"
 }
