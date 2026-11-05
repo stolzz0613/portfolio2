@@ -1569,22 +1569,32 @@ function widgetSummary() {
   const [, classArt, job] = classFor(lv, w.start);
   const goalPct = (v, g) => clamp(v / g, 0, 1);
   const hp = Math.round(999 * weekCompletion(i));
-  const last = w.days[w.days.length - 1], info = currentAgeInfo();
+  const last = w.days[w.days.length - 1], info = currentAgeInfo(), p = r.pet;
+  const shortNames = ["Pasos", "Actividad", "Sueño", "Corazón"], keys = ["steps", "active", "sleep", "heart"], units = ["", " min", " h", " lpm"];
+  const petInfo = p.state === "pet" ? {
+    state: "pet", name: petName(p), line: PETS[p.species].line, stage: PET_STAGES[p.stage][0], level: p.level, mood: moodFor(p.completion)[1],
+    bond: p.bond, floor: PET_STAGES[p.stage][1], next: PET_STAGES[p.stage + 1]?.[1] ?? null, gift: giftNow(p.species, p.level), giftOn: p.giftOn,
+  } : p.state === "egg" ? { state: "egg", day: Math.min(p.done, 7), leader: PETS[p.leader].metric, waiting: Boolean(p.waiting), share: Math.round(p.shares[p.leader] * 100) } : null;
   return {
     syncedAt: SOURCE.syncedAt, weekStart: w.start, name: "Andrés", job, level: lv,
+    toNext: hi - totalXp, streak: streakAt(i), pet: petInfo,
+    missions: missions(i).map((m, k) => ({ key: keys[k], label: shortNames[k], value: `${m.val}${units[k]}`, pct: +clamp(m.pct, 0, 1).toFixed(3), tick: m.tick == null ? null : +m.tick.toFixed(3), status: m.st.t, kind: m.st.k })),
     xp: { value: totalXp - lo, next: hi - lo }, hp, mp: Math.round(999 * goalPct(s.avgSleep, 8)),
     wins: c.filter((x) => x.status === "derrotado").length,
     week: { steps: s.steps, stepsGoal: G.steps, activeMin: s.active, activeGoal: G.activeMin, sleepH: +s.avgSleep.toFixed(1), sleepGoal: G.sleepH, days: s.days, recovery: !!G.recovery },
     lastDay: { date: last.date, steps: last.steps, sleepMin: last.sleepMin, activeMin: last.activeMin, restingHr: last.restingHr },
     boss: { name: r.boss.name, title: r.boss.title, act: ACTS[r.boss.act], hp: r.hp, maxHp: r.boss.maxHp, status: r.status },
     age: info?.phys ? { real: info.real, phys: +info.phys.age.toFixed(1) } : null,
-    tiles: { hero: { hero: classArt }, boss: { icon: r.boss.icon, color: (ACT_SKY[r.boss.act] || ACT_SKY[0])[2] }, sage: { hero: "sabio" } },
+    tiles: {
+      hero: { hero: classArt }, boss: { icon: r.boss.icon, color: (ACT_SKY[r.boss.act] || ACT_SKY[0])[2] }, sage: { hero: "sabio" },
+      pet: p.state === "pet" ? { pet: p.species, stage: p.stage, mood: moodFor(p.completion)[2] } : p.state === "egg" ? { egg: ART.TINT[p.leader], crack: p.crack } : null,
+    },
   };
 }
-// A sprite as a PNG data URL for the widget: a hero sticker, or a boss drawn from its icon.
+// A sprite as a PNG data URL for the widget: a hero, pet or egg sticker, or a boss from its icon.
 async function tilePng(tile, size = 256) {
-  const markup = tile.hero
-    ? ART.hero(tile.hero).replace('viewBox="0 0 240 240"', 'viewBox="-14 -14 268 268"')
+  const sticker = tile.hero ? ART.hero(tile.hero) : tile.pet ? ART.pet(tile.pet, tile.stage, tile.mood) : tile.egg ? ART.egg(tile.egg, tile.crack, true) : null;
+  const markup = sticker ? sticker.replace('viewBox="0 0 240 240"', 'viewBox="-14 -14 268 268"')
     : `<svg viewBox="0 0 512 512" fill="${tile.color}">${ICONS[tile.icon]}</svg>`;
   const img = new Image();
   await new Promise((resolve, reject) => {
