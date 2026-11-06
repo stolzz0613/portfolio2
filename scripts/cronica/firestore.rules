@@ -1,4 +1,4 @@
-// Security rules for "Crónica del Aventurero" (Firebase project aventura-c28cf).
+// Security rules for "Crónica del Aventurero" and the Pokémon guide (Firebase project aventura-c28cf).
 // Paste them in the Firebase console: Firestore Database > Rules. Everything not listed is denied.
 //
 // OWNER_UID is the owner's account id. It isn't a secret, and the page shows it the first time that
@@ -23,6 +23,15 @@ service cloud.firestore {
 
     match /cronica/permiso {
       allow read: if isOwner();
+    }
+
+    // The guide's progress is private. The page reads it to learn if an account is the owner's.
+    match /guia/progreso {
+      allow read: if isOwner();
+      allow create, update: if isOwner()
+        && request.resource.data.keys().hasOnly(["checked", "updatedAt"])
+        && request.resource.data.checked is list
+        && request.resource.data.checked.size() <= 5000;
     }
   }
 }
