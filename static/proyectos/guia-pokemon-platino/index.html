@@ -93,6 +93,9 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; li
 .save { margin-top: 12px; font-size: 13px; color: var(--hero-muted); display: flex; align-items: center; gap: 8px; }
 .save::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--hero-gold); flex: none; }
 .save[data-mode="account"]::before { background: #5cc08f; }
+.access { margin-top: 4px; font-size: 13px; color: var(--hero-muted); display: flex; flex-wrap: wrap; align-items: center; gap: 2px 12px; }
+.access:empty { display: none; }
+.access button { border: 0; background: none; padding: 6px 0; color: var(--hero-gold); font: 600 13px var(--font-display); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 
 /* ---------- Toolbar ---------- */
 .toolbar {
@@ -321,6 +324,7 @@ footer a { color: inherit; }
       <h2>Estuche de medallas</h2>
       <div class="badges" id="badges"></div>
       <div class="save" id="save" data-mode="local">Guardado en este navegador</div>
+      <div class="access" id="access"></div>
     </div>
   </div>
 </header>
@@ -2749,7 +2753,8 @@ const ALL_IDS = [...new Set([...UNIQUE.map((e) => e.id), ...DEX.map((d) => d.id)
 const monInGuide = (id) => monChapters[id] || [];
 
 // ---------------------------------------------------------------------------
-// Persistence: the viewer's private db subtree when available, browser storage otherwise.
+// Persistence: browser storage, plus the viewer's private db subtree inside claude.ai or the owner's
+// Firebase account on andresb.dev.
 // ---------------------------------------------------------------------------
 // Every change is written to this browser at once and to the account shortly after; on load the
 // newer of the two copies wins, and ticks made before the account answers are replayed on top.
@@ -2757,6 +2762,8 @@ const LOCAL_KEY = "guia-platino-v1";
 const local = readLocal();
 let checked = local.checked;
 let updatedAt = local.updatedAt;
+let unsent = local.unsent;   // Firebase: changes the account hasn't confirmed yet
+let linked = local.linked;   // Firebase: this browser's copy already joined the account
 let remoteRef = null, remoteReady = false;
 const earlyOps = [];         // [id, on] toggled before the account copy loaded
 let writing = false, pending = false, timer = null;
@@ -2766,14 +2773,15 @@ function migrate(ids) {
   return new Set(ids.map((id) => id.replace(/^[^.]+\.mon\./, "mon.")));
 }
 function readLocal() {
+  const empty = { checked: new Set(), updatedAt: 0, unsent: new Map(), linked: false };
   try {
     const raw = JSON.parse(localStorage.getItem(LOCAL_KEY) || "[]");
-    if (Array.isArray(raw)) return { checked: migrate(raw), updatedAt: 0 };
-    return { checked: migrate(raw.checked || []), updatedAt: raw.updatedAt || 0 };
-  } catch { return { checked: new Set(), updatedAt: 0 }; }
+    if (Array.isArray(raw)) return { ...empty, checked: migrate(raw) };
+    return { checked: migrate(raw.checked || []), updatedAt: raw.updatedAt || 0, unsent: new Map(Object.entries(raw.unsent || {})), linked: Boolean(raw.linked) };
+  } catch { return empty; }
 }
 function writeLocal() {
-  try { localStorage.setItem(LOCAL_KEY, JSON.stringify({ checked: [...checked], updatedAt })); } catch {}
+  try { localStorage.setItem(LOCAL_KEY, JSON.stringify({ checked: [...checked], updatedAt, unsent: Object.fromEntries(unsent), linked })); } catch {}
 }
 function setSave(mode, text) {
   const el = document.getElementById("save");
@@ -2781,13 +2789,14 @@ function setSave(mode, text) {
   el.textContent = text;
 }
 function scheduleRemote() {
-  if (!remoteRef) return;
+  if (!remoteRef && !session.owner) return;
   setSave("account", "Guardando…");
   clearTimeout(timer);
   timer = setTimeout(flushRemote, 600);
 }
 async function flushRemote() {
   clearTimeout(timer); timer = null;
+  if (session.owner) return sync();
   if (!remoteRef) return;
   if (writing) { pending = true; return; }
   writing = true;
@@ -2807,7 +2816,7 @@ async function flushRemote() {
   }
 }
 async function initRemote() {
-  if (!window.claude || typeof window.claude.use !== "function") { remoteReady = true; return; }
+  if (!window.claude || typeof window.claude.use !== "function") { remoteReady = true; startSession(); return; }
   try {
     const [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
     if (!db || !user) return;
@@ -2836,9 +2845,175 @@ async function initRemote() {
     remoteReady = true;
   }
 }
+
+// ---------------------------------------------------------------------------
+// Firebase: the owner's progress on every device. Visitors never load the SDK.
+// ---------------------------------------------------------------------------
+// Changes travel as additions and removals, never as the whole list, so a tab left open on another
+// device can't erase what was marked here. `unsent` lives in this browser: what can't go up now goes
+// on the next connection. The first sign-in on a device adds its ticks to the ones in the account.
+const FIREBASE = { apiKey: "AIzaSyAy5mhuq49I1GMi7McXM-CUVN6YWkXmgjY", authDomain: "aventura-c28cf.firebaseapp.com", projectId: "aventura-c28cf", appId: "1:952281027331:web:d9d9628dfa27098cec0f36" };
+const FIREBASE_SDK = "https://www.gstatic.com/firebasejs/13.1.0/";
+const FIRESTORE = `https://firestore.googleapis.com/v1/projects/${FIREBASE.projectId}/databases/(default)/documents`;
+const PROGRESS_DOC = `projects/${FIREBASE.projectId}/databases/(default)/documents/guia/progreso`;
+const OWNER_KEY = "cronica.dueno"; // shared with the Crónica: same site, same account
+const session = { state: "out", owner: false, user: null, auth: null, sdk: null };
+let syncing = false, syncAgain = false, wantPull = false, lastPull = 0;
+
+const rememberedOwner = () => { try { return localStorage.getItem(OWNER_KEY) === "1"; } catch { return false; } };
+const rememberOwner = (on) => { try { on ? localStorage.setItem(OWNER_KEY, "1") : localStorage.removeItem(OWNER_KEY); } catch {} };
+const authHeader = async () => ({ Authorization: `Bearer ${await session.user.getIdToken()}` });
+
+// The ticks in the account. Reading it is also how the page learns if this is the owner: the rules
+// answer 403 to any other account.
+async function readProgress() {
+  const res = await fetch(`${FIRESTORE}/guia/progreso`, { cache: "no-store", headers: await authHeader(), signal: AbortSignal.timeout(8000) });
+  if (res.status === 404) return [];
+  if (!res.ok) throw Object.assign(new Error("firestore"), { status: res.status });
+  const doc = await res.json();
+  return (doc.fields?.checked?.arrayValue?.values || []).map((value) => value.stringValue).filter(Boolean);
+}
+function applyProgress(remote) {
+  const next = migrate(remote);
+  for (const [id, on] of unsent) { if (on) next.add(id); else next.delete(id); }
+  const changed = next.size !== checked.size || [...next].some((id) => !checked.has(id));
+  checked = next;
+  writeLocal();
+  if (changed) syncAll();
+}
+async function pushChanges() {
+  const batch = new Map(unsent);
+  const ids = (on) => [...batch].filter(([, value]) => value === on).map(([id]) => ({ stringValue: id }));
+  const transform = (change, values) => ({ transform: { document: PROGRESS_DOC, fieldTransforms: [
+    { fieldPath: "checked", [change]: { values } },
+    { fieldPath: "updatedAt", setToServerValue: "REQUEST_TIME" },
+  ] } });
+  const added = ids(true), removed = ids(false);
+  const body = JSON.stringify({ writes: [
+    ...(added.length ? [transform("appendMissingElements", added)] : []),
+    ...(removed.length ? [transform("removeAllFromArray", removed)] : []),
+  ] });
+  const res = await fetch(`${FIRESTORE}:commit`, {
+    method: "POST",
+    headers: { ...await authHeader(), "Content-Type": "application/json" },
+    body,
+    keepalive: body.length < 60000, // lets a last change finish while the tab closes
+    signal: AbortSignal.timeout(10000),
+  });
+  if (!res.ok) throw Object.assign(new Error("firestore"), { status: res.status });
+  for (const [id, on] of batch) if (unsent.get(id) === on) unsent.delete(id);
+  writeLocal();
+}
+// One at a time, and changes before reading, so a read can't undo what is on its way up.
+async function sync(pull = false) {
+  if (!session.owner) return;
+  wantPull = wantPull || pull === true;
+  if (syncing) { syncAgain = true; return; }
+  syncing = true;
+  try {
+    do {
+      syncAgain = false;
+      if (unsent.size) await pushChanges();
+      if (wantPull) {
+        wantPull = false;
+        lastPull = Date.now();
+        applyProgress(await readProgress());
+      }
+    } while (syncAgain || unsent.size);
+    setSave("account", "Guardado en tu cuenta");
+  } catch {
+    if (session.owner) setSave("local", "Sin conexión: guardado en este navegador");
+  } finally {
+    syncing = false;
+  }
+}
+// Back on this tab: bring what changed on the other devices.
+function refresh() {
+  if (session.owner) { if (Date.now() - lastPull > 5000) sync(true); else if (unsent.size) sync(); }
+  else if (session.state === "out" && rememberedOwner()) openSession();
+}
+
+// Signing in. The SDK loads on the first tap, and "Continuar con Google" is a second tap on purpose:
+// browsers block a popup that doesn't open straight from a click, and the download would break that.
+function setAccess(state) {
+  session.state = state;
+  session.owner = state === "owner";
+  const button = (text, onclick) => h("button", { type: "button", text, onclick });
+  const views = {
+    out: () => [button("¿Eres Andrés? Entra para sincronizar", openSession)],
+    loading: () => [h("span", { text: "Conectando…" })],
+    ready: () => [button("Continuar con Google", signIn)],
+    owner: () => [button("Salir", closeSession)],
+    denied: () => [h("span", { text: "Esta cuenta no puede sincronizar." }), button("Salir", closeSession)],
+  };
+  document.getElementById("access").replaceChildren(...views[state]());
+}
+async function openSession() {
+  setAccess("loading");
+  try {
+    if (!session.sdk) {
+      const [app, auth] = await Promise.all([import(FIREBASE_SDK + "firebase-app.js"), import(FIREBASE_SDK + "firebase-auth.js")]);
+      session.auth = auth.getAuth(app.initializeApp(FIREBASE));
+      session.sdk = auth;
+      await session.auth.authStateReady();
+    }
+    if (session.auth.currentUser) await settleSession(session.auth.currentUser);
+    else setAccess("ready");
+  } catch {
+    setAccess("out");
+    setSave("local", "Sin conexión: guardado en este navegador");
+  }
+}
+async function settleSession(user) {
+  session.user = user;
+  let remote;
+  try {
+    remote = await readProgress();
+  } catch (e) {
+    if (e.status !== 403) throw e;
+    setAccess("denied");
+    return;
+  }
+  rememberOwner(true);
+  if (!linked) {
+    linked = true;
+    unsent = new Map([...checked].map((id) => [id, true]));
+  }
+  lastPull = Date.now();
+  applyProgress(remote);
+  setAccess("owner");
+  await sync();
+}
+async function signIn() {
+  setAccess("loading");
+  try {
+    const { user } = await session.sdk.signInWithPopup(session.auth, new session.sdk.GoogleAuthProvider());
+    await settleSession(user);
+  } catch (e) {
+    setAccess("ready");
+    if (e.code === "auth/popup-blocked") setSave("local", "El navegador bloqueó la ventana de Google");
+    else if (e.code !== "auth/popup-closed-by-user" && e.code !== "auth/cancelled-popup-request") setSave("local", "No se pudo entrar: guardado en este navegador");
+  }
+}
+async function closeSession() {
+  await session.sdk.signOut(session.auth);
+  session.user = null;
+  rememberOwner(false);
+  setAccess("out");
+  setSave("local", "Guardado en este navegador");
+}
+function startSession() {
+  setAccess("out");
+  if (rememberedOwner()) openSession();
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) refresh(); });
+  window.addEventListener("focus", refresh);
+  window.addEventListener("online", refresh);
+}
+
 function toggle(id, on) {
   if (on) checked.add(id); else checked.delete(id);
   if (!remoteReady) earlyOps.push([id, on]);
+  if (linked) unsent.set(id, on);
   updatedAt = Date.now();
   writeLocal();
   scheduleRemote();
@@ -3167,10 +3342,11 @@ document.getElementById("reset").addEventListener("click", () => {
   const dlg = h("div", { class: "dialog", role: "dialog", "aria-modal": "true", "aria-labelledby": "dlg-t" },
     h("div", { class: "card" },
       h("h2", { id: "dlg-t", text: "¿Borrar todo el progreso?" }),
-      h("p", { style: "margin:0;color:var(--muted)", text: "Se desmarcan todos los Pokémon, objetos, pasos y combates. No se puede deshacer." }),
+      h("p", { style: "margin:0;color:var(--muted)", text: `Se desmarcan todos los Pokémon, objetos, pasos y combates${linked ? " en todos tus dispositivos" : ""}. No se puede deshacer.` }),
       h("div", {},
         h("button", { class: "btn", type: "button", text: "Cancelar", onclick: () => dlg.remove() }),
         h("button", { class: "btn primary", type: "button", text: "Borrar", onclick: () => {
+          if (linked) for (const id of new Set([...ALL_IDS, ...checked])) unsent.set(id, false);
           checked = new Set(); updatedAt = Date.now(); writeLocal(); scheduleRemote(); syncAll(); dlg.remove();
         } }))));
   document.body.append(dlg);

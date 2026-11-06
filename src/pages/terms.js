@@ -5,7 +5,7 @@ import '../styles/p-legal.scss'
 
 const componentName = 'p-legal'
 const CONTACT = 'andres0613@utp.edu.co'
-const UPDATED = 'October 16, 2026'
+const UPDATED = 'November 5, 2026'
 
 const TermsPage = () => (
   <main className={`${componentName}`}>
@@ -25,8 +25,9 @@ const TermsPage = () => (
       <p>
         andresb.dev is a personal portfolio. Crónica del Aventurero is a personal, non-commercial app that shows
         its author's own health and fitness data, read from his Google account through the Google Health API, as
-        an RPG. It is offered free of charge and "as is". There are no user accounts: visitors can only view
-        the published pages.
+        an RPG. It is offered free of charge and "as is". Visitors don't need an account: they can view the
+        published pages, and the Pokémon guide saves their ticks in their own browser. The Google sign-in on the
+        project pages is for the author alone. Other accounts can complete it, but can't save or change anything.
       </p>
 
       <h2>Not medical advice</h2>
@@ -38,8 +39,8 @@ const TermsPage = () => (
 
       <h2>Google data</h2>
       <p>
-        The app only accesses the author's own Google account, with read-only permissions, and handles that data
-        as described in the <Link to='/privacy/'>Privacy Policy</Link>. Access can be revoked at any time
+        The app reads health data only from the author's own Google account, with read-only permissions. That data
+        and the sign-in are handled as described in the <Link to='/privacy/'>Privacy Policy</Link>. Access can be revoked at any time
         from <a href='https://myaccount.google.com/permissions' target='_blank' rel='noopener noreferrer'>myaccount.google.com/permissions</a>.
       </p>
 
@@ -72,8 +73,10 @@ const TermsPage = () => (
         andresb.dev es un portafolio personal y Crónica del Aventurero es una app personal y gratuita que muestra
         como un RPG los datos de salud de su autor, leídos de su propia cuenta de Google con permisos de solo lectura.
         Se ofrece "tal cual", sin garantías. Los niveles, metas, la edad fisiológica y los consejos del Sabio
-        (escritos por IA) son estimaciones para un juego y <strong>no son consejo médico</strong>. El manejo de los
-        datos de Google se describe en la <Link to='/privacy/'>Política de Privacidad</Link>. Contacto: <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.
+        (escritos por IA) son estimaciones para un juego y <strong>no son consejo médico</strong>. Para ver el sitio no
+        hace falta una cuenta, y el inicio de sesión con Google de los proyectos es solo para el autor: otras cuentas
+        pueden completarlo, pero no guardar ni cambiar nada. El manejo de los datos de Google y del inicio de sesión se
+        describe en la <Link to='/privacy/'>Política de Privacidad</Link>. Contacto: <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.
       </p>
     </article>
   </main>

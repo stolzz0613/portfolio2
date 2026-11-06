@@ -5,7 +5,7 @@ import '../styles/p-legal.scss'
 
 const componentName = 'p-legal'
 const CONTACT = 'andres0613@utp.edu.co'
-const UPDATED = 'October 16, 2026'
+const UPDATED = 'November 5, 2026'
 
 const PrivacyPage = () => (
   <main className={`${componentName}`}>
@@ -19,14 +19,15 @@ const PrivacyPage = () => (
         This policy explains how <strong>Crónica del Aventurero</strong>, a personal project by Andrés Bustos
         published at <a href='https://www.andresb.dev/proyectos/cronica-del-aventurero/'>andresb.dev/proyectos/cronica-del-aventurero</a>,
         accesses, uses, stores and shares data from Google APIs. It turns daily health and fitness numbers
-        into an RPG: levels, stats, weekly goals and advice.
+        into an RPG: levels, stats, weekly goals and advice. It also covers the Google sign-in on the project
+        pages of andresb.dev, including the <strong>Guía de Pokémon Platino</strong>.
       </p>
 
       <h2>Who uses the app</h2>
       <p>
-        The app is used by a single person: its author, Andrés Bustos. It only connects to the author's own
-        Google account. It does not offer sign-in to other people and does not access anyone else's data.
-        Visitors of andresb.dev don't sign in and no data is collected from them.
+        The app is used by a single person: its author, Andrés Bustos. It reads Google Health data only from the
+        author's own Google account and does not access anyone else's health data. Visitors of andresb.dev don't
+        need to sign in, and no data is collected from visitors who don't.
       </p>
 
       <h2>Data accessed from Google</h2>
@@ -51,15 +52,43 @@ const PrivacyPage = () => (
       <ul>
         <li>The daily summaries are stored in a JSON file in the GitHub repository that hosts andresb.dev and are published on the website <strong>by the author's own choice</strong>, as part of his portfolio. They are visible to anyone who opens the project page.</li>
         <li>The OAuth credentials (client secret and refresh token) are kept as encrypted GitHub Actions secrets and on the author's computer. They are never published.</li>
-        <li>No raw data streams, locations, or data other than the daily summaries listed above are stored.</li>
+        <li>No raw data streams, locations, or Google Health data other than the daily summaries listed above are stored.</li>
       </ul>
 
       <h2>Sharing with third parties</h2>
       <ul>
         <li><strong>Anthropic (Claude API):</strong> once a day, the current week's daily summaries are sent to the Claude API to write three short, non-medical recommendations shown in the game ("the Sage"). Anthropic processes them only to generate that response.</li>
         <li><strong>GitHub:</strong> hosts the repository, runs the daily update (GitHub Actions) and serves the website (GitHub Pages).</li>
+        <li><strong>Google Firebase:</strong> provides the sign-in and stores the data described under "Sign-in with Google". No health data is sent to Firebase.</li>
       </ul>
       <p>Data from Google APIs is not sold and is not shared with anyone else.</p>
+
+      <h2>Sign-in with Google</h2>
+      <p>
+        Crónica del Aventurero and the Guía de Pokémon Platino show a Google sign-in button meant for the author,
+        who uses it to save game choices and guide progress. Reading these pages doesn't require signing in.
+      </p>
+      <p>
+        Completing that sign-in creates an account record in Firebase Authentication, a Google service, even if
+        the account isn't the author's. The record holds the Google account's email address, name and profile photo
+        link, an account id and the sign-in dates. Firebase also uses the browser's user agent and the IP address
+        for security and to prevent abuse, and keeps logged IP addresses for a few weeks. Firebase Authentication
+        processes this data in the United States, and Google generally acts as a data processor for it. More
+        details are in the <a href='https://firebase.google.com/support/privacy' target='_blank' rel='noopener noreferrer'>Firebase privacy information</a>.
+      </p>
+      <p>
+        The record is used only to tell whether the account is the author's. Any other account is refused: it
+        can't save, read or change anything, and its data isn't used for anything else. The record stays until the
+        author deletes it. To ask for that, write to <a href={`mailto:${CONTACT}`}>{CONTACT}</a>; once it is deleted,
+        Firebase removes the data from its live and backup systems within 180 days. The sign-in is also kept in the
+        browser until "Salir" is pressed.
+      </p>
+      <p>
+        Cloud Firestore, also from Firebase, stores only the author's data: the game choices, which are public
+        because the page shows them, and the guide progress, which only the author's account can read. The boxes a
+        visitor ticks in the guide are saved in that visitor's own browser and are never sent anywhere. They can be
+        removed with "Borrar todo el progreso" or by clearing the browser's data.
+      </p>
 
       <h2>Limited Use</h2>
       <p>
@@ -103,7 +132,17 @@ const PrivacyPage = () => (
         API de Claude (Anthropic) para escribir consejos no médicos. GitHub aloja el sitio. Los datos no se venden ni se
         usan para publicidad ni para entrenar modelos de IA, y el uso cumple la Política de Datos de Usuario de los
         Servicios de API de Google, incluidos los requisitos de Uso Limitado. El acceso se puede revocar en
-        myaccount.google.com/permissions. Contacto: <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.
+        myaccount.google.com/permissions.
+      </p>
+      <p>
+        Para ver el sitio no hace falta iniciar sesión. El botón de Google de la Crónica y de la Guía de Pokémon
+        Platino es para el autor, que lo usa para guardar sus elecciones y su progreso en Firebase, un servicio de
+        Google. Quien complete ese inicio de sesión deja en Firebase Authentication un registro con el correo, el
+        nombre, el enlace a la foto de perfil y las fechas de acceso de su cuenta de Google, aunque no sea el autor.
+        Firebase también usa la dirección IP y el navegador por seguridad, conserva las IP registradas unas semanas
+        y trata estos datos en Estados Unidos. Ese registro solo sirve para comprobar si la cuenta es la del autor:
+        las demás cuentas no pueden guardar, leer ni cambiar nada, y el registro se puede borrar a pedido. Lo que un
+        visitante marca en la guía se queda en su navegador. Contacto: <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.
       </p>
     </article>
   </main>
