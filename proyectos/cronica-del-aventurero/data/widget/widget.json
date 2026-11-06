@@ -1,24 +1,24 @@
 {
-  "syncedAt": "2026-11-06T01:37:13.732Z",
+  "syncedAt": "2026-11-06T03:22:50.134Z",
   "weekStart": "2026-11-02",
   "name": "Andrés",
-  "job": "Guerrero",
+  "job": "Explorador",
   "level": 8,
-  "toNext": 3334,
+  "toNext": 2177,
   "streak": 2,
   "pet": {
     "state": "egg",
     "day": 4,
     "leader": "Actividad",
     "waiting": false,
-    "share": 34
+    "share": 28
   },
   "missions": [
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "21.964",
-      "pct": 0.619,
+      "value": "22.671",
+      "pct": 0.639,
       "tick": 0.571,
       "status": "A buen ritmo",
       "kind": "ok"
@@ -36,70 +36,70 @@
       "key": "sleep",
       "label": "Sueño",
       "value": "6,8 h",
-      "pct": 0.909,
+      "pct": 0.974,
       "tick": null,
-      "status": "Por debajo",
-      "kind": "bad"
+      "status": "Casi",
+      "kind": "warn"
     },
     {
       "key": "heart",
       "label": "Corazón",
-      "value": "— lpm",
-      "pct": 0,
+      "value": "72 lpm",
+      "pct": 0.4,
       "tick": null,
-      "status": "Sin dato",
-      "kind": "info"
+      "status": "Sube un poco",
+      "kind": "warn"
     }
   ],
   "xp": {
-    "value": 1466,
+    "value": 2623,
     "next": 4800
   },
-  "hp": 969,
+  "hp": 990,
   "mp": 851,
-  "wins": 8,
+  "wins": 9,
   "week": {
-    "steps": 21964,
+    "steps": 22671,
     "stepsGoal": 35500,
     "activeMin": 161,
     "activeGoal": 150,
     "sleepH": 6.8,
-    "sleepGoal": 7.5,
+    "sleepGoal": 7,
     "days": 4,
     "recovery": false
   },
   "lastDay": {
     "date": "2026-11-05",
-    "steps": 2217,
+    "steps": 2924,
     "sleepMin": 313,
     "activeMin": 10,
-    "restingHr": null
+    "restingHr": 74
   },
   "boss": {
-    "name": "Centinela Hueco",
-    "title": "Piso 2 de 4",
+    "name": "Heraldo de Ceniza",
+    "title": "Piso 3 de 4",
     "act": "Fauces del Vacío",
-    "hp": 310,
-    "maxHp": 650,
+    "hp": 757,
+    "maxHp": 850,
     "status": "combate"
   },
   "dungeon": {
     "name": "Fauces del Vacío",
-    "floor": 2,
+    "floor": 3,
     "floors": 4
   },
   "age": {
     "real": 31,
-    "phys": 32.3
+    "phys": 36.9
   },
   "sage": {
-    "greeting": "Aventurero, el Centinela Hueco aún resiste con 310 de 650 PV. Tus días activos lo hicieron tambalear, pero las noches irregulares y los días quietos le dan respiro.",
+    "greeting": "Aventurero, el Heraldo de Ceniza susurra que ya es tarde, pero le has arrancado golpes: aún le quedan 757 de 850 PV. Tus minutos activos son un buen escudo; ahora toca ordenar el descanso y vigilar el latido de tu corazón.",
     "tip": {
-      "title": "Pasos diarios sin huecos",
-      "action": "Camina al menos 5.100 pasos cada día para sumar 35.500 en la semana. Si a media tarde llevas menos de 3.000, da un paseo de 20 minutos antes de cenar."
+      "title": "Templa el corazón inquieto",
+      "action": "Reparte tus 150 minutos activos en 5 sesiones de 30 minutos a ritmo de conversación (caminar rápido, bici suave) y dedica 5 minutos de respiración lenta antes de dormir cada noche. Si tu pulso en reposo sigue subiendo durante la semana, consulta a un profesional de la salud."
     },
-    "mission": "Misión opcional «Vigía nocturno»: lleva tu dispositivo puesto al dormir todas las noches para registrar la FC en reposo. Mientras tanto, termina cada día con al menos 5.000 pasos. Si consigues 7 días seguidos, el Centinela Hueco caerá."
+    "mission": "Racha del Guardián: durante 7 días seguidos, acuéstate a la misma hora (±30 min) y camina al menos 4.000 pasos. Cada día cumplido es un golpe al Heraldo de Ceniza."
   },
-  "chapter": "El Centinela sin Dueño en las Fauces del Vacío",
-  "generatedAt": "2026-11-06T01:39:02.086Z"
+  "chapter": "El Heraldo que Anunciaba el Ocaso",
+  "generatedAt": "2026-11-06T03:24:53.226Z"
 }

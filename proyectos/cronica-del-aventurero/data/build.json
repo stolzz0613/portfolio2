@@ -1,9 +1,16 @@
 {
-  "path": null,
-  "pathWeek": null,
+  "path": "viento",
+  "pathWeek": "2026-11-02",
   "spec": null,
   "spec2": null,
-  "talents": {},
+  "talents": {
+    "zancada": "2026-11-02",
+    "cadencia": "2026-11-02",
+    "cartografo": "2026-11-02",
+    "temple": "2026-11-02",
+    "furia": "2026-11-02",
+    "embestida": "2026-11-02"
+  },
   "egg": {
     "week": "2026-11-02"
   },
