@@ -1,24 +1,24 @@
 {
-  "syncedAt": "2026-11-06T14:24:45.034Z",
+  "syncedAt": "2026-11-06T18:33:43.237Z",
   "weekStart": "2026-11-02",
   "name": "Andrés",
   "job": "Explorador",
   "level": 8,
-  "toNext": 2149,
+  "toNext": 2139,
   "streak": 0,
   "pet": {
     "state": "egg",
     "day": 5,
     "leader": "Actividad",
     "waiting": false,
-    "share": 29
+    "share": 28
   },
   "missions": [
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "22.997",
-      "pct": 0.648,
+      "value": "23.916",
+      "pct": 0.674,
       "tick": 0.714,
       "status": "Un poco atrás",
       "kind": "warn"
@@ -52,14 +52,14 @@
     }
   ],
   "xp": {
-    "value": 2651,
+    "value": 2661,
     "next": 4800
   },
-  "hp": 961,
+  "hp": 973,
   "mp": 856,
   "wins": 9,
   "week": {
-    "steps": 22997,
+    "steps": 23916,
     "stepsGoal": 35500,
     "activeMin": 161,
     "activeGoal": 150,
@@ -70,7 +70,7 @@
   },
   "lastDay": {
     "date": "2026-11-06",
-    "steps": 162,
+    "steps": 1081,
     "sleepMin": 421,
     "activeMin": 0,
     "restingHr": 72
@@ -79,7 +79,7 @@
     "name": "Heraldo de Ceniza",
     "title": "Piso 3 de 4",
     "act": "Fauces del Vacío",
-    "hp": 721,
+    "hp": 686,
     "maxHp": 850,
     "status": "combate"
   },
@@ -93,13 +93,13 @@
     "phys": 37.1
   },
   "sage": {
-    "greeting": "Aventurero, el Heraldo de Ceniza susurra que ya es tarde para empezar, pero ya le arrancaste 129 PV. Tu semana arrancó con brío y se apagó al final: hay que mantener la llama encendida todos los días.",
+    "greeting": "Aventurero, el Heraldo de Ceniza susurra que ya es tarde para empezar, pero tu semana lo desmiente: superaste la meta de minutos activos en solo cinco días. Aún le quedan 686 PV, y esta semana se los quitaremos con constancia, no con proezas.",
     "tip": {
-      "title": "Cardio suave para el corazón",
-      "action": "Reparte tus 150 min activos en 5 sesiones de 30 min (lunes a viernes) de caminata rápida, bici o trote suave, a un ritmo que te permita hablar. Añade 5 min de respiración lenta antes de dormir."
+      "title": "Templa tu corazón",
+      "action": "Reparte tus 150 minutos activos en 5 sesiones de unos 30 minutos a ritmo cómodo (caminata rápida o bici, pudiendo hablar sin ahogarte), en lugar de concentrarlos en dos días. Añade 5 minutos de respiración lenta antes de dormir cada noche."
     },
-    "mission": "Misión extra 'Muro contra la Ceniza': durante 7 días seguidos, ningún día por debajo de 4.000 pasos y al menos 20 min de movimiento. Si lo logras, el Heraldo pierde su voz por esta semana."
+    "mission": "Misión del Escudo de Brasa: durante los 7 días de la semana, no dejes que ningún día baje de 4.000 pasos ni que ninguna noche baje de 6 horas de sueño. Si lo logras, el Heraldo de Ceniza perderá su voz para siempre."
   },
-  "chapter": "Las Fauces del Vacío: la voz del Heraldo de Ceniza",
-  "generatedAt": "2026-11-06T14:25:51.025Z"
+  "chapter": "Las Fauces del Vacío y el Heraldo de Ceniza",
+  "generatedAt": "2026-11-06T18:34:41.791Z"
 }
