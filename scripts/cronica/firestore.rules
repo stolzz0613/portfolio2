@@ -1,0 +1,28 @@
+// Security rules for "Crónica del Aventurero" (Firebase project aventura-c28cf).
+// Paste them in the Firebase console: Firestore Database > Rules. Everything not listed is denied.
+//
+// OWNER_UID is the owner's account id. It isn't a secret, and the page shows it the first time that
+// account signs in. The page has no copy of it: it asks these rules by reading cronica/permiso, a
+// document that doesn't need to exist.
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isOwner() {
+      return request.auth != null && request.auth.uid == "OWNER_UID";
+    }
+
+    // The choices are public, like the rest of the page. Only the owner changes them.
+    match /cronica/elecciones {
+      allow read: if true;
+      allow create, update: if isOwner()
+        && request.resource.data.keys().hasOnly(["json", "updatedAt"])
+        && request.resource.data.json is string
+        && request.resource.data.json.size() < 4000;
+    }
+
+    match /cronica/permiso {
+      allow read: if isOwner();
+    }
+  }
+}
