@@ -1,42 +1,42 @@
 {
-  "syncedAt": "2026-11-06T03:22:50.134Z",
+  "syncedAt": "2026-11-06T14:24:45.034Z",
   "weekStart": "2026-11-02",
   "name": "Andrés",
   "job": "Explorador",
   "level": 8,
-  "toNext": 2177,
-  "streak": 2,
+  "toNext": 2149,
+  "streak": 0,
   "pet": {
     "state": "egg",
-    "day": 4,
+    "day": 5,
     "leader": "Actividad",
     "waiting": false,
-    "share": 28
+    "share": 29
   },
   "missions": [
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "22.671",
-      "pct": 0.639,
-      "tick": 0.571,
-      "status": "A buen ritmo",
-      "kind": "ok"
+      "value": "22.997",
+      "pct": 0.648,
+      "tick": 0.714,
+      "status": "Un poco atrás",
+      "kind": "warn"
     },
     {
       "key": "active",
       "label": "Actividad",
       "value": "161 min",
       "pct": 1,
-      "tick": 0.571,
+      "tick": 0.714,
       "status": "Cumplida",
       "kind": "ok"
     },
     {
       "key": "sleep",
       "label": "Sueño",
-      "value": "6,8 h",
-      "pct": 0.974,
+      "value": "6,9 h",
+      "pct": 0.98,
       "tick": null,
       "status": "Casi",
       "kind": "warn"
@@ -52,34 +52,34 @@
     }
   ],
   "xp": {
-    "value": 2623,
+    "value": 2651,
     "next": 4800
   },
-  "hp": 990,
-  "mp": 851,
+  "hp": 961,
+  "mp": 856,
   "wins": 9,
   "week": {
-    "steps": 22671,
+    "steps": 22997,
     "stepsGoal": 35500,
     "activeMin": 161,
     "activeGoal": 150,
-    "sleepH": 6.8,
+    "sleepH": 6.9,
     "sleepGoal": 7,
-    "days": 4,
+    "days": 5,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-05",
-    "steps": 2924,
-    "sleepMin": 313,
-    "activeMin": 10,
-    "restingHr": 74
+    "date": "2026-11-06",
+    "steps": 162,
+    "sleepMin": 421,
+    "activeMin": 0,
+    "restingHr": 72
   },
   "boss": {
     "name": "Heraldo de Ceniza",
     "title": "Piso 3 de 4",
     "act": "Fauces del Vacío",
-    "hp": 757,
+    "hp": 721,
     "maxHp": 850,
     "status": "combate"
   },
@@ -90,16 +90,16 @@
   },
   "age": {
     "real": 31,
-    "phys": 36.9
+    "phys": 37.1
   },
   "sage": {
-    "greeting": "Aventurero, el Heraldo de Ceniza susurra que ya es tarde, pero le has arrancado golpes: aún le quedan 757 de 850 PV. Tus minutos activos son un buen escudo; ahora toca ordenar el descanso y vigilar el latido de tu corazón.",
+    "greeting": "Aventurero, el Heraldo de Ceniza susurra que ya es tarde para empezar, pero ya le arrancaste 129 PV. Tu semana arrancó con brío y se apagó al final: hay que mantener la llama encendida todos los días.",
     "tip": {
-      "title": "Templa el corazón inquieto",
-      "action": "Reparte tus 150 minutos activos en 5 sesiones de 30 minutos a ritmo de conversación (caminar rápido, bici suave) y dedica 5 minutos de respiración lenta antes de dormir cada noche. Si tu pulso en reposo sigue subiendo durante la semana, consulta a un profesional de la salud."
+      "title": "Cardio suave para el corazón",
+      "action": "Reparte tus 150 min activos en 5 sesiones de 30 min (lunes a viernes) de caminata rápida, bici o trote suave, a un ritmo que te permita hablar. Añade 5 min de respiración lenta antes de dormir."
     },
-    "mission": "Racha del Guardián: durante 7 días seguidos, acuéstate a la misma hora (±30 min) y camina al menos 4.000 pasos. Cada día cumplido es un golpe al Heraldo de Ceniza."
+    "mission": "Misión extra 'Muro contra la Ceniza': durante 7 días seguidos, ningún día por debajo de 4.000 pasos y al menos 20 min de movimiento. Si lo logras, el Heraldo pierde su voz por esta semana."
   },
-  "chapter": "El Heraldo que Anunciaba el Ocaso",
-  "generatedAt": "2026-11-06T03:24:53.226Z"
+  "chapter": "Las Fauces del Vacío: la voz del Heraldo de Ceniza",
+  "generatedAt": "2026-11-06T14:25:51.025Z"
 }
