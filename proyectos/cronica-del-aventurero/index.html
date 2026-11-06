@@ -109,6 +109,8 @@ h2.wide, h3.wide { text-wrap: balance; }
 .ghost-btn:hover:not(:disabled) { border-color: var(--cream); }
 .btn:disabled, .ghost-btn:disabled { opacity: .45; cursor: default; }
 .linkbtn { padding: 0; border: 0; background: none; color: var(--mist); text-decoration: underline; font-size: 14px; }
+.access { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-width: 0; }
+.access code { overflow-wrap: anywhere; user-select: all; }
 .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 
 /* Status chips: always icon and word, never color alone */
@@ -1054,8 +1056,9 @@ async function askSage() {
 // Widget summary: the current week as the page shows it, for scripts/cronica/widget.mjs.
 
 // ---------------------------------------------------------------------------
-// Character build: class path, talents and pet, kept in the viewer's private store
-// (doc data/users/<id>/build). Choices count from the week they were made, so past battles and the
+// Character build: class path, talents and pet. On andresb.dev the owner picks them in the page and
+// Firebase keeps them; in the claude.ai copy they live in the viewer's private store (doc
+// data/users/<id>/build). Choices count from the week they were made, so past battles and the
 // chapters written about them stay as they were lived. Without choices every rule below is neutral.
 // ---------------------------------------------------------------------------
 const BUILD = { path: null, pathWeek: null, spec: null, spec2: null, talents: {}, egg: null, petName: "", dungeons: [] };
@@ -1646,10 +1649,54 @@ async function writeChapter(i) {
 }
 
 // ---------------------------------------------------------------------------
-// The copy on andresb.dev has no private store: visitors see the game read-only, and the choices
-// live in data/build.json, written by the GitHub Action when it is run by hand (scripts/cronica/build.mjs).
+// The copy on andresb.dev has no private store. Visitors see the game read-only; the owner signs in
+// with Google and picks in the page, and Firebase keeps those picks. Every page load applies them on
+// top of data/build.json, and the GitHub Action records the result there (scripts/cronica/build.mjs).
+//
+// This config identifies the project and is public by design: Firestore's rules decide who may write
+// (scripts/cronica/firestore.rules). Visitors never load the Firebase SDK: reads are one plain request.
 // ---------------------------------------------------------------------------
-const readOnly = () => Boolean(SOURCE.static);
+const FIREBASE = { apiKey: "AIzaSyAy5mhuq49I1GMi7McXM-CUVN6YWkXmgjY", authDomain: "aventura-c28cf.firebaseapp.com", projectId: "aventura-c28cf", appId: "1:952281027331:web:d9d9628dfa27098cec0f36" };
+const FIREBASE_SDK = "https://www.gstatic.com/firebasejs/13.1.0/";
+const session = { state: "out", owner: false, user: null, auth: null, sdk: null, skipped: [] };
+const readOnly = () => Boolean(SOURCE.static) && !session.owner;
+const remoteDoc = (name) => `https://firestore.googleapis.com/v1/projects/${FIREBASE.projectId}/databases/(default)/documents/cronica/${name}`;
+const buildSnapshot = () => { const { path, pathWeek, spec, spec2, talents, egg, petName, dungeons } = BUILD; return { path, pathWeek, spec, spec2, talents, egg, petName, dungeons }; };
+async function readRemote() {
+  if (!FIREBASE) return null;
+  try {
+    const res = await fetch(remoteDoc("elecciones"), { cache: "no-store", signal: AbortSignal.timeout(5000) });
+    return res.ok ? JSON.parse((await res.json()).fields.json.stringValue) : null;
+  } catch { return null; }
+}
+async function saveRemote() {
+  const token = await session.user.getIdToken();
+  const res = await fetch(remoteDoc("elecciones"), {
+    method: "PATCH", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ fields: { json: { stringValue: JSON.stringify(buildSnapshot()) }, updatedAt: { timestampValue: new Date().toISOString() } } }),
+  });
+  if (!res.ok) throw new Error(`Firestore ${res.status}`);
+}
+// A doc only the owner may read, and it needn't exist: 404 means the rules let this account through.
+async function isOwner(user) {
+  const res = await fetch(remoteDoc("permiso"), { headers: { Authorization: `Bearer ${await user.getIdToken()}` } });
+  return res.ok || res.status === 404;
+}
+// data/build.json is the record of what was lived and Firebase holds what the owner wants now. Each
+// difference goes through the same rules as a pick and takes the current week, so a choice fixed in a
+// past week can't move, whatever the remote says. What breaks a rule is skipped, never fatal.
+function adoptChoices(remote) {
+  const skipped = [], week = lastWeek(), want = remote.talents || {}, pick = (c) => skipped.push(...applyChoices(c).errors);
+  if (remote.path && remote.path !== BUILD.path) pick({ senda: remote.path });
+  else if (!remote.path && BUILD.path && BUILD.pathWeek === week) { BUILD.path = null; BUILD.pathWeek = null; BUILD.spec = null; BUILD.spec2 = null; campaignCache = null; }
+  for (const slot of ["spec", "spec2"]) if (remote[slot]?.id && remote[slot].id !== BUILD[slot]?.id) pick({ clase: remote[slot].id });
+  const next = remote.dungeons?.at(-1), have = BUILD.dungeons.at(-1);
+  if (next && (next.id !== have?.id || next.week > have.week)) pick({ mazmorra: next.id });
+  for (const t of [...TALENT_LIST].reverse()) if (BUILD.talents[t.id] && !want[t.id]) pick({ talentos: "-" + t.id });
+  for (const t of TALENT_LIST) if (want[t.id] && !BUILD.talents[t.id]) pick({ talentos: t.id });
+  if (typeof remote.petName === "string") BUILD.petName = remote.petName.trim().slice(0, 20);
+  return skipped;
+}
 function applyChoices({ senda = "", clase = "", talentos = "", mascota = "", mazmorra = "" }) {
   const errors = [], week = lastWeek();
   if (senda) {
@@ -1682,8 +1729,7 @@ function applyChoices({ senda = "", clase = "", talentos = "", mascota = "", maz
     else { BUILD.talents[id] = week; campaignCache = null; }
   }
   if (mascota.trim()) BUILD.petName = mascota.trim().slice(0, 20);
-  const { path, pathWeek, spec, spec2, talents, egg, petName, dungeons } = BUILD;
-  return { errors, build: { path, pathWeek, spec, spec2, talents, egg, petName, dungeons } };
+  return { errors, build: buildSnapshot() };
 }
 // Returns an error message, or null when the class fork was taken.
 function pickClass(id, week) {
@@ -1844,12 +1890,12 @@ function renderSource() {
   const last = weeks[weeks.length - 1]?.days.at(-1)?.date;
   const age = last ? Math.round((Date.now() - new Date(last + "T12:00:00")) / 864e5) : 0;
   const when = last ? fmtDay(new Date(last + "T12:00:00")) : "";
-  const sync = readOnly() ? null : h("button", { class: "linkbtn", type: "button", text: "Sincronizar" });
+  const sync = SOURCE.static ? null : h("button", { class: "linkbtn", type: "button", text: "Sincronizar" });
   sync?.addEventListener("click", () => go("datos"));
-  $("sync-panel").hidden = readOnly();
+  $("sync-panel").hidden = Boolean(SOURCE.static);
   $("source").replaceChildren(
     age > 2 ? chip("warn", `Datos de hace ${age} días`, "Vuelve a sincronizar Google Health para ver tus semanas recientes.") : chip("ok", SOURCE.label),
-    h("span", { text: `${readOnly() ? "Datos reales de Andrés" : "Tus datos llegan"} hasta el ${when}` }), sync || "");
+    h("span", { text: `${SOURCE.static ? "Datos reales de Andrés" : "Tus datos llegan"} hasta el ${when}` }), sync || "", accessControl());
   $("sync-chip").replaceChildren(age > 2 ? chip("warn", `Datos de hace ${age} días`) : chip("ok", "Al día"));
 }
 function selectWeek(i) {
@@ -2094,7 +2140,7 @@ function renderDungeons(c) {
   let action;
   if (lv < d.lv) action = h("p", { class: "note" }, `Se abre en NV ${d.lv}. Vas en NV ${lv}.`);
   else if (here === d.id) action = h("p", { class: "note", text: "Estás dentro. Tu daño de cada día va a este piso." });
-  else if (readOnly()) action = h("p", { class: "note" }, "Para entrar corre el action con ", h("code", { text: `mazmorra: ${d.id}` }), ". Si ya estás en otra, el cambio cuenta desde el lunes y conservas tus pisos ganados.");
+  else if (readOnly()) action = h("p", { class: "note", text: "Solo el dueño de la partida puede entrar, desde su cuenta. Si ya está en otra, el cambio cuenta desde el lunes y conserva sus pisos ganados." });
   else {
     const b = h("button", { class: "btn", type: "button", text: first ? "Entrar" : `Repetir con ${Math.round(REPEAT_HP * 100 * (rank))} % más de PV` });
     b.addEventListener("click", () => { const e = pickDungeonChoice(d.id, lastWeek()); toast(e || `Entrarás en ${d.name}.`); if (!e) persist(); });
@@ -2218,11 +2264,14 @@ function renderStory() {
 // ---------------------------------------------------------------------------
 // Pet
 // ---------------------------------------------------------------------------
-function persist(message) {
+async function persist(message) {
   campaignCache = null;
   render();
-  if (message) toast(message);
-  if (DB && UID) DB.doc("data/users/" + UID + "/build").set({ ...BUILD, updatedAt: Date.now() }).catch(() => toast("No se pudo guardar. Revisa tu conexión y vuelve a intentarlo."));
+  try {
+    if (session.owner) await saveRemote();
+    else if (DB && UID) await DB.doc("data/users/" + UID + "/build").set({ ...BUILD, updatedAt: Date.now() });
+    if (message) toast(message);
+  } catch { toast("No se pudo guardar. Revisa tu conexión y vuelve a intentarlo."); }
 }
 async function loadBuild() {
   if (SOURCE.static) {
@@ -2230,6 +2279,12 @@ async function loadBuild() {
       const res = await fetch("data/build.json", { cache: "no-cache" });
       if (res.ok) { Object.assign(BUILD, { talents: {}, dungeons: [], spec: null, spec2: null }, await res.json()); campaignCache = null; render(); }
     } catch {}
+    const remote = await readRemote();
+    if (remote) {
+      try { session.skipped = adoptChoices(remote); } catch (e) { session.skipped = [e.message]; }
+      campaignCache = null; render();
+    }
+    if (FIREBASE && rememberedOwner()) openSession();
     return;
   }
   if (!DB || !UID) return;
@@ -2237,6 +2292,57 @@ async function loadBuild() {
     const snap = await DB.doc("data/users/" + UID + "/build").get();
     if (snap.exists) { Object.assign(BUILD, { talents: {}, dungeons: [], spec: null, spec2: null }, snap.data()); campaignCache = null; render(); }
   } catch {}
+}
+// Signing in. The SDK loads on the first tap, and "Continuar con Google" is a second tap on purpose:
+// browsers block a popup that doesn't open straight from a click, and the download would break that.
+const OWNER_KEY = "cronica.dueno";
+const rememberedOwner = () => { try { return localStorage.getItem(OWNER_KEY) === "1"; } catch { return false; } };
+const rememberOwner = (on) => { try { on ? localStorage.setItem(OWNER_KEY, "1") : localStorage.removeItem(OWNER_KEY); } catch {} };
+function setSession(state) { session.state = state; session.owner = state === "owner"; render(); }
+async function openSession() {
+  setSession("loading");
+  try {
+    if (!session.sdk) {
+      const [app, auth] = await Promise.all([import(FIREBASE_SDK + "firebase-app.js"), import(FIREBASE_SDK + "firebase-auth.js")]);
+      session.auth = auth.getAuth(app.initializeApp(FIREBASE));
+      session.sdk = auth;
+      await session.auth.authStateReady();
+    }
+    if (session.auth.currentUser) await settleSession(session.auth.currentUser);
+    else setSession("ready");
+  } catch { setSession("out"); toast("No se pudo conectar. Revisa tu conexión y vuelve a intentarlo."); }
+}
+async function settleSession(user) {
+  session.user = user;
+  const owner = await isOwner(user);
+  rememberOwner(owner);
+  setSession(owner ? "owner" : "denied");
+}
+async function signIn() {
+  setSession("loading");
+  try {
+    const { user } = await session.sdk.signInWithPopup(session.auth, new session.sdk.GoogleAuthProvider());
+    await settleSession(user);
+  } catch (e) {
+    setSession("ready");
+    if (e.code === "auth/popup-blocked") toast("El navegador bloqueó la ventana. Permítela y vuelve a intentarlo.");
+    else if (e.code !== "auth/popup-closed-by-user" && e.code !== "auth/cancelled-popup-request") toast(`No se pudo entrar: ${e.code || "error de conexión"}.`);
+  }
+}
+async function closeSession() {
+  await session.sdk.signOut(session.auth);
+  session.user = null;
+  rememberOwner(false);
+  setSession("out");
+}
+function accessControl() {
+  if (!FIREBASE || !SOURCE.static) return "";
+  const link = (text, fn) => { const b = h("button", { class: "linkbtn", type: "button", text }); b.addEventListener("click", fn); return b; };
+  if (session.state === "loading") return h("span", { class: "tiny", text: "Conectando…" });
+  if (session.state === "ready") return link("Continuar con Google", signIn);
+  if (session.state === "owner") return h("span", { class: "access" }, chip("ember", "Editando tu partida"), link("Salir", closeSession));
+  if (session.state === "denied") return h("span", { class: "access" }, h("span", { text: "Esta cuenta no puede editar. Su UID es " }), h("code", { text: session.user.uid }), link("Salir", closeSession));
+  return link("¿Eres Andrés? Entra para elegir", openSession);
 }
 function startEgg() {
   const thisWeek = iso(startOfWeek(new Date()));
@@ -2382,7 +2488,7 @@ function renderClassTree(now) {
   let action = null;
   if (lv === FINAL_LV) action = h("span", { class: "tiny", text: `Llega sola en NV ${FINAL_LV} si tu clase de NV 14 es ${specNode(n.from).name}.` });
   else if (mineNow) action = chip("ember", "Tu camino");
-  else if (readOnly()) action = h("span", { class: "tiny" }, "Se elige en el action con ", h("code", { text: `clase: ${n.id}` }), `, desde NV ${lv}.`);
+  else if (readOnly()) action = h("span", { class: "tiny", text: `Se abre en NV ${lv}.` });
   else { const b = h("button", { class: "btn", type: "button", text: "Elegir esta clase" }); b.addEventListener("click", () => { const e = pickClass(n.id, lastWeek()); if (e) toast(e); else persist(`${n.name} elegida.`); }); action = b; }
   $("tree-detail").replaceChildren(h("div", { class: "tdet" }, h("div", {}, h("b", { text: n.name }), h("div", { class: "tiny", text: `NV ${lv} · ${PATHS[lineId].short}${n.from ? ` · viene de ${[].concat(n.from).map((f) => specNode(f)?.name).join(" o ")}` : ""}` }), h("div", { style: "font-weight:700", text: n.bonus })), action));
 }
@@ -2404,7 +2510,7 @@ function renderTalentTree(now) {
   if (!t) { $("tal-detail").replaceChildren(h("p", { class: "note", text: mast ? "Las maestrías piden avanzar en dos ramas a la vez." : "Toca un talento para ver qué hace y qué pide. Las ramas se abren en dos caminos, y en NV 11 solo puedes quedarte con uno." })); return; }
   const owned = Boolean(BUILD.talents[t.id]), block = owned ? null : talentBlock(t, now.lv, now.points), refundable = owned && BUILD.talents[t.id] === lastWeek() && !talentHolding(t);
   let action;
-  if (readOnly()) action = owned ? chip("ok", "Aprendido") : h("span", { class: "tiny" }, "Código para el action: ", h("code", { text: t.id }));
+  if (readOnly()) action = owned ? chip("ok", "Aprendido") : chip("info", "Sin aprender");
   else if (owned) action = refundable ? h("button", { class: "ghost-btn", type: "button", text: "Quitar" }) : chip("ok", "Aprendido");
   else action = h("button", { class: "btn", type: "button", disabled: block ? "" : null, text: "Aprender" });
   if (action.tagName === "BUTTON") action.addEventListener("click", () => { if (owned) { delete BUILD.talents[t.id]; persist(`${t.name} quitado.`); } else { BUILD.talents[t.id] = lastWeek(); persist(`${t.name} aprendido.`); } });
@@ -2692,7 +2798,7 @@ loadRealDays().then(async (days) => {
     source: SOURCE.kind, week: weeks[sel]?.start, prompt: sagePrompt(),
     weeks: weeks.map((w, i) => ({ start: w.start, status: campaign()[i].status })),
     chapterPrompt: (i, chapters) => { story.weeks = chapters.weeks || {}; story.prologue = chapters.prologue || null; return chapterPrompt(i); },
-    applyChoices,
+    choices: () => ({ build: buildSnapshot(), skipped: session.skipped }),
   };
 });
 (async () => {

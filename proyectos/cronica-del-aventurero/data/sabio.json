@@ -70,26 +70,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-11-02": {
-      "saludo": "Saludos, aventurero. El Centinela Hueco tiembla con 313 de 650 PV y ya superaste tus minutos activos, pero tu descanso fue irregular y tu pulso en reposo subió día a día: la armadura vacía se alimenta de noches desordenadas.",
+      "saludo": "Aventurero, el Centinela Hueco aún resiste con 310 de 650 PV. Tus días activos lo hicieron tambalear, pero las noches irregulares y los días quietos le dan respiro.",
       "consejos": [
         {
-          "titulo": "Calma el pulso en reposo",
-          "accion": "Reparte tus 150 min activos en 5 sesiones de 30 min a ritmo cómodo (paseo rápido o bici suave) en lugar de pocas sesiones intensas, evita la cafeína después de las 14:00 y mide tu pulso al despertar cada mañana. Si sigue subiendo durante la semana, consulta a un profesional sanitario.",
-          "porque": "Tu frecuencia en reposo es el factor que más años suma a tu edad fisiológica (+3,7) y subió cada día de la semana, de 70 a 74 lpm."
+          "titulo": "Pasos diarios sin huecos",
+          "accion": "Camina al menos 5.100 pasos cada día para sumar 35.500 en la semana. Si a media tarde llevas menos de 3.000, da un paseo de 20 minutos antes de cenar.",
+          "porque": "Los pasos son el factor que más suma a tu edad fisiológica (+2.0 años). Esta semana hubo días muy bajos, como 2.217 pasos el 05/11, frente a 7.915 el 04/11."
         },
         {
-          "titulo": "Horario fijo de sueño",
-          "accion": "Elige una hora para acostarte y otra para levantarte y respétalas los 7 días con un margen de 30 minutos, buscando dormir unas 7 h cada noche, sin compensar con noches largas.",
-          "porque": "Tu sueño osciló entre 4,3 h y 9,2 h (desviación de unas 2 h); la irregularidad suma +1,1 años, aunque tu media de 6,8 h está cerca de la meta."
+          "titulo": "Misma hora de dormir",
+          "accion": "Fija una hora de acostarte y de levantarte, con un margen de 30 minutos, los 7 días. Busca dormir unas 7,5 h por noche y deja las pantallas 30 minutos antes de esa hora.",
+          "porque": "Tu sueño osciló entre 4,3 h y 9,2 h (desviación de 2,07 h), y la media bajó a 6,82 h. La irregularidad del sueño suma +0.9 años."
         },
         {
-          "titulo": "Suelo diario de pasos",
-          "accion": "Camina al menos 5.100 pasos cada día (unos 35.500 en la semana): añade un paseo de 15-20 min tras la comida o la cena los días que vayas por detrás.",
-          "porque": "Tuviste días de casi 8.000 pasos, pero el 5 de noviembre solo hiciste 1.458; un mínimo diario evita esos bajones."
+          "titulo": "Reparte los minutos activos",
+          "accion": "Haz 3 sesiones de unos 50 minutos o 5 de 30 minutos, en días no seguidos, hasta llegar a 150 min. Evita concentrarlo todo en dos días.",
+          "porque": "Ya llevas 161 min, pero casi todos salieron de dos días (76 y 75 min), con jornadas de 0 y 10 min. La actividad te resta 1.2 años: mantenla constante."
         }
       ],
-      "mision": "Misión del Centinela: durante 5 noches seguidas apaga las pantallas 30 minutos antes de tu hora fija de dormir y anota cada mañana tu pulso al despertar. Cada noche cumplida es un golpe certero a la armadura sin dueño.",
-      "generatedAt": "2026-11-05T23:46:49.623Z",
+      "mision": "Misión opcional «Vigía nocturno»: lleva tu dispositivo puesto al dormir todas las noches para registrar la FC en reposo. Mientras tanto, termina cada día con al menos 5.000 pasos. Si consigues 7 días seguidos, el Centinela Hueco caerá.",
+      "generatedAt": "2026-11-06T01:37:57.281Z",
       "model": "claude-opus-5-5"
     }
   }

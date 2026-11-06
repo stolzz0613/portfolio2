@@ -1,7 +1,12 @@
 {
   "path": null,
   "pathWeek": null,
+  "spec": null,
+  "spec2": null,
   "talents": {},
-  "egg": { "week": "2026-11-02" },
-  "petName": ""
+  "egg": {
+    "week": "2026-11-02"
+  },
+  "petName": "",
+  "dungeons": []
 }

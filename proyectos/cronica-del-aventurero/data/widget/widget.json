@@ -1,24 +1,24 @@
 {
-  "syncedAt": "2026-11-05T23:46:14.578Z",
+  "syncedAt": "2026-11-06T01:37:13.732Z",
   "weekStart": "2026-11-02",
   "name": "Andrés",
   "job": "Guerrero",
   "level": 8,
-  "toNext": 3066,
+  "toNext": 3334,
   "streak": 2,
   "pet": {
     "state": "egg",
     "day": 4,
     "leader": "Actividad",
     "waiting": false,
-    "share": 28
+    "share": 34
   },
   "missions": [
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "21.205",
-      "pct": 0.597,
+      "value": "21.964",
+      "pct": 0.619,
       "tick": 0.571,
       "status": "A buen ritmo",
       "kind": "ok"
@@ -36,50 +36,50 @@
       "key": "sleep",
       "label": "Sueño",
       "value": "6,8 h",
-      "pct": 0.974,
+      "pct": 0.909,
       "tick": null,
-      "status": "Casi",
-      "kind": "warn"
+      "status": "Por debajo",
+      "kind": "bad"
     },
     {
       "key": "heart",
       "label": "Corazón",
-      "value": "72 lpm",
-      "pct": 0.4,
+      "value": "— lpm",
+      "pct": 0,
       "tick": null,
-      "status": "Sube un poco",
-      "kind": "warn"
+      "status": "Sin dato",
+      "kind": "info"
     }
   ],
   "xp": {
-    "value": 1734,
+    "value": 1466,
     "next": 4800
   },
-  "hp": 990,
+  "hp": 969,
   "mp": 851,
-  "wins": 9,
+  "wins": 8,
   "week": {
-    "steps": 21205,
+    "steps": 21964,
     "stepsGoal": 35500,
     "activeMin": 161,
     "activeGoal": 150,
     "sleepH": 6.8,
-    "sleepGoal": 7,
+    "sleepGoal": 7.5,
     "days": 4,
     "recovery": false
   },
   "lastDay": {
     "date": "2026-11-05",
-    "steps": 1458,
+    "steps": 2217,
     "sleepMin": 313,
     "activeMin": 10,
-    "restingHr": 74
+    "restingHr": null
   },
   "boss": {
     "name": "Centinela Hueco",
     "title": "Piso 2 de 4",
     "act": "Fauces del Vacío",
-    "hp": 313,
+    "hp": 310,
     "maxHp": 650,
     "status": "combate"
   },
@@ -90,16 +90,16 @@
   },
   "age": {
     "real": 31,
-    "phys": 36.7
+    "phys": 32.3
   },
   "sage": {
-    "greeting": "Saludos, aventurero. El Centinela Hueco tiembla con 313 de 650 PV y ya superaste tus minutos activos, pero tu descanso fue irregular y tu pulso en reposo subió día a día: la armadura vacía se alimenta de noches desordenadas.",
+    "greeting": "Aventurero, el Centinela Hueco aún resiste con 310 de 650 PV. Tus días activos lo hicieron tambalear, pero las noches irregulares y los días quietos le dan respiro.",
     "tip": {
-      "title": "Calma el pulso en reposo",
-      "action": "Reparte tus 150 min activos en 5 sesiones de 30 min a ritmo cómodo (paseo rápido o bici suave) en lugar de pocas sesiones intensas, evita la cafeína después de las 14:00 y mide tu pulso al despertar cada mañana. Si sigue subiendo durante la semana, consulta a un profesional sanitario."
+      "title": "Pasos diarios sin huecos",
+      "action": "Camina al menos 5.100 pasos cada día para sumar 35.500 en la semana. Si a media tarde llevas menos de 3.000, da un paseo de 20 minutos antes de cenar."
     },
-    "mission": "Misión del Centinela: durante 5 noches seguidas apaga las pantallas 30 minutos antes de tu hora fija de dormir y anota cada mañana tu pulso al despertar. Cada noche cumplida es un golpe certero a la armadura sin dueño."
+    "mission": "Misión opcional «Vigía nocturno»: lleva tu dispositivo puesto al dormir todas las noches para registrar la FC en reposo. Mientras tanto, termina cada día con al menos 5.000 pasos. Si consigues 7 días seguidos, el Centinela Hueco caerá."
   },
-  "chapter": "Las Fauces del Vacío: el Centinela sin dueño",
-  "generatedAt": "2026-11-05T23:48:42.855Z"
+  "chapter": "El Centinela sin Dueño en las Fauces del Vacío",
+  "generatedAt": "2026-11-06T01:39:02.086Z"
 }
