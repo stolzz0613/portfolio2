@@ -70,26 +70,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-11-02": {
-      "saludo": "Aventurero, el Heraldo de Ceniza susurra que ya es tarde para empezar, pero tu semana lo desmiente: superaste la meta de minutos activos en solo cinco días. Aún le quedan 686 PV, y esta semana se los quitaremos con constancia, no con proezas.",
+      "saludo": "Saludos, aventurero. Esta semana el Heraldo de Ceniza perdió fuerza (348 de 850 PV): tus minutos activos ya alcanzan la meta, pero tu sueño ha sido irregular y tu corazón en reposo pide algo de calma.",
       "consejos": [
         {
-          "titulo": "Templa tu corazón",
-          "accion": "Reparte tus 150 minutos activos en 5 sesiones de unos 30 minutos a ritmo cómodo (caminata rápida o bici, pudiendo hablar sin ahogarte), en lugar de concentrarlos en dos días. Añade 5 minutos de respiración lenta antes de dormir cada noche.",
-          "porque": "La FC en reposo es el factor que más suma a tu edad fisiológica, y esta semana ha ido subiendo día a día y está por encima de la semana anterior. Si sigue subiendo varios días seguidos o notas algo raro, consulta a un profesional."
+          "titulo": "Calma tu corazón guerrero",
+          "accion": "Reparte tus 150 min activos en al menos 4 días, con 3 caminatas de 30 min a ritmo en el que puedas conversar. Evita concentrar todo en uno o dos días seguidos de descanso total.",
+          "porque": "La FC en reposo es el factor que más suma a tu edad fisiológica (+3,7 años). Además, subió de 70,4 a 71,8 de media y llegó a 74 el jueves. Si sigue subiendo durante varias semanas o notas palpitaciones o cansancio inusual, consulta a un profesional."
         },
         {
-          "titulo": "Paseos tras las comidas",
-          "accion": "Camina unos 15 minutos después de comer y otros 15 después de cenar para alcanzar unos 5.100 pasos diarios (35.500 en la semana). Si un día te quedas corto, compénsalo al siguiente con un paseo extra de 20 minutos.",
-          "porque": "Tus pasos se desplomaron al final de la semana (de casi 8.000 a solo 1.081) y la semana anterior caminaste bastante más. Un mínimo diario estable evita esos días de inactividad casi total."
+          "titulo": "Ancla tu hora de despertar",
+          "accion": "Levántate a la misma hora todos los días, con un margen de ±30 min, y acuéstate 7,5 h antes. Tu objetivo es no bajar de 6 h ninguna noche y lograr una media de 7 h.",
+          "porque": "Tu sueño osciló entre 4,3 h y 9,2 h (desviación de 1,85 h). Esa irregularidad suma +1,1 años, más que la media de horas en sí."
         },
         {
-          "titulo": "Misma hora, cada noche",
-          "accion": "Fija una hora de acostarte y de levantarte y respétala con un margen de 30 minutos todos los días, buscando unas 7 horas por noche. Pon una alarma 30 minutos antes de acostarte para apagar pantallas.",
-          "porque": "Tu sueño fue muy irregular: noches de 4,3 y 5,2 horas mezcladas con otras de más de 9. La irregularidad también suma años a tu edad fisiológica, y dormir parejo ayuda a que el corazón descanse mejor."
+          "titulo": "Suelo diario de pasos",
+          "accion": "Marca un mínimo de 5.000 pasos al día para llegar a unos 35.500 en la semana. Los días que vayas por detrás, añade un paseo de 15 min después de comer o cenar.",
+          "porque": "Tu mejor día rozó los 8.000 pasos, pero el 5 de noviembre te quedaste en 3.088. Los pasos suman +1,9 años y la regularidad diaria te acerca a la meta."
         }
       ],
-      "mision": "Misión del Escudo de Brasa: durante los 7 días de la semana, no dejes que ningún día baje de 4.000 pasos ni que ninguna noche baje de 6 horas de sueño. Si lo logras, el Heraldo de Ceniza perderá su voz para siempre.",
-      "generatedAt": "2026-11-06T18:34:23.251Z",
+      "mision": "Misión opcional «Vigilia Serena»: durante 5 noches, deja pantallas y luces fuertes 30 min antes de dormir y anota tu FC en reposo al despertar. Si al final de la semana tu media de sueño llega a 7 h, el Heraldo de Ceniza caerá de rodillas.",
+      "generatedAt": "2026-11-07T02:39:18.505Z",
       "model": "claude-opus-5-5"
     }
   }

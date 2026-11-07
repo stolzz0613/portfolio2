@@ -1,32 +1,32 @@
 {
-  "syncedAt": "2026-11-06T18:33:43.237Z",
+  "syncedAt": "2026-11-07T02:38:35.793Z",
   "weekStart": "2026-11-02",
   "name": "Andrés",
   "job": "Explorador",
   "level": 8,
-  "toNext": 2139,
-  "streak": 0,
+  "toNext": 2013,
+  "streak": 1,
   "pet": {
     "state": "egg",
     "day": 5,
     "leader": "Actividad",
     "waiting": false,
-    "share": 28
+    "share": 27
   },
   "missions": [
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "23.916",
-      "pct": 0.674,
+      "value": "27.991",
+      "pct": 0.788,
       "tick": 0.714,
-      "status": "Un poco atrás",
-      "kind": "warn"
+      "status": "A buen ritmo",
+      "kind": "ok"
     },
     {
       "key": "active",
       "label": "Actividad",
-      "value": "161 min",
+      "value": "204 min",
       "pct": 1,
       "tick": 0.714,
       "status": "Cumplida",
@@ -52,16 +52,16 @@
     }
   ],
   "xp": {
-    "value": 2661,
+    "value": 2787,
     "next": 4800
   },
-  "hp": 973,
+  "hp": 992,
   "mp": 856,
   "wins": 9,
   "week": {
-    "steps": 23916,
+    "steps": 27991,
     "stepsGoal": 35500,
-    "activeMin": 161,
+    "activeMin": 204,
     "activeGoal": 150,
     "sleepH": 6.9,
     "sleepGoal": 7,
@@ -70,16 +70,16 @@
   },
   "lastDay": {
     "date": "2026-11-06",
-    "steps": 1081,
+    "steps": 5156,
     "sleepMin": 421,
-    "activeMin": 0,
+    "activeMin": 43,
     "restingHr": 72
   },
   "boss": {
     "name": "Heraldo de Ceniza",
     "title": "Piso 3 de 4",
     "act": "Fauces del Vacío",
-    "hp": 686,
+    "hp": 348,
     "maxHp": 850,
     "status": "combate"
   },
@@ -90,16 +90,16 @@
   },
   "age": {
     "real": 31,
-    "phys": 37.1
+    "phys": 36.7
   },
   "sage": {
-    "greeting": "Aventurero, el Heraldo de Ceniza susurra que ya es tarde para empezar, pero tu semana lo desmiente: superaste la meta de minutos activos en solo cinco días. Aún le quedan 686 PV, y esta semana se los quitaremos con constancia, no con proezas.",
+    "greeting": "Saludos, aventurero. Esta semana el Heraldo de Ceniza perdió fuerza (348 de 850 PV): tus minutos activos ya alcanzan la meta, pero tu sueño ha sido irregular y tu corazón en reposo pide algo de calma.",
     "tip": {
-      "title": "Templa tu corazón",
-      "action": "Reparte tus 150 minutos activos en 5 sesiones de unos 30 minutos a ritmo cómodo (caminata rápida o bici, pudiendo hablar sin ahogarte), en lugar de concentrarlos en dos días. Añade 5 minutos de respiración lenta antes de dormir cada noche."
+      "title": "Calma tu corazón guerrero",
+      "action": "Reparte tus 150 min activos en al menos 4 días, con 3 caminatas de 30 min a ritmo en el que puedas conversar. Evita concentrar todo en uno o dos días seguidos de descanso total."
     },
-    "mission": "Misión del Escudo de Brasa: durante los 7 días de la semana, no dejes que ningún día baje de 4.000 pasos ni que ninguna noche baje de 6 horas de sueño. Si lo logras, el Heraldo de Ceniza perderá su voz para siempre."
+    "mission": "Misión opcional «Vigilia Serena»: durante 5 noches, deja pantallas y luces fuertes 30 min antes de dormir y anota tu FC en reposo al despertar. Si al final de la semana tu media de sueño llega a 7 h, el Heraldo de Ceniza caerá de rodillas."
   },
-  "chapter": "Las Fauces del Vacío y el Heraldo de Ceniza",
-  "generatedAt": "2026-11-06T18:34:41.791Z"
+  "chapter": "El Heraldo que Anuncia el Ocaso",
+  "generatedAt": "2026-11-07T02:39:42.985Z"
 }
