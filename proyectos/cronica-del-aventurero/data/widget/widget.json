@@ -1,45 +1,45 @@
 {
-  "syncedAt": "2026-11-07T17:01:34.872Z",
+  "syncedAt": "2026-11-08T17:17:12.571Z",
   "weekStart": "2026-11-02",
   "name": "Andrés",
   "job": "Explorador",
   "level": 8,
-  "toNext": 2008,
-  "streak": 1,
+  "toNext": 1560,
+  "streak": 2,
   "pet": {
     "state": "egg",
-    "day": 5,
+    "day": 7,
     "leader": "Actividad",
     "waiting": false,
-    "share": 26
+    "share": 27
   },
   "missions": [
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "28.427",
-      "pct": 0.801,
-      "tick": 0.714,
-      "status": "A buen ritmo",
-      "kind": "ok"
+      "value": "33.672",
+      "pct": 0.949,
+      "tick": 1,
+      "status": "Un poco atrás",
+      "kind": "warn"
     },
     {
       "key": "active",
       "label": "Actividad",
-      "value": "204 min",
+      "value": "377 min",
       "pct": 1,
-      "tick": 0.714,
+      "tick": 1,
       "status": "Cumplida",
       "kind": "ok"
     },
     {
       "key": "sleep",
       "label": "Sueño",
-      "value": "6,9 h",
-      "pct": 0.98,
+      "value": "7,4 h",
+      "pct": 1,
       "tick": null,
-      "status": "Casi",
-      "kind": "warn"
+      "status": "Cumplida",
+      "kind": "ok"
     },
     {
       "key": "heart",
@@ -52,54 +52,54 @@
     }
   ],
   "xp": {
-    "value": 2792,
+    "value": 3240,
     "next": 4800
   },
-  "hp": 992,
-  "mp": 856,
+  "hp": 982,
+  "mp": 928,
   "wins": 9,
   "week": {
-    "steps": 28427,
+    "steps": 33672,
     "stepsGoal": 35500,
-    "activeMin": 204,
+    "activeMin": 377,
     "activeGoal": 150,
-    "sleepH": 6.9,
+    "sleepH": 7.4,
     "sleepGoal": 7,
-    "days": 5,
+    "days": 7,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-06",
-    "steps": 5592,
-    "sleepMin": 421,
-    "activeMin": 43,
-    "restingHr": 72
+    "date": "2026-11-08",
+    "steps": 317,
+    "sleepMin": 460,
+    "activeMin": 0,
+    "restingHr": 73
   },
   "boss": {
-    "name": "Heraldo de Ceniza",
-    "title": "Piso 3 de 4",
+    "name": "Carmesí",
+    "title": "Piso 4 de 4",
     "act": "Fauces del Vacío",
-    "hp": 331,
-    "maxHp": 850,
+    "hp": 1434,
+    "maxHp": 2500,
     "status": "combate"
   },
   "dungeon": {
     "name": "Fauces del Vacío",
-    "floor": 3,
+    "floor": 4,
     "floors": 4
   },
   "age": {
     "real": 31,
-    "phys": 36.7
+    "phys": 36.1
   },
   "sage": {
-    "greeting": "Saludos, aventurero. El Heraldo de Ceniza te susurra que ya es tarde, pero le quedan solo 331 PV y tú sumaste 204 minutos activos en cinco días. Tu armadura flaquea en el descanso y en el pulso; esta semana los fortaleceremos.",
+    "greeting": "Aventurero, tus 377 minutos activos han golpeado con fuerza a Carmesí, Devorador del Vacío: solo le quedan 1434 de 2500 PV. Pero el corazón en reposo te susurra que aún necesita calma, y el domingo casi dejaste caer la espada.",
     "tip": {
-      "title": "Calma el corazón",
-      "action": "Reparte tus 150 minutos activos en 5 sesiones de 30 minutos de cardio suave (caminata rápida, bici o natación) a un ritmo que te permita conversar. Evita la cafeína a partir de media tarde."
+      "title": "Calma tu corazón guerrero",
+      "action": "Reparte tus 150 minutos en 4 o 5 sesiones de 30 a 40 minutos de cardio suave, a un ritmo en el que puedas hablar sin ahogarte. Evita la cafeína después de las 15:00. Si tu FC en reposo sigue subiendo durante varias semanas, consulta a un profesional."
     },
-    "mission": "Misión opcional «Luz contra la Ceniza»: durante 5 noches, apaga las pantallas 30 minutos antes de acostarte y, el fin de semana, da un paseo de 45 minutos al aire libre sin el móvil. Cada logro es un golpe certero al Heraldo."
+    "mission": "Misión del Domingo Despierto: el próximo domingo sal a caminar 30 minutos por la mañana. Así no regalas un día de pasos a Carmesí y le asestas un golpe extra."
   },
-  "chapter": "El Heraldo bajo la Ciudadela",
-  "generatedAt": "2026-11-07T17:02:36.901Z"
+  "chapter": "Las Fauces del Vacío: el Devorador acorralado",
+  "generatedAt": "2026-11-08T17:18:15.635Z"
 }
