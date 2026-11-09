@@ -1,30 +1,30 @@
 {
-  "syncedAt": "2026-11-09T13:33:28.410Z",
+  "syncedAt": "2026-11-09T21:40:42.069Z",
   "weekStart": "2026-11-09",
   "name": "Andrés",
   "job": "Explorador",
-  "level": 7,
-  "toNext": 2314,
+  "level": 8,
+  "toNext": 1433,
   "streak": 0,
   "pet": {
     "state": "pet",
-    "name": "Lunilla",
-    "line": "Búho de la vigilia",
+    "name": "Chispa",
+    "line": "Dragón de forja",
     "stage": "Cría",
     "level": 1,
-    "mood": "Decaída",
-    "bond": 19,
+    "mood": "Contenta",
+    "bond": 81,
     "floor": 0,
     "next": 250,
-    "gift": "+2 % de daño por sueño",
+    "gift": "+1,5 % de daño por actividad",
     "giftOn": false
   },
   "missions": [
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "768",
-      "pct": 0.019,
+      "value": "4097",
+      "pct": 0.104,
       "tick": 0.143,
       "status": "Atrasada",
       "kind": "bad"
@@ -32,11 +32,11 @@
     {
       "key": "active",
       "label": "Actividad",
-      "value": "0 min",
-      "pct": 0,
+      "value": "28 min",
+      "pct": 0.187,
       "tick": 0.143,
-      "status": "Atrasada",
-      "kind": "bad"
+      "status": "A buen ritmo",
+      "kind": "ok"
     },
     {
       "key": "sleep",
@@ -58,17 +58,17 @@
     }
   ],
   "xp": {
-    "value": 1886,
-    "next": 4200
+    "value": 3367,
+    "next": 4800
   },
-  "hp": 314,
+  "hp": 843,
   "mp": 731,
-  "wins": 8,
+  "wins": 9,
   "week": {
-    "steps": 768,
+    "steps": 4097,
     "stepsGoal": 39500,
-    "activeMin": 0,
-    "activeGoal": 30,
+    "activeMin": 28,
+    "activeGoal": 150,
     "sleepH": 5.8,
     "sleepGoal": 7.25,
     "days": 1,
@@ -76,36 +76,36 @@
   },
   "lastDay": {
     "date": "2026-11-09",
-    "steps": 768,
+    "steps": 4097,
     "sleepMin": 351,
-    "activeMin": null,
+    "activeMin": 28,
     "restingHr": 73
   },
   "boss": {
-    "name": "Centinela Hueco",
-    "title": "Piso 2 de 4",
+    "name": "Carmesí",
+    "title": "Piso 4 de 4",
     "act": "Fauces del Vacío",
-    "hp": 203,
-    "maxHp": 650,
+    "hp": 1532,
+    "maxHp": 2500,
     "status": "combate"
   },
   "dungeon": {
     "name": "Fauces del Vacío",
-    "floor": 2,
+    "floor": 4,
     "floors": 4
   },
   "age": {
     "real": 31,
-    "phys": 38.2
+    "phys": 35.9
   },
   "sage": {
-    "greeting": "Saludos, aventurero. El Centinela Hueco se tambalea con 203 PV, pero tu lunes fue lento: pocos pasos y una noche corta. La semana acaba de empezar y aún hay tiempo de sobra para darle el golpe final.",
+    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 1532 de 2500 PV, y tu lunes empezó con pocas horas de sueño. Queda media semana por delante y todavía hay tiempo para darle la vuelta.",
     "tip": {
-      "title": "Despierta tu corazón",
-      "action": "Haz 3 caminatas rápidas de 10 minutos (por ejemplo, martes, jueves y sábado), a un ritmo en el que puedas hablar pero no cantar. Así sumas los 30 minutos activos de la semana."
+      "title": "Calma tu corazón",
+      "action": "Haz 3 sesiones de 25-30 min de cardio suave esta semana (caminata rápida, bici o natación a un ritmo que te permita hablar). Evita la cafeína después de las 15:00 y dedica 5 min antes de dormir a respirar lento."
     },
-    "mission": "Ritual del Ocaso: durante 3 noches de esta semana, deja las pantallas 30 minutos antes de acostarte y dedica ese rato a leer o estirarte. Cada noche cumplida será un golpe certero contra el Centinela Hueco."
+    "mission": "Misión opcional «Paso del Alba»: el sábado o el domingo da una caminata de 40 min al aire libre sin mirar el móvil. Te dará pasos, minutos activos y un buen golpe contra Carmesí."
   },
-  "chapter": "La vigilia del Centinela Hueco",
-  "generatedAt": "2026-11-09T13:36:06.376Z"
+  "chapter": "El Trono Hambriento de las Fauces",
+  "generatedAt": "2026-11-09T21:42:44.987Z"
 }

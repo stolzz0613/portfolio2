@@ -93,26 +93,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-11-09": {
-      "saludo": "Saludos, aventurero. El Centinela Hueco se tambalea con 203 PV, pero tu lunes fue lento: pocos pasos y una noche corta. La semana acaba de empezar y aún hay tiempo de sobra para darle el golpe final.",
+      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 1532 de 2500 PV, y tu lunes empezó con pocas horas de sueño. Queda media semana por delante y todavía hay tiempo para darle la vuelta.",
       "consejos": [
         {
-          "titulo": "Despierta tu corazón",
-          "accion": "Haz 3 caminatas rápidas de 10 minutos (por ejemplo, martes, jueves y sábado), a un ritmo en el que puedas hablar pero no cantar. Así sumas los 30 minutos activos de la semana.",
-          "porque": "Tu FC en reposo es el factor que más suma a tu edad fisiológica (+3,8 años), y llevas dos semanas con 0 minutos activos. Si notas que tu FC en reposo sigue subiendo durante varias semanas, consulta a un profesional sanitario."
+          "titulo": "Calma tu corazón",
+          "accion": "Haz 3 sesiones de 25-30 min de cardio suave esta semana (caminata rápida, bici o natación a un ritmo que te permita hablar). Evita la cafeína después de las 15:00 y dedica 5 min antes de dormir a respirar lento.",
+          "porque": "Tu FC en reposo de 73 lpm es el factor que más suma a tu edad fisiológica (+3,8 años). El ejercicio aeróbico regular y el buen descanso ayudan a bajarla. Si en las próximas semanas sigue subiendo de forma notable, consúltalo con un profesional."
         },
         {
-          "titulo": "Pasos de cada día",
-          "accion": "Apunta a unos 5.650 pasos diarios para llegar a los 39.500 de la semana. Un paseo de 20 minutos después de comer o de cenar te dará buena parte. Si un día te quedas corto, añade 10 minutos extra al día siguiente.",
-          "porque": "El lunes solo registraste 768 pasos, pero la semana pasada hiciste 36.798. Ya sabes que eres capaz de lograrlo."
+          "titulo": "Unos 5.900 pasos diarios",
+          "accion": "Camina unos 5.900 pasos cada día durante los 6 días que quedan. Una forma sencilla es sumar un paseo de 15 min después de comer y otro de 10 min por la tarde.",
+          "porque": "El lunes hiciste 4.097 pasos. Para llegar a la meta semanal de 39.500 te faltan unos 35.400, que repartidos dan cerca de 5.900 al día."
         },
         {
-          "titulo": "Ancla tu hora de dormir",
-          "accion": "Elige una hora fija para acostarte y respétala cada noche con un margen de media hora, buscando dormir unas 7 h 15 min. Esta noche, acuéstate una hora antes que ayer para recuperar.",
-          "porque": "El lunes dormiste 5,8 h, frente a la media de 7,43 h de la semana pasada. Además, la irregularidad de tu sueño (±1,7 h) también suma años a tu edad fisiológica."
+          "titulo": "Mismo horario para dormir",
+          "accion": "Fija una hora de acostarte y otra de levantarte, con una diferencia máxima de 30 min entre días, para lograr unas 7,5 h en cama y una media de 7,25 h de sueño. Apaga las pantallas 30 min antes.",
+          "porque": "El lunes dormiste solo 5,8 h, por debajo de las 7,43 h de media de la semana pasada. Además, la irregularidad del sueño (±1,7 h) te suma 1,2 años."
         }
       ],
-      "mision": "Ritual del Ocaso: durante 3 noches de esta semana, deja las pantallas 30 minutos antes de acostarte y dedica ese rato a leer o estirarte. Cada noche cumplida será un golpe certero contra el Centinela Hueco.",
-      "generatedAt": "2026-11-09T13:34:07.920Z",
+      "mision": "Misión opcional «Paso del Alba»: el sábado o el domingo da una caminata de 40 min al aire libre sin mirar el móvil. Te dará pasos, minutos activos y un buen golpe contra Carmesí.",
+      "generatedAt": "2026-11-09T21:41:20.929Z",
       "model": "claude-opus-5-5"
     }
   }
