@@ -1,50 +1,56 @@
 {
-  "syncedAt": "2026-11-08T17:17:12.571Z",
-  "weekStart": "2026-11-02",
+  "syncedAt": "2026-11-09T13:33:28.410Z",
+  "weekStart": "2026-11-09",
   "name": "Andrés",
   "job": "Explorador",
-  "level": 8,
-  "toNext": 1560,
-  "streak": 2,
+  "level": 7,
+  "toNext": 2314,
+  "streak": 0,
   "pet": {
-    "state": "egg",
-    "day": 7,
-    "leader": "Actividad",
-    "waiting": false,
-    "share": 27
+    "state": "pet",
+    "name": "Lunilla",
+    "line": "Búho de la vigilia",
+    "stage": "Cría",
+    "level": 1,
+    "mood": "Decaída",
+    "bond": 19,
+    "floor": 0,
+    "next": 250,
+    "gift": "+2 % de daño por sueño",
+    "giftOn": false
   },
   "missions": [
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "33.672",
-      "pct": 0.949,
-      "tick": 1,
-      "status": "Un poco atrás",
-      "kind": "warn"
+      "value": "768",
+      "pct": 0.019,
+      "tick": 0.143,
+      "status": "Atrasada",
+      "kind": "bad"
     },
     {
       "key": "active",
       "label": "Actividad",
-      "value": "377 min",
-      "pct": 1,
-      "tick": 1,
-      "status": "Cumplida",
-      "kind": "ok"
+      "value": "0 min",
+      "pct": 0,
+      "tick": 0.143,
+      "status": "Atrasada",
+      "kind": "bad"
     },
     {
       "key": "sleep",
       "label": "Sueño",
-      "value": "7,4 h",
-      "pct": 1,
+      "value": "5,8 h",
+      "pct": 0.807,
       "tick": null,
-      "status": "Cumplida",
-      "kind": "ok"
+      "status": "Por debajo",
+      "kind": "bad"
     },
     {
       "key": "heart",
       "label": "Corazón",
-      "value": "72 lpm",
+      "value": "73 lpm",
       "pct": 0.4,
       "tick": null,
       "status": "Sube un poco",
@@ -52,54 +58,54 @@
     }
   ],
   "xp": {
-    "value": 3240,
-    "next": 4800
+    "value": 1886,
+    "next": 4200
   },
-  "hp": 982,
-  "mp": 928,
-  "wins": 9,
+  "hp": 314,
+  "mp": 731,
+  "wins": 8,
   "week": {
-    "steps": 33672,
-    "stepsGoal": 35500,
-    "activeMin": 377,
-    "activeGoal": 150,
-    "sleepH": 7.4,
-    "sleepGoal": 7,
-    "days": 7,
+    "steps": 768,
+    "stepsGoal": 39500,
+    "activeMin": 0,
+    "activeGoal": 30,
+    "sleepH": 5.8,
+    "sleepGoal": 7.25,
+    "days": 1,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-08",
-    "steps": 317,
-    "sleepMin": 460,
-    "activeMin": 0,
+    "date": "2026-11-09",
+    "steps": 768,
+    "sleepMin": 351,
+    "activeMin": null,
     "restingHr": 73
   },
   "boss": {
-    "name": "Carmesí",
-    "title": "Piso 4 de 4",
+    "name": "Centinela Hueco",
+    "title": "Piso 2 de 4",
     "act": "Fauces del Vacío",
-    "hp": 1434,
-    "maxHp": 2500,
+    "hp": 203,
+    "maxHp": 650,
     "status": "combate"
   },
   "dungeon": {
     "name": "Fauces del Vacío",
-    "floor": 4,
+    "floor": 2,
     "floors": 4
   },
   "age": {
     "real": 31,
-    "phys": 36.1
+    "phys": 38.2
   },
   "sage": {
-    "greeting": "Aventurero, tus 377 minutos activos han golpeado con fuerza a Carmesí, Devorador del Vacío: solo le quedan 1434 de 2500 PV. Pero el corazón en reposo te susurra que aún necesita calma, y el domingo casi dejaste caer la espada.",
+    "greeting": "Saludos, aventurero. El Centinela Hueco se tambalea con 203 PV, pero tu lunes fue lento: pocos pasos y una noche corta. La semana acaba de empezar y aún hay tiempo de sobra para darle el golpe final.",
     "tip": {
-      "title": "Calma tu corazón guerrero",
-      "action": "Reparte tus 150 minutos en 4 o 5 sesiones de 30 a 40 minutos de cardio suave, a un ritmo en el que puedas hablar sin ahogarte. Evita la cafeína después de las 15:00. Si tu FC en reposo sigue subiendo durante varias semanas, consulta a un profesional."
+      "title": "Despierta tu corazón",
+      "action": "Haz 3 caminatas rápidas de 10 minutos (por ejemplo, martes, jueves y sábado), a un ritmo en el que puedas hablar pero no cantar. Así sumas los 30 minutos activos de la semana."
     },
-    "mission": "Misión del Domingo Despierto: el próximo domingo sal a caminar 30 minutos por la mañana. Así no regalas un día de pasos a Carmesí y le asestas un golpe extra."
+    "mission": "Ritual del Ocaso: durante 3 noches de esta semana, deja las pantallas 30 minutos antes de acostarte y dedica ese rato a leer o estirarte. Cada noche cumplida será un golpe certero contra el Centinela Hueco."
   },
-  "chapter": "Las Fauces del Vacío: el Devorador acorralado",
-  "generatedAt": "2026-11-08T17:18:15.635Z"
+  "chapter": "La vigilia del Centinela Hueco",
+  "generatedAt": "2026-11-09T13:36:06.376Z"
 }

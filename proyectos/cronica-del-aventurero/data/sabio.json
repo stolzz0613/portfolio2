@@ -91,6 +91,29 @@
       "mision": "Misión del Domingo Despierto: el próximo domingo sal a caminar 30 minutos por la mañana. Así no regalas un día de pasos a Carmesí y le asestas un golpe extra.",
       "generatedAt": "2026-11-08T17:17:55.437Z",
       "model": "claude-opus-5-5"
+    },
+    "2026-11-09": {
+      "saludo": "Saludos, aventurero. El Centinela Hueco se tambalea con 203 PV, pero tu lunes fue lento: pocos pasos y una noche corta. La semana acaba de empezar y aún hay tiempo de sobra para darle el golpe final.",
+      "consejos": [
+        {
+          "titulo": "Despierta tu corazón",
+          "accion": "Haz 3 caminatas rápidas de 10 minutos (por ejemplo, martes, jueves y sábado), a un ritmo en el que puedas hablar pero no cantar. Así sumas los 30 minutos activos de la semana.",
+          "porque": "Tu FC en reposo es el factor que más suma a tu edad fisiológica (+3,8 años), y llevas dos semanas con 0 minutos activos. Si notas que tu FC en reposo sigue subiendo durante varias semanas, consulta a un profesional sanitario."
+        },
+        {
+          "titulo": "Pasos de cada día",
+          "accion": "Apunta a unos 5.650 pasos diarios para llegar a los 39.500 de la semana. Un paseo de 20 minutos después de comer o de cenar te dará buena parte. Si un día te quedas corto, añade 10 minutos extra al día siguiente.",
+          "porque": "El lunes solo registraste 768 pasos, pero la semana pasada hiciste 36.798. Ya sabes que eres capaz de lograrlo."
+        },
+        {
+          "titulo": "Ancla tu hora de dormir",
+          "accion": "Elige una hora fija para acostarte y respétala cada noche con un margen de media hora, buscando dormir unas 7 h 15 min. Esta noche, acuéstate una hora antes que ayer para recuperar.",
+          "porque": "El lunes dormiste 5,8 h, frente a la media de 7,43 h de la semana pasada. Además, la irregularidad de tu sueño (±1,7 h) también suma años a tu edad fisiológica."
+        }
+      ],
+      "mision": "Ritual del Ocaso: durante 3 noches de esta semana, deja las pantallas 30 minutos antes de acostarte y dedica ese rato a leer o estirarte. Cada noche cumplida será un golpe certero contra el Centinela Hueco.",
+      "generatedAt": "2026-11-09T13:34:07.920Z",
+      "model": "claude-opus-5-5"
     }
   }
 }
