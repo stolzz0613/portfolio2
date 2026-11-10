@@ -1,19 +1,19 @@
 {
-  "syncedAt": "2026-11-09T21:40:42.069Z",
+  "syncedAt": "2026-11-10T18:55:28.014Z",
   "weekStart": "2026-11-09",
   "name": "Andrés",
   "job": "Explorador",
   "level": 8,
-  "toNext": 1433,
-  "streak": 0,
+  "toNext": 1298,
+  "streak": 1,
   "pet": {
     "state": "pet",
     "name": "Chispa",
     "line": "Dragón de forja",
     "stage": "Cría",
     "level": 1,
-    "mood": "Contenta",
-    "bond": 81,
+    "mood": "Radiante",
+    "bond": 86,
     "floor": 0,
     "next": 250,
     "gift": "+1,5 % de daño por actividad",
@@ -23,34 +23,34 @@
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "4097",
-      "pct": 0.104,
-      "tick": 0.143,
-      "status": "Atrasada",
-      "kind": "bad"
+      "value": "9249",
+      "pct": 0.234,
+      "tick": 0.286,
+      "status": "Un poco atrás",
+      "kind": "warn"
     },
     {
       "key": "active",
       "label": "Actividad",
-      "value": "28 min",
-      "pct": 0.187,
-      "tick": 0.143,
+      "value": "57 min",
+      "pct": 0.38,
+      "tick": 0.286,
       "status": "A buen ritmo",
       "kind": "ok"
     },
     {
       "key": "sleep",
       "label": "Sueño",
-      "value": "5,8 h",
-      "pct": 0.807,
+      "value": "7,8 h",
+      "pct": 1,
       "tick": null,
-      "status": "Por debajo",
-      "kind": "bad"
+      "status": "Cumplida",
+      "kind": "ok"
     },
     {
       "key": "heart",
       "label": "Corazón",
-      "value": "73 lpm",
+      "value": "74 lpm",
       "pct": 0.4,
       "tick": null,
       "status": "Sube un poco",
@@ -58,34 +58,34 @@
     }
   ],
   "xp": {
-    "value": 3367,
+    "value": 3502,
     "next": 4800
   },
-  "hp": 843,
-  "mp": 731,
+  "hp": 939,
+  "mp": 975,
   "wins": 9,
   "week": {
-    "steps": 4097,
+    "steps": 9249,
     "stepsGoal": 39500,
-    "activeMin": 28,
+    "activeMin": 57,
     "activeGoal": 150,
-    "sleepH": 5.8,
+    "sleepH": 7.8,
     "sleepGoal": 7.25,
-    "days": 1,
+    "days": 2,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-09",
-    "steps": 4097,
-    "sleepMin": 351,
-    "activeMin": 28,
-    "restingHr": 73
+    "date": "2026-11-10",
+    "steps": 150,
+    "sleepMin": 586,
+    "activeMin": 0,
+    "restingHr": 75
   },
   "boss": {
     "name": "Carmesí",
     "title": "Piso 4 de 4",
     "act": "Fauces del Vacío",
-    "hp": 1532,
+    "hp": 1141,
     "maxHp": 2500,
     "status": "combate"
   },
@@ -96,16 +96,16 @@
   },
   "age": {
     "real": 31,
-    "phys": 35.9
+    "phys": 35.7
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 1532 de 2500 PV, y tu lunes empezó con pocas horas de sueño. Queda media semana por delante y todavía hay tiempo para darle la vuelta.",
+    "greeting": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con 1141 de 2500 PV, pero tu marcha va a trompicones: un día de gran gesta y otro en que apenas abandonaste la posada. Recupera el ritmo y el Vacío caerá.",
     "tip": {
-      "title": "Calma tu corazón",
-      "action": "Haz 3 sesiones de 25-30 min de cardio suave esta semana (caminata rápida, bici o natación a un ritmo que te permita hablar). Evita la cafeína después de las 15:00 y dedica 5 min antes de dormir a respirar lento."
+      "title": "Calma el tambor del corazón",
+      "action": "Haz 3 sesiones de 30 min de cardio suave (caminata rápida o bici) a ritmo en el que puedas hablar sin jadear. Esto suma 90 de los 93 min activos que te faltan. Evita la cafeína después de las 15:00."
     },
-    "mission": "Misión opcional «Paso del Alba»: el sábado o el domingo da una caminata de 40 min al aire libre sin mirar el móvil. Te dará pasos, minutos activos y un buen golpe contra Carmesí."
+    "mission": "Misión del Peregrino Constante: durante 5 días seguidos, da un paseo de 10 min después de la comida principal y no bajes de 5.000 pasos ningún día. Si lo cumples, Carmesí recibirá un golpe crítico."
   },
-  "chapter": "El Trono Hambriento de las Fauces",
-  "generatedAt": "2026-11-09T21:42:44.987Z"
+  "chapter": "El Devorador en su Trono de Sombras",
+  "generatedAt": "2026-11-10T18:56:27.370Z"
 }

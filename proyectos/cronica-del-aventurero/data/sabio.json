@@ -93,26 +93,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-11-09": {
-      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 1532 de 2500 PV, y tu lunes empezó con pocas horas de sueño. Queda media semana por delante y todavía hay tiempo para darle la vuelta.",
+      "saludo": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con 1141 de 2500 PV, pero tu marcha va a trompicones: un día de gran gesta y otro en que apenas abandonaste la posada. Recupera el ritmo y el Vacío caerá.",
       "consejos": [
         {
-          "titulo": "Calma tu corazón",
-          "accion": "Haz 3 sesiones de 25-30 min de cardio suave esta semana (caminata rápida, bici o natación a un ritmo que te permita hablar). Evita la cafeína después de las 15:00 y dedica 5 min antes de dormir a respirar lento.",
-          "porque": "Tu FC en reposo de 73 lpm es el factor que más suma a tu edad fisiológica (+3,8 años). El ejercicio aeróbico regular y el buen descanso ayudan a bajarla. Si en las próximas semanas sigue subiendo de forma notable, consúltalo con un profesional."
+          "titulo": "Calma el tambor del corazón",
+          "accion": "Haz 3 sesiones de 30 min de cardio suave (caminata rápida o bici) a ritmo en el que puedas hablar sin jadear. Esto suma 90 de los 93 min activos que te faltan. Evita la cafeína después de las 15:00.",
+          "porque": "Tu FC en reposo es el factor que más suma a tu edad fisiológica (+3.9 años) y esta semana subió de 72 a 74 lpm de media. Si sigue subiendo varios días seguidos o notas palpitaciones o fatiga rara, consulta a un profesional."
         },
         {
-          "titulo": "Unos 5.900 pasos diarios",
-          "accion": "Camina unos 5.900 pasos cada día durante los 6 días que quedan. Una forma sencilla es sumar un paseo de 15 min después de comer y otro de 10 min por la tarde.",
-          "porque": "El lunes hiciste 4.097 pasos. Para llegar a la meta semanal de 39.500 te faltan unos 35.400, que repartidos dan cerca de 5.900 al día."
+          "titulo": "Ningún día en la posada",
+          "accion": "Camina unos 6.100 pasos al día durante los 5 días que quedan (unos 30.250 en total) para llegar a los 39.500. Si a media tarde llevas menos de 3.000, sal a dar un paseo de 20 min.",
+          "porque": "Llevas 9.249 pasos en 2 días, pero uno fue de 9.099 y otro de solo 150. La constancia vale más que un único gran esfuerzo."
         },
         {
-          "titulo": "Mismo horario para dormir",
-          "accion": "Fija una hora de acostarte y otra de levantarte, con una diferencia máxima de 30 min entre días, para lograr unas 7,5 h en cama y una media de 7,25 h de sueño. Apaga las pantallas 30 min antes.",
-          "porque": "El lunes dormiste solo 5,8 h, por debajo de las 7,43 h de media de la semana pasada. Además, la irregularidad del sueño (±1,7 h) te suma 1,2 años."
+          "titulo": "Acuéstate siempre a la misma hora",
+          "accion": "Fija una hora de despertar y respétala con un margen de ±30 min todos los días, incluido el fin de semana. Busca dormir entre 7 y 7,5 h cada noche para mantener la media sobre 7,25 h.",
+          "porque": "Dormiste 5,8 h una noche y 9,8 h la siguiente (desviación de 1,96 h). La irregularidad del sueño te suma +1.3 años, aunque la media sea buena."
         }
       ],
-      "mision": "Misión opcional «Paso del Alba»: el sábado o el domingo da una caminata de 40 min al aire libre sin mirar el móvil. Te dará pasos, minutos activos y un buen golpe contra Carmesí.",
-      "generatedAt": "2026-11-09T21:41:20.929Z",
+      "mision": "Misión del Peregrino Constante: durante 5 días seguidos, da un paseo de 10 min después de la comida principal y no bajes de 5.000 pasos ningún día. Si lo cumples, Carmesí recibirá un golpe crítico.",
+      "generatedAt": "2026-11-10T18:56:08.346Z",
       "model": "claude-opus-5-5"
     }
   }
