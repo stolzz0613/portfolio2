@@ -1,11 +1,11 @@
 {
-  "syncedAt": "2026-11-10T18:55:28.014Z",
+  "syncedAt": "2026-11-11T18:54:48.682Z",
   "weekStart": "2026-11-09",
   "name": "Andrés",
   "job": "Explorador",
   "level": 8,
-  "toNext": 1298,
-  "streak": 1,
+  "toNext": 1192,
+  "streak": 0,
   "pet": {
     "state": "pet",
     "name": "Chispa",
@@ -13,7 +13,7 @@
     "stage": "Cría",
     "level": 1,
     "mood": "Radiante",
-    "bond": 86,
+    "bond": 87,
     "floor": 0,
     "next": 250,
     "gift": "+1,5 % de daño por actividad",
@@ -23,25 +23,25 @@
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "9249",
-      "pct": 0.234,
-      "tick": 0.286,
+      "value": "13.996",
+      "pct": 0.354,
+      "tick": 0.429,
       "status": "Un poco atrás",
       "kind": "warn"
     },
     {
       "key": "active",
       "label": "Actividad",
-      "value": "57 min",
-      "pct": 0.38,
-      "tick": 0.286,
+      "value": "74 min",
+      "pct": 0.493,
+      "tick": 0.429,
       "status": "A buen ritmo",
       "kind": "ok"
     },
     {
       "key": "sleep",
       "label": "Sueño",
-      "value": "7,8 h",
+      "value": "7,9 h",
       "pct": 1,
       "tick": null,
       "status": "Cumplida",
@@ -53,39 +53,39 @@
       "value": "74 lpm",
       "pct": 0.4,
       "tick": null,
-      "status": "Sube un poco",
-      "kind": "warn"
+      "status": "Subiendo",
+      "kind": "bad"
     }
   ],
   "xp": {
-    "value": 3502,
+    "value": 3608,
     "next": 4800
   },
-  "hp": 939,
-  "mp": 975,
+  "hp": 941,
+  "mp": 987,
   "wins": 9,
   "week": {
-    "steps": 9249,
+    "steps": 13996,
     "stepsGoal": 39500,
-    "activeMin": 57,
+    "activeMin": 74,
     "activeGoal": 150,
-    "sleepH": 7.8,
+    "sleepH": 7.9,
     "sleepGoal": 7.25,
-    "days": 2,
+    "days": 3,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-10",
-    "steps": 150,
-    "sleepMin": 586,
+    "date": "2026-11-11",
+    "steps": 134,
+    "sleepMin": 486,
     "activeMin": 0,
-    "restingHr": 75
+    "restingHr": 76
   },
   "boss": {
     "name": "Carmesí",
     "title": "Piso 4 de 4",
     "act": "Fauces del Vacío",
-    "hp": 1141,
+    "hp": 946,
     "maxHp": 2500,
     "status": "combate"
   },
@@ -96,16 +96,16 @@
   },
   "age": {
     "real": 31,
-    "phys": 35.7
+    "phys": 35.6
   },
   "sage": {
-    "greeting": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con 1141 de 2500 PV, pero tu marcha va a trompicones: un día de gran gesta y otro en que apenas abandonaste la posada. Recupera el ritmo y el Vacío caerá.",
+    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 946 PV, y tu última jornada fue casi inmóvil mientras tu pulso en reposo subía día a día. Aún quedan cuatro días para darle el golpe final.",
     "tip": {
-      "title": "Calma el tambor del corazón",
-      "action": "Haz 3 sesiones de 30 min de cardio suave (caminata rápida o bici) a ritmo en el que puedas hablar sin jadear. Esto suma 90 de los 93 min activos que te faltan. Evita la cafeína después de las 15:00."
+      "title": "Calma tu corazón inquieto",
+      "action": "De jueves a domingo, camina 20 minutos al día a ritmo suave (que puedas conversar sin jadear). Limita el alcohol y la cafeína de la tarde, y bebe agua con regularidad. Si tu FC en reposo sigue subiendo o te notas enfermo o muy cansado, descansa y consulta a un profesional."
     },
-    "mission": "Misión del Peregrino Constante: durante 5 días seguidos, da un paseo de 10 min después de la comida principal y no bajes de 5.000 pasos ningún día. Si lo cumples, Carmesí recibirá un golpe crítico."
+    "mission": "Misión del Vacío: durante tres días seguidos, completa una caminata de 20 minutos antes de las 20:00 y acuéstate a tu hora fija. Cada día cumplido será un golpe certero contra los 946 PV de Carmesí."
   },
-  "chapter": "El Devorador en su Trono de Sombras",
-  "generatedAt": "2026-11-10T18:56:27.370Z"
+  "chapter": "El Devorador en lo Hondo de las Fauces",
+  "generatedAt": "2026-11-11T18:55:48.107Z"
 }
