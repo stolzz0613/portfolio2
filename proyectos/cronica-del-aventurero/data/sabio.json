@@ -93,26 +93,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-11-09": {
-      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 946 PV, y tu última jornada fue casi inmóvil mientras tu pulso en reposo subía día a día. Aún quedan cuatro días para darle el golpe final.",
+      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, se tambalea con 848 PV, pero tus últimos dos días han sido silenciosos y tu corazón late cada mañana un poco más rápido. Vuelve al camino con paso firme, sin forzar.",
       "consejos": [
         {
-          "titulo": "Calma tu corazón inquieto",
-          "accion": "De jueves a domingo, camina 20 minutos al día a ritmo suave (que puedas conversar sin jadear). Limita el alcohol y la cafeína de la tarde, y bebe agua con regularidad. Si tu FC en reposo sigue subiendo o te notas enfermo o muy cansado, descansa y consulta a un profesional.",
-          "porque": "Tu FC en reposo es el factor que más suma a tu edad fisiológica (+4,0 años) y esta semana subió cada día: 73, 74 y 76 lpm, por encima de la media de 72 de la semana pasada."
+          "titulo": "Vigila tu ritmo en reposo",
+          "accion": "Mide tu FC en reposo cada mañana al despertar, antes de levantarte. Esta semana haz 5 sesiones de 30 min de actividad suave, como caminar a buen paso o pedalear tranquilo, para sumar 150 min. Evita el esfuerzo intenso hasta que el pulso se estabilice. Si sigue subiendo varios días o notas cansancio, mareo u otros síntomas, consulta a un profesional sanitario.",
+          "porque": "Tu FC en reposo subió cada día (73, 74, 76 y 78 lpm) y es el factor que más años suma a tu edad fisiológica (+4.1). Además, la media semanal pasó de 72.0 a 75.3 mientras tu actividad caía."
         },
         {
-          "titulo": "Reconquista los pasos perdidos",
-          "accion": "Camina unos 6.400 pasos diarios hasta el domingo. Repártelos en dos o tres paseos, por ejemplo uno de 15 minutos tras comer y otro al caer la tarde, para llegar a la meta semanal de 39.500.",
-          "porque": "Llevas 13.996 pasos y el último día solo hiciste 134. Te faltan unos 25.500 en cuatro días, algo alcanzable si no se repite un día sedentario."
+          "titulo": "Recupera tus pasos diarios",
+          "accion": "Apunta a unos 5.650 pasos al día para llegar a 39.500 en la semana. Por ejemplo, haz dos paseos de 15 min (uno tras comer y otro por la tarde) y no dejes que ningún día baje de 4.000 pasos.",
+          "porque": "Empezaste con 9.099 pasos, pero fuiste bajando hasta solo 812 el último día. Llevas 18.697 en 4 días, lejos del ritmo de la semana pasada (36.798)."
         },
         {
-          "titulo": "Fija tu hora de descanso",
-          "accion": "Acuéstate y levántate cada día a la misma hora, con un margen de 30 minutos, y busca dormir entre 7 y 7,5 h. Nada de noches cortas ni de dormir de más para compensar.",
-          "porque": "Tu sueño osciló entre 5,8 y 9,8 h (desviación de 1,6 h). Esa irregularidad suma +1,3 años, aunque la media de 7,9 h sea buena."
+          "titulo": "Horario de sueño estable",
+          "accion": "Fija una hora de acostarte y otra de levantarte y no te desvíes más de 30 min, ni siquiera el fin de semana. Busca unas 7 h 15 min cada noche, en lugar de compensar con noches muy largas.",
+          "porque": "Tu sueño osciló entre 5.8 h y 9.8 h (desviación de 1.49 h). La irregularidad suma +1.3 años a tu edad fisiológica, aunque la media fue buena (7.59 h)."
         }
       ],
-      "mision": "Misión del Vacío: durante tres días seguidos, completa una caminata de 20 minutos antes de las 20:00 y acuéstate a tu hora fija. Cada día cumplido será un golpe certero contra los 946 PV de Carmesí.",
-      "generatedAt": "2026-11-11T18:55:29.631Z",
+      "mision": "Asalto final a Carmesí: durante el fin de semana, sal a una caminata tranquila de 45 min por un parque o por la naturaleza, sin prisa y a un ritmo que te deje conversar. Al volver, anota cómo te sientes y tu FC de la mañana siguiente.",
+      "generatedAt": "2026-11-12T19:13:20.563Z",
       "model": "claude-opus-5-5"
     }
   }

@@ -1,10 +1,10 @@
 {
-  "syncedAt": "2026-11-11T18:54:48.682Z",
+  "syncedAt": "2026-11-12T19:12:43.564Z",
   "weekStart": "2026-11-09",
   "name": "Andrés",
   "job": "Explorador",
   "level": 8,
-  "toNext": 1192,
+  "toNext": 1145,
   "streak": 0,
   "pet": {
     "state": "pet",
@@ -13,7 +13,7 @@
     "stage": "Cría",
     "level": 1,
     "mood": "Radiante",
-    "bond": 87,
+    "bond": 54,
     "floor": 0,
     "next": 250,
     "gift": "+1,5 % de daño por actividad",
@@ -23,9 +23,9 @@
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "13.996",
-      "pct": 0.354,
-      "tick": 0.429,
+      "value": "18.697",
+      "pct": 0.473,
+      "tick": 0.571,
       "status": "Un poco atrás",
       "kind": "warn"
     },
@@ -34,14 +34,14 @@
       "label": "Actividad",
       "value": "74 min",
       "pct": 0.493,
-      "tick": 0.429,
-      "status": "A buen ritmo",
-      "kind": "ok"
+      "tick": 0.571,
+      "status": "Un poco atrás",
+      "kind": "warn"
     },
     {
       "key": "sleep",
       "label": "Sueño",
-      "value": "7,9 h",
+      "value": "7,6 h",
       "pct": 1,
       "tick": null,
       "status": "Cumplida",
@@ -50,7 +50,7 @@
     {
       "key": "heart",
       "label": "Corazón",
-      "value": "74 lpm",
+      "value": "75 lpm",
       "pct": 0.4,
       "tick": null,
       "status": "Subiendo",
@@ -58,34 +58,34 @@
     }
   ],
   "xp": {
-    "value": 3608,
+    "value": 3655,
     "next": 4800
   },
-  "hp": 941,
-  "mp": 987,
+  "hp": 896,
+  "mp": 948,
   "wins": 9,
   "week": {
-    "steps": 13996,
+    "steps": 18697,
     "stepsGoal": 39500,
     "activeMin": 74,
     "activeGoal": 150,
-    "sleepH": 7.9,
+    "sleepH": 7.6,
     "sleepGoal": 7.25,
-    "days": 3,
+    "days": 4,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-11",
-    "steps": 134,
-    "sleepMin": 486,
+    "date": "2026-11-12",
+    "steps": 812,
+    "sleepMin": 399,
     "activeMin": 0,
-    "restingHr": 76
+    "restingHr": 78
   },
   "boss": {
     "name": "Carmesí",
     "title": "Piso 4 de 4",
     "act": "Fauces del Vacío",
-    "hp": 946,
+    "hp": 848,
     "maxHp": 2500,
     "status": "combate"
   },
@@ -96,16 +96,16 @@
   },
   "age": {
     "real": 31,
-    "phys": 35.6
+    "phys": 35.7
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, aún conserva 946 PV, y tu última jornada fue casi inmóvil mientras tu pulso en reposo subía día a día. Aún quedan cuatro días para darle el golpe final.",
+    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, se tambalea con 848 PV, pero tus últimos dos días han sido silenciosos y tu corazón late cada mañana un poco más rápido. Vuelve al camino con paso firme, sin forzar.",
     "tip": {
-      "title": "Calma tu corazón inquieto",
-      "action": "De jueves a domingo, camina 20 minutos al día a ritmo suave (que puedas conversar sin jadear). Limita el alcohol y la cafeína de la tarde, y bebe agua con regularidad. Si tu FC en reposo sigue subiendo o te notas enfermo o muy cansado, descansa y consulta a un profesional."
+      "title": "Vigila tu ritmo en reposo",
+      "action": "Mide tu FC en reposo cada mañana al despertar, antes de levantarte. Esta semana haz 5 sesiones de 30 min de actividad suave, como caminar a buen paso o pedalear tranquilo, para sumar 150 min. Evita el esfuerzo intenso hasta que el pulso se estabilice. Si sigue subiendo varios días o notas cansancio, mareo u otros síntomas, consulta a un profesional sanitario."
     },
-    "mission": "Misión del Vacío: durante tres días seguidos, completa una caminata de 20 minutos antes de las 20:00 y acuéstate a tu hora fija. Cada día cumplido será un golpe certero contra los 946 PV de Carmesí."
+    "mission": "Asalto final a Carmesí: durante el fin de semana, sal a una caminata tranquila de 45 min por un parque o por la naturaleza, sin prisa y a un ritmo que te deje conversar. Al volver, anota cómo te sientes y tu FC de la mañana siguiente."
   },
-  "chapter": "El Devorador en lo Hondo de las Fauces",
-  "generatedAt": "2026-11-11T18:55:48.107Z"
+  "chapter": "Chispa ilumina las Fauces del Devorador",
+  "generatedAt": "2026-11-12T19:13:42.968Z"
 }
