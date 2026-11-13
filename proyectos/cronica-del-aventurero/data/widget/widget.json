@@ -1,10 +1,10 @@
 {
-  "syncedAt": "2026-11-12T19:12:43.564Z",
+  "syncedAt": "2026-11-13T18:50:08.781Z",
   "weekStart": "2026-11-09",
   "name": "Andrés",
   "job": "Explorador",
   "level": 8,
-  "toNext": 1145,
+  "toNext": 1101,
   "streak": 0,
   "pet": {
     "state": "pet",
@@ -12,8 +12,8 @@
     "line": "Dragón de forja",
     "stage": "Cría",
     "level": 1,
-    "mood": "Radiante",
-    "bond": 54,
+    "mood": "Contenta",
+    "bond": 48,
     "floor": 0,
     "next": 250,
     "gift": "+1,5 % de daño por actividad",
@@ -23,25 +23,25 @@
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "18.697",
-      "pct": 0.473,
-      "tick": 0.571,
-      "status": "Un poco atrás",
-      "kind": "warn"
+      "value": "20.574",
+      "pct": 0.521,
+      "tick": 0.714,
+      "status": "Atrasada",
+      "kind": "bad"
     },
     {
       "key": "active",
       "label": "Actividad",
       "value": "74 min",
       "pct": 0.493,
-      "tick": 0.571,
-      "status": "Un poco atrás",
-      "kind": "warn"
+      "tick": 0.714,
+      "status": "Atrasada",
+      "kind": "bad"
     },
     {
       "key": "sleep",
       "label": "Sueño",
-      "value": "7,6 h",
+      "value": "7,5 h",
       "pct": 1,
       "tick": null,
       "status": "Cumplida",
@@ -58,34 +58,34 @@
     }
   ],
   "xp": {
-    "value": 3655,
+    "value": 3699,
     "next": 4800
   },
-  "hp": 896,
-  "mp": 948,
+  "hp": 806,
+  "mp": 934,
   "wins": 9,
   "week": {
-    "steps": 18697,
+    "steps": 20574,
     "stepsGoal": 39500,
     "activeMin": 74,
     "activeGoal": 150,
-    "sleepH": 7.6,
+    "sleepH": 7.5,
     "sleepGoal": 7.25,
-    "days": 4,
+    "days": 5,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-12",
-    "steps": 812,
-    "sleepMin": 399,
+    "date": "2026-11-13",
+    "steps": 426,
+    "sleepMin": 423,
     "activeMin": 0,
-    "restingHr": 78
+    "restingHr": 75
   },
   "boss": {
     "name": "Carmesí",
     "title": "Piso 4 de 4",
     "act": "Fauces del Vacío",
-    "hp": 848,
+    "hp": 785,
     "maxHp": 2500,
     "status": "combate"
   },
@@ -99,13 +99,13 @@
     "phys": 35.7
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, se tambalea con 848 PV, pero tus últimos dos días han sido silenciosos y tu corazón late cada mañana un poco más rápido. Vuelve al camino con paso firme, sin forzar.",
+    "greeting": "Aventurero, empezaste la semana con brío, pero tus pasos se fueron apagando día a día hasta casi detenerse. Carmesí, Devorador del Vacío, aún resiste con 785 PV: una semana constante bastará para derribarlo.",
     "tip": {
-      "title": "Vigila tu ritmo en reposo",
-      "action": "Mide tu FC en reposo cada mañana al despertar, antes de levantarte. Esta semana haz 5 sesiones de 30 min de actividad suave, como caminar a buen paso o pedalear tranquilo, para sumar 150 min. Evita el esfuerzo intenso hasta que el pulso se estabilice. Si sigue subiendo varios días o notas cansancio, mareo u otros síntomas, consulta a un profesional sanitario."
+      "title": "Vigila tu corazón en reposo",
+      "action": "Cada mañana, al despertar y antes de levantarte, anota tu FC en reposo. Si te sientes bien, haz 30 min de caminata a ritmo moderado (puedes hablar pero no cantar) 5 días, y así sumas los 150 min activos. Si notas cansancio, fiebre o malestar, descansa primero. Si la cifra sigue subiendo varios días seguidos, consulta a un profesional."
     },
-    "mission": "Asalto final a Carmesí: durante el fin de semana, sal a una caminata tranquila de 45 min por un parque o por la naturaleza, sin prisa y a un ritmo que te deje conversar. Al volver, anota cómo te sientes y tu FC de la mañana siguiente."
+    "mission": "Misión «Asedio al Vacío»: encadena 5 días seguidos de al menos 20 min activos y más de 5.000 pasos. Cada día cumplido es un golpe a Carmesí; completa la racha y el Devorador caerá ante ti."
   },
-  "chapter": "Chispa ilumina las Fauces del Devorador",
-  "generatedAt": "2026-11-12T19:13:42.968Z"
+  "chapter": "El rugido en el fondo de las Fauces",
+  "generatedAt": "2026-11-13T18:51:14.531Z"
 }

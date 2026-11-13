@@ -93,26 +93,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-11-09": {
-      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, se tambalea con 848 PV, pero tus últimos dos días han sido silenciosos y tu corazón late cada mañana un poco más rápido. Vuelve al camino con paso firme, sin forzar.",
+      "saludo": "Aventurero, empezaste la semana con brío, pero tus pasos se fueron apagando día a día hasta casi detenerse. Carmesí, Devorador del Vacío, aún resiste con 785 PV: una semana constante bastará para derribarlo.",
       "consejos": [
         {
-          "titulo": "Vigila tu ritmo en reposo",
-          "accion": "Mide tu FC en reposo cada mañana al despertar, antes de levantarte. Esta semana haz 5 sesiones de 30 min de actividad suave, como caminar a buen paso o pedalear tranquilo, para sumar 150 min. Evita el esfuerzo intenso hasta que el pulso se estabilice. Si sigue subiendo varios días o notas cansancio, mareo u otros síntomas, consulta a un profesional sanitario.",
-          "porque": "Tu FC en reposo subió cada día (73, 74, 76 y 78 lpm) y es el factor que más años suma a tu edad fisiológica (+4.1). Además, la media semanal pasó de 72.0 a 75.3 mientras tu actividad caía."
+          "titulo": "Vigila tu corazón en reposo",
+          "accion": "Cada mañana, al despertar y antes de levantarte, anota tu FC en reposo. Si te sientes bien, haz 30 min de caminata a ritmo moderado (puedes hablar pero no cantar) 5 días, y así sumas los 150 min activos. Si notas cansancio, fiebre o malestar, descansa primero. Si la cifra sigue subiendo varios días seguidos, consulta a un profesional.",
+          "porque": "Tu FC en reposo es el factor que más años te suma (+4,1). Esta semana subió de 73 a 78 lpm y su media pasó de 72 a 75,2, justo cuando tu actividad cayó de 377 a 74 min."
         },
         {
-          "titulo": "Recupera tus pasos diarios",
-          "accion": "Apunta a unos 5.650 pasos al día para llegar a 39.500 en la semana. Por ejemplo, haz dos paseos de 15 min (uno tras comer y otro por la tarde) y no dejes que ningún día baje de 4.000 pasos.",
-          "porque": "Empezaste con 9.099 pasos, pero fuiste bajando hasta solo 812 el último día. Llevas 18.697 en 4 días, lejos del ritmo de la semana pasada (36.798)."
+          "titulo": "Nunca menos de 5.000 pasos",
+          "accion": "Apunta a unos 5.650 pasos al día para llegar a 39.500 en la semana. Repártelos en tres paseos de 10-15 min: tras el desayuno, tras la comida y al final de la tarde. Si a las 18:00 vas por debajo de 3.000, sal a dar una vuelta corta.",
+          "porque": "Bajaste de 9.099 pasos el lunes a solo 426 el viernes, y la semana quedó en 20.574 frente a los 36.798 de la anterior."
         },
         {
-          "titulo": "Horario de sueño estable",
-          "accion": "Fija una hora de acostarte y otra de levantarte y no te desvíes más de 30 min, ni siquiera el fin de semana. Busca unas 7 h 15 min cada noche, en lugar de compensar con noches muy largas.",
-          "porque": "Tu sueño osciló entre 5.8 h y 9.8 h (desviación de 1.49 h). La irregularidad suma +1.3 años a tu edad fisiológica, aunque la media fue buena (7.59 h)."
+          "titulo": "Hora fija para despertar",
+          "accion": "Elige una hora de levantarte y respétala todos los días con un margen de ±30 min, también el fin de semana. Acuéstate unas 7,5 h antes para lograr una media de 7,25 h, sin noches de menos de 6,5 h ni maratones de más de 9 h.",
+          "porque": "Tu sueño medio es bueno (7,48 h), pero osciló entre 5,8 y 9,8 h, con una desviación de 1,35 h. Esa irregularidad te suma años."
         }
       ],
-      "mision": "Asalto final a Carmesí: durante el fin de semana, sal a una caminata tranquila de 45 min por un parque o por la naturaleza, sin prisa y a un ritmo que te deje conversar. Al volver, anota cómo te sientes y tu FC de la mañana siguiente.",
-      "generatedAt": "2026-11-12T19:13:20.563Z",
+      "mision": "Misión «Asedio al Vacío»: encadena 5 días seguidos de al menos 20 min activos y más de 5.000 pasos. Cada día cumplido es un golpe a Carmesí; completa la racha y el Devorador caerá ante ti.",
+      "generatedAt": "2026-11-13T18:50:52.559Z",
       "model": "claude-opus-5-5"
     }
   }
