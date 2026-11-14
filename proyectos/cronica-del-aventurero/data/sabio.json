@@ -93,26 +93,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-11-09": {
-      "saludo": "Aventurero, empezaste la semana con brío, pero tus pasos se fueron apagando día a día hasta casi detenerse. Carmesí, Devorador del Vacío, aún resiste con 785 PV: una semana constante bastará para derribarlo.",
+      "saludo": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con solo 452 PV, pero tu energía decayó a mitad de semana: tras un gran lunes, tus pasos y minutos activos se desplomaron. Recupera el ritmo y el golpe final será tuyo.",
       "consejos": [
         {
-          "titulo": "Vigila tu corazón en reposo",
-          "accion": "Cada mañana, al despertar y antes de levantarte, anota tu FC en reposo. Si te sientes bien, haz 30 min de caminata a ritmo moderado (puedes hablar pero no cantar) 5 días, y así sumas los 150 min activos. Si notas cansancio, fiebre o malestar, descansa primero. Si la cifra sigue subiendo varios días seguidos, consulta a un profesional.",
-          "porque": "Tu FC en reposo es el factor que más años te suma (+4,1). Esta semana subió de 73 a 78 lpm y su media pasó de 72 a 75,2, justo cuando tu actividad cayó de 377 a 74 min."
+          "titulo": "Corazón en calma, paso constante",
+          "accion": "Haz 5 sesiones de 30 minutos de caminata rápida o bici suave (lunes a viernes) para sumar los 150 min activos. Revisa tu FC en reposo cada mañana: si sigue subiendo o notas algo raro, consulta a un profesional de la salud.",
+          "porque": "La FC en reposo es lo que más suma a tu edad fisiológica (+4,1 años). Esta semana subió de una media de 72 a 74,7 lpm, con un pico de 78, y hubo tres días seguidos sin minutos activos."
         },
         {
-          "titulo": "Nunca menos de 5.000 pasos",
-          "accion": "Apunta a unos 5.650 pasos al día para llegar a 39.500 en la semana. Repártelos en tres paseos de 10-15 min: tras el desayuno, tras la comida y al final de la tarde. Si a las 18:00 vas por debajo de 3.000, sal a dar una vuelta corta.",
-          "porque": "Bajaste de 9.099 pasos el lunes a solo 426 el viernes, y la semana quedó en 20.574 frente a los 36.798 de la anterior."
+          "titulo": "Ningún día bajo 4.000",
+          "accion": "Apunta a unos 5.650 pasos diarios para llegar a 39.500 en la semana, y pon un suelo de 4.000 pasos incluso en los días flojos: 10 minutos de paseo tras cada comida suelen bastar.",
+          "porque": "Sumaste 24.745 pasos en 6 días, lejos de tu nivel de 35.900. El 12 y el 13 bajaste a 2.263 y 1.413 pasos."
         },
         {
-          "titulo": "Hora fija para despertar",
-          "accion": "Elige una hora de levantarte y respétala todos los días con un margen de ±30 min, también el fin de semana. Acuéstate unas 7,5 h antes para lograr una media de 7,25 h, sin noches de menos de 6,5 h ni maratones de más de 9 h.",
-          "porque": "Tu sueño medio es bueno (7,48 h), pero osciló entre 5,8 y 9,8 h, con una desviación de 1,35 h. Esa irregularidad te suma años."
+          "titulo": "Mismo horario cada noche",
+          "accion": "Fija una hora de acostarte y otra de levantarte, con un margen de 30 minutos, que te den entre 7 y 7,5 horas cada noche, también el fin de semana.",
+          "porque": "Tu media de 7,71 h ya supera la meta de 7,25 h, pero oscilaste entre 5,8 y 9,8 h (desviación de 1,23 h). La irregularidad del sueño te suma +0,7 años."
         }
       ],
-      "mision": "Misión «Asedio al Vacío»: encadena 5 días seguidos de al menos 20 min activos y más de 5.000 pasos. Cada día cumplido es un golpe a Carmesí; completa la racha y el Devorador caerá ante ti.",
-      "generatedAt": "2026-11-13T18:50:52.559Z",
+      "mision": "Misión opcional «Asalto al Vacío»: encadena 5 días seguidos con al menos 5.000 pasos y 20 minutos activos. Si lo logras, Carmesí caerá y forjarás la constancia que tu corazón necesita.",
+      "generatedAt": "2026-11-14T17:22:16.375Z",
       "model": "claude-opus-5-5"
     }
   }

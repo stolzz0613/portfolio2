@@ -1,19 +1,19 @@
 {
-  "syncedAt": "2026-11-13T18:50:08.781Z",
+  "syncedAt": "2026-11-14T17:21:35.049Z",
   "weekStart": "2026-11-09",
   "name": "Andrés",
   "job": "Explorador",
   "level": 8,
-  "toNext": 1101,
-  "streak": 0,
+  "toNext": 950,
+  "streak": 1,
   "pet": {
     "state": "pet",
     "name": "Chispa",
     "line": "Dragón de forja",
     "stage": "Cría",
     "level": 1,
-    "mood": "Contenta",
-    "bond": 48,
+    "mood": "Radiante",
+    "bond": 53,
     "floor": 0,
     "next": 250,
     "gift": "+1,5 % de daño por actividad",
@@ -23,25 +23,25 @@
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "20.574",
-      "pct": 0.521,
-      "tick": 0.714,
+      "value": "24.745",
+      "pct": 0.626,
+      "tick": 0.857,
       "status": "Atrasada",
       "kind": "bad"
     },
     {
       "key": "active",
       "label": "Actividad",
-      "value": "74 min",
-      "pct": 0.493,
-      "tick": 0.714,
-      "status": "Atrasada",
-      "kind": "bad"
+      "value": "116 min",
+      "pct": 0.773,
+      "tick": 0.857,
+      "status": "Un poco atrás",
+      "kind": "warn"
     },
     {
       "key": "sleep",
       "label": "Sueño",
-      "value": "7,5 h",
+      "value": "7,7 h",
       "pct": 1,
       "tick": null,
       "status": "Cumplida",
@@ -58,34 +58,34 @@
     }
   ],
   "xp": {
-    "value": 3699,
+    "value": 3850,
     "next": 4800
   },
-  "hp": 806,
-  "mp": 934,
+  "hp": 877,
+  "mp": 963,
   "wins": 9,
   "week": {
-    "steps": 20574,
+    "steps": 24745,
     "stepsGoal": 39500,
-    "activeMin": 74,
+    "activeMin": 116,
     "activeGoal": 150,
-    "sleepH": 7.5,
+    "sleepH": 7.7,
     "sleepGoal": 7.25,
-    "days": 5,
+    "days": 6,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-13",
-    "steps": 426,
-    "sleepMin": 423,
-    "activeMin": 0,
-    "restingHr": 75
+    "date": "2026-11-14",
+    "steps": 3184,
+    "sleepMin": 472,
+    "activeMin": 42,
+    "restingHr": 72
   },
   "boss": {
     "name": "Carmesí",
     "title": "Piso 4 de 4",
     "act": "Fauces del Vacío",
-    "hp": 785,
+    "hp": 452,
     "maxHp": 2500,
     "status": "combate"
   },
@@ -96,16 +96,16 @@
   },
   "age": {
     "real": 31,
-    "phys": 35.7
+    "phys": 35.5
   },
   "sage": {
-    "greeting": "Aventurero, empezaste la semana con brío, pero tus pasos se fueron apagando día a día hasta casi detenerse. Carmesí, Devorador del Vacío, aún resiste con 785 PV: una semana constante bastará para derribarlo.",
+    "greeting": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con solo 452 PV, pero tu energía decayó a mitad de semana: tras un gran lunes, tus pasos y minutos activos se desplomaron. Recupera el ritmo y el golpe final será tuyo.",
     "tip": {
-      "title": "Vigila tu corazón en reposo",
-      "action": "Cada mañana, al despertar y antes de levantarte, anota tu FC en reposo. Si te sientes bien, haz 30 min de caminata a ritmo moderado (puedes hablar pero no cantar) 5 días, y así sumas los 150 min activos. Si notas cansancio, fiebre o malestar, descansa primero. Si la cifra sigue subiendo varios días seguidos, consulta a un profesional."
+      "title": "Corazón en calma, paso constante",
+      "action": "Haz 5 sesiones de 30 minutos de caminata rápida o bici suave (lunes a viernes) para sumar los 150 min activos. Revisa tu FC en reposo cada mañana: si sigue subiendo o notas algo raro, consulta a un profesional de la salud."
     },
-    "mission": "Misión «Asedio al Vacío»: encadena 5 días seguidos de al menos 20 min activos y más de 5.000 pasos. Cada día cumplido es un golpe a Carmesí; completa la racha y el Devorador caerá ante ti."
+    "mission": "Misión opcional «Asalto al Vacío»: encadena 5 días seguidos con al menos 5.000 pasos y 20 minutos activos. Si lo logras, Carmesí caerá y forjarás la constancia que tu corazón necesita."
   },
-  "chapter": "El rugido en el fondo de las Fauces",
-  "generatedAt": "2026-11-13T18:51:14.531Z"
+  "chapter": "El Trono Hambriento de las Fauces",
+  "generatedAt": "2026-11-14T17:22:34.270Z"
 }
