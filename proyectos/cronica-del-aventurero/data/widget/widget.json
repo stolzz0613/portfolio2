@@ -1,10 +1,10 @@
 {
-  "syncedAt": "2026-11-14T17:21:35.049Z",
+  "syncedAt": "2026-11-15T18:01:38.999Z",
   "weekStart": "2026-11-09",
   "name": "Andrés",
   "job": "Explorador",
   "level": 8,
-  "toNext": 950,
+  "toNext": 882,
   "streak": 1,
   "pet": {
     "state": "pet",
@@ -12,8 +12,8 @@
     "line": "Dragón de forja",
     "stage": "Cría",
     "level": 1,
-    "mood": "Radiante",
-    "bond": 53,
+    "mood": "Contenta",
+    "bond": 50,
     "floor": 0,
     "next": 250,
     "gift": "+1,5 % de daño por actividad",
@@ -23,9 +23,9 @@
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "24.745",
-      "pct": 0.626,
-      "tick": 0.857,
+      "value": "29.015",
+      "pct": 0.735,
+      "tick": 1,
       "status": "Atrasada",
       "kind": "bad"
     },
@@ -34,14 +34,14 @@
       "label": "Actividad",
       "value": "116 min",
       "pct": 0.773,
-      "tick": 0.857,
-      "status": "Un poco atrás",
-      "kind": "warn"
+      "tick": 1,
+      "status": "Atrasada",
+      "kind": "bad"
     },
     {
       "key": "sleep",
       "label": "Sueño",
-      "value": "7,7 h",
+      "value": "7,8 h",
       "pct": 1,
       "tick": null,
       "status": "Cumplida",
@@ -50,42 +50,42 @@
     {
       "key": "heart",
       "label": "Corazón",
-      "value": "75 lpm",
+      "value": "74 lpm",
       "pct": 0.4,
       "tick": null,
-      "status": "Subiendo",
-      "kind": "bad"
+      "status": "Sube un poco",
+      "kind": "warn"
     }
   ],
   "xp": {
-    "value": 3850,
+    "value": 3918,
     "next": 4800
   },
-  "hp": 877,
-  "mp": 963,
+  "hp": 835,
+  "mp": 968,
   "wins": 9,
   "week": {
-    "steps": 24745,
+    "steps": 29015,
     "stepsGoal": 39500,
     "activeMin": 116,
     "activeGoal": 150,
-    "sleepH": 7.7,
+    "sleepH": 7.8,
     "sleepGoal": 7.25,
-    "days": 6,
+    "days": 7,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-14",
-    "steps": 3184,
-    "sleepMin": 472,
-    "activeMin": 42,
-    "restingHr": 72
+    "date": "2026-11-15",
+    "steps": 1342,
+    "sleepMin": 481,
+    "activeMin": 0,
+    "restingHr": 70
   },
   "boss": {
     "name": "Carmesí",
     "title": "Piso 4 de 4",
     "act": "Fauces del Vacío",
-    "hp": 452,
+    "hp": 314,
     "maxHp": 2500,
     "status": "combate"
   },
@@ -96,16 +96,16 @@
   },
   "age": {
     "real": 31,
-    "phys": 35.5
+    "phys": 35.4
   },
   "sage": {
-    "greeting": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con solo 452 PV, pero tu energía decayó a mitad de semana: tras un gran lunes, tus pasos y minutos activos se desplomaron. Recupera el ritmo y el golpe final será tuyo.",
+    "greeting": "Aventurero, a Carmesí, Devorador del Vacío, solo le quedan 314 PV, pero esta semana tus fuerzas flaquearon: menos pasos y menos minutos activos que la anterior. Recupera el ritmo y el golpe final será tuyo.",
     "tip": {
-      "title": "Corazón en calma, paso constante",
-      "action": "Haz 5 sesiones de 30 minutos de caminata rápida o bici suave (lunes a viernes) para sumar los 150 min activos. Revisa tu FC en reposo cada mañana: si sigue subiendo o notas algo raro, consulta a un profesional de la salud."
+      "title": "Corazón templado, paso constante",
+      "action": "Reparte tus 150 min activos en 5 sesiones de 30 min (caminata rápida, bici suave o trote ligero) a un ritmo que te permita hablar, sin dejar más de 2 días seguidos sin actividad. Si tu FC en reposo sigue alta o subiendo varios días, consulta a un profesional."
     },
-    "mission": "Misión opcional «Asalto al Vacío»: encadena 5 días seguidos con al menos 5.000 pasos y 20 minutos activos. Si lo logras, Carmesí caerá y forjarás la constancia que tu corazón necesita."
+    "mission": "Misión opcional «Asalto al Vacío»: un día del fin de semana, haz una caminata de 45 min seguidos fuera de casa. Sumarás minutos activos y unos 5.000 pasos de una sola estocada contra Carmesí."
   },
-  "chapter": "El Trono Hambriento de las Fauces",
-  "generatedAt": "2026-11-14T17:22:34.270Z"
+  "chapter": "El Último Piso de las Fauces",
+  "generatedAt": "2026-11-15T18:02:38.952Z"
 }
