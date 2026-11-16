@@ -114,6 +114,29 @@
       "mision": "Misión opcional «Asalto al Vacío»: un día del fin de semana, haz una caminata de 45 min seguidos fuera de casa. Sumarás minutos activos y unos 5.000 pasos de una sola estocada contra Carmesí.",
       "generatedAt": "2026-11-15T18:02:15.029Z",
       "model": "claude-opus-5-5"
+    },
+    "2026-11-16": {
+      "saludo": "Saludos, aventurero. Carmesí, Devorador del Vacío, aguanta con solo 598 PV, pero tu semana apenas ha empezado: 553 pasos y una noche corta no bastan para el golpe final. ¡Aún hay tiempo de sobra!",
+      "consejos": [
+        {
+          "titulo": "Fortalece tu corazón guerrero",
+          "accion": "Haz 30 minutos de caminata rápida o bici suave 5 días esta semana, a un ritmo en el que puedas hablar pero no cantar. Así sumas los 150 minutos activos de tu meta.",
+          "porque": "Tu FC en reposo es el factor que más años suma a tu edad fisiológica (+4,1). Aunque bajó de 74 a 69 respecto a la semana pasada, la actividad aeróbica regular ayuda a mantener esa mejora. Si notaras que sube de forma sostenida, consulta a un profesional."
+        },
+        {
+          "titulo": "Paseos tras cada comida",
+          "accion": "Camina unos 5.400 pasos al día para llegar a los 37.500 semanales. Por ejemplo, añade dos paseos de 10 minutos después de comer y de cenar.",
+          "porque": "Tu primer día solo registró 553 pasos y la semana pasada te quedaste en 31.688. Los pasos diarios suman +2 años a tu edad fisiológica."
+        },
+        {
+          "titulo": "Ritual de descanso fijo",
+          "accion": "Fija una hora de acostarte que te dé 7,5 h de sueño y respétala todos los días, también el fin de semana. Apaga pantallas 30 minutos antes.",
+          "porque": "Tu primera noche fue de solo 6,2 h, frente a las 7,75 h de media de la semana pasada. Además, la irregularidad del sueño te suma +0,7 años."
+        }
+      ],
+      "mision": "Misión del Vacío: elige un día del fin de semana y haz una ruta a pie de al menos 60 minutos por un parque o sendero. Ese día cuenta doble contra Carmesí: suma pasos y minutos activos de un solo golpe.",
+      "generatedAt": "2026-11-16T21:18:45.674Z",
+      "model": "claude-opus-5-5"
     }
   }
 }

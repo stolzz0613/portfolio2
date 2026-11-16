@@ -1,19 +1,19 @@
 {
-  "syncedAt": "2026-11-15T18:01:38.999Z",
-  "weekStart": "2026-11-09",
+  "syncedAt": "2026-11-16T21:18:09.883Z",
+  "weekStart": "2026-11-16",
   "name": "Andrés",
   "job": "Explorador",
   "level": 8,
-  "toNext": 882,
-  "streak": 1,
+  "toNext": 851,
+  "streak": 0,
   "pet": {
     "state": "pet",
     "name": "Chispa",
     "line": "Dragón de forja",
     "stage": "Cría",
     "level": 1,
-    "mood": "Contenta",
-    "bond": 50,
+    "mood": "Decaída",
+    "bond": 71,
     "floor": 0,
     "next": 250,
     "gift": "+1,5 % de daño por actividad",
@@ -23,69 +23,69 @@
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "29.015",
-      "pct": 0.735,
-      "tick": 1,
+      "value": "553",
+      "pct": 0.015,
+      "tick": 0.143,
       "status": "Atrasada",
       "kind": "bad"
     },
     {
       "key": "active",
       "label": "Actividad",
-      "value": "116 min",
-      "pct": 0.773,
-      "tick": 1,
+      "value": "0 min",
+      "pct": 0,
+      "tick": 0.143,
       "status": "Atrasada",
       "kind": "bad"
     },
     {
       "key": "sleep",
       "label": "Sueño",
-      "value": "7,8 h",
-      "pct": 1,
+      "value": "6,2 h",
+      "pct": 0.829,
       "tick": null,
-      "status": "Cumplida",
-      "kind": "ok"
+      "status": "Por debajo",
+      "kind": "bad"
     },
     {
       "key": "heart",
       "label": "Corazón",
-      "value": "74 lpm",
-      "pct": 0.4,
+      "value": "69 lpm",
+      "pct": 1,
       "tick": null,
-      "status": "Sube un poco",
-      "kind": "warn"
+      "status": "Bajando",
+      "kind": "ok"
     }
   ],
   "xp": {
-    "value": 3918,
+    "value": 3949,
     "next": 4800
   },
-  "hp": 835,
-  "mp": 968,
+  "hp": 310,
+  "mp": 776,
   "wins": 9,
   "week": {
-    "steps": 29015,
-    "stepsGoal": 39500,
-    "activeMin": 116,
+    "steps": 553,
+    "stepsGoal": 37500,
+    "activeMin": 0,
     "activeGoal": 150,
-    "sleepH": 7.8,
-    "sleepGoal": 7.25,
-    "days": 7,
+    "sleepH": 6.2,
+    "sleepGoal": 7.5,
+    "days": 1,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-15",
-    "steps": 1342,
-    "sleepMin": 481,
+    "date": "2026-11-16",
+    "steps": 553,
+    "sleepMin": 373,
     "activeMin": 0,
-    "restingHr": 70
+    "restingHr": 69
   },
   "boss": {
     "name": "Carmesí",
     "title": "Piso 4 de 4",
     "act": "Fauces del Vacío",
-    "hp": 314,
+    "hp": 598,
     "maxHp": 2500,
     "status": "combate"
   },
@@ -96,16 +96,16 @@
   },
   "age": {
     "real": 31,
-    "phys": 35.4
+    "phys": 35.5
   },
   "sage": {
-    "greeting": "Aventurero, a Carmesí, Devorador del Vacío, solo le quedan 314 PV, pero esta semana tus fuerzas flaquearon: menos pasos y menos minutos activos que la anterior. Recupera el ritmo y el golpe final será tuyo.",
+    "greeting": "Saludos, aventurero. Carmesí, Devorador del Vacío, aguanta con solo 598 PV, pero tu semana apenas ha empezado: 553 pasos y una noche corta no bastan para el golpe final. ¡Aún hay tiempo de sobra!",
     "tip": {
-      "title": "Corazón templado, paso constante",
-      "action": "Reparte tus 150 min activos en 5 sesiones de 30 min (caminata rápida, bici suave o trote ligero) a un ritmo que te permita hablar, sin dejar más de 2 días seguidos sin actividad. Si tu FC en reposo sigue alta o subiendo varios días, consulta a un profesional."
+      "title": "Fortalece tu corazón guerrero",
+      "action": "Haz 30 minutos de caminata rápida o bici suave 5 días esta semana, a un ritmo en el que puedas hablar pero no cantar. Así sumas los 150 minutos activos de tu meta."
     },
-    "mission": "Misión opcional «Asalto al Vacío»: un día del fin de semana, haz una caminata de 45 min seguidos fuera de casa. Sumarás minutos activos y unos 5.000 pasos de una sola estocada contra Carmesí."
+    "mission": "Misión del Vacío: elige un día del fin de semana y haz una ruta a pie de al menos 60 minutos por un parque o sendero. Ese día cuenta doble contra Carmesí: suma pasos y minutos activos de un solo golpe."
   },
-  "chapter": "El Último Piso de las Fauces",
-  "generatedAt": "2026-11-15T18:02:38.952Z"
+  "chapter": "El Devorador se alimenta de la quietud",
+  "generatedAt": "2026-11-16T21:19:22.011Z"
 }
