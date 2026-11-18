@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-11-17T20:05:32.240Z",
+  "syncedAt": "2026-11-18T19:39:19.945Z",
   "weekStart": "2026-11-16",
   "name": "Andrés",
   "job": "Explorador",
@@ -99,13 +99,13 @@
     "phys": 35.7
   },
   "sage": {
-    "greeting": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con solo 564 PV, pero esta semana empezaste con el paso lento: 2.386 pasos en dos días y ningún minuto activo. Aún quedan días para darle el golpe final; afila la espada y escucha mi consejo.",
+    "greeting": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con solo 564 PV, pero estos dos primeros días tus botas apenas han pisado el camino. Ánimo: tu corazón late más tranquilo que la semana pasada y aún queda mucha semana para rematar a la bestia.",
     "tip": {
-      "title": "Corazón templado, corazón fuerte",
-      "action": "Haz 30 minutos de caminata rápida o bici suave (que puedas hablar pero no cantar) en 5 días de esta semana. Así sumas los 150 minutos activos de tu meta."
+      "title": "Forja un corazón sereno",
+      "action": "Haz 5 sesiones de 30 minutos de cardio suave (caminata rápida, bici o elíptica) a un ritmo que te permita hablar sin jadear. Así completas los 150 minutos activos de la semana."
     },
-    "mission": "Misión del Explorador Constante: lleva el reloj puesto también de noche para que no se pierdan datos, y un día de esta semana sustituye un trayecto corto en transporte por una caminata de al menos 20 minutos. Ese será el golpe que derribe a Carmesí."
+    "mission": "Misión del Golpe Final: elige un día del fin de semana para una ruta a pie de al menos 60 minutos por un parque o un sendero, sin prisas y a ritmo de conversación. Esa caminata puede bastar para derribar a Carmesí y dejar tu marcador de pasos en zona de victoria."
   },
-  "chapter": "La quietud que alimenta al Devorador",
-  "generatedAt": "2026-11-17T20:06:28.766Z"
+  "chapter": "El Devorador que se alimenta del silencio",
+  "generatedAt": "2026-11-18T19:40:12.873Z"
 }

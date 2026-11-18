@@ -116,26 +116,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-11-16": {
-      "saludo": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con solo 564 PV, pero esta semana empezaste con el paso lento: 2.386 pasos en dos días y ningún minuto activo. Aún quedan días para darle el golpe final; afila la espada y escucha mi consejo.",
+      "saludo": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con solo 564 PV, pero estos dos primeros días tus botas apenas han pisado el camino. Ánimo: tu corazón late más tranquilo que la semana pasada y aún queda mucha semana para rematar a la bestia.",
       "consejos": [
         {
-          "titulo": "Corazón templado, corazón fuerte",
-          "accion": "Haz 30 minutos de caminata rápida o bici suave (que puedas hablar pero no cantar) en 5 días de esta semana. Así sumas los 150 minutos activos de tu meta.",
-          "porque": "Tu FC en reposo es el factor que más años suma a tu edad fisiológica (+4,1). Ya bajó de 74 a 69 lpm respecto a la semana pasada, y el ejercicio aeróbico regular ayuda a mantener esa tendencia. Si notas que vuelve a subir mucho sin motivo, consulta a un profesional."
+          "titulo": "Forja un corazón sereno",
+          "accion": "Haz 5 sesiones de 30 minutos de cardio suave (caminata rápida, bici o elíptica) a un ritmo que te permita hablar sin jadear. Así completas los 150 minutos activos de la semana.",
+          "porque": "Tu FC en reposo es el factor que más años suma a tu edad fisiológica (+4,1). La actividad aeróbica regular es el mejor aliado para bajarla, y esta semana llevas 0 minutos activos. Si notas que tu pulso en reposo sube de forma marcada o te encuentras raro, consulta a un profesional."
         },
         {
-          "titulo": "Recupera la senda perdida",
-          "accion": "Camina unos 7.000 pasos al día durante los 5 días que quedan para llegar a 37.500. Divídelos en tres paseos de 15 minutos: tras desayunar, comer y cenar.",
-          "porque": "Llevas 2.386 pasos en dos días (421 ayer). Tus pasos diarios, unos 4.900 de media, también suman años (+2,1), y la semana pasada llegaste a 31.688. Con constancia, la meta está a tu alcance."
+          "titulo": "Paseos tras cada comida",
+          "accion": "Apunta a unos 5.400 pasos diarios: añade dos paseos de 15 minutos, uno después de comer y otro después de cenar. Si un día te quedas corto, compénsalo con un paseo largo el fin de semana.",
+          "porque": "En dos días sumas 2.386 pasos, y el martes solo 421, muy lejos del ritmo que necesita tu meta de 37.500. Los pasos diarios también suman años a tu edad fisiológica (+2,1)."
         },
         {
-          "titulo": "Guarda la hora del descanso",
-          "accion": "Fija una hora de acostarte y de levantarte y respétala todos los días, también el fin de semana. Apunta a 7,5 horas en cama y deja las pantallas 30 minutos antes de dormir.",
-          "porque": "La única noche registrada dormiste 6,2 h, por debajo de tu meta de 7,5 h y de tus 7,75 h de la semana pasada. Además, la irregularidad del sueño (±1,4 h) te suma años."
+          "titulo": "Ancla tu hora de dormir",
+          "accion": "Elige una hora fija para acostarte que te dé 7,5 horas en la cama y pon una alarma 30 minutos antes para empezar a desconectar pantallas. Mantenla todos los días, también el fin de semana.",
+          "porque": "El lunes dormiste 6,2 horas, frente a las 7,75 de media de la semana pasada. Además, la irregularidad de tu sueño (±1,4 h) te suma años. El descanso constante también ayuda a calmar el corazón."
         }
       ],
-      "mision": "Misión del Explorador Constante: lleva el reloj puesto también de noche para que no se pierdan datos, y un día de esta semana sustituye un trayecto corto en transporte por una caminata de al menos 20 minutos. Ese será el golpe que derribe a Carmesí.",
-      "generatedAt": "2026-11-17T20:06:07.837Z",
+      "mision": "Misión del Golpe Final: elige un día del fin de semana para una ruta a pie de al menos 60 minutos por un parque o un sendero, sin prisas y a ritmo de conversación. Esa caminata puede bastar para derribar a Carmesí y dejar tu marcador de pasos en zona de victoria.",
+      "generatedAt": "2026-11-18T19:39:56.177Z",
       "model": "claude-opus-5-5"
     }
   }
