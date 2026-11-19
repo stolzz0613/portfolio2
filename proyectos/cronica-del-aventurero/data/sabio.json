@@ -116,26 +116,26 @@
       "model": "claude-opus-5-5"
     },
     "2026-11-16": {
-      "saludo": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con solo 564 PV, pero estos dos primeros días tus botas apenas han pisado el camino. Ánimo: tu corazón late más tranquilo que la semana pasada y aún queda mucha semana para rematar a la bestia.",
+      "saludo": "Aventurero, a Carmesí, Devorador del Vacío, solo le quedan 153 PV: está casi derrotado. Pero esta semana tus noches han sido cortas y tus pasos escasos, así que recupera fuerzas antes del golpe final.",
       "consejos": [
         {
-          "titulo": "Forja un corazón sereno",
-          "accion": "Haz 5 sesiones de 30 minutos de cardio suave (caminata rápida, bici o elíptica) a un ritmo que te permita hablar sin jadear. Así completas los 150 minutos activos de la semana.",
-          "porque": "Tu FC en reposo es el factor que más años suma a tu edad fisiológica (+4,1). La actividad aeróbica regular es el mejor aliado para bajarla, y esta semana llevas 0 minutos activos. Si notas que tu pulso en reposo sube de forma marcada o te encuentras raro, consulta a un profesional."
+          "titulo": "Fortalece tu corazón",
+          "accion": "Haz 3 sesiones de 30 minutos de actividad moderada (caminar rápido, bici suave o nadar) a un ritmo en el que puedas hablar pero no cantar. Repártelas, por ejemplo, lunes, miércoles y sábado, y completa los 150 minutos con paseos activos de 20 minutos otros días.",
+          "porque": "Tu frecuencia cardiaca en reposo es el factor que más años suma a tu edad fisiológica. Ya ha bajado respecto a la semana pasada, y el único día con actividad (52 min el día 18) fue también tu mejor día en pasos. Mantener el ejercicio regular ayuda a que siga mejorando. Si alguna vez notas que sube mucho sin motivo, consúltalo con un profesional."
         },
         {
-          "titulo": "Paseos tras cada comida",
-          "accion": "Apunta a unos 5.400 pasos diarios: añade dos paseos de 15 minutos, uno después de comer y otro después de cenar. Si un día te quedas corto, compénsalo con un paseo largo el fin de semana.",
-          "porque": "En dos días sumas 2.386 pasos, y el martes solo 421, muy lejos del ritmo que necesita tu meta de 37.500. Los pasos diarios también suman años a tu edad fisiológica (+2,1)."
+          "titulo": "Paseos tras las comidas",
+          "accion": "Apunta a unos 5.400 pasos al día (37.500 en la semana). Da un paseo de 15 minutos después de comer y otro después de cenar, y revisa el contador a media tarde para ajustar.",
+          "porque": "Tres de los cuatro días bajaste de 3.000 pasos (uno se quedó en 892). En cambio, el día que te moviste superaste los 6.000, así que la meta está a tu alcance."
         },
         {
-          "titulo": "Ancla tu hora de dormir",
-          "accion": "Elige una hora fija para acostarte que te dé 7,5 horas en la cama y pon una alarma 30 minutos antes para empezar a desconectar pantallas. Mantenla todos los días, también el fin de semana.",
-          "porque": "El lunes dormiste 6,2 horas, frente a las 7,75 de media de la semana pasada. Además, la irregularidad de tu sueño (±1,4 h) te suma años. El descanso constante también ayuda a calmar el corazón."
+          "titulo": "Recupera horas de sueño",
+          "accion": "Fija una hora de acostarte que te permita dormir 7,5 horas y adelántala poco a poco, unos 20 minutos cada dos noches, hasta alcanzarla. Deja las pantallas 30 minutos antes de dormir.",
+          "porque": "Esta semana dormiste unas 6 horas cada noche, bastante menos que la semana anterior y lejos de tu meta de 7,5 h. Tu horario sí fue regular, así que solo falta adelantarlo."
         }
       ],
-      "mision": "Misión del Golpe Final: elige un día del fin de semana para una ruta a pie de al menos 60 minutos por un parque o un sendero, sin prisas y a ritmo de conversación. Esa caminata puede bastar para derribar a Carmesí y dejar tu marcador de pasos en zona de victoria.",
-      "generatedAt": "2026-11-18T19:39:56.177Z",
+      "mision": "Golpe final a Carmesí: elige un día del fin de semana y haz una caminata o excursión de al menos 60 minutos, llegando a 8.000 pasos ese día.",
+      "generatedAt": "2026-11-19T19:40:36.018Z",
       "model": "claude-opus-5-5"
     }
   }

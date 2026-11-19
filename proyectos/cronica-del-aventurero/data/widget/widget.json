@@ -1,19 +1,19 @@
 {
-  "syncedAt": "2026-11-18T19:39:19.945Z",
+  "syncedAt": "2026-11-19T19:39:52.282Z",
   "weekStart": "2026-11-16",
   "name": "Andrés",
   "job": "Explorador",
   "level": 8,
-  "toNext": 833,
-  "streak": 0,
+  "toNext": 636,
+  "streak": 1,
   "pet": {
     "state": "pet",
     "name": "Chispa",
     "line": "Dragón de forja",
     "stage": "Cría",
     "level": 1,
-    "mood": "Tranquila",
-    "bond": 73,
+    "mood": "Contenta",
+    "bond": 91,
     "floor": 0,
     "next": 250,
     "gift": "+1,5 % de daño por actividad",
@@ -23,26 +23,26 @@
     {
       "key": "steps",
       "label": "Pasos",
-      "value": "2386",
-      "pct": 0.064,
-      "tick": 0.286,
+      "value": "11.607",
+      "pct": 0.31,
+      "tick": 0.571,
       "status": "Atrasada",
       "kind": "bad"
     },
     {
       "key": "active",
       "label": "Actividad",
-      "value": "0 min",
-      "pct": 0,
-      "tick": 0.286,
+      "value": "52 min",
+      "pct": 0.347,
+      "tick": 0.571,
       "status": "Atrasada",
       "kind": "bad"
     },
     {
       "key": "sleep",
       "label": "Sueño",
-      "value": "6,2 h",
-      "pct": 0.829,
+      "value": "6,1 h",
+      "pct": 0.814,
       "tick": null,
       "status": "Por debajo",
       "kind": "bad"
@@ -50,7 +50,7 @@
     {
       "key": "heart",
       "label": "Corazón",
-      "value": "69 lpm",
+      "value": "67 lpm",
       "pct": 1,
       "tick": null,
       "status": "Bajando",
@@ -58,34 +58,34 @@
     }
   ],
   "xp": {
-    "value": 3967,
+    "value": 4164,
     "next": 4800
   },
-  "hp": 350,
-  "mp": 776,
+  "hp": 654,
+  "mp": 763,
   "wins": 9,
   "week": {
-    "steps": 2386,
+    "steps": 11607,
     "stepsGoal": 37500,
-    "activeMin": 0,
+    "activeMin": 52,
     "activeGoal": 150,
-    "sleepH": 6.2,
+    "sleepH": 6.1,
     "sleepGoal": 7.5,
-    "days": 2,
+    "days": 4,
     "recovery": false
   },
   "lastDay": {
-    "date": "2026-11-17",
-    "steps": 421,
-    "sleepMin": null,
-    "activeMin": null,
-    "restingHr": null
+    "date": "2026-11-19",
+    "steps": 892,
+    "sleepMin": 365,
+    "activeMin": 0,
+    "restingHr": 66
   },
   "boss": {
     "name": "Carmesí",
     "title": "Piso 4 de 4",
     "act": "Fauces del Vacío",
-    "hp": 564,
+    "hp": 153,
     "maxHp": 2500,
     "status": "combate"
   },
@@ -96,16 +96,16 @@
   },
   "age": {
     "real": 31,
-    "phys": 35.7
+    "phys": 36
   },
   "sage": {
-    "greeting": "Aventurero, Carmesí, Devorador del Vacío, se tambalea con solo 564 PV, pero estos dos primeros días tus botas apenas han pisado el camino. Ánimo: tu corazón late más tranquilo que la semana pasada y aún queda mucha semana para rematar a la bestia.",
+    "greeting": "Aventurero, a Carmesí, Devorador del Vacío, solo le quedan 153 PV: está casi derrotado. Pero esta semana tus noches han sido cortas y tus pasos escasos, así que recupera fuerzas antes del golpe final.",
     "tip": {
-      "title": "Forja un corazón sereno",
-      "action": "Haz 5 sesiones de 30 minutos de cardio suave (caminata rápida, bici o elíptica) a un ritmo que te permita hablar sin jadear. Así completas los 150 minutos activos de la semana."
+      "title": "Fortalece tu corazón",
+      "action": "Haz 3 sesiones de 30 minutos de actividad moderada (caminar rápido, bici suave o nadar) a un ritmo en el que puedas hablar pero no cantar. Repártelas, por ejemplo, lunes, miércoles y sábado, y completa los 150 minutos con paseos activos de 20 minutos otros días."
     },
-    "mission": "Misión del Golpe Final: elige un día del fin de semana para una ruta a pie de al menos 60 minutos por un parque o un sendero, sin prisas y a ritmo de conversación. Esa caminata puede bastar para derribar a Carmesí y dejar tu marcador de pasos en zona de victoria."
+    "mission": "Golpe final a Carmesí: elige un día del fin de semana y haz una caminata o excursión de al menos 60 minutos, llegando a 8.000 pasos ese día."
   },
-  "chapter": "El Devorador que se alimenta del silencio",
-  "generatedAt": "2026-11-18T19:40:12.873Z"
+  "chapter": "El festín del Devorador",
+  "generatedAt": "2026-11-19T19:40:53.871Z"
 }
