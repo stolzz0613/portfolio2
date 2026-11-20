@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-11-20T18:51:54.923Z",
+  "syncedAt": "2026-11-20T19:17:46.692Z",
   "weekStart": "2026-11-16",
   "name": "Andrés",
   "job": "Explorador",
@@ -99,13 +99,13 @@
     "phys": 35.6
   },
   "sage": {
-    "greeting": "Saludos, aventurero. Venciste a la Polilla de Medianoche y tu corazón late más sereno que la semana pasada, pero tus noches se acortaron y hubo días en que apenas saliste de la posada.",
+    "greeting": "Saludos, aventurero. Derrotaste a la Polilla de Medianoche y tu pulso en reposo se ha calmado frente a la semana pasada, pero tu descanso y tus pasos han flaqueado. Afilemos la espada para la próxima jornada.",
     "tip": {
-      "title": "Ritmo constante, corazón sereno",
-      "action": "Haz 5 sesiones de 30 minutos de actividad moderada (caminata rápida, bici o trote suave, a un ritmo que te deje hablar) y evita pasar más de un día seguido sin moverte. Así completas tus 150 minutos semanales."
+      "title": "Constancia para el corazón",
+      "action": "Reparte 150 minutos activos en 3 sesiones de unos 50 minutos (por ejemplo, lunes, miércoles y viernes) a ritmo moderado: caminar rápido, bici o trote suave en el que puedas hablar."
     },
-    "mission": "Misión opcional: elige un día del fin de semana para explorar una ruta nueva a pie de al menos 45 minutos. Si esa noche duermes 7.5 horas o más, reclama la Insignia del Caminante Descansado."
+    "mission": "Misión opcional, «La Senda del Alba»: elige un día del fin de semana para una caminata de 60 minutos al aire libre (unos 6.000 pasos de una vez) y esa noche acuéstate sin pantallas en la última hora."
   },
-  "chapter": "La Caída del Devorador",
-  "generatedAt": "2026-11-20T18:53:00.527Z"
+  "chapter": "La caída del Devorador y el aleteo en la Cripta",
+  "generatedAt": "2026-11-20T19:18:36.851Z"
 }
